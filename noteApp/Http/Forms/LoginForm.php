@@ -31,19 +31,3 @@ class LoginForm {
     }
 
 }
-
-
-// use Core\Validator;
-// use Core\App;
-
-// $db = App::getContainer()->resolve("\Core\Database.php");
-
-// $email = $_POST["email"];
-// $password = $_POST["password"];
-
-
-
-
-// if(!empty($errors)) {
-
-// }

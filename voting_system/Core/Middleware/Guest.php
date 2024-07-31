@@ -2,10 +2,12 @@
 
 namespace Core\Middlware;
 
+use Core\Session;
+
 class Guest {
     public static function handle() {
-        if($_SESSION["user"]) {
-            redirect("/");
+        if(!Session::has("user")) {
+            redirect("/login");
         }
     }
 }

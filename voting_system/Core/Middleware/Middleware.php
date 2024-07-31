@@ -5,7 +5,8 @@ namespace Core\Middlware;
 class Middleware {
     public const MAP = [
         "regular" => Regular::class,
-        "admin" => Admin::class
+        "admin" => Admin::class,
+        "guest" => Guest::class
     ];
 
     public static function resolve($key) {
