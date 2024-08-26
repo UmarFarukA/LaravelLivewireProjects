@@ -27,7 +27,8 @@ $user_id = !Session::has("user") ? false : Session::get("user")["id"];
           <!-- Delete Form -->
           <form method="POST">
             <input type="hidden" name="_method" VALUE="DELETE" />
-            <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">Delete</button>
+            <button type="submit"
+              class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">Delete</button>
           </form>
           <!-- End Delete Form -->
         </div>

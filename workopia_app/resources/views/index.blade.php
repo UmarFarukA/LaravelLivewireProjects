@@ -1,10 +1,14 @@
 <x-app>
 
     <x-slot:sections>
-        <x-banner />
-
         <x-searchbar />
     </x-slot:sections>
 
-    <x-job-wrapper />
+    <x-banner />
+
+    <x-job-wrapper :jobs="$jobs" />
+
+    <x-slot:footer>
+        <x-footer />
+    </x-slot:footer>
 </x-app>
