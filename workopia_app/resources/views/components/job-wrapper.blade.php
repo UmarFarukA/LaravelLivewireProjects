@@ -20,7 +20,7 @@
                 <x-job-card :job="$job" />
             @endforeach
         </div>
-        <a href="#" class="block text-xl text-center">
+        <a href="{{ route('jobs') }}" class="block text-xl text-center">
             <i class="fa fa-arrow-alt-circle-right"></i>
             Show All Jobs
         </a>

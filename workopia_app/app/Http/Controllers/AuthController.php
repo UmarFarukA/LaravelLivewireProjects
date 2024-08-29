@@ -23,7 +23,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if (!Auth::attempt([$attributes])) {
+        if (!Auth::attempt($attributes)) {
             throw ValidationException::withMessages(
                 ["email" => "Invalid login credentials"]
             );
@@ -38,7 +38,7 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        $request->sessioin()->invalidate();
+        $request->session()->invalidate();
 
         $request->session()->regenerate();
 

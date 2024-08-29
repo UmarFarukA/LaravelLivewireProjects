@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobListing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class JobListingController extends Controller
@@ -13,6 +14,13 @@ class JobListingController extends Controller
         $jobs = JobListing::latest()->paginate(9);
 
         return view("index", ["jobs" => $jobs]);
+    }
+
+    public function jobs(): View
+    {
+        return view('listings.index', [
+            "jobs" => JobListing::latest()->paginate(12)
+        ]);
     }
 
     public function create(): View
@@ -52,5 +60,30 @@ class JobListingController extends Controller
         return view("listings.edit", ["job" => $job]);
     }
 
-    public function update() {}
+    public function update(Request $request, JobListing $job)
+    {
+        $attributes = $request->validate([
+            "title" => 'required|string|min:2',
+            "description" => 'required|string|min:5',
+            "salary" => 'required|string|min:3|max:12',
+            "requirements" => "required|string|min:12",
+            "benefits" => "required|string|min:12",
+            "address" => "required|string",
+            "city" => "required|string",
+            "state" => "required|string",
+            "phone" => "required|string",
+            "email" => "required|email"
+        ]);
+
+        $job->update($attributes);
+
+        return redirect(route('show'))->with("success", "Successfully updated");
+    }
+
+    public function destroy(JobListing $job)
+    {
+        $job->delete();
+
+        return redirect(route('home'))->with('success', 'Successfully deleted');
+    }
 }

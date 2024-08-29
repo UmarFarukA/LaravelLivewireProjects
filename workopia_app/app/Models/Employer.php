@@ -12,7 +12,7 @@ class Employer extends Model
 
     protected $fillable = ["name"];
 
-    public function job()
+    public function jobs()
     {
         return $this->hasMany(JobListing::class);
     }
