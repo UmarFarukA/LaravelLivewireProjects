@@ -8,15 +8,17 @@ use Core\Response;
  * @param string $message
  * @return view
  */
-function abort($code = Response::NOT_FOUND, $message = "Resource Not found") {
-    return $code . " - ". $message;
+function abort($code = Response::NOT_FOUND, $message = "Resource Not found")
+{
+    return $code . " - " . $message;
 }
 
 /**
  * Base path
  * @return void
  */
-function base_path($path) {
+function base_path($path)
+{
     return BASE_PATH . $path;
 }
 
@@ -26,9 +28,10 @@ function base_path($path) {
  * @param string $path
  * @return void
  */
-function views($file_name, $attributes = []) {
+function views($file_name, $attributes = [])
+{
     extract($attributes);
-    require base_path("App/views/{$file_name}.view.php");
+    require base_path("views/{$file_name}.view.php");
 }
 
 /**
@@ -36,7 +39,8 @@ function views($file_name, $attributes = []) {
  * @param $location
  * @return void
  */
-function redirect($location){
+function redirect($location)
+{
     header("Location: {$location}");
     exit();
 }

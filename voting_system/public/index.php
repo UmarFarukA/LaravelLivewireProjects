@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . "/../vendor/autoload.php";
+
 use Core\Router;
 
 const BASE_PATH = __DIR__ . "/../";
