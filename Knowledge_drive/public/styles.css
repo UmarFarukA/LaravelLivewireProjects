@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ebe4e4;
+}
+
+/* Navbar styles */
+
+.navigation {
+  background-color: #fff;
+}
+
+.contribute,
+.nav-link-item:hover {
+  padding: 0.3rem 0.6rem;
+  background-color: #198754;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.contribute:hover {
+  color: #fff;
+  background-color: rgb(15, 130, 15);
+}
+
+/* Hero section styles */
+
+.c-item {
+  height: 80dvh;
+}
+
+.c-caption {
+  background-color: #fff;
+  opacity: 0.8;
+  height: 16.8rem;
+  width: 60dvw;
+  margin-top: 10.8rem;
+  color: rgb(15, 130, 15);
+  text-align: left;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 0.8rem;
+}
+
+/* About Us styles */
+
+.about-us {
+  background-color: #fff;
+}
+
+/* Form: Login */

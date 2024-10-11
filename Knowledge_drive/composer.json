@@ -1,0 +1,18 @@
+{
+  "name": "ufarouqa/knowledge_drive-php",
+  "description": "A knowledge drive app for KASU",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Umar Faruk A",
+      "email": "talk2ufaz@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "Core\\Middleware\\": "Core/Middleware/",
+      "Http\\Forms\\": "Http/Forms/"
+    }
+  }
+}
