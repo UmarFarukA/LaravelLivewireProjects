@@ -7,3 +7,9 @@
 //     e.preventDefault();
 //   });
 // });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   var myToast = document.getElementById("myToast");
+//   var bsToast = new bootstrap.Toast(myToast);
+//   bsToast.show();
+// });

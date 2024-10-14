@@ -27,8 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Main Content -->
 <div class="content">
+    <!-- notification -->
+    <?php loadPartials("notification") ?>
+
     <div class="container-fluid">
+
         <main>
+
             <h1 class="text-muted">Knowledge Drive Sessions</h1>
             <div class="d-flex justify-content-between align-items-center">
                 <p>Manage Knowledge sessions: Upcoming and concluded sessions</p>
@@ -126,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <td>
                             <div class="btn-group dropstart">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-three-dots-vertical dropdown-toggle" data-bs-toggle="dropdown"
+                                    class="bi bi-three-dots-vertical dropdown-toggle " data-bs-toggle="dropdown"
                                     aria-expanded="false" viewBox="0 0 16 16" role="button">
                                     <path
                                         d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />

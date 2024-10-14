@@ -45,4 +45,24 @@ class Validator
 
         return $isValidEmail && $emailLength <= 254;
     }
+
+
+    /**
+     * Validate Phone Number
+     * @param string $phone The number to validate
+     * @return true if the phone number is validated, otherwise false.
+     * 
+     */
+    public static function phone($phone): bool
+    {
+        if (is_null($phone) || empty(trim($phone))) {
+            return false;
+        }
+
+        if (!preg_match("/^(?:\+234|0)[789]\d{9}$/", $phone)) {
+            return false;
+        }
+
+        return true;
+    }
 }

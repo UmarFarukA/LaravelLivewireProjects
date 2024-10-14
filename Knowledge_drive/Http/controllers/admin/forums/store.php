@@ -22,8 +22,6 @@ if (!empty($errors)) {
     Session::put("errors", $errors);
     Session::put("formData", $_POST);
 
-    // dd("we are here");
-
     return redirect("/sessions");
 }
 
@@ -35,7 +33,10 @@ if (empty($errors)) {
         "date" => $_POST["date"],
         "status" => $_POST["status"]
     ]);
+    Session::put("success", "New session created successfully");
+    Session::unflash("formData");
 }
+
 
 redirect("/sessions");
 

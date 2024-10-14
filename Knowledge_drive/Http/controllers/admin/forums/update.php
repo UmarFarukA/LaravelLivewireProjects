@@ -47,6 +47,8 @@ if (empty($errors)) {
         "resolution" => $_POST["resolution"],
         "id" => trim(htmlentities($_POST["id"]))
     ]);
+
+    Session::put("success", "Successfully updated");
 }
 
 redirect("/sessions");

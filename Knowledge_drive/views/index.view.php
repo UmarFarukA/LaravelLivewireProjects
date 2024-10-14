@@ -1,9 +1,21 @@
 <?php
 
+use Core\Session;
+
 require("partials/head.php");
 require("partials/navigation.php");
 
 ?>
+
+<?php if (Session::has("errors")): ?>
+    <script>
+        // Automatically open the modal if errors are present
+        document.addEventListener("DOMContentLoaded", function() {
+            var myModal = new bootstrap.Modal(document.getElementById('contributeModal'));
+            myModal.show();
+        });
+    </script>
+<?php endif; ?>
 
 <main>
     <section class="row" id="hero">
@@ -348,6 +360,7 @@ require("partials/navigation.php");
         </p>
     </section>
 
+    <!-- Contact Modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -379,6 +392,7 @@ require("partials/navigation.php");
         </div>
     </div>
 
+    <!-- Share Insight Modal -->
     <div class="modal fade" id="contributeModal" tabindex="-1" aria-labelledby="contributeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -388,32 +402,63 @@ require("partials/navigation.php");
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="POST">
                         <div class="mb-3">
                             <label for="name" class="col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" name="name" id="name"
+                                value="<?= Session::get('insightData')['name'] ?? '' ?>">
+                            <?php if (Session::has("errors")): ?>
+
+                                <p class="px-2 text-danger fs-6">
+                                    <?= Session::get("errors")["name"] ?? "" ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="col-form-label">Email:</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control" name="email" id="email"
+                                value="<?= Session::get('insightData')['email'] ?? '' ?>">
+                            <?php if (Session::has("errors")): ?>
+
+                                <p class="px-2 text-danger fs-6">
+                                    <?= Session::get("errors")["email"] ?? "" ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="col-form-label">Phone Number:</label>
-                            <input type="phone" class="form-control" id="phone">
+                            <input type="text" id="phone" name="phone" placeholder="+234xxxxxxxxxx"
+                                value="<?= Session::get('insightData')['phone'] ?? '' ?>">
+                            <?php if (Session::has("errors")): ?>
+
+                                <p class="px-2 text-danger fs-6">
+                                    <?= Session::get("errors")["phone"] ?? "" ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Content:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
+                            <textarea class="form-control" id="message-text" name="content">
+                            <?= Session::get('insightData')['content'] ?? '' ?>
+                            </textarea>
+                            <?php if (Session::has("errors")): ?>
+
+                                <p class="px-2 text-danger fs-6">
+                                    <?= Session::get("errors")["content"] ?? "" ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Send message</button>
+                    <button type="submit" class="btn btn-success">Send message</button>
                 </div>
+                </form>
+                <?php Session::unflash("errors"); ?>
             </div>
         </div>
     </div>
+
 </main>
 
 <?php require("partials/footer.php"); ?>

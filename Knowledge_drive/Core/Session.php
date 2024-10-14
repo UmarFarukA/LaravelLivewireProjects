@@ -4,6 +4,12 @@ namespace Core;
 
 class Session
 {
+    public static function  start()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
 
     public static function has($key)
     {
@@ -18,6 +24,23 @@ class Session
     public static function get($key, $default = null)
     {
         return $_SESSION[$key] ?? $default;
+    }
+
+    public static function flashMessage($type, $msg = null)
+    {
+        self::put($type, $msg);
+    }
+
+    public static function getFlashMessage($key)
+    {
+        if (!$key) {
+            return;
+        }
+
+        $message = self::get($key);
+
+
+        return $message;
     }
 
     public static function flash($key, $value)

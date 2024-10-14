@@ -54,6 +54,8 @@ if (empty($errors)) {
         "role" => $_POST["role"],
         "status" => $_POST["status"]
     ]);
+
+    Session::put("success", "New user created successfully");
 }
 
 redirect("/users");
