@@ -5,6 +5,7 @@ use Core\Session;
 require("partials/head.php");
 require("partials/navigation.php");
 
+require("partials/alert.php");
 ?>
 
 <?php if (Session::has("errors")): ?>
@@ -31,34 +32,31 @@ require("partials/navigation.php");
                     aria-label="Slide 4"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active relative c-item object-fit-cover">
+                <div class="carousel-item c-item active object-fit-cover">
                     <img src="./images/camp_1.jpg" class="d-block w-100 img-fluid" alt="...">
                     <div
-                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 w-md-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
-                        <h5 class="fs-5 fs-md-3 text-capitalize mt-1 mt-md-4">Empowering Through Sharing: Welcome to
+                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
+                        <h5 class="fs-6 fs-sm-6 text-capitalize">Empowering Through Sharing: Welcome to
                             KASU Knowledge Drive Hub
                         </h5>
-                        <p class="text-md-uppercase fs-5 fs-md-4 mt-1">
+                        <p class="fs-6 fs-md-2 fw-bold mt-md-2 text-md-uppercase">
                             Daily insights, collaborative growth, and innovation at your fingertips.
                         </p>
-                        <a type="button" class="btn btn-md-lg btn-success" data-bs-toggle="modal"
+                        <a type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
                             data-bs-target="#contributeModal" data-bs-whatever="contributeModal">Contribute Now</a>
                     </div>
                 </div>
+
                 <div class="carousel-item c-item object-fit-cover">
                     <img src="./images/camp_2.jpg" class="d-block w-100 img-fluid" alt="...">
                     <div
-                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 w-md-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
-                        <h5 class="fs-5 fs-md-3 text-md-capitalize mt-1 mt-md-4">Share Your Insight</h5>
-                        <p class="text-md-capitalise fs-5 fs-md-4 mt-1"> &quot;Have an idea,
-                            thought, or
-                            experience to
-                            share?
-                            Contribute to our daily drive and be
-                            part of
-                            the collective growth.&quot;
+                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
+                        <h5 class="fs-6 fs-sm-6 text-capitalize">Share Your Insight</h5>
+                        <p class="fs-6 fs-md-2 fw-bold mt-md-2 text-md-uppercase"> &quot;Have an idea,
+                            thought, or experience to share? Contribute and be
+                            part of the collective growth.&quot;
                         </p>
-                        <a type="button" class="btn btn-md-lg btn-success" data-bs-toggle="modal"
+                        <a class="btn btn-sm btn-md-lg btn-success" data-bs-toggle="modal"
                             data-bs-target="#contributeModal" data-bs-whatever="contributeModal">Submit Your
                             Write-Up</a>
                     </div>
@@ -66,27 +64,33 @@ require("partials/navigation.php");
                 <div class="carousel-item c-item object-fit-cover">
                     <img src="./images/camp_3.jpg" class="d-block w-100 img-fluid" alt="...">
                     <div
-                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 w-sm-75 w-md-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
-                        <h5 class="fs-3 text-capitalize mt-4">Today’s Insight</h5>
-                        <p class="text-capitalise fs-5 fs-md-4 mt-1">"Have an idea, thought, or experience to share?
+                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
+                        <h5 class="fs-6 fs-sm-6 text-capitalize">Today’s Insight</h5>
+                        <p class="fs-6 fs-lg-3 fw-bold mt-md-2 text-md-uppercase">"Have an idea, thought, or experience
+                            to share?
                             Contribute
-                            to our daily drive and be part of
+                            and be part of
                             the collective growth."
                         </p>
-                        <button type="button" class="btn btn-md-lg btn-success">Explore Today's Knowledge</button>
+                        <a type="button" class="btn btn-sm btn-md-lg btn-success" data-bs-toggle="modal"
+                            data-bs-target="#" data-bs-whatever="">Explore Today's Knowledge</a>
                     </div>
                 </div>
                 <div class="carousel-item c-item object-fit-cover">
                     <img src="./images/camp_3.jpg" class="d-block w-100 img-fluid" alt="...">
                     <div
-                        class="d-none d-md-block carousel-caption top-0 mt-5 carousel-caption bg-white opacity-75 h-50 w-50 text-success text-start px-4 py-1 border-none rounded">
-                        <h5 class="fs-3 text-capitalize mt-5">Ready to Join the Drive?</h5>
-                        <p class="text-capitalise fs-5 mt-1">Feel free to contribute any insight, or simply explore
+                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
+                        <h5 class="fs-6 fs-sm-6 text-capitalize">Ready to Join the Drive?</h5>
+                        <p class="fs-6 fs-md-2 fw-bold mt-md-2 text-md-uppercase">Feel free to contribute any insight,
+                            or simply explore
                             knowledge repository.
                         </p>
                         <div class="pb-3">
-                            <a href="#" class="btn btn-success text-white fw-4">Submit Your Insight</a>
-                            <a href="#" class="btn btn-outline-success text-success text-hover-white fw-4">Explore
+                            <a type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                data-bs-target="#contributeModal" data-bs-whatever="contributeModal">Submit Your
+                                Insight</a>
+                            <a href="#"
+                                class="btn btn-sm btn-outline-success text-success text-hover-white fw-4">Explore
                                 Knowledge</a>
                         </div>
                     </div>
@@ -307,7 +311,7 @@ require("partials/navigation.php");
                     <li class="mb-1">Get featured in the Daily Knowledge Drive.</li>
                 </ul>
                 <a href="#" class="btn btn-success text-white fw-4" data-bs-toggle="modal"
-                    data-bs-target="#contributeModal" data-bs-whatever="contactModal">Contribute Now</a>
+                    data-bs-target="#contributeModal" data-bs-whatever="contributeModal">Contribute Now</a>
             </div>
         </div>
     </section>
@@ -320,7 +324,6 @@ require("partials/navigation.php");
             <p class="text-sm text-white fw-4">We are always available and open for new insight from you</p>
         </div>
 
-        <!-- class="mt-5 py-4 mx-auto w-75 d-flex flex-row justify-content-between " -->
         <div class="row justify-content-center text-white py-4">
             <div class="col-md-3 text-center text-md-start pb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -360,37 +363,7 @@ require("partials/navigation.php");
         </p>
     </section>
 
-    <!-- Contact Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-success" id="contactModalLabel">Contact Us</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="col-form-label">Email:</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Send message</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Share Insight Modal -->
     <div class="modal fade" id="contributeModal" tabindex="-1" aria-labelledby="contributeModalLabel"
@@ -427,7 +400,7 @@ require("partials/navigation.php");
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="col-form-label">Phone Number:</label>
-                            <input type="text" id="phone" name="phone" placeholder="+234xxxxxxxxxx"
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="+234xxxxxxxxxx"
                                 value="<?= Session::get('insightData')['phone'] ?? '' ?>">
                             <?php if (Session::has("errors")): ?>
 

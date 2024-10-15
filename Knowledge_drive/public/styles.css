@@ -30,6 +30,10 @@ body {
 
 /* Hero section styles */
 
+.carousel-item div {
+  height: auto;
+}
+
 .c-item {
   height: 80dvh;
 }

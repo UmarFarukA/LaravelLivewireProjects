@@ -39,19 +39,6 @@ if (!empty($errors)) {
     redirect("/");
 }
 
-// $user = $db->query("select * from users where email = :email", [
-//     "email" => $_POST['email']
-// ])->find();
-
-// if ($user) {
-
-//     $errors["email"] = "A user with this email already exists!";
-
-//     Session::put("errors", $errors);
-
-//     redirect("/users");
-// }
-
 if (empty($errors)) {
     $db->query("INSERT INTO writeUps(name, email, phone, content) VALUES(:name, :email, :phone, :content)", [
         "name" => $_POST['name'],

@@ -1,6 +1,11 @@
 <?php
 
 $router->get("/", "index.php")->only("guest");
+$router->post("/", "home/store.php")->only("guest");
+
+$router->get("/contact", "contact/index.php")->only("guest");;
+$router->post("/contact", "contact/store.php")->only("guest");
+
 $router->get("/about", "about.php")->only("guest")->only("guest");
 $router->get("/knowledge_sessions", "knowledge_sessions.php")->only("guest");
 

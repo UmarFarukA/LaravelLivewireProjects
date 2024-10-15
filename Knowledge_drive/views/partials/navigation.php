@@ -11,7 +11,7 @@
             <div class="navbar-nav ms-auto">
                 <a class="nav-link nav-link-item" href="/about">About</a>
                 <a class="nav-link nav-link-item" href="/knowledge_sessions">Knowledge Sessions</a>
-                <a class="nav-link nav-link-item" href="#contact">Contact Us</a>
+                <a class="nav-link nav-link-item" href="/contact">Contact Us</a>
                 <a class="nav-link contribute" href="#" data-bs-toggle="modal" data-bs-target="#contributeModal"
                     data-bs-whatever="contributeModal">Contribute</a>
             </div>

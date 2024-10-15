@@ -40,6 +40,12 @@ function loadPartials($path, $attributes = [])
   require base_path("views/partials/layout/" . $path . ".php");
 }
 
+function partials($path, $attributes = [])
+{
+  extract($attributes);
+  require base_path("views/partials/" . $path . ".php");
+}
+
 function abort($code = 404)
 {
   http_response_code($code);
