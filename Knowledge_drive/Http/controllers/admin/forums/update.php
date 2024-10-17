@@ -23,8 +23,6 @@ if (!empty($errors)) {
     Session::put("errors", $errors);
     Session::put("editData", $_POST);
 
-    // dd("we are here");
-
     return redirect("/sessions");
 }
 

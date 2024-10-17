@@ -30,9 +30,6 @@ class Authenticator
 
     function login($user)
     {
-        // $_SESSION["user"] = [
-        //     "email" => $user
-        // ];
 
         Session::put("user", $user);
         session_regenerate_id(true);

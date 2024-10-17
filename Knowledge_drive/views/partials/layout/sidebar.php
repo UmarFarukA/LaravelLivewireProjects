@@ -33,7 +33,7 @@
             </svg>
             <span class="ms-2">Users</span>
         </a>
-        <a href="#submissions" class="d-flex align-items-center">
+        <a href="/submissions" class="d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen"
                 viewBox="0 0 16 16">
                 <path
@@ -41,7 +41,7 @@
             </svg>
             <span class="ms-2">Submissions</span>
         </a>
-        <a href="#">
+        <a href="/inquiry">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope"
                 viewBox="0 0 16 16">
                 <path
@@ -57,7 +57,7 @@
             </svg>
             <span class="ms-2">Reports</span>
         </a>
-        <a href="#settings">
+        <a href="/settings">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear"
                 viewBox="0 0 16 16">
                 <path

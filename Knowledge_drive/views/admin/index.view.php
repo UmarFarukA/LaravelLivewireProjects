@@ -6,13 +6,13 @@
 
 
 <!-- Navbar -->
-<?php loadPartials("header") ?>
+<?php loadPartials("header", ["user" => $user]) ?>
 
 <!-- Main Content -->
 <div class="content">
     <div class="container-fluid">
         <main>
-            <h1>Welcome to the Admin Dashboard</h1>
+            <h1>Welcome, <?= $user["name"]; ?></h1>
             <p>This is your main content area. You can add various dashboard widgets or reports here.</p>
 
             <!-- Example Cards -->

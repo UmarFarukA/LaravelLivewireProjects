@@ -65,4 +65,14 @@ class Validator
 
         return true;
     }
+
+
+    // Optional: Validate role and status
+    // if (!Validator::inArray($_POST['role'], ['admin', 'user'])) {
+    //     $errors['role'] = "Invalid role selected.";
+    // }
+
+    // if (!Validator::inArray($_POST['status'], ['active', 'inactive'])) {
+    //     $errors['status'] = "Invalid status.";
+    // }
 }
