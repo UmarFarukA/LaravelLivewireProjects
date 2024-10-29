@@ -23,12 +23,16 @@ if (!Validator::email($_POST['email'])) {
     $errors['email'] = "A valid email is required";
 }
 
-if (!Validator::string($_POST['content'], $min = 10, $max = 450)) {
-    $errors['content'] = "Content is required and maximim of $max characters";
+if (!Validator::string($_POST['content'], $min = 10)) {
+    $errors['content'] = "Content is required";
 }
 
 if (!Validator::phone($_POST['phone'])) {
     $errors['phone'] = "A valid phone number is required";
+}
+
+if (str_word_count($_POST['content']) > 150) {
+    $errors['content'] = "Submssion must not be above 150 words!";
 }
 
 if (!empty($errors)) {
@@ -40,11 +44,12 @@ if (!empty($errors)) {
 }
 
 if (empty($errors)) {
-    $db->query("INSERT INTO writeUps(name, email, phone, content) VALUES(:name, :email, :phone, :content)", [
+    $db->query("INSERT INTO writeUps(name, email, phone, content, status) VALUES(:name, :email, :phone, :content, :status)", [
         "name" => $_POST['name'],
         "email" => $_POST["email"],
         "phone" => $_POST["phone"],
-        "content" => $_POST["content"]
+        "content" => $_POST["content"],
+        "status" => 0
     ]);
 
     Session::put("success", "Successfully submitted");

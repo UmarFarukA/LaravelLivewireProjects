@@ -9,12 +9,12 @@ $db = App::getContainer()->resolve("\Core\Database.php");
 
 $id = htmlentities($_POST['deleteId']);
 
-$user = $db->query("SELECT * FROM user WHERE id = :id", [
+$inquiry = $db->query("SELECT * FROM inquiry WHERE id = :id", [
     "id" => $id
 ])->find();
 
 
-if ($user) {
+if ($inquiry) {
     $db->query("DELETE FROM inquiry WHERE id = :id", [
         "id" => $id
     ]);
@@ -22,6 +22,6 @@ if ($user) {
     Session::put("success", "Successfully deleted");
 }
 
-redirect("/users");
+redirect("/inquiry");
 
 exit();

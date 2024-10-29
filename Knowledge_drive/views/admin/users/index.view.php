@@ -115,8 +115,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         <td><?= $user["name"] ?></td>
                         <td><?= $user["email"] ?></td>
                         <td><?= $user["role"] ?></td>
-                        <td class="d-flex align-items-center">
-                            <div class="btn-group dropstart">
+                        <td class="">
+                            <div class="btn-group dropstart d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-three-dots-vertical dropdown-toggle " data-bs-toggle="dropdown"
                                     aria-expanded="false" viewBox="0 0 16 16" role="button">

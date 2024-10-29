@@ -1,15 +1,22 @@
-// $(document).ready(function () {
-//   const editId = $("#editIcon").val();
+$(document).ready(function () {
+  const baseURL = window.location.origin;
 
-//   console.log(editId);
+  $("#btn-search").on("click", function (e) {
+    e.preventDefault();
 
-//   $("#editForm").submit(function (e) {
-//     e.preventDefault();
-//   });
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   var myToast = document.getElementById("myToast");
-//   var bsToast = new bootstrap.Toast(myToast);
-//   bsToast.show();
-// });
+    $search = $("#search").val();
+    $.ajax({
+      type: "POST",
+      url: "/submissions",
+      data: {
+        search: $search,
+      },
+      success: function (data) {
+        alert(data);
+      },
+      error: function () {
+        console.log("error");
+      },
+    });
+  });
+});

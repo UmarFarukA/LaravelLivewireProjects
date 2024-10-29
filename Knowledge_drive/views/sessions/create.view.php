@@ -12,7 +12,9 @@ views("partials/head.php");
                 <div class="col-sm-8 col-md-6 col-lg-4">
                     <div class="mt-5 px-4 py-5 bg-white rounded">
                         <div class="mb-4 text-center">
-                            <img src="./images/kasu_logo.jpeg" alt="KASU Logo" class="w-50 mt-1" />
+                            <a href="/">
+                                <img src="./images/kasu_logo.jpeg" alt="KASU Logo" class="w-50 mt-1" />
+                            </a>
                             <p class="text-success font-semibold pt-1">Knowledge Drive Hub</p>
                         </div>
 
@@ -21,9 +23,9 @@ views("partials/head.php");
                             <input type="email" name="email" id="email" placeholder="example@kasu.edu.ng"
                                 class="form-control" value="<?= old('email') ?>" />
                             <?php if (Session::has("errors")): ?>
-                            <p class="text-danger fs-5 mt-1">
-                                <?= Session::get("errors")["email"] ?>
-                            </p>
+                                <p class="text-danger fs-5 mt-1">
+                                    <?= Session::get("errors")["email"] ?>
+                                </p>
                             <?php endif; ?>
                         </div>
                         <div class="mb-3">
@@ -31,9 +33,9 @@ views("partials/head.php");
                             <input type="password" name="password" id="password" placeholder="*********"
                                 class="form-control" />
                             <?php if (Session::has("errors")): ?>
-                            <p class="text-danger fs-5 mt-1">
-                                <?= Session::get("errors")["password"] ?>
-                            </p>
+                                <p class="text-danger fs-5 mt-1">
+                                    <?= Session::get("errors")["password"] ?>
+                                </p>
                             <?php endif; ?>
                         </div>
 

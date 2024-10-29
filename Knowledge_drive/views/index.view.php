@@ -4,8 +4,6 @@ use Core\Session;
 
 require("partials/head.php");
 require("partials/navigation.php");
-
-require("partials/alert.php");
 ?>
 
 <?php if (Session::has("errors")): ?>
@@ -16,7 +14,10 @@ require("partials/alert.php");
             myModal.show();
         });
     </script>
+
 <?php endif; ?>
+
+<?php require("partials/alert.php"); ?>
 
 <main>
     <section class="row" id="hero">
@@ -32,67 +33,60 @@ require("partials/alert.php");
                     aria-label="Slide 4"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item c-item active object-fit-cover">
+                <div class="carousel-item c-item active object-fit-cover position-relative">
                     <img src="./images/camp_1.jpg" class="d-block w-100 img-fluid" alt="...">
-                    <div
-                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
-                        <h5 class="fs-6 fs-sm-6 text-capitalize">Empowering Through Sharing: Welcome to
+                    <div class="caption">
+                        <h5>Empowering Through Sharing: Welcome to
                             KASU Knowledge Drive Hub
                         </h5>
-                        <p class="fs-6 fs-md-2 fw-bold mt-md-2 text-md-uppercase">
+                        <p>
                             Daily insights, collaborative growth, and innovation at your fingertips.
                         </p>
-                        <a type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
-                            data-bs-target="#contributeModal" data-bs-whatever="contributeModal">Contribute Now</a>
+                        <a class="caption-link" type="button" data-bs-toggle="modal" data-bs-target="#contributeModal"
+                            data-bs-whatever="contributeModal">Contribute Now</a>
                     </div>
                 </div>
 
                 <div class="carousel-item c-item object-fit-cover">
                     <img src="./images/camp_2.jpg" class="d-block w-100 img-fluid" alt="...">
-                    <div
-                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
-                        <h5 class="fs-6 fs-sm-6 text-capitalize">Share Your Insight</h5>
-                        <p class="fs-6 fs-md-2 fw-bold mt-md-2 text-md-uppercase"> &quot;Have an idea,
+                    <div class="caption">
+                        <h5>Share Your Insight</h5>
+                        <p>
+                            &quot;Have an idea,
                             thought, or experience to share? Contribute and be
                             part of the collective growth.&quot;
                         </p>
-                        <a class="btn btn-sm btn-md-lg btn-success" data-bs-toggle="modal"
-                            data-bs-target="#contributeModal" data-bs-whatever="contributeModal">Submit Your
+                        <a class="caption-link" type="button" data-bs-toggle="modal" data-bs-target="#contributeModal"
+                            data-bs-whatever="contributeModal">Submit Your
                             Write-Up</a>
                     </div>
                 </div>
                 <div class="carousel-item c-item object-fit-cover">
                     <img src="./images/camp_3.jpg" class="d-block w-100 img-fluid" alt="...">
-                    <div
-                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
-                        <h5 class="fs-6 fs-sm-6 text-capitalize">Today’s Insight</h5>
-                        <p class="fs-6 fs-lg-3 fw-bold mt-md-2 text-md-uppercase">"Have an idea, thought, or experience
-                            to share?
-                            Contribute
-                            and be part of
-                            the collective growth."
+                    <div class="caption">
+                        <h5>Today’s Insight</h5>
+                        <p>
+                            "Have an idea, thought, or experience to share? Contribute and be part of the collective
+                            growth."
                         </p>
-                        <a type="button" class="btn btn-sm btn-md-lg btn-success" data-bs-toggle="modal"
-                            data-bs-target="#" data-bs-whatever="">Explore Today's Knowledge</a>
+                        <a class="caption-link" type="button" data-bs-toggle="modal" data-bs-target="#contributeModal"
+                            data-bs-whatever="contributeModal">Explore Today's Knowledge</a>
                     </div>
                 </div>
                 <div class="carousel-item c-item object-fit-cover">
                     <img src="./images/camp_3.jpg" class="d-block w-100 img-fluid" alt="...">
-                    <div
-                        class="d-none d-md-block carousel-caption top-0 carousel-caption top-0 bg-white opacity-75 h-50 w-50 mt-2 mt-md-5 text-success text-start p-4 border-none rounded">
-                        <h5 class="fs-6 fs-sm-6 text-capitalize">Ready to Join the Drive?</h5>
-                        <p class="fs-6 fs-md-2 fw-bold mt-md-2 text-md-uppercase">Feel free to contribute any insight,
+                    <div class="caption">
+                        <h5>Ready to Join the Drive?</h5>
+                        <p>
+                            Feel free to contribute any insight,
                             or simply explore
                             knowledge repository.
                         </p>
-                        <div class="pb-3">
-                            <a type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
-                                data-bs-target="#contributeModal" data-bs-whatever="contributeModal">Submit Your
-                                Insight</a>
-                            <a href="#"
-                                class="btn btn-sm btn-outline-success text-success text-hover-white fw-4">Explore
-                                Knowledge</a>
-                        </div>
+                        <a class="caption-link" type="button" data-bs-toggle="modal" data-bs-target="#contributeModal"
+                            data-bs-whatever="contributeModal">Submit Your
+                            Insight</a>
+                        <a class="caption-link" type="button" data-bs-toggle="modal" data-bs-target="#"
+                            data-bs-whatever="contributeModal">Explore Knowledge</a>
                     </div>
                 </div>
             </div>
@@ -114,7 +108,7 @@ require("partials/alert.php");
 
                 <div class="position-absolute top-0 start-50 translate-middle-x mt-5 text-white p-2 text-center">
                     <h6 class="mt-5 fs-1 fw-sm-bolder fw-bold text-capitalize">Knowledge Drive Hub</h6>
-                    <a href="#" class="btn btn-sm btn-success text-white fw-4">Read More</a>
+                    <a href="/about" class="btn btn-sm btn-success text-white fw-4">Read More</a>
                     <a href="#" class="btn btn-sm btn-danger text-white fw-4">Explore</a>
                 </div>
             </div>
@@ -129,7 +123,7 @@ require("partials/alert.php");
             <p class="text-sm fw-4 text-muted">Who we are</p>
         </div>
         <div class="row justify-content-center g-0 mt-4 text-justify lh-base text-md-center py-4">
-            <div class="col-md-8">
+            <div class="col-md-8 text-center">
                 <p class="fs-4 text-capitalize text-muted">
                     At Kaduna State University, we believe that knowledge is the key to progress. The KASU Knowledge
                     Drive
@@ -410,8 +404,10 @@ require("partials/alert.php");
                             <?php endif; ?>
                         </div>
                         <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Content:</label>
-                            <textarea class="form-control" id="message-text" name="content">
+                            <label for="message-text" class="col-form-label">Content:
+                                <span class="fs-6 fw-semibold text-success text-bold">(Maximum of 150 words)</span>
+                            </label>
+                            <textarea class="form-control" id="message-text" name="content" rows="6">
                             <?= Session::get('insightData')['content'] ?? '' ?>
                             </textarea>
                             <?php if (Session::has("errors")): ?>
