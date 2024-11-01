@@ -33,7 +33,7 @@
             </svg>
             <span class="ms-2">Users</span>
         </a>
-        <a href="/submissions" class="d-flex align-items-center">
+        <a href="/submissions" id="submissions" class="d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen"
                 viewBox="0 0 16 16">
                 <path

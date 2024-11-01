@@ -29,6 +29,7 @@ $router->patch("/sessions", "admin/forums/update.php")->only("auth");
 $router->delete("/sessions", "admin/forums/destroy.php")->only("auth");
 
 $router->get("/submissions", "admin/submissions/index.php")->only("auth");
+// $router->get("/submission", "admin/submissions/submissions.php");
 $router->post("/submissions", "admin/submissions/search.php");
 $router->patch("/submissions", "admin/submissions/update.php")->only("auth");
 

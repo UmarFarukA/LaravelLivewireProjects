@@ -11,9 +11,8 @@ if (Session::has("user")) {
     $user = Session::get("user");
 }
 
-// header('Content-Type: application/json');
+header('Content-Type: application/json');
 
-views("admin/submissions/index.view.php", [
-    "submissions" => $submissions,
-    "user" => $user
-]);
+echo json_encode($submissions);
+
+exit;

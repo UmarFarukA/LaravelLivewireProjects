@@ -52,8 +52,9 @@ loadPartials("head") ?>
                     </tr>
                 </thead>
                 <tbody>
+
                     <?php foreach ($submissions as $index => $submission): ?>
-                        <tr>
+                        <tr id="results">
                             <th scope="row"><?= $index + 1 ?></th>
                             <td><?= $submission["name"] ?></td>
                             <td><?= $submission["email"] ?></td>
@@ -139,14 +140,14 @@ loadPartials("head") ?>
                                     </div>
                                 </div>
                             </div>
-    </div>
-    </tr>
-<?php endforeach; ?>
-</tbody>
-</table>
+                        </tr>
+                    <?php endforeach; ?>
 
-</main>
-</div>
+                </tbody>
+            </table>
+
+        </main>
+    </div>
 </div>
 
 
