@@ -18,8 +18,10 @@ class Authenticator
             "email" => $email
         ])->find();
 
+        // dd("we are here");
+
         if ($user) {
-            if (password_verify($password, $user["password"]) && $user['status'] == "active") {
+            if (password_verify($password, $user["password"])) {
                 $this->login($user);
                 return true;
             }

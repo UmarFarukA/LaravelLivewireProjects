@@ -14,15 +14,15 @@ $options = [
 $errors = [];
 
 
-if(!Validator::validate_email($username)) {
+if (!Validator::string($username)) {
     $errors['username'] = "A valid email is required";
 }
 
-if(! Validator::validate_string($password, $min = 8, $max = 24)) {
+if (! Validator::string($password, $min = 8, $max = 24)) {
     $errors['password'] = "Password is require & a min of {$min} characters.";
 }
 
-if(!empty($errors)) {
+if (!empty($errors)) {
     return views("registration/create.view.php", [
         "errors" => $errors
     ]);
@@ -33,8 +33,7 @@ $user = $db->query("SELECT * FROM users WHERE username = :username", [
 ])->findOrFail();
 
 
-if($user) {
-    // $usernameErrors['username'] = "Username already exists, please sign in";
+if ($user) {
     return views("index.view.php");
 }
 
