@@ -65,6 +65,37 @@
         </div>
     </nav>
 
+    <section class="hero">
+        <h1>Discover your next favourite Book</h1>
+        <p>Buttons for Browse Books, Shop Now/Sign Up</p>
+    </section>
+
+    <section class="featured_books">
+        <p>grid section of Bestsellers, New Arrivals, Editors Picks - Images, titles & view Button</p>
+    </section>
+
+    <section class="categories">
+        <p>show grid items of categories - Fiction, Non-fiction, Drama - with icons or images</p>
+    </section>
+
+    <section class="posts">
+        <p>Top 10 must read this year, Author interview, Reading Tips - with read more button</p>
+    </section>
+
+    <section class="about_us">
+        <p>
+            brief intro about Bookstore, alongside mission/values, history
+        </p>
+    </section>
+
+    <footer>
+        <p>
+            shop all books,
+            Contact Us,
+            Follow us on Social Media
+        </p>
+    </footer>
+
 </body>
 
 </html>
