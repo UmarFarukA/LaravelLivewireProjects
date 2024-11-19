@@ -259,7 +259,7 @@
         <div class="flex items-center justify-around mx-auto w-2/3 pt-12">
             <div class="mt-2">
                 <h3 class="text-green-700 text-3xl font-bold">Upcomnig Session</h3>
-                <div class="pt-8 mb-12 space-y-4 text-stone-700">
+                <div class="pt-8 mb-12 space-y-4 text-stone-700 text-xl">
                     <p class="flex items-center gap-2">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -268,7 +268,7 @@
                                 stroke-width="2"
                                 d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z" />
                         </svg>
-                        <span>Date</span>
+                        <span>Date: 24th December 2024</span>
                     </p>
                     <p class="flex items-center gap-2">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
@@ -278,7 +278,7 @@
                                 stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
 
-                        <span>Time</span>
+                        <span>Time: 9.30am</span>
                     </p>
                     <p class="flex items-center gap-2">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
@@ -290,7 +290,7 @@
                         </svg>
 
 
-                        <span>Venue</span>
+                        <span>Venue: Multi-purpose</span>
                     </p>
                 </div>
             </div>
@@ -299,10 +299,17 @@
 
                 <h2 class="text-green-700 font-semibold">Events content</h2>
 
-                <div class="grid grid-cols-1 items-center gap-4">
-                    <div>
+                <div class="flex flex-col gap-4">
+                    <div class="flex justify-around gap-3">
                         <img class="h-64 w-64 rounded-lg"
                             src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+                        {{-- <div class="justify-start">
+                            <span class="text-stone-600 text-lg text-wrap">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, officiis?
+                            </span>
+                            <a href=""
+                                class="px-3 py-1 bg-red-600 text-red-100 rounded-md hover:bg-red-700">Read more</a>
+                        </div> --}}
                     </div>
                     <div>
                         <img class="h-64 w-64 rounded-lg"
