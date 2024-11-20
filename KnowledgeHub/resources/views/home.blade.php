@@ -92,19 +92,19 @@
 
     {{-- Hero Section --}}
     <section id="hero" class="bg-white">
-        <div id="default-carousel" class="relative w-full h-dvh" data-carousel="slide">
+        <div id="default-carousel" class="relative" data-carousel="slide">
             <!-- Carousel wrapper -->
-            <div class="relative h-56 overflow-hidden rounded-lg md:h-5/6 object-cover">
+            <div class="relative overflow-hidden h-dvh ">
                 <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden duration-700 ease-in-out w-full h-3/4" data-carousel-item>
                     <img src="{{ asset('images/1.jpg') }}"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        class="absolute object-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                        alt="...">
                     <div
                         class="relative top-12 md:top-500 md:top-1/2 left-4 md:left-32 space-y-2 px-4 py-2  bg-gray-50 opacity-50 p-4 w-2/3 md:w-1/3 rounded-md">
                         <h2 class="text-sm md:text-4xl font-semibold text-green-700">Empowering Through Sharing: Welcome
                             to KASU
-                            Knowledge Drive
-                            Hub
+                            Knowledge Drive Hub
                         </h2>
                         <p class="text-sm md:text-xl text-black">
                             Daily insights, collaborative growth, and innovation at your fingertips.
@@ -118,13 +118,15 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Item 2 -->
-                {{-- <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                {{-- <div class="hidden duration-700 ease-in-out w-full h-5/6" data-carousel-item>
                     <img src="{{ asset('images/2.jpg') }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div> --}}
+
                 <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden duration-700 ease-in-out w-full h-3/4" data-carousel-item>
                     <img src="{{ asset('images/3.jpg') }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     <div
@@ -142,11 +144,11 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Item 4 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden duration-700 ease-in-out w-full h-3/4" data-carousel-item>
                     <img src="{{ asset('images/4.jpg') }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-
                     <div
                         class="relative top-12 md:top-500 md:top-1/2 left-4 md:left-32 space-y-2 px-4 py-2  bg-gray-50 opacity-50 p-4 w-2/3 md:w-1/3 rounded-md">
                         <h2 class="text-sm md:text-4xl font-semibold text-green-700">Ready to Join the Drive?</h2>
@@ -164,8 +166,9 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Item 5 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden duration-700 ease-in-out w-full h-3/4" data-carousel-item>
                     <img src="{{ asset('images/5.jpg') }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     <div
@@ -233,7 +236,7 @@
     </section>
 
     {{-- About Section --}}
-    <section id="about-us" class="mx-auto text-center bg-white">
+    <section id="about-us" class="mx-auto text-center pt-16 bg-white">
         <div class="pb-8">
             <h1 class="text-green-700 text-6xl font-bold">About Us</h1>
             <p class="text-gray-600 text-lg pt-5">Who we are</p>
@@ -250,15 +253,15 @@
         </div>
     </section>
 
-    {{-- Envent & Session Section --}}
-    <section id="events" class="mx-auto text-center bg-white">
-        <div class="pt-32">
-            <h1 class="text-red-700 text-6xl font-bold">Events & Sessions</h1>
+    {{-- Events and Sessions --}}
+    <section id="events" class="mx-auto pb-12 bg-white">
+        <div class="pt-24 md:pt-32 text-center">
+            <h1 class="text-red-700 text-3xl md:text-6xl font-bold">Events & Sessions</h1>
             <p class="text-stone-700 text-lg pt-5">Future and Previous events & sessions</p>
         </div>
-        <div class="flex items-center justify-around mx-auto w-2/3 pt-12">
-            <div class="mt-2">
-                <h3 class="text-green-700 text-3xl font-bold">Upcomnig Session</h3>
+        <div class="grid md:grid-cols-2 w-2/3 mx-auto pt-16">
+            <div class="md:mt-2 flex flex-col justify-center">
+                <h3 class="text-green-700 text-2xl md:text-3xl font-bold">Upcomnig Session</h3>
                 <div class="pt-8 mb-12 space-y-4 text-stone-700 text-xl">
                     <p class="flex items-center gap-2">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
@@ -295,35 +298,179 @@
                 </div>
             </div>
 
-            <div class="mt-4">
+            <div class="flex flex-col space-y-4 w-full">
 
-                <h2 class="text-green-700 font-semibold">Events content</h2>
+                <div class="text-green-700 text-xl text-center mb-6">
+                    <h2 class="font-semibold">Events content</h2>
+                </div>
 
                 <div class="flex flex-col gap-4">
-                    <div class="flex justify-around gap-3">
-                        <img class="h-64 w-64 rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                        {{-- <div class="justify-start">
-                            <span class="text-stone-600 text-lg text-wrap">
+                    <div class="flex flex-col md:flex-row gap-2">
+                        <div class="">
+                            <img class="h-48 object-cover md:h-32 lg:32 w-full md:w-48 rounded-lg block"
+                                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="text-stone-600 text-lg justify-self-start pt-2">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, officiis?
-                            </span>
+                            </div>
                             <a href=""
-                                class="px-3 py-1 bg-red-600 text-red-100 rounded-md hover:bg-red-700">Read more</a>
-                        </div> --}}
+                                class="px-3 w-full md:w-44 py-1 text-center bg-red-700 text-red-100 rounded-md hover:bg-red-800">
+                                Read more
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <img class="h-64 w-64 rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+                    <div class="flex flex-col md:flex-row gap-2">
+                        <div class="">
+                            <img class="h-48 object-cover md:h-32 lg:32 w-full md:w-48 rounded-lg block"
+                                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="text-stone-600 text-lg justify-self-start pt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, officiis?
+                            </div>
+                            <a href=""
+                                class="px-3 w-full md:w-44 py-1 text-center bg-red-700 text-red-100 rounded-md hover:bg-red-800">
+                                Read more
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <img class="h-64 w-64 rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+                    <div class="flex flex-col md:flex-row gap-2">
+                        <div class="">
+                            <img class="h-48 object-cover md:h-32 lg:32 w-full md:w-48 rounded-lg block"
+                                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="text-stone-600 text-lg justify-self-start pt-2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, officiis?
+                            </div>
+                            <a href=""
+                                class="px-3 w-full md:w-44 py-1 text-center bg-red-700 text-red-100 rounded-md hover:bg-red-800">
+                                Read more
+                            </a>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+
+    {{-- Get Involve --}}
+    <section id="contribute" class="mx-auto bg-white pb-12">
+        <div class="pt-24 md:pt-32 text-center">
+            <h1 class="text-green-700 text-3xl md:text-6xl font-bold">Get Involved</h1>
+            <p class="text-red-700 text-lg pt-5">Submitting your write-up is easy and impactful. Here’s how you can
+                join.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 w-2/3 mx-auto pt-16">
+            <div class="">
+                <img src="{{ asset('/images/contribute.jpg') }}" class="rounded-md" alt="Knowledge">
+            </div>
+
+            <div class="md:pl-8">
+                <div class="text-green-700 text-xl text-center mb-6">
+                    <h2 class="font-semibold text-2xl md:text-3xl underline">Steps</h2>
+                </div>
+
+                <ul class="space-y-5 text-stone-700 text-xl list-disc mb-6">
+                    <li class="mb-3">Write your one-minute insight (maximum of 150 words).</li>
+                    <li class="mb-3">Submit through our portal or via email.</li>
+                    <li class="mb-1">Get featured in the Daily Knowledge Drive.</li>
+                </ul>
+                <a href="#"
+                    class="bg-red-700 hover:bg-red-800 text-red-50 hover:text-red-100 px-3 py-2 rounded-md">Contribute
+                    Now
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    {{-- Contact Section --}}
+    <section id="contribute" class="mx-auto bg-white pb-16">
+        <div class="pt-24 md:pt-32 text-center">
+            <h1 class="text-stone-700 text-3xl md:text-6xl font-bold">Contact Us</h1>
+            <p class="text-green-700 text-lg pt-5">We are always available and open for new insight from you</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 w-2/3 mx-auto pt-16">
+            <div class="space-y-3">
+
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                        d="M4 4a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2v14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2V5a1 1 0 0 1-1-1Zm5 2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H9Zm5 0a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-1Zm-5 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H9Zm5 0a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1Zm-3 4a2 2 0 0 0-2 2v3h2v-3h2v3h2v-3a2 2 0 0 0-2-2h-2Z"
+                        clip-rule="evenodd" />
+                </svg>
+
+                <p class="text-xl font-bold">Office.</p>
+                <p>We are located at Main Campus, <br />Kaduna State University. Office of DVC</p>
+            </div>
+            <div class="space-y-3">
+
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M7.978 4a2.553 2.553 0 0 0-1.926.877C4.233 6.7 3.699 8.751 4.153 10.814c.44 1.995 1.778 3.893 3.456 5.572 1.68 1.679 3.577 3.018 5.57 3.459 2.062.456 4.115-.073 5.94-1.885a2.556 2.556 0 0 0 .001-3.861l-1.21-1.21a2.689 2.689 0 0 0-3.802 0l-.617.618a.806.806 0 0 1-1.14 0l-1.854-1.855a.807.807 0 0 1 0-1.14l.618-.62a2.692 2.692 0 0 0 0-3.803l-1.21-1.211A2.555 2.555 0 0 0 7.978 4Z" />
+                </svg>
+
+
+                <p class="text-xl font-bold text-green-700">Phone.</p>
+                <p>Prefer to speak to us? </br />Call: +234080300000000</p>
+            </div>
+            <div class="space-y-3">
+
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M17 6h-2V5h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2h-.541A5.965 5.965 0 0 1 14 10v4a1 1 0 1 1-2 0v-4c0-2.206-1.794-4-4-4-.075 0-.148.012-.22.028C7.686 6.022 7.596 6 7.5 6A4.505 4.505 0 0 0 3 10.5V16a1 1 0 0 0 1 1h7v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3h5a1 1 0 0 0 1-1v-6c0-2.206-1.794-4-4-4Zm-9 8.5H7a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2Z" />
+                </svg>
+
+
+                <p class="text-xl font-bold">Email.</p>
+                <p>Simply send an email to <br /> knowledgedrive@kasu.edu.ng</p>
+            </div>
+        </div>
+
+    </section>
+
+    {{-- Footer --}}
+    <footer class="bg-white rounded-lg shadow dark:bg-gray-900">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <img src="{{ asset('images/kasu_logo.jpeg') }}" class="h-8" alt="KASU" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-stone-700">Knowledge
+                        Drive</span>
+                </a>
+                <ul
+                    class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">University</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Knowledge Drive Hub</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Sessions</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024<a href="#"
+                    class="hover:underline">Kaduna State University™</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+
 </body>
 
 </html>
