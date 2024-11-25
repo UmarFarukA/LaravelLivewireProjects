@@ -1,102 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{{ $title ?? 'Knowledge Drive Hub' }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Styles / Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-</head>
-
-<body class="bg-gray-100">
-    {{-- Header Section --}}
-    <header>
-        <nav class="bg-white border-gray-200 dark:bg-gray-900">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="{{ asset('images/kasu_logo.jpeg') }}" class="h-8" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-green-700">Knowledge
-                        Hub</span>
-                </a>
-                <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-
-                    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-                        <ul
-                            class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Register</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <button data-collapse-toggle="navbar-cta" type="button"
-                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-cta" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 1h15M1 7h15M1 13h15" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-                    <ul
-                        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 md:p-0 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:dark:text-green-500"
-                                aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Knowledge
-                                Sessions</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                        </li>
-
-                        <li>
-                            <a href="#"
-                                class="md:hidden  py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
-                        </li>
-                        <li class="mt-4">
-                            <a href="#"
-                                class="md:hidden  py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Register</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </nav>
-
-    </header>
-
+<div>
     {{-- Hero Section --}}
     <section id="hero" class="bg-white">
         <div id="default-carousel" class="relative" data-carousel="slide">
             <!-- Carousel wrapper -->
-            <div class="relative overflow-hidden h-dvh ">
+            <div class="relative overflow-hidden w-full mainContainer ">
                 <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out w-full h-3/4" data-carousel-item>
+                <div class="hidden duration-700 ease-in-out  h-3/4" data-carousel-item>
                     <img src="{{ asset('images/1.jpg') }}"
                         class="absolute object-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         alt="...">
@@ -238,8 +147,8 @@
     {{-- About Section --}}
     <section id="about-us" class="mx-auto text-center pt-16 bg-white">
         <div class="pb-8">
-            <h1 class="text-green-700 text-6xl font-bold">About Us</h1>
-            <p class="text-gray-600 text-lg pt-5">Who we are</p>
+            <h1 class="text-green-700 text-6xl font-bold">About Knowledge Drive Hub</h1>
+            <p class="text-gray-600 text-lg pt-5">What we do and hope to achieve</p>
         </div>
         <div class="mt-4  flex flex-col justify-center items-center w-2/3 mx-auto pb-8">
             <p class="text-stone-600 text-2xl leading-10 mb-8">
@@ -360,7 +269,9 @@
     <section id="contribute" class="mx-auto bg-white pb-12">
         <div class="pt-24 md:pt-32 text-center">
             <h1 class="text-green-700 text-3xl md:text-6xl font-bold">Get Involved</h1>
-            <p class="text-red-700 text-lg pt-5">Submitting your write-up is easy and impactful. Here’s how you can
+            <p class="text-red-700 text-lg pt-5 px-4 md:px-0">Submitting your write-up is easy and impactful. Here’s
+                how you
+                can
                 join.</p>
         </div>
 
@@ -379,26 +290,27 @@
                     <li class="mb-3">Submit through our portal or via email.</li>
                     <li class="mb-1">Get featured in the Daily Knowledge Drive.</li>
                 </ul>
-                <a href="#"
-                    class="bg-red-700 hover:bg-red-800 text-red-50 hover:text-red-100 px-3 py-2 rounded-md">Contribute
+                <button href="#"
+                    class="bg-red-700 hover:bg-red-800 text-red-50 hover:text-red-100 px-3 py-2 rounded-md w-full md:w-2/3">Contribute
                     Now
-                </a>
+                </button>
 
             </div>
         </div>
     </section>
 
     {{-- Contact Section --}}
-    <section id="contribute" class="mx-auto bg-white pb-16">
+    <section id="contribute" class="mx-auto bg-white md:pb-56 pb-32">
         <div class="pt-24 md:pt-32 text-center">
             <h1 class="text-stone-700 text-3xl md:text-6xl font-bold">Contact Us</h1>
-            <p class="text-green-700 text-lg pt-5">We are always available and open for new insight from you</p>
+            <p class="text-green-700 text-lg pt-5 px-3 md:px-0">We are always available and open for new insight from
+                you</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-4 w-2/3 mx-auto pt-16">
-            <div class="space-y-3">
+        <div class="grid md:grid-cols-3 gap-4 w-2/3 mx-auto pt-16 md:pb-24 pb-12">
+            <div class="space-y-3 flex flex-col items-center md:items-start mb-6">
 
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                <svg class="w-8 h-8 text-red-700 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                     viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
@@ -406,12 +318,12 @@
                         clip-rule="evenodd" />
                 </svg>
 
-                <p class="text-xl font-bold">Office.</p>
+                <p class="text-xl font-bold text-green-700">Office.</p>
                 <p>We are located at Main Campus, <br />Kaduna State University. Office of DVC</p>
             </div>
-            <div class="space-y-3">
+            <div class="space-y-3 flex flex-col items-center md:items-start mb-6">
 
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                <svg class="w-8 h-8 text-red-700 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                     viewBox="0 0 24 24">
                     <path
@@ -422,9 +334,9 @@
                 <p class="text-xl font-bold text-green-700">Phone.</p>
                 <p>Prefer to speak to us? </br />Call: +234080300000000</p>
             </div>
-            <div class="space-y-3">
+            <div class="space-y-3 flex flex-col items-center md:items-start mb-6">
 
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                <svg class="w-8 h-8 text-red-700 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                     viewBox="0 0 24 24">
                     <path
@@ -432,45 +344,13 @@
                 </svg>
 
 
-                <p class="text-xl font-bold">Email.</p>
+                <p class="text-xl font-bold text-green-700">Email.</p>
                 <p>Simply send an email to <br /> knowledgedrive@kasu.edu.ng</p>
             </div>
         </div>
 
+        <p class="text-stone-700 text-center">Alternatively click <a href="#" class="text-red-700">here</a>
+            for further engagement or Insight
+        </p>
     </section>
-
-    {{-- Footer --}}
-    <footer class="bg-white rounded-lg shadow dark:bg-gray-900">
-        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                    <img src="{{ asset('images/kasu_logo.jpeg') }}" class="h-8" alt="KASU" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-stone-700">Knowledge
-                        Drive</span>
-                </a>
-                <ul
-                    class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">University</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Knowledge Drive Hub</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Sessions</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024<a href="#"
-                    class="hover:underline">Kaduna State University™</a>. All Rights Reserved.</span>
-        </div>
-    </footer>
-
-
-</body>
-
-</html>
+</div>
