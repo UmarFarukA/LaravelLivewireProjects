@@ -4,7 +4,7 @@
         Knowledge Drive Hub v1
     </div>
     <nav class="p-4 space-y-4 md:pt-8">
-        <x-nav-link href="#" class="flex gap-1 items-center">
+        <x-nav-link href="{{ route('dashboard.home') }}" class="flex gap-1 items-center">
             <svg class="w-6 h-6 text-white hover:text-green-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -30,7 +30,7 @@
 
             <span>Users</span>
         </x-nav-link>
-        <x-nav-link href="#" class="flex gap-1 items-center">
+        <x-nav-link href="{{ route('submissions.index') }}" class="flex gap-1 items-center">
             <svg class="w-6 h-6 text-white hover:text-green-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="2"

@@ -2,13 +2,13 @@
 
 namespace App\Livewire\Dashboard;
 
-use Livewire\Attributes\Layout;
+use App\Livewire\AdminComponent;
+
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Layout('admin')]
 #[Title('Dashboard')]
-class Index extends Component
+class Index extends AdminComponent
 {
     public function render()
     {

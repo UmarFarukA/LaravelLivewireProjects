@@ -1,6 +1,7 @@
 {{-- Admin Header --}}
 <x-adminHeader />
 
+
 <!-- Dashboard Container -->
 <div class="flex h-screen">
 
@@ -22,8 +23,11 @@
             {{ $slot }}
 
         </main>
+
+        {{-- <livewire:modal-component /> --}}
     </div>
 </div>
 
 {{-- Admin Footer Section --}}
 <x-adminFooter />
+<!-- Script to Toggle Sidebar -->

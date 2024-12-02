@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->text("content");
             $table->enum("status", [0, 1, 2])->default(0);
-            $table->date("published_date");
+            $table->date("published_date")->nullable(true);
             $table->timestamps();
         });
     }

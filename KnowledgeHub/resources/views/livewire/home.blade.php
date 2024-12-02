@@ -47,7 +47,8 @@
                         </p>
 
                         <div class="flex align-items-center my-4">
-                            <a class="px-3 py-2 text-green-100 text-center bg-green-700 hover:bg-green-800 rounded">
+                            <a href="{{ route('submissions.create') }}"
+                                class="px-3 py-2 text-green-100 text-center bg-green-700 hover:bg-green-800 rounded">
                                 Submit Your Write-Up
                             </a>
                         </div>
@@ -89,7 +90,7 @@
                         </p>
 
                         <div class="flex flex-col gap-1 md:flex-row align-items-center my-4 space-x-2">
-                            <a
+                            <a href="{{ route('submissions.create') }}"
                                 class="text-sm md:text-lg text-center px-3 py-2 text-green-100s bg-green-700 hover:bg-green-800 rounded">
                                 Submit Your Insight
                             </a>

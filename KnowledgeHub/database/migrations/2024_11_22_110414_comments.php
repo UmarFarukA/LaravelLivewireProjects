@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Submission;
+use App\Models\Submissions;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class, "user_id")
                 ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(Submission::class, "submission_id")
+            $table->foreignIdFor(Submissions::class, "submission_id")
                 ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string("content");
             $table->timestamps();
