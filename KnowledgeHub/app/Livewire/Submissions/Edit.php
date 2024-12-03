@@ -27,9 +27,9 @@ class Edit extends AdminComponent
             'alert',
             type: 'success',
             position: 'top-end',
-            title: "Submission successfully sent",
+            title: "Submission successfully updated",
             toast: true,
-            timer: 6400
+            timer: 7200
         );
 
         $this->redirect('/dashboard/submissions', navigate: true);

@@ -21,7 +21,7 @@
             </svg>
             <span>Sessions</span>
         </x-nav-link>
-        <x-nav-link href="#" class="flex gap-1 items-center">
+        <x-nav-link href="{{ route('users.index') }}" class="flex gap-1 items-center">
             <svg class="w-6 h-6 text-white hover:text-green-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2"

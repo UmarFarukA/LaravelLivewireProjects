@@ -2,14 +2,14 @@
     {{-- {{ $header }} --}}
 
     <div class="mb-3 flex item-center justify-start gap-3">
-        <select wire:model="limit" id="" class="px-2 py-1">
+        <select wire:model.live="limit" id="" class="px-2 py-1">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
         </select>
         <div class="p-2">
-            <input type="text" wire:model='search'
+            <input type="text" wire:model.live.debounce.150ms='search'
                 class="w-full py-2 px-3 rounded-md border-none bg-gray-200 focus:ring focus:ring-green-700"
                 placeholder="Search through submissions">
         </div>
@@ -82,7 +82,7 @@
                                         aria-labelledby="dropdownMenuIconButton">
                                         <li>
                                             <a href="{{ route('submissions.edit', $submission->id) }}"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">View</a>
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Review</a>
                                         </li>
                                         <li>
                                             <a href="#"
@@ -95,7 +95,12 @@
                         </tr>
                     @endforeach
                 @endif
+
+
             </tbody>
+            <div class="my-4">
+                {{ $this->submissions->links() }}
+            </div>
         </table>
     </div>
 

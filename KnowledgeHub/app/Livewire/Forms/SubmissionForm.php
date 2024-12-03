@@ -16,10 +16,11 @@ class SubmissionForm extends Form
 
     #[Validate('required', message: "Email field is required")]
     #[Validate('email', message: "Valid email is required")]
+    #[Validate('unique:users', message: "Email address already exists")]
     public $email = "";
 
     #[Validate('required', message: "Content field is required")]
-    #[Validate('max_words:250', message: "Content must be at most 250 words.")]
+    #[Validate('max_words:150', message: "Content must be at most 150 words.")]
     public $content = "";
 
     #[Validate('required', message: "Phone number field is required")]

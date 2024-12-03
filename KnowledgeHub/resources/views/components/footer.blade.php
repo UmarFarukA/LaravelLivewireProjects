@@ -27,6 +27,7 @@
     </div>
 </footer>
 
+<x-livewire-alert::scripts />
 </body>
 
 </html>

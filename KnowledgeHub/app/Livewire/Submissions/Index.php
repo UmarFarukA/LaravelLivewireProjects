@@ -17,17 +17,14 @@ class Index extends AdminComponent
     public $search = "";
     public $header = "Submissions";
 
-    public $showEditModal = false;
-
-    public function openEditModal()
-    {
-        $this->showEditModal;
-    }
 
     #[Computed()]
     public function submissions()
     {
-        return Submissions::latest()->paginate($this->limit);
+        $searchTerm = "%" . $this->search . "%";
+        return Submissions::whereAny(['name', 'email', 'content', 'status'], 'LIKE', $searchTerm)
+            ->latest()
+            ->paginate($this->limit);
     }
 
     public function render()
