@@ -3,6 +3,8 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Submissions;
+use App\Models\User;
+use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -14,9 +16,9 @@ class SubmissionForm extends Form
     #[Validate('min:3', message: "Name must be at least three characters")]
     public $name = "";
 
-    #[Validate('required', message: "Email field is required")]
-    #[Validate('email', message: "Valid email is required")]
-    #[Validate('unique:users', message: "Email address already exists")]
+    // #[Validate('required', message: "Email field is required")]
+    // #[Validate('email', message: "Valid email is required")]
+    // #[Validate('unique:users', message: "Email address already exists")]
     public $email = "";
 
     #[Validate('required', message: "Content field is required")]
@@ -43,9 +45,13 @@ class SubmissionForm extends Form
 
     public function store()
     {
-        $this->validate();
-
-        // dump("Yes");
+        $this->validate([
+            "email" => [
+                'required',
+                "email",
+                Rule::unique("users")->ignore($this->submission->id)
+            ]
+        ]);
 
         Submissions::create($this->only(['name', 'email', 'phone', 'content']));
 
@@ -54,7 +60,13 @@ class SubmissionForm extends Form
 
     public function update()
     {
-        $this->validate();
+        $this->validate([
+            "email" => [
+                'required',
+                "email",
+                Rule::unique("users")->ignore($this->submission->id)
+            ]
+        ]);
 
         $this->submission->update(
             $this->only(['name', 'email', 'content', 'phone', 'status'])

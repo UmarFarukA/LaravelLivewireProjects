@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date("date");
             $table->integer("duration");
             $table->string("resolution");
-            $table->enum("status", [0, 1])->default(0);
+            $table->tinyInteger("status")->default(0); // 0-completed, 1-upcoming
         });
     }
 

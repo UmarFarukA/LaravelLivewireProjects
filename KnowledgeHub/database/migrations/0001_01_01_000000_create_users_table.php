@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string("photo")->nullable(true);
-            $table->enum("role", ["admin", "contributor", "viewer"])->default("contributor");
-            $table->rememberToken();
+            $table->tinyInteger("role")->default(0); // 0-viewer, 1-contributor, 2-admin
+            $table->tinyInteger("status")->default(1); //1-Active, 0-Inactive
             $table->timestamps();
         });
 

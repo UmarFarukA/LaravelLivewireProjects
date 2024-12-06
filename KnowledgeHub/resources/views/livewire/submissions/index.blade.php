@@ -52,10 +52,10 @@
                                 {{ Str::substr($submission->content, 0, 15) }}...
                             </td>
                             <td class="px-6 py-4">
-                                @if ($submission->status === '0')
+                                @if ($submission->status === 0)
                                     <span
                                         class="px-3 py-1 bg-purple-600 text-purple-100 text-center rounded-md">Draft</span>
-                                @elseif($submission->status === '1')
+                                @elseif($submission->status === 1)
                                     <span
                                         class="px-3 py-1 bg-green-600 text-green-100 text-center rounded-md">Published</span>
                                 @else

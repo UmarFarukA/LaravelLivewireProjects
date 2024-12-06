@@ -15,18 +15,21 @@ class Login extends Component
     public $email = "";
 
     #[Validate("required", message: "A password is required")]
-    #[Validate("min:6", message: "Password must be at least six characters")]
+    #[Validate("min:8", message: "Password must be at least eight characters")]
     public $password = "";
+
+    public $loginError;
 
     public function authenticate()
     {
-        $atttributes = $this->validate();
+        $this->validate();
+        $valid = Auth::attempt(['email' => $this->email, 'password' => $this->password]);
 
-        if (Auth::attempt($atttributes)) {
-            return redirect()->route("home");
+        if ($valid) {
+            return $this->redirectIntended("/dashboard");
+        } else {
+            $this->loginError = "Email/Password is invalid";
         }
-
-        session()->flash("error", "Invalid credentials");
     }
 
 

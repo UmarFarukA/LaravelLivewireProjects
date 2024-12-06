@@ -1,20 +1,20 @@
 <div>
     <!-- Stats Section -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-3">
         <div class="bg-white shadow rounded p-4">
             <h2 class="text-gray-700">Users</h2>
-            <p class="text-xl font-semibold">1,245</p>
+            <p class="text-xl font-semibold">{{ $usersCount }}</p>
         </div>
         <div class="bg-white shadow rounded p-4">
-            <h2 class="text-gray-700">Orders</h2>
-            <p class="text-xl font-semibold">537</p>
+            <h2 class="text-gray-700">Submissions</h2>
+            <p class="text-xl font-semibold">{{ $submissionCount }}</p>
         </div>
         <div class="bg-white shadow rounded p-4">
-            <h2 class="text-gray-700">Revenue</h2>
-            <p class="text-xl font-semibold">$12,345</p>
+            <h2 class="text-gray-700">Inquiry</h2>
+            <p class="text-xl font-semibold">22</p>
         </div>
         <div class="bg-white shadow rounded p-4">
-            <h2 class="text-gray-700">Products</h2>
+            <h2 class="text-gray-700">Messages</h2>
             <p class="text-xl font-semibold">78</p>
         </div>
     </div>

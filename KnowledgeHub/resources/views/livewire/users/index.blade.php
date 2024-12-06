@@ -55,15 +55,15 @@
                                 {{ $user->created_at }}...
                             </td>
                             <td class="px-6 py-4">
-                                @if ($user->role === 'viewer')
+                                @if ($user->role === 0)
                                     <span
                                         class="px-3 py-1 bg-purple-600 text-purple-100 text-center rounded-md">Viewer</span>
-                                @elseif($user->role === 'admin')
+                                @elseif($user->role === 1)
                                     <span
-                                        class="px-3 py-1 bg-green-600 text-green-100 text-center rounded-md">Admin</span>
+                                        class="px-3 py-1 bg-blue-600 text-green-100 text-center rounded-md">Contributor</span>
                                 @else
                                     <span
-                                        class="px-3 py-1 bg-blue-600 text-blue-100 text-center rounded-md">Contributor</span>
+                                        class="px-3 py-1 bg-green-600 text-blue-100 text-center rounded-md">Admin</span>
                                 @endif
                             </td>
                             <td class="px-6 py-4">

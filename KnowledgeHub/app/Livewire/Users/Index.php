@@ -33,7 +33,7 @@ class Index extends AdminComponent
     {
         $searchTerm = "%" . $this->search . "%";
 
-        return User::whereAny(['name', 'email'], "LIKE", $searchTerm)
+        return User::whereAny(['name', 'email', 'role'], "LIKE", $searchTerm)
             ->latest()
             ->paginate($this->limit);
     }

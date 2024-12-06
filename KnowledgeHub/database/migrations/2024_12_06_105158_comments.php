@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Models\Submissions;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -13,13 +14,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("comments", function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, "user_id")
-                ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->text('content');
             $table->foreignIdFor(Submissions::class, "submission_id")
-                ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string("content");
+                ->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignIdFor(User::class, "user_id")
+                ->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("comments");
+        Schema::dropIfExists('comments');
     }
 };

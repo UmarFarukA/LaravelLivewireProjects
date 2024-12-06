@@ -291,10 +291,10 @@
                     <li class="mb-3">Submit through our portal or via email.</li>
                     <li class="mb-1">Get featured in the Daily Knowledge Drive.</li>
                 </ul>
-                <button href="#"
-                    class="bg-red-700 hover:bg-red-800 text-red-50 hover:text-red-100 px-3 py-2 rounded-md w-full md:w-2/3">Contribute
+                <a href="{{ route('submissions.create') }}"
+                    class="bg-red-700 hover:bg-red-800 text-red-50 hover:text-red-100 px-3 py-2 rounded-md w-full md:w-2/3 mt-6">Contribute
                     Now
-                </button>
+                </a>
 
             </div>
         </div>

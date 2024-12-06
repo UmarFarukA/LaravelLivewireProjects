@@ -13,21 +13,19 @@
             </x-form-field>
 
             <x-form-field>
-                <x-input-label name="password">Password</x-input-label>
-                <x-input-field type="password" name="form.password" />
+                <x-input-label name="status">Status</x-input-label>
+                <x-input-select name="form.status" id="status">
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                </x-input-select>
             </x-form-field>
 
             <x-form-field>
-                <x-input-label name="password_confirmation">Confirm Password</x-input-label>
-                <x-input-field type="password" name="form.password_confirmation" />
-            </x-form-field>
-
-            <x-form-field>
-                <x-input-label name="status">Role</x-input-label>
-                <x-input-select name="form.status">
-                    <option value="viewer">Viewer</option>
-                    <option value="contributor">Contributor</option>
-                    <option value="admin">Admin</option>
+                <x-input-label name="role">Role</x-input-label>
+                <x-input-select name="form.role" id="role">
+                    <option value="0">Viewer</option>
+                    <option value="1">Contributor</option>
+                    <option value="2">Admin</option>
                 </x-input-select>
             </x-form-field>
 
