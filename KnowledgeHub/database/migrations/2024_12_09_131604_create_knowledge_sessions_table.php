@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("knowledge_session", function (Blueprint $table) {
+        Schema::create('knowledge_sessions', function (Blueprint $table) {
             $table->id();
             $table->string("title");
             $table->string("venue");
@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer("duration");
             $table->string("resolution");
             $table->tinyInteger("status")->default(0); // 0-completed, 1-upcoming
+            $table->timestamps();
         });
     }
 
@@ -27,7 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::dropIfExists("knowledge_session");
+        Schema::dropIfExists('knowledge_sessions');
     }
 };

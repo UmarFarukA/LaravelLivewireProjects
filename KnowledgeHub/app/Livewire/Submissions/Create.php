@@ -16,13 +16,13 @@ class Create extends Component
     {
         $this->form->store();
 
-        $this->dispatch(
-            'alert',
-            type: 'success',
-            position: 'center',
-            title: "Submission successfully sent",
-            timer: 7200
-        );
+        // $this->dispatch(
+        //     'alert',
+        //     type: 'success',
+        //     position: 'center',
+        //     title: "Submission successfully sent",
+        //     timer: 7200
+        // );
 
         // $this->alert('success', 'Submission successfully sent!');
 

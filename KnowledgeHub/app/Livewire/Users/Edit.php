@@ -18,6 +18,9 @@ class Edit extends AdminComponent
     public function save()
     {
         $this->form->update();
+
+        cache()->forget(key: 'users-list');
+
         $this->redirect("/dashboard/users");
     }
 

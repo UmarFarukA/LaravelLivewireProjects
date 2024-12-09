@@ -14,13 +14,13 @@ return new class extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, "reviewed_by");
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone');
             $table->text("content");
             $table->tinyInteger("status")->default(0); // 0-draft, 1-publish, 2-rejected
             $table->date("published_date")->nullable(true);
+            $table->tinyInteger("reviewed_by")->default(2);
             $table->timestamps();
         });
     }

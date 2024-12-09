@@ -11,56 +11,66 @@ class UserForm extends Form
 {
     public ?User $user;
 
-    #[Validate('required', message: "Name field is required")]
-    #[Validate('min:3', message: "Name must be at least three characters")]
-    // #[Validate("string", message: "A valid name is required")]
+    // #[Validate('required|string|min:3')]
     public $name = "";
 
-    // #[Validate('required', message: "Email field is required")]
-    // #[Validate('email', message: "A valid email is required")]
-    // #[Validate('unique:users', message: "Email already exists")]
+    // #[Validate('required|email|unique:users,email')]
     public $email = "";
 
-
-    // #[Validate(Rule::unique('users')->ignore($this->user->id))]
-
-    #[Validate('required', message: "Password field is required")]
-    #[Validate('min:8', message: "Password must be at least eight (8) characters")]
-    #[Validate('confirmed', message: "Password must match")]
+    // #[Validate('required|min:8|confirmed')]
     public $password = "";
 
-    #[Validate('required', message: "Password Comfirmation is required")]
+    // #[Validate('required')]
     public $password_confirmation = "";
 
-    #[Validate(['photo' => 'image|max:1024'])]
-    public $photo = "";
+    public $photo = null;
 
-    #[Validate('required', message: "User role is required")]
+    // #[Validate('required')]
     public $role;
 
-    #[Validate('required', message: "User status is required")]
+    // #[Validate('required')]
     public $status;
+
+    protected function rules()
+    {
+        return [
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+
+            'role' => 'required',
+            'status' => 'required'
+        ];
+    }
+
+    protected function messages()
+    {
+        return [
+            'name.required' => 'Name field is required',
+            'name.min' => 'Name must be at least 3 characters',
+            'email.required' => 'Email field is required',
+            'email.email' => 'A valid email is required',
+        ];
+    }
 
     public function setUser(User $user)
     {
         $this->user = $user;
 
-        $this->name = $user->name;
-        $this->email = $user->email;
-        $this->password = $user->password;
-        $this->photo = $user->photo;
-        $this->role = $user->role;
-        $this->status = $user->status;
+        $this->name = $this->user->name;
+        $this->email = $this->user->email;
+        $this->photo = $this->user->photo;
+        $this->role = $this->user->role;
+        $this->status = $this->user->status;
     }
 
     public function store()
     {
+
+        $this->validate();
         $this->validate([
-            "email" => [
-                'required',
-                'email',
-                Rule::unique("users")->ignore($this->user->id)
-            ]
+            'email' => 'unique:users,email',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required',
         ]);
 
         User::create($this->only(['name', 'email', 'password', 'photo', 'role', 'status']));
@@ -68,13 +78,12 @@ class UserForm extends Form
 
     public function update()
     {
-        $this->validate([
-            "email" => [
-                'required',
-                'email',
-                Rule::unique("users")->ignore($this->user->id)
-            ]
-        ]);
+
+        $this->validate();
+
+        // $this->validate([
+        //     'email' => 'unique:users, email' . $this->user->id
+        // ]);
 
         $this->user->update($this->only(['name', 'email', 'role', 'status']));
     }

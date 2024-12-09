@@ -88,7 +88,8 @@
                                                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                         </li>
                                         <li>
-                                            <a href="#"
+                                            <a href="#" wire:confirm='Are you sure you want to delete this user?'
+                                                wire:click='destroy({{ $user }})'
                                                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
                                         </li>
                                     </ul>

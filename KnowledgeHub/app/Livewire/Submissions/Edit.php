@@ -23,15 +23,6 @@ class Edit extends AdminComponent
 
         $this->form->update();
 
-        $this->dispatch(
-            'alert',
-            type: 'success',
-            position: 'top-end',
-            title: "Submission successfully updated",
-            toast: true,
-            timer: 7200
-        );
-
         $this->redirect('/dashboard/submissions', navigate: true);
     }
 

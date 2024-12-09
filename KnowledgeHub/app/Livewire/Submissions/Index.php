@@ -27,6 +27,13 @@ class Index extends AdminComponent
             ->paginate($this->limit);
     }
 
+    public function destroy(Submissions $submission)
+    {
+        $submission->delete();
+
+        unset($this->submissions);
+    }
+
     public function render()
     {
         return view('livewire.submissions.index');

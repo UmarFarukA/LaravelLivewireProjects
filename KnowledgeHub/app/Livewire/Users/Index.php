@@ -18,9 +18,10 @@ class Index extends AdminComponent
     {
         $this->form->store();
 
-        unset($this->users);
 
         $this->redirect("/dashboard/users", navigate: true);
+
+        unset($this->users);
     }
 
     public function showEditModal()
@@ -28,7 +29,7 @@ class Index extends AdminComponent
         $this->dispatch('show-form');
     }
 
-    #[Computed()]
+    #[Computed(cache: true, key: 'users-list')]
     public function users()
     {
         $searchTerm = "%" . $this->search . "%";
@@ -38,8 +39,17 @@ class Index extends AdminComponent
             ->paginate($this->limit);
     }
 
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        unset($this->users);
+    }
+
     public function render()
     {
+        cache()->forget(key: 'users-list');
+
         return view('livewire.users.index');
     }
 }

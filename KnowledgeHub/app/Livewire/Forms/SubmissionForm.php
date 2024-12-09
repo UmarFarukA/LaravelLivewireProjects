@@ -3,54 +3,66 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Submissions;
-use App\Models\User;
-use Illuminate\Validation\Rule;
-use Livewire\Attributes\Validate;
 use Livewire\Form;
+
+// use App\Models\User;
+// use Illuminate\Validation\Rule;
+// use Livewire\Attributes\Validate;
 
 class SubmissionForm extends Form
 {
     public ?Submissions $submission;
 
-    #[Validate('required', message: "Name is required")]
-    #[Validate('min:3', message: "Name must be at least three characters")]
     public $name = "";
-
-    // #[Validate('required', message: "Email field is required")]
-    // #[Validate('email', message: "Valid email is required")]
-    // #[Validate('unique:users', message: "Email address already exists")]
     public $email = "";
-
-    #[Validate('required', message: "Content field is required")]
-    #[Validate('max_words:150', message: "Content must be at most 150 words.")]
     public $content = "";
-
-    #[Validate('required', message: "Phone number field is required")]
-    #[Validate('min:11', message: "A valid phone number is required")]
-    #[Validate('max:11', message: "A valid phone number is required")]
     public $phone;
-
     public $status = '';
+
+    protected function rules()
+    {
+        return [
+            'name' => 'required|min:3',
+            'email' =>  'required|email',
+            'content' => 'required|string',
+            'status' => 'required'
+        ];
+    }
+
+    protected function messages()
+    {
+        return [
+            'name.required' => 'Name field is required',
+            'name.min' => 'Name must be at least 3 characters',
+            'name.string' => 'Name must contain sequence of characters',
+            'email.required' => 'Email is required',
+            'email.email' => 'A valid email is required',
+            'email.unique' => 'Email already exists',
+            'content.required' => 'Content is required',
+            'content.string' => 'Content must be sequence of characters/words',
+            'content.max_words' => 'Content must not exceed maximum of 150 words',
+            'phone.required' => 'Phone field is required',
+            'phone.min' => 'A valid phone number is requred'
+        ];
+    }
 
     public function setSubmission(Submissions $submission)
     {
         $this->submission = $submission;
 
-        $this->name = $submission->name;
-        $this->email = $submission->email;
-        $this->content = $submission->content;
-        $this->status = $submission->status;
-        $this->phone = $submission->phone;
+        $this->name = $this->submission->name;
+        $this->email = $this->submission->email;
+        $this->content = $this->submission->content;
+        $this->status = $this->submission->status;
+        $this->phone = $this->submission->phone;
     }
 
     public function store()
     {
+        $this->validate();
+
         $this->validate([
-            "email" => [
-                'required',
-                "email",
-                Rule::unique("users")->ignore($this->submission->id)
-            ]
+            'phone' => 'required|min:11|max:11',
         ]);
 
         Submissions::create($this->only(['name', 'email', 'phone', 'content']));
@@ -60,12 +72,10 @@ class SubmissionForm extends Form
 
     public function update()
     {
+        $this->validate();
+
         $this->validate([
-            "email" => [
-                'required',
-                "email",
-                Rule::unique("users")->ignore($this->submission->id)
-            ]
+            'email' => 'unique:users,email'
         ]);
 
         $this->submission->update(
