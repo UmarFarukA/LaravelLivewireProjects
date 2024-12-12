@@ -1,14 +1,14 @@
 <div>
-    {{-- {{ $header }} --}}
 
     <div class="mb-3 flex item-center justify-start gap-3">
-        <select wire:model.live="limit" id="" class="px-2 py-1">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-        </select>
-        <div class="p-2">
+        <div class="flex justify-start gap-4">
+            <select wire:model.live="limit" id="" class="px-2 py-1">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+
             <input type="text" wire:model.live.debounce.150ms='search'
                 class="w-full py-2 px-3 rounded-md border-none bg-gray-200 focus:ring focus:ring-green-700"
                 placeholder="Search through submissions">

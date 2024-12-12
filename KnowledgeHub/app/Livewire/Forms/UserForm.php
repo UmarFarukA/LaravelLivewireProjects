@@ -36,7 +36,6 @@ class UserForm extends Form
         return [
             'name' => 'required|min:3',
             'email' => 'required|email',
-
             'role' => 'required',
             'status' => 'required'
         ];
