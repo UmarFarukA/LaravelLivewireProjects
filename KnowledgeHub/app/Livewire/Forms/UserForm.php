@@ -23,7 +23,7 @@ class UserForm extends Form
     // #[Validate('required')]
     public $password_confirmation = "";
 
-    public $photo = null;
+    public $photo_path = null;
 
     // #[Validate('required')]
     public $role;
@@ -57,7 +57,7 @@ class UserForm extends Form
 
         $this->name = $this->user->name;
         $this->email = $this->user->email;
-        $this->photo = $this->user->photo;
+        $this->photo_path = $this->user->photo_path;
         $this->role = $this->user->role;
         $this->status = $this->user->status;
     }
@@ -79,10 +79,6 @@ class UserForm extends Form
     {
 
         $this->validate();
-
-        // $this->validate([
-        //     'email' => 'unique:users, email' . $this->user->id
-        // ]);
 
         $this->user->update($this->only(['name', 'email', 'role', 'status']));
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\About;
 use App\Livewire\Dashboard\Index as DashboardIndex;
 use App\Livewire\Submissions\Index as SubmissionIndex;
 use App\Livewire\Submissions\Edit as EditSubmission;
@@ -16,6 +17,7 @@ use App\Livewire\Users\Edit as EditUser;
 use Illuminate\Support\Facades\Auth;
 
 Route::get("/", Home::class)->name('home');
+Route::get('/about', About::class)->name('about');
 Route::get("/login", Login::class)->name('login');
 Route::get("/logout", function () {
     Auth::logout();

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string("photo")->nullable(true);
+            $table->string("photo_path")->nullable(true);
+            $table->string('phone')->nullable(true);
             $table->tinyInteger("role")->default(0); // 0-viewer, 1-contributor, 2-admin
             $table->tinyInteger("status")->default(1); //1-Active, 0-Inactive
             $table->timestamps();

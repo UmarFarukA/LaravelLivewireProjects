@@ -21,7 +21,11 @@ class Index extends AdminComponent
 
     public $email = '';
 
+    public $phone;
+
     public $photo;
+
+    public $photo_path;
 
     public $currentPassword = "";
     public $password = "";
@@ -34,7 +38,8 @@ class Index extends AdminComponent
     {
         return [
             'name' => 'required|string|min:3',
-            'email' => 'required|email|unique:users,email,' . Auth::user()->id
+            'email' => 'required|email|unique:users,email,' . Auth::user()->id,
+            'phone' => 'required|min:11|max:14'
         ];
     }
 
@@ -42,7 +47,8 @@ class Index extends AdminComponent
     {
         $this->name = Auth::user()->name;
         $this->email = Auth::user()->email;
-        $this->photo = Auth::user()->photo;
+        $this->phone = Auth::user()->phone;
+        $this->photo_path = Auth::user()->photo_path;
     }
 
     public function updateDetails()
@@ -53,6 +59,7 @@ class Index extends AdminComponent
 
         $user->name = $this->name;
         $user->email = $this->email;
+        $user->phone = $this->phone;
 
         $user->save();
     }
@@ -86,13 +93,16 @@ class Index extends AdminComponent
 
         $user = User::find(Auth::user()->id);
 
-        $extension = $this->photo->getClientOriginalExtension();
+        if ($this->photo) {
 
-        $this->photo->storeAs(path: 'photos', name: $user->email . "_" . $user->id . "." . $extension);
+            $this->photo_path = $this->photo->store('users_photos', 'public');
 
-        $user->photo = $user->email . "_" . $user->id . "." . $extension;
+            $user->photo_path = $this->photo_path;
 
-        $user->save();
+            $user->save();
+
+            $this->reset('photo');
+        }
     }
 
 
