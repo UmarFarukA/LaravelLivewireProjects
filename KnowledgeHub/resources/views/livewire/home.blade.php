@@ -350,7 +350,8 @@
             </div>
         </div>
 
-        <p class="text-stone-700 text-center">Alternatively click <a href="#" class="text-red-700">here</a>
+        <p class="text-stone-700 text-center">Alternatively click <a href="{{ route('contact') }}"
+                class="text-red-700">here</a>
             for further engagement or Insight
         </p>
     </section>

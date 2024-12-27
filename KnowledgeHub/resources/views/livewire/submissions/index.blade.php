@@ -64,7 +64,7 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4">
-                                <button id="dropdownMenuIconButton" data-dropdown-toggle="drop-{{ $submission->id }}"
+                                <a id="dropdownMenuIconButton" data-dropdown-toggle="drop-{{ $submission->id }}"
                                     data-dropdown-placement="left"
                                     class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                                     type="button">
@@ -73,7 +73,7 @@
                                         <path
                                             d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
                                     </svg>
-                                </button>
+                                </a>
 
                                 <!-- Dropdown menu -->
                                 <div id="drop-{{ $submission->id }}"

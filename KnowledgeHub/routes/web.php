@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\About;
+use App\Livewire\Contact;
 use App\Livewire\Dashboard\Index as DashboardIndex;
 use App\Livewire\Submissions\Index as SubmissionIndex;
 use App\Livewire\Submissions\Edit as EditSubmission;
@@ -8,6 +9,7 @@ use App\Livewire\Submissions\Create as CreateSubmission;
 use App\Livewire\Sessions\Index as SessionIndex;
 use App\Livewire\Settings\Index as SettingIndex;
 use App\Livewire\Home;
+use App\Livewire\KnowledgeSession;
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\Login;
@@ -18,6 +20,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get("/", Home::class)->name('home');
 Route::get('/about', About::class)->name('about');
+Route::get('/knowledge_sessions', KnowledgeSession::class)->name('knowledge_sessions');
+Route::get('/contact', Contact::class)->name('contact');
+
 Route::get("/login", Login::class)->name('login');
 Route::get("/logout", function () {
     Auth::logout();

@@ -31,8 +31,8 @@
                     <x-nav-item href="{{ route('home') }}"
                         class="{{ request()->is('/') ? 'text-green-700' : '' }}">Home</x-nav-item>
                     <x-nav-item href="{{ route('about') }}">About</x-nav-item>
-                    <x-nav-item href="">Knowledge Sessions</x-nav-item>
-                    <x-nav-item href="">Contact</x-nav-item>
+                    <x-nav-item href="{{ route('knowledge_sessions') }}">Knowledge Sessions</x-nav-item>
+                    <x-nav-item href="{{ route('contact') }}">Contact</x-nav-item>
 
                     <x-nav-item href="{{ route('login') }}" class="md:hidden  py-2 px-3 md:p-0">Login</x-nav-item>
                     <x-nav-item href="#" class="md:hidden  py-2 px-3 md:p-0">Register</x-nav-item>
