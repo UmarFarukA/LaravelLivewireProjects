@@ -1,7 +1,3 @@
-{{-- <x-header />
-
-<x-navigation />
-
 <section class="grid md:grid-cols-2 min-h-screen">
     <div class="hidden md:flex flex-col justify-center items-center  bg-emerald-700 h-full rounded-e-md">
         <div class="text-slate-50 text-center">
@@ -46,4 +42,3 @@
         </div>
     </div>
 </section>
-<x-footer /> --}}
