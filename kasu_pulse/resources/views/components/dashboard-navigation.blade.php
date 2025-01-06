@@ -1,14 +1,11 @@
 <nav
     class="bg-emerald-700 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="{{ route('login') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('images/kasu_logo.jpeg') }}" class="h-8 w-8 rounded-full" alt="KASU Logo">
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-emerald-700">KASU Pulse</span>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {{-- <button type="button"
-                class="hidden md:inline-block text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">Get
-                started</button> --}}
             <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
                 class="text-emeral-700 bg-gray-50 hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-gray-50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center "
                 type="button">Profile<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
@@ -27,19 +24,11 @@
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#"
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
                     </li>
                 </ul>
                 <div class="py-2">
-                    <a href="#"
+                    <a href="{{ route('logout') }}"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
                         out</a>
                 </div>
