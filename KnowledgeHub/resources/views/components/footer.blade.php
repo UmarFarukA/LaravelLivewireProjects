@@ -28,6 +28,7 @@
 </footer>
 
 <x-livewire-alert::scripts />
+<x-toaster-hub />
 </body>
 
 </html>

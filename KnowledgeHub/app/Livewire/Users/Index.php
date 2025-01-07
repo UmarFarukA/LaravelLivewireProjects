@@ -6,6 +6,7 @@ use App\Livewire\AdminComponent;
 use App\Livewire\Forms\UserForm;
 use App\Models\User;
 use Livewire\Attributes\Computed;
+use Masmerise\Toaster\Toaster;
 
 class Index extends AdminComponent
 {
@@ -18,6 +19,7 @@ class Index extends AdminComponent
     {
         $this->form->store();
 
+        Toaster::success("New User created successfully");
 
         $this->redirect("/dashboard/users", navigate: true);
 
@@ -44,6 +46,8 @@ class Index extends AdminComponent
         $user->delete();
 
         unset($this->users);
+
+        Toaster::success("User deleted successfully");
     }
 
     public function render()

@@ -5,6 +5,7 @@ namespace App\Livewire\Users;
 use App\Livewire\AdminComponent;
 use App\Livewire\Forms\UserForm;
 use App\Models\User;
+use Masmerise\Toaster\Toaster;
 
 class Edit extends AdminComponent
 {
@@ -20,6 +21,8 @@ class Edit extends AdminComponent
         $this->form->update();
 
         cache()->forget(key: 'users-list');
+
+        Toaster::success("Updated successfully");
 
         $this->redirect("/dashboard/users");
     }

@@ -14,6 +14,7 @@
         overlay.classList.add('hidden');
     });
 </script>
+<x-toaster-hub />
 </body>
 
 </html>

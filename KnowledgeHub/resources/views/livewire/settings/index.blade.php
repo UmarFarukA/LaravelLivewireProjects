@@ -62,11 +62,11 @@
         aria-labelledby="dashboard-tab">
         <div class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="changePassword" role="tabpanel"
             class="relative overflow-x-auto shadow-md sm:rounded-lg px-8 py-4" wire:ignore.self>
-            @if (isset($wrongPassword))
+            {{-- @if (isset($wrongPassword))
                 <span class="bg-red-600 px-2 py-1 mb-2 rounded text-white text-center">
                     {{ $wrongPassword }}
                 </span>
-            @endif
+            @endif --}}
             <form wire:submit='updatePassword'>
 
                 <div class="mb-5">

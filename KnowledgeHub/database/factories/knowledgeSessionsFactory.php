@@ -21,7 +21,6 @@ class knowledgeSessionsFactory extends Factory
             'venue' => fake()->address(),
             'date' => fake()->date(),
             'resolution' => fake()->realText(200),
-            'duration' => fake()->numberBetween(1, 3),
             'status' => fake()->randomElement([0, 1])
         ];
     }

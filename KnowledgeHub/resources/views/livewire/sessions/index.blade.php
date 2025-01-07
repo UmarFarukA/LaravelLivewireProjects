@@ -13,7 +13,8 @@
                 placeholder="Search through users">
         </div>
 
-        <x-nav-link href="#" class="bg-green-700 text-green-100 px-3 py-2 rounded-md">Create New
+        <x-nav-link href="{{ route('sessions.create') }}"
+            class="bg-green-700 text-green-100 px-3 py-2 rounded-md">Create New
             Session</x-nav-link>
     </div>
 
@@ -28,7 +29,7 @@
                         Venue
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Date Created
+                        Date
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Status

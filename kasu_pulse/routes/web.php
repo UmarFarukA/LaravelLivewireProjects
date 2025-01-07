@@ -20,5 +20,5 @@ Route::get('/dashboard', Dashboard::class)
 
 Route::get("/logout", function () {
     Auth::logout();
-    return redirect()->route("home");
+    return redirect()->route("login");
 })->name("logout");

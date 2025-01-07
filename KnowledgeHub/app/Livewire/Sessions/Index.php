@@ -5,6 +5,7 @@ namespace App\Livewire\Sessions;
 use App\Livewire\AdminComponent;
 use App\Models\knowledgeSessions;
 use Livewire\Attributes\Computed;
+use Masmerise\Toaster\Toaster;
 
 class Index extends AdminComponent
 {
@@ -19,6 +20,8 @@ class Index extends AdminComponent
         $session->delete();
 
         cache()->forget('session-lists');
+
+        Toaster::success('Session deleted Successfully');
     }
 
     public function render()

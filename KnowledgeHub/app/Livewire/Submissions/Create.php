@@ -5,6 +5,7 @@ namespace App\Livewire\Submissions;
 // use Jantinnerezo\LivewireAlert\LivewireAlert;
 use App\Livewire\Forms\SubmissionForm;
 use Livewire\Component;
+use Masmerise\Toaster\Toaster;
 
 class Create extends Component
 {
@@ -15,6 +16,8 @@ class Create extends Component
     public function save()
     {
         $this->form->store();
+
+        Toaster::success('Submission created Successfully.');
 
         $this->redirect("/submission", navigate: true);
     }

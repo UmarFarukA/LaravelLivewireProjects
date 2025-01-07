@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Masmerise\Toaster\Toaster;
 
 // use Livewire\Component;
 
@@ -31,7 +32,7 @@ class Index extends AdminComponent
     public $password = "";
     public $password_confirmation = "";
 
-    public $wrongPassword;
+    // public $wrongPassword;
 
 
     public function rules()
@@ -62,6 +63,8 @@ class Index extends AdminComponent
         $user->phone = $this->phone;
 
         $user->save();
+
+        Toaster::success($user->name + " details updated");
     }
 
     public function updatePassword()
@@ -80,9 +83,11 @@ class Index extends AdminComponent
         if (Hash::check($this->currentPassword, $user->password)) {
             $user->password = $newHashPassword;
             $user->save();
+            Toaster::success("Password successfully updated.");
         }
 
-        $this->wrongPassword = "Current Password is invalid";
+        // $this->wrongPassword = "Current Password is invalid";
+        Toaster::error("Current Password is invalid.");
     }
 
     public function uploadPhoto()
@@ -100,6 +105,8 @@ class Index extends AdminComponent
             $user->photo_path = $this->photo_path;
 
             $user->save();
+
+            Toaster::success("User Photo uploaded successfully.");
 
             $this->reset('photo');
         }

@@ -1,5 +1,9 @@
 import "./bootstrap";
 import "flowbite";
+import "./bootstrap";
+import "../../vendor/masmerise/livewire-toaster/resources/js"; // 👈
+
+// other app stuff...
 import Swal from "sweetalert2";
 
 // window.addEventListener("alert", (e) => {

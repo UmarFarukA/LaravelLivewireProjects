@@ -7,6 +7,7 @@ use App\Models\Submissions;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
+use Masmerise\Toaster\Toaster;
 
 #[Layout('components.layouts.admin')]
 #[Title('Submissions')]
@@ -30,6 +31,8 @@ class Index extends AdminComponent
     public function destroy(Submissions $submission)
     {
         $submission->delete();
+
+        Toaster::success("Submission deleted Successfully");
 
         unset($this->submissions);
     }

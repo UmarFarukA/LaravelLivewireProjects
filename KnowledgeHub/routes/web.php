@@ -7,6 +7,7 @@ use App\Livewire\Submissions\Index as SubmissionIndex;
 use App\Livewire\Submissions\Edit as EditSubmission;
 use App\Livewire\Submissions\Create as CreateSubmission;
 use App\Livewire\Sessions\Index as SessionIndex;
+use App\Livewire\Sessions\Create as SessionCreate;
 use App\Livewire\Settings\Index as SettingIndex;
 use App\Livewire\Home;
 use App\Livewire\KnowledgeSession;
@@ -54,6 +55,9 @@ Route::get("/dashboard/users/{user}/edit", EditUser::class)
 Route::get("/dashboard/sessions", SessionIndex::class)
     ->middleware('auth')
     ->name("sessions.index");
+Route::get("/dashboard/sessions/create", SessionCreate::class)
+    ->middleware('auth')
+    ->name("sessions.create");
 
 Route::get("/dashboard/settings", SettingIndex::class)
     ->middleware('auth')

@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string("title");
             $table->string("venue");
             $table->date("date");
-            $table->integer("duration");
-            $table->string("resolution");
+            $table->string("resolution")->nullable(true);
             $table->tinyInteger("status")->default(0); // 0-completed, 1-upcoming
             $table->timestamps();
         });
