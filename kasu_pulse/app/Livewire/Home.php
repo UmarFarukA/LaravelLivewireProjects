@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Masmerise\Toaster\Toaster;
 
 #[Layout("components.layouts.app")]
 class Home extends Component
@@ -14,7 +15,7 @@ class Home extends Component
 
     public $password = '';
 
-    public $loginError;
+    // public $loginError;
 
     protected function rules()
     {
@@ -42,9 +43,10 @@ class Home extends Component
         $valid = Auth::attempt(['username' => $this->username, 'password' => $this->password]);
 
         if ($valid) {
-            $this->redirect('/dashboard', navigate: true);
+            Toaster::success("Login Successfully");
+            $this->redirect('/dashboard');
         } else {
-            $this->loginError = 'Username/Password is invalid.';
+            Toaster::error("Username/Password is invalid.");
         }
     }
 

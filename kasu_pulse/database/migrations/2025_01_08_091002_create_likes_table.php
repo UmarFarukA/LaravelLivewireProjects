@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,11 +12,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reactions', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class, 'user_id');
-            $table->foreignIdFor(Post::class, 'post_id');
-            $table->string('content');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reactions');
+        Schema::dropIfExists('likes');
     }
 };

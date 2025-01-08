@@ -2,14 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\ForumThreads;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ForumReplies>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Like>
  */
-class ForumRepliesFactory extends Factory
+class LikeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,9 +18,7 @@ class ForumRepliesFactory extends Factory
     public function definition(): array
     {
         return [
-            'thread_id' => ForumThreads::factory(),
-            'user_id' => User::factory(),
-            'content' => fake()->realText(50)
+            'user_id' => User::factory()
         ];
     }
 }

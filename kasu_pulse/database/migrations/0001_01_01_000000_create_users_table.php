@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->tinyInteger('role');
+            $table->tinyInteger('role')->default(3); //1-Admin, 2-Staff, 3-Student, 0-guest
             $table->string('photo_path')->nullable(true);
             $table->string('bio')->nullable(true);
             $table->timestamps();

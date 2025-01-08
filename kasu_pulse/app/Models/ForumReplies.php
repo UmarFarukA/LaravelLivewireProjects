@@ -9,4 +9,6 @@ class ForumReplies extends Model
 {
     /** @use HasFactory<\Database\Factories\ForumRepliesFactory> */
     use HasFactory;
+
+    protected $guarded = [];
 }

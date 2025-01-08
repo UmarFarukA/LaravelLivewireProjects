@@ -20,11 +20,11 @@
             <h3 class="text-2xl md:text-5xl font-semibold mb-6">Sign In, stay Informed</h3>
         </div>
         <form wire:click='login'>
-            <div class="my-2 flex justify-center">
+            {{-- <div class="my-2 flex justify-center">
                 @if (isset($loginError))
                     <span class="text-cente px-3 py-1 rounded-md bg-red-600 text-white">{{ $loginError }}</span>
                 @endif
-            </div>
+            </div> --}}
             <x-form-field>
                 <x-form-label name='username'>Username</x-form-label>
                 <x-form-input id='username' type='text' placeholder='Enter your username' wire:model='username' />

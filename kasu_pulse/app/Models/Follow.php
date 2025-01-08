@@ -9,4 +9,6 @@ class Follow extends Model
 {
     /** @use HasFactory<\Database\Factories\FollowFactory> */
     use HasFactory;
+
+    protected $guarded = [];
 }

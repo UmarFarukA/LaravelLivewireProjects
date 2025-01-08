@@ -9,4 +9,6 @@ class ForumThreads extends Model
 {
     /** @use HasFactory<\Database\Factories\ForumThreadsFactory> */
     use HasFactory;
+
+    protected $guarded = [];
 }

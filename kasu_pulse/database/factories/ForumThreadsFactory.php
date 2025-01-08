@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\ForumThreads;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,9 @@ class ForumThreadsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->realText(50),
+            'content' => fake()->realText(50),
+            'created_by' => User::factory()
         ];
     }
 }

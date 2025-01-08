@@ -9,4 +9,6 @@ class Reaction extends Model
 {
     /** @use HasFactory<\Database\Factories\ReactionFactory> */
     use HasFactory;
+
+    protected $guarded = [];
 }
