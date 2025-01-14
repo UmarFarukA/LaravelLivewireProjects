@@ -27,14 +27,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Item 2 -->
-                {{-- <div class="hidden duration-700 ease-in-out w-full h-5/6" data-carousel-item>
-                    <img src="{{ asset('images/2.jpg') }}"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div> --}}
-
-                <!-- Item 3 -->
                 <div class="hidden duration-700 ease-in-out w-full h-3/4" data-carousel-item>
                     <img src="{{ asset('images/3.jpg') }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
