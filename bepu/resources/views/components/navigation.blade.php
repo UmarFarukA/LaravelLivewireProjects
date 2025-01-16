@@ -21,7 +21,7 @@
                     <x-nav-item>Events</x-nav-item>
                     <x-nav-item>Blog</x-nav-item>
                     <x-nav-item href="{{ route('about') }}">About</x-nav-item>
-                    <x-nav-item>Contact</x-nav-item>
+                    <x-nav-item href="{{ route('contact') }}">Contact</x-nav-item>
                 </x-nav-links>
             </div>
         </div>
