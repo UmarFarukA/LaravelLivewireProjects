@@ -74,7 +74,7 @@
     </section>
 
     <section id="about" class="bg-slate-50 ">
-        <div class="grid grid-cols-1 md:w-2/4 mx-8 md:mx-auto pt-8 pb-6 md:pt-36 md:pb-28">
+        <div class="grid grid-cols-1 md:w-3/4 lg:w-2/4 mx-8 md:mx-auto pt-8 pb-6 md:pt-36 md:pb-28">
             <h3 class="text-emerald-800 text-center font-bold text-6xl">About</h3>
             <p class="text-xl text-center text-emerald-700 italic pt-1">Unit for development</p>
             <div class="pt-6 text-justify md:text-center mb-6">
@@ -84,11 +84,31 @@
                     community participation in shaping its own destiny.
                 </p>
                 <div class="pt-10 text-center">
-                    <a class="bg-emerald-800 hover:bg-emerald-700 text-emerald-50 px-3 py-2 rounded-md">
+                    <a href="{{ route('about') }}"
+                        class="bg-emerald-800 hover:bg-emerald-700 text-emerald-50 px-3 py-2 rounded-md">
                         Read more
                     </a>
                 </div>
             </div>
+        </div>
+
+    </section>
+
+    <section id="events" class="bg-slate-50 ">
+        <div class="grid grid-cols-1 md:w-2/4 mx-8 md:mx-auto pt-8 pb-6 md:pt-2 md:pb-8">
+            <h3 class="text-emerald-800 text-center font-bold text-2xl md:text-6xl">Events and Activities</h3>
+            <p class="text-sm md:text-lg text-center text-stone-800 italic pt-1">...fostering sustainable development.
+            </p>
+        </div>
+
+        <div
+            class="md:w-3/4 mx-8 md:mx-auto flex flex-col flex-wrap md:space-y-4 gap-6 md:gap-0 md:flex-row justify-around items-center pb-14 md:pb-10">
+            <x-event-card img_path="images/img_1.jpg" caption="General Meeting"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit, Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+            <x-event-card img_path="images/medical.jpg" caption="Medical Outreach"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit, Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+            <x-event-card img_path="images/img_4.jpg" caption="Colloquium"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit, Lorem ipsum dolor sit amet consectetur adipisicing elit." />
         </div>
 
     </section>
