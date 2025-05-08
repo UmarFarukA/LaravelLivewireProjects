@@ -30,7 +30,7 @@
 
       <div class="hidden md:flex items-center gap-4">
         <a href="{{route('login')}}" class="px-3 py-1.5 text-sm font-medium border rounded-md hover:bg-gray-50">Sign In</a href="{{route('login')}}">
-        <button class="px-3 py-1.5 text-sm font-medium bg-sky-500 text-white rounded-md hover:bg-sky-600">Browse Tricycles</button>
+        <a href="{{route('signup')}}" class="px-3 py-1.5 text-sm font-medium bg-sky-500 text-white rounded-md hover:bg-sky-600">Sign Up</a>
       </div>
     </div>
   </header>
