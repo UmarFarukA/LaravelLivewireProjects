@@ -20,7 +20,7 @@
 
       <!-- Desktop navigation -->
       <x-nav>
-       
+
         <x-nav-link href="{{route('home')}}">Home</x-nav-link>
         <x-nav-link href="{{route('products')}}">Products</x-nav-link>
         <x-nav-link href="{{route('about-us')}}">About Us</x-nav-link>
@@ -29,8 +29,8 @@
       </x-nav>
 
       <div class="hidden md:flex items-center gap-4">
-        <a href="{{route('login')}}" class="px-3 py-1.5 text-sm font-medium border rounded-md hover:bg-gray-50">Sign In</a href="{{route('login')}}">
-        <a href="{{route('signup')}}" class="px-3 py-1.5 text-sm font-medium bg-sky-500 text-white rounded-md hover:bg-sky-600">Sign Up</a>
+        <a href="{{route('login')}}" wire:navigate class="px-3 py-1.5 text-sm font-medium border rounded-md hover:bg-gray-50">Sign In</a href="{{route('login')}}">
+        <a href="{{route('signup')}}" wire:navigate class="px-3 py-1.5 text-sm font-medium bg-sky-500 text-white rounded-md hover:bg-sky-600">Sign Up</a>
       </div>
     </div>
   </header>

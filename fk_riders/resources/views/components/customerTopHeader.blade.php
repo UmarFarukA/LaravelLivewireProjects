@@ -16,7 +16,7 @@
       <div class="flex items-center">
         <img src="https://placehold.co/40x40" alt="User" class="h-8 w-8 rounded-full">
         <div class="ml-2">
-          <p class="text-sm font-medium">John Doe</p>
+          <p class="text-sm font-medium">{{Auth::user()->name}}</p>
           <p class="text-xs text-gray-500">Customer</p>
         </div>
       </div>

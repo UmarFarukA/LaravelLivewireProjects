@@ -2,7 +2,7 @@
 <div class="p-6">
     <!-- Welcome Banner -->
     <div class="bg-white rounded-lg shadow p-6 mb-6">
-      <h1 class="text-2xl font-bold text-gray-800">Welcome back, John Doe!</h1>
+      <h1 class="text-2xl font-bold text-gray-800">Welcome back, {{Auth::user()->name}}</h1>
       <p class="text-gray-600 mt-1">Here's an overview of your tricycle purchases and payments.</p>
     </div>
 
@@ -167,7 +167,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Installment Details -->
           <div class="p-4 border-b">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -185,7 +185,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Payment Progress -->
           <div class="p-4 border-b">
             <div class="flex items-center justify-between mb-2">
@@ -196,7 +196,7 @@
               <div class="bg-sky-500 h-2.5 rounded-full" style="width: 50%"></div>
             </div>
           </div>
-          
+
           <!-- Next Payment -->
           <div class="p-4">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between">

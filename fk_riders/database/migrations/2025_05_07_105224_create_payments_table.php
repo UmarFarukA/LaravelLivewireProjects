@@ -20,8 +20,9 @@ return new class extends Migration
             $table->foreignIdFor(Products::class, 'product_id')
                     ->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->float('amount_paid');
-            $table->float('total_amount_paid');
-            $table->string('channel');
+            // $table->float('total_amount_paid')->nullable(true);
+            $table->tinyInteger('payment_type')->default(0); //1-installment, 2-full payment
+            $table->tinyInteger('status')->default(0); // 0-pending, 1-successful, 2-failed
             $table->date('due_date');
             $table->timestamps();
         });

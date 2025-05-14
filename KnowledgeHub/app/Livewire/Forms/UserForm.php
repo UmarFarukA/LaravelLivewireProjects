@@ -62,7 +62,7 @@ class UserForm extends Form
         $this->status = $this->user->status;
     }
 
-    public function store()
+    public function store() 
     {
 
         $this->validate();

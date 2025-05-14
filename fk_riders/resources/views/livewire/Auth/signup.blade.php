@@ -1,6 +1,6 @@
 <section class="bg-white text-gray-900">
     <div class="flex flex-col items-center mt-12 px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="{{route('home')}}" class="flex items-center mb-6 text-4xl font-semibold text-primary-default">
+        <a href="{{route('home')}}" wire:navigate class="flex items-center mb-6 text-4xl font-semibold text-primary-default">
            FK Riders
         </a>
         <div
@@ -9,38 +9,43 @@
                 <h1 class="">
                     Create Account
                 </h1>
-                <form class="space-y-4 md:space-y-8">
+                <form class="space-y-4 md:space-y-8" wire:submit.prevent='save'>
                     <x-form-field>
                         <x-input-label name="name">Name</x-input-label>
-                        <x-input-field name="name" id="name" type="text" />
+                        <x-input-field name="form.name" id="name" type="text" />
                     </x-form-field>
 
                     <x-form-field>
                         <x-input-label name="phone">Phone</x-input-label>
-                        <x-input-field name="phone" id="phone" type="phone" />
+                        <x-input-field name="form.phone" id="phone" type="phone" />
                     </x-form-field>
 
                     <x-form-field>
                         <x-input-label name="email">Email</x-input-label>
-                        <x-input-field name="email" id="email" type="email" />
+                        <x-input-field name="form.email" id="email" type="email" />
                     </x-form-field>
 
                     <x-form-field>
                         <x-input-label name="password">Password</x-input-label>
-                        <x-input-field name="password" id="password" type="password" />
+                        <x-input-field name="form.password" id="password" type="password" />
                     </x-form-field>
 
                     <x-form-field>
-                        <x-input-label name="confirm_password">Confirm Password</x-input-label>
-                        <x-input-field name="confirm_password" id="confirm_password" type="password" />
+                        <x-input-label name="password_confirmation">Confirm Password</x-input-label>
+                        <x-input-field name="form.password_confirmation" id="password_confirmation" type="password" />
                     </x-form-field>
 
-                    <x-primary-button type="submit" class="w-full mb-1">Login</x-primary-button>
+                    <x-form-field>
+                        <x-primary-button type="submit" class="w-full mb-1">Login</x-primary-button>
+                    </x-form-field>
 
                     <p class="text-sm font-light text-stone-500 dark:text-gray-400 mt-8">
-                        Already have an account? <a href="{{route('login')}}"
+                        Already have an account?
+                        <a href="{{route('login')}}"
+                            wire:navigate
                             class="font-medium text-stone-600 hover:underline dark:text-primary-500">Click
-                            here</a>
+                            here
+                        </a>
                     </p>
                 </form>
             </div>

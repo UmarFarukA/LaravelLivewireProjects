@@ -16,16 +16,16 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('phone')->unique();
+            $table->string('phone')->unique();
             $table->string('photo')->nullable(true);
-            $table->string('address');
-            $table->enum('role', ['customer', 'admin'])->default('customer');
-            $table->string('guarantor_name')->nullable(false);
+            $table->string('address')->nullable(true);
+            $table->tinyInteger('role')->default(0); // 0-Customer, 1-Admin, 2-SuperAdmin
+            $table->tinyInteger('status')->default(1); // 0-inactive, 1-active
+            $table->string('guarantor_name')->nullable(true);
             $table->string('guarantor_phone')
                     ->unique()
-                    ->nullable(false);
-            $table->string('guarantor_address')->nullable(false);
-            $table->rememberToken();
+                    ->nullable(true);
+            $table->string('guarantor_address')->nullable(true);
             $table->timestamps();
         });
 
