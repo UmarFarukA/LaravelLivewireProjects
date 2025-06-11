@@ -16,24 +16,21 @@
             <nav class="">
                 <ul class="flex items-center text-blue-500 text-lg font-bold gap-3">
                     <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Articles</a>
+                        <a href="{{route('index')}}" wire:navigate>Home</a>
                     </li>
                 </ul>
             </nav>
             <div>
-                <livewire:search />
+                <ul class="flex items-center text-blue-500 text-lg font-bold gap-3">
+                    <li>
+                        <a href="{{route('login')}}" wire:navigate>Login</a>
+                    </li>
+                </ul>
             </div>
         </header>
 
-        <main class="flex justify-between items-center w-3/4 mx-auto mt-8 p-6 text-white border border-red-600 relative">
-            <div>
-                <h4>Main Article content goes here</h4>
-            </div>
-
-
+        <main class="flex justify-between items-center w-3/4 mx-auto mt-8 p-6 text-white relative">
+            {{ $slot }}
         </main>
     </body>
 </html>

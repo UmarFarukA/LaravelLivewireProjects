@@ -18,7 +18,10 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => fake()->realText(50),
-            'content' => fake()->realText(200)
+            'content' => fake()->realText(400),
+            'photo_path' => fake()->imageUrl(),
+            'published' => false,
+            'notifications' => ['SMS', 'Email']
         ];
     }
 }
