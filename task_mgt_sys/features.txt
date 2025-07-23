@@ -1,8 +1,0 @@
-Features:
-    User authentication and role-based access control.
-    Project and task creation with due dates and priorities.
-    Task assignment to team members.
-    Task progress tracking (To-Do, In Progress, Done).
-    Email notifications for task assignments and updates.
-    Calendar view for task deadlines.
-    Analytics dashboard for project progress.

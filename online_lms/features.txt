@@ -1,8 +1,0 @@
-Features:
-Course creation with lessons and quizzes.
-User roles (instructors, students).
-Enrollment management.
-Progress tracking for students.
-Certificates generation upon course completion.
-Discussion forums for each course.
-Payment gateway for course purchases.
