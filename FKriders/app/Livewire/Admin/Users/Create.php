@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Livewire\Auth;
+namespace App\Livewire\Admin\Users;
 
+use Livewire\Component;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Livewire\Attributes\Layout;
-use Livewire\Component;
 
-#[Layout('components.layouts.auth')]
-class Register extends Component
+class Create extends Component
 {
+
     public string $fname = '';
 
     public string $lname = '';
@@ -21,14 +18,15 @@ class Register extends Component
 
     public string $email = '';
 
+    public string $phone = '';
+
     public string $password = '';
 
     public string $password_confirmation = '';
-
     /**
-     * Handle an incoming registration request.
+     * Handle creation of user.
      */
-    public function register(): void
+    public function store(): void
     {
         $validated = $this->validate([
             'fname' => ['required', 'string', 'max:255'],
@@ -36,14 +34,20 @@ class Register extends Component
             'mname' => ['string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+            'phone' => 'required|string|min:11|max:11',
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
 
-        event(new Registered(($user = User::create($validated))));
+        User::create($validated);
 
-        Auth::login($user);
+        session()->flash('success','New user created successfully');
 
-        $this->redirect(route('dashboard', absolute: false), navigate: true);
+        $this->redirect(route('users.index'), navigate: true);
+    }
+
+    public function render()
+    {
+        return view('livewire.admin.users.create');
     }
 }

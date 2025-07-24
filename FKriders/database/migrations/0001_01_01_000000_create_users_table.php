@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,13 +19,12 @@ return new class extends Migration
             $table->string('mname')->nullable(true);
             $table->string('email')->unique();
             $table->string('password');
-            // $table->timestamp('email_verified_at')->nullable();
-            $table->string('address');
-            $table->integer('NIN');
+            $table->string('address')->nullable(true);
+            $table->integer('NIN')->nullable(true);
             $table->string('phone');
             $table->tinyInteger('status')->default(1); //0-Inactive, 1-Active
+            $table->tinyInteger('role_id')->default(1);
             $table->string('photo')->nullable(true);
-            $table->rememberToken();
             $table->timestamps();
         });
 

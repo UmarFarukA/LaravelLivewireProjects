@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('name')->default(0); // 0-driver, 1-customer, 2-admin, 3-superadmin
+            $table->string('name'); // 0-driver, 1-customer, 2-admin, 3-superadmin
         });
     }
 
