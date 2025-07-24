@@ -18,17 +18,17 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium bg-green-700">Home</a>
-                        <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">About Us</a>
-                        <a href="#events" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Events</a>
-                        <a href="#alumni" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Alumni</a>
-                        <a href="#news" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">News</a>
-                        <a href="#get-involved" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Get Involved</a>
-                        <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Contact</a>
+                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium bg-green-700">Home</a>
+                        <a href="about.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">About Us</a>
+                        <a href="events.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Events</a>
+                        <a href="alumni.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Alumni</a>
+                        <a href="news.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">News</a>
+                        <a href="get-involved.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Get Involved</a>
+                        <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button class="inline-flex items-center justify-center p-2 rounded-md hover:bg-green-700 focus:outline-none">
+                    <button class="inline-flex items-center justify-center p-2 rounded-md hover:bg-green-700 focus:outline-none" onclick="toggleMobileMenu()">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -39,13 +39,13 @@
     </nav>
 
     <!-- Homepage Section -->
-    <section id="home" class="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
+    <section class="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Welcome to Alhudahuda</h1>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Connecting alumni, preserving heritage, and building a stronger community together</p>
             <div class="space-x-4">
-                <button class="bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">Join Us Today</button>
-                <button class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition duration-300">Learn More</button>
+                <a href="get-involved.html" class="bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 inline-block">Join Us Today</a>
+                <a href="about.html" class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition duration-300 inline-block">Learn More</a>
             </div>
         </div>
     </section>
@@ -59,20 +59,23 @@
                     <div class="text-green-600 text-sm font-semibold mb-2">March 15, 2024</div>
                     <h3 class="text-xl font-bold mb-3">Annual Reunion 2024</h3>
                     <p class="text-gray-600 mb-4">Join us for our biggest gathering of the year with networking, dinner, and entertainment.</p>
-                    <button class="text-green-600 font-semibold hover:text-green-800">Learn More →</button>
+                    <a href="events.html" class="text-green-600 font-semibold hover:text-green-800">Learn More →</a>
                 </div>
                 <div class="bg-gray-50 rounded-lg p-6 shadow-md">
                     <div class="text-green-600 text-sm font-semibold mb-2">April 8, 2024</div>
                     <h3 class="text-xl font-bold mb-3">Career Development Workshop</h3>
                     <p class="text-gray-600 mb-4">Professional development session focusing on leadership and career advancement.</p>
-                    <button class="text-green-600 font-semibold hover:text-green-800">Learn More →</button>
+                    <a href="events.html" class="text-green-600 font-semibold hover:text-green-800">Learn More →</a>
                 </div>
                 <div class="bg-gray-50 rounded-lg p-6 shadow-md">
                     <div class="text-green-600 text-sm font-semibold mb-2">May 20, 2024</div>
                     <h3 class="text-xl font-bold mb-3">Community Service Day</h3>
                     <p class="text-gray-600 mb-4">Give back to the community through various volunteer activities and initiatives.</p>
-                    <button class="text-green-600 font-semibold hover:text-green-800">Learn More →</button>
+                    <a href="events.html" class="text-green-600 font-semibold hover:text-green-800">Learn More →</a>
                 </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="events.html" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300 inline-block">View All Events</a>
             </div>
         </div>
     </section>
@@ -118,6 +121,9 @@
                     <h3 class="text-lg font-semibold mb-2">Community Impact</h3>
                     <p class="text-gray-600">Participate in community service and make a positive difference together.</p>
                 </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="get-involved.html" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300 inline-block">Join Our Community</a>
             </div>
         </div>
     </section>
@@ -688,21 +694,21 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-300 hover:text-white">About Us</a></li>
-                        <li><a href="#events" class="text-gray-300 hover:text-white">Events</a></li>
-                        <li><a href="#alumni" class="text-gray-300 hover:text-white">Alumni Directory</a></li>
-                        <li><a href="#news" class="text-gray-300 hover:text-white">News & Updates</a></li>
-                        <li><a href="#get-involved" class="text-gray-300 hover:text-white">Get Involved</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+                        <li><a href="events.html" class="text-gray-300 hover:text-white">Events</a></li>
+                        <li><a href="alumni.html" class="text-gray-300 hover:text-white">Alumni Directory</a></li>
+                        <li><a href="news.html" class="text-gray-300 hover:text-white">News & Updates</a></li>
+                        <li><a href="get-involved.html" class="text-gray-300 hover:text-white">Get Involved</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-300 hover:text-white">Membership Forms</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Newsletters</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Event Materials</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Photo Gallery</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Contact Directory</a></li>
+                        <li><a href="news.html" class="text-gray-300 hover:text-white">Newsletters</a></li>
+                        <li><a href="events.html" class="text-gray-300 hover:text-white">Event Materials</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-white">Photo Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Directory</a></li>
                     </ul>
                 </div>
                 <div>
@@ -727,7 +733,7 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu (Hidden by default) -->
+    <!-- Mobile Menu -->
     <div class="md:hidden fixed inset-0 z-50 bg-green-900 text-white transform -translate-x-full transition-transform duration-300" id="mobile-menu">
         <div class="flex justify-between items-center p-4 border-b border-green-700">
             <h2 class="text-xl font-bold">ALCOZA04</h2>
@@ -738,85 +744,21 @@
             </button>
         </div>
         <nav class="p-4">
-            <a href="#home" class="block py-3 px-4 hover:bg-green-700 rounded">Home</a>
-            <a href="#about" class="block py-3 px-4 hover:bg-green-700 rounded">About Us</a>
-            <a href="#events" class="block py-3 px-4 hover:bg-green-700 rounded">Events</a>
-            <a href="#alumni" class="block py-3 px-4 hover:bg-green-700 rounded">Alumni</a>
-            <a href="#news" class="block py-3 px-4 hover:bg-green-700 rounded">News</a>
-            <a href="#get-involved" class="block py-3 px-4 hover:bg-green-700 rounded">Get Involved</a>
-            <a href="#contact" class="block py-3 px-4 hover:bg-green-700 rounded">Contact</a>
+            <a href="index.html" class="block py-3 px-4 hover:bg-green-700 rounded">Home</a>
+            <a href="about.html" class="block py-3 px-4 hover:bg-green-700 rounded">About Us</a>
+            <a href="events.html" class="block py-3 px-4 hover:bg-green-700 rounded">Events</a>
+            <a href="alumni.html" class="block py-3 px-4 hover:bg-green-700 rounded">Alumni</a>
+            <a href="news.html" class="block py-3 px-4 hover:bg-green-700 rounded">News</a>
+            <a href="get-involved.html" class="block py-3 px-4 hover:bg-green-700 rounded">Get Involved</a>
+            <a href="contact.html" class="block py-3 px-4 hover:bg-green-700 rounded">Contact</a>
         </nav>
     </div>
 
     <script>
-        // Mobile menu toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('-translate-x-full');
         }
-
-        // Add click event to mobile menu button
-        document.querySelector('.md\\:hidden button').addEventListener('click', toggleMobileMenu);
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('-translate-x-full')) {
-                    toggleMobileMenu();
-                }
-            });
-        });
-
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-
-        // Newsletter subscription handler
-        document.querySelector('.bg-green-600 form, .bg-green-600 .flex').addEventListener('submit', function(e) {
-            if (e.target.tagName === 'FORM' || e.target.querySelector('input[type="email"]')) {
-                e.preventDefault();
-                alert('Thank you for subscribing to our newsletter!');
-                if (e.target.tagName === 'FORM') {
-                    e.target.reset();
-                } else {
-                    e.target.querySelector('input[type="email"]').value = '';
-                }
-            }
-        });
     </script>
 </body>
 </html>
-
-{{-- Perfect! I've successfully updated the entire website to use green as the primary color scheme instead of blue. Here are the key changes I made:
-
-**Color Updates:**
-- **Navigation**: Changed from `bg-blue-900` to `bg-green-900` and hover states from `hover:bg-blue-700` to `hover:bg-green-700`
-- **Hero Section**: Updated gradient from `from-blue-600 to-blue-800` to `from-green-600 to-green-800`
-- **Text Colors**: All blue text colors changed to green variants (`text-green-600`, `text-green-800`, etc.)
-- **Buttons**: All blue buttons now use green (`bg-green-600`, `hover:bg-green-700`)
-- **Background Colors**: Blue backgrounds changed to green (`bg-green-50`, `bg-green-100`)
-- **Icons & Accents**: All blue icon backgrounds and accent colors now use green
-- **Focus States**: Form focus rings changed from `focus:ring-blue-500` to `focus:ring-green-500`
-- **Mobile Menu**: Updated mobile menu colors to match the green theme
-- **Social Media Icons**: Updated to use various green shades for visual variety
-
-**Green Variations Used:**
-- `green-50` to `green-900` for different shades
-- `emerald-50`, `emerald-600`, `emerald-900` for variety in the mission/vision section
-- `teal-50`, `teal-600` for the donations section to add visual interest
-
-The website now perfectly reflects your green color scheme while maintaining all the functionality and professional appearance! --}}
-
