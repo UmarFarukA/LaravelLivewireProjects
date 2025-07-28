@@ -22,8 +22,10 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('color');
             $table->string('model_number');
+            $table->string('plate_number');
+            $table->string('serial_number');
             $table->string('amount');
-            $table->string('photo')->nullable(true);
+            $table->string('photo_path')->nullable(true);
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@
 
         <div class="mb-3 flex flex-col">
             <label for="content" class="text-gray-100 text-lg">
-                Content
+                Password
             </label>
             <input
                 type="password"

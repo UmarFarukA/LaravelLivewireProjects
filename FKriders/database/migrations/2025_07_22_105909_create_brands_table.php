@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('name')->default(1); //1-TVS, 2-Bajaj, 3-Piaggo
+            $table->string('name')->default(1); //1-TVS, 2-Bajaj, 3-Piaggo
         });
     }
 

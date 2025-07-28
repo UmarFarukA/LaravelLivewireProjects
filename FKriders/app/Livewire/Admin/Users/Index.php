@@ -15,13 +15,23 @@ class Index extends Dashboard
 
     public $user_id;
 
+    public $search = "";
+
     /**
      * Handle fetching registered users.
      */
     #[Computed]
     public function users()
     {
-        return User::latest()->paginate(10);
+        $searchTerm = "%".$this->search."%";
+
+        $query = User::query();
+
+        if($this->search)
+        {
+            $query->whereAny(["fname", "lname", 'mname', 'email', 'phone'], "like", $searchTerm);
+        }
+        return $query->latest()->paginate(2, pageName:"users-page");
     }
 
     public function edit($id)
@@ -46,6 +56,11 @@ class Index extends Dashboard
         Flux::modal("delete-user")->close();
 
         $this->redirect(route("users.index"), navigate:true);
+    }
+
+    public function change_password($id)
+    {
+        $this->dispatch('update-password', $id);
     }
 
     public function render()

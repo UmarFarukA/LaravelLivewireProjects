@@ -13,12 +13,13 @@
         </flux:modal.trigger>
 
         <div class="w-2/4">
-            <flux:input wire:model="search" type="search" required />
+            <flux:input wire:model.live.debounce.500ms="search" type="search" required />
         </div>
     </div>
 
     <livewire:admin.users.create />
     <livewire:admin.users.edit />
+
 
     <div class="mt-8">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -47,8 +48,8 @@
                 </thead>
                 <tbody>
                     @foreach ($this->users as $user)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 dark:text-white">
+                            <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
                                 {{ $user->fname }} {{ $user->lname }}
                             </th>
                             <td class="px-6 py-4">
@@ -108,12 +109,15 @@
                                     <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                                 </svg>
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                <svg
+                                    name="update-password" wire:click='change_password({{ $user->id }})'
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-key-round-icon lucide-key-round">
+                                    stroke-linejoin="round" class="lucide lucide-key-round-icon lucide-key-round cursor-pointer">
                                     <path
                                         d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
                                     <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
+
                                 </svg>
 
                             </td>
@@ -132,15 +136,23 @@
                                         <flux:modal.close>
                                             <flux:button variant="ghost">Cancel</flux:button>
                                         </flux:modal.close>
-                                        <flux:button type="submit" variant="danger" wire:click='destroy({{ $user->id }})'>Delete User
+                                        <flux:button type="submit" variant="danger" wire:click='destroy({{ $user->id }})'>
+                                            Delete User
                                         </flux:button>
                                     </div>
                                 </div>
                             </flux:modal>
+
+                            {{-- Change Password Modal --}}
+                            <livewire:admin.users.change-password />
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
+            <div class="mt-6 mb-8 dark:text-white">
+                {{ $this->users->links() }}
+            </div>
         </div>
 
     </div>
