@@ -18,10 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class, 'user_id');
             $table->foreignIdFor(Tricycle::class,'tricycle_id');
             $table->integer('duration');
-            $table->string('model_number');
-            $table->string('plate_number');
-            $table->string('tricycle_number');
-            $table->tinyInteger('status')->default(0); //0-Allocated, 1-Deallocated
+            $table->tinyInteger('status')->default(1); //1-Allocated, 0-Deallocated
             $table->timestamps();
         });
     }

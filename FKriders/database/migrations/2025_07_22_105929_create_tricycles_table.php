@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('serial_number');
             $table->string('amount');
             $table->string('photo_path')->nullable(true);
+            $table->tinyInteger('allocated')->default(0); //1-yes, 0-no
             $table->timestamps();
         });
     }
