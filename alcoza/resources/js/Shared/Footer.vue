@@ -38,23 +38,13 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
-                        <li><a href="events.html" class="text-gray-300 hover:text-white">Events</a></li>
-                        <li><a href="alumni.html" class="text-gray-300 hover:text-white">Alumni Directory</a></li>
-                        <li><a href="news.html" class="text-gray-300 hover:text-white">News & Updates</a></li>
-                        <li><a href="get-involved.html" class="text-gray-300 hover:text-white">Get Involved</a></li>
+                        <li><a :href="route('about')" class="text-gray-300 hover:text-white">About Us</a></li>
+                        <li><a :href="route('events')" class="text-gray-300 hover:text-white">Events</a></li>
+                        <li><a :href="route('alumni')" class="text-gray-300 hover:text-white">Alumni Directory</a></li>
+                        <li><a :href="route('get-involve')" class="text-gray-300 hover:text-white">Get Involved</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white">Membership Forms</a></li>
-                        <li><a href="news.html" class="text-gray-300 hover:text-white">Newsletters</a></li>
-                        <li><a href="events.html" class="text-gray-300 hover:text-white">Event Materials</a></li>
-                        <li><a href="gallery.html" class="text-gray-300 hover:text-white">Photo Gallery</a></li>
-                        <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Directory</a></li>
-                    </ul>
-                </div>
+
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
                     <div class="text-gray-300 space-y-2">

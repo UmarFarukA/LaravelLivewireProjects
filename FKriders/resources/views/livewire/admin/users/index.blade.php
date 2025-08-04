@@ -156,7 +156,4 @@
         </div>
 
     </div>
-
-    {{-- Delete Modal --}}
-
 </div>

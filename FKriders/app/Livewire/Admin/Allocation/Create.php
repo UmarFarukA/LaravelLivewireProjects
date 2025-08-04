@@ -24,15 +24,24 @@ class Create extends Component
 
     public function mount()
     {
-        $this->users = User::all();
-        $this->tricycles = Tricycle::with("brand")->get();
+        $this->users = User::whereDoesntHave("allocation")->get();
+        $this->tricycles = Tricycle::with("brand")
+                                    ->where("allocated", "=", 0)
+                                    ->get();
     }
 
     public function save()
     {
         $this->validate();
 
+        if($this->user_id == 00)
+        {
+            return back()->with("user_id","Select User");
+        }
+
         Allocation::create($this->only(["duration", "user_id", "tricycle_id"]));
+
+        Tricycle::find($this->tricycle_id)->update(["allocated" => 1]);
 
         session()->flash("success","Tricycle Allocated successfully");
 

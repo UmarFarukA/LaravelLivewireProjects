@@ -1,13 +1,9 @@
-{{-- @props([
-    'destroy'
-]) --}}
-
-<flux:modal name="delete-user" class="min-w-[22rem]">
+<flux:modal name="delete-allocation" class="min-w-[22rem]">
     <div class="space-y-6">
         <div>
-            <flux:heading size="lg">Delete User?</flux:heading>
+            <flux:heading size="lg">Delete Allocation?</flux:heading>
             <flux:text class="mt-2">
-                <p>You're about to delete this user.</p>
+                <p>You're about to delete this Allocation.</p>
                 <p>This action cannot be reversed.</p>
             </flux:text>
         </div>
@@ -16,7 +12,7 @@
             <flux:modal.close>
                 <flux:button variant="ghost">Cancel</flux:button>
             </flux:modal.close>
-            <flux:button type="submit" variant="danger">Delete User</flux:button>
+            <flux:button type="submit" variant="danger" wire:click="destroy">Delete</flux:button>
         </div>
     </div>
 </flux:modal>

@@ -1,4 +1,7 @@
 <script setup>
+import Logo from './Logo.vue';
+import NavLink from './NavLink.vue';
+
 
 </script>
 
@@ -7,24 +10,47 @@
     <nav class="bg-green-900 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <h1 class="text-xl font-bold">ALCOZA04</h1>
-                    </div>
-                </div>
+                <Logo />
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium bg-green-700">Home</a>
-                        <a href="about.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">About
-                            Us</a>
-                        <a href="events.html"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Events</a>
-                        <a href="alumni.html"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Alumni</a>
-                        <a href="get-involved.html"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Get Involved</a>
-                        <a href="contact.html"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Contact</a>
+                        <NavLink
+                            :href="route('home')"
+                            :class="{'bg-green-700': $page.component == 'Home/Index'}"
+                        >
+                            Home
+                        </NavLink>
+                        <NavLink
+                            :href="route('about')"
+                            :class="{'bg-green-700': $page.component == 'About/Index'}"
+                        >
+                            About Us
+                        </NavLink>
+                        <NavLink
+                            :href="route('events')"
+                            :class="{'bg-green-700': $page.component == 'Events/Index'}"
+                        >
+                            Events
+                        </NavLink>
+                        <NavLink
+                            :href="route('alumni')"
+                            :class="{'bg-green-700': $page.component == 'Alumni/Index'}"
+                        >
+                            Alumni
+                        </NavLink>
+
+                        <NavLink
+                            :href="route('get-involve')"
+                            :class="{'bg-green-700': $page.component == 'GetInvolve/Index'}"
+                        >
+                            Get Involved
+                        </NavLink>
+
+                        <NavLink
+                            :href="route('contact')"
+                            :class="{'bg-green-700': $page.component == 'Contact/Index'}"
+                        >
+                            Contact
+                        </NavLink>
                     </div>
                 </div>
                 <div class="md:hidden">
