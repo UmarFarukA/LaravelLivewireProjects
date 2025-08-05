@@ -73,9 +73,9 @@ class User extends Authenticatable
         return $this->belongsTo(Guarantor::class);
     }
 
-    public function allocation():HasMany
+    public function allocation():HasOne
     {
-        return $this->hasMany(Allocation::class, foreignKey:"user_id");
+        return $this->hasOne(Allocation::class, foreignKey:"user_id");
     }
 
     // public function tricycle()

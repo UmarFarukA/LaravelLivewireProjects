@@ -31,7 +31,7 @@ class Index extends Dashboard
         {
             $query->whereAny(["fname", "lname", 'mname', 'email', 'phone'], "like", $searchTerm);
         }
-        return $query->latest()->paginate(2, pageName:"users-page");
+        return $query->latest()->paginate(10, pageName:"users-page");
     }
 
     public function edit($id)

@@ -19,31 +19,6 @@
     </div>
     <div class="mt-8">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            {{-- <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            Photo
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Brand
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Model Number
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Number
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Cost (N)
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table> --}}
-
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -58,7 +33,7 @@
                                 Model Number
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Price
+                                Cost (N)
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Action
@@ -74,9 +49,9 @@
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                     @if ($tricycle->brand_id == 1)
-                                        TVS
-                                    @elseif ($tricycle->brand_id == 2)
                                         Bajaj
+                                    @elseif ($tricycle->brand_id == 2)
+                                        TVS
                                     @elseif ($tricycle->brand_id == 3)
                                         Piaggo
                                     @endif
@@ -85,7 +60,7 @@
                                     {{ $tricycle->model_number }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                    N{{ $tricycle->amount }}
+                                    {{ number_format($tricycle->amount, 2) }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('tricycle.edit', $tricycle->id) }}"

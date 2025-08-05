@@ -1,7 +1,7 @@
 <?php
 
+use App\Models\Allocation;
 use App\Models\PaymentChannel;
-use App\Models\Tricycle;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,11 +18,16 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class, 'user_id')
                     ->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Tricycle::class, 'tricycle_id')
+            $table->foreignIdFor(Allocation::class, 'allocation_id')
                     ->constrained()->cascadeOnDelete();
             $table->foreignIdFor(PaymentChannel::class, 'payment_channel_id')
                     ->constrained()->cascadeOnDelete();
-            $table->string('amount');
+            $table->decimal('amount');
+            $table->integer('week_number');
+            $table->tinyInteger('payment_status')->default(0); //0-pending, 1-paid, 2-failed
+            $table->timestamp('paid_at')->nullable();
+            $table->date('expected_payment_date')->nullable();
+            $table->string('payment_reference')->unique();
             $table->timestamps();
         });
     }
