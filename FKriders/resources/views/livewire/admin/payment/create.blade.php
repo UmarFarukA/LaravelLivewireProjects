@@ -5,7 +5,7 @@
             <flux:text class="mt-2">Update user's payment</flux:text>
         </div>
 
-        <flux:select wire:model.live='selectedUserId' wire:on='updatedSelectedUserId' label="Users">
+        <flux:select wire:model.live='selectedUserId' wire:on='updatedSelectedUserId' label="Selected User">
             <flux:select.option value="">--Select User--</flux:select.option>
             @foreach ($users as $user)
                 <flux:select.option value="{{ $user->id }}">{{ $user->fname }} {{ $user->lname}}</flux:select.option>
@@ -15,7 +15,6 @@
         @if ($user_details)
             <flux:input
                 label="Tricycle"
-
                 disabled
                 value="{{ $model_number }}"
             />

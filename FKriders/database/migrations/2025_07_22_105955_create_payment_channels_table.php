@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('payment_channels', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('channel')->default(1); //1-Cash, 2-Bank, 3-Online
+            $table->string('channel')->default("Cash");
         });
     }
 

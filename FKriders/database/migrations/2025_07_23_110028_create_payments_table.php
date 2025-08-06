@@ -20,8 +20,7 @@ return new class extends Migration
                     ->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Allocation::class, 'allocation_id')
                     ->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(PaymentChannel::class, 'payment_channel_id')
-                    ->constrained()->cascadeOnDelete();
+            $table->string("payment_channel")->nullable(false);
             $table->decimal('amount');
             $table->integer('week_number');
             $table->tinyInteger('payment_status')->default(0); //0-pending, 1-paid, 2-failed

@@ -6,13 +6,14 @@
         </div>
 
         <flux:select wire:model="user_id" label="Users">
-            <flux:select.option value="00">--select user --</flux:select.option>
+            <flux:select.option value="">--select user --</flux:select.option>
             @foreach ($users as $user )
                 <flux:select.option value="{{ $user->id }}">{{ $user->fname }} {{ $user->lname }}</flux:select.option>
             @endforeach
         </flux:select>
 
         <flux:select wire:model="tricycle_id" label="Tricycles">
+            <flux:select.option value="">--select tricycle --</flux:select.option>
             @foreach ($tricycles as $tricycle )
                 <flux:select.option value="{{ $tricycle->id }}">{{ $tricycle->model_number }} -- {{ $tricycle->brand->name }}</flux:select.option>
             @endforeach

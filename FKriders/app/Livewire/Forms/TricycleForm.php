@@ -68,6 +68,10 @@ class TricycleForm extends Form
     {
         $this->validate();
 
+        if (!$this->category_id) return;
+
+        if (!$this->brand_id) return;
+
         if($this->photo)
         {
             $this->photo_path = $this->photo->storePublicly('tricycles', ['disk' => 'public']);

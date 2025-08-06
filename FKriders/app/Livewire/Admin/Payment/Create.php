@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Payment;
 
+use App\Models\Payment;
 use App\Models\User;
 use Livewire\Component;
 
@@ -12,6 +13,8 @@ class Create extends Component
     public $user_details = [];
 
     public $selectedUserId;
+
+    public $allocation_id;
 
     public int $tricycle_id;
 
@@ -40,12 +43,32 @@ class Create extends Component
         if($user && $user->allocation) {
             $tricycle = $user->allocation->tricycle;
 
+            $this->allocation_id = $user->allocation->id;
             $this->model_number = $tricycle->model_number;
             $this->user_details = $user;
             $this->tricycle_id = $tricycle?->id;
             $this->cost = $tricycle?->amount;
             $this->amount_paid = $user->allocation->payments()->sum('amount');
         }
+    }
+
+    public function store()
+    {
+        $fields = $this->validate([
+            'amount' => 'required|numeric',
+            'week_number' => 'required|numeric'
+        ]);
+
+        $fields['user_id'] = $this->selectedUserId;
+        $fields['allocation_id'] = $this->allocation_id;
+        $fields['payment_channel'] = "Cash";
+
+        Payment::create($fields);
+
+        session()->flash("success", "Payment successfully recorded");
+
+        return $this->redirect(route("payment.index"));
+
     }
     public function render()
     {

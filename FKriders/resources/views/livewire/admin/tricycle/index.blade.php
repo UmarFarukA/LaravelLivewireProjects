@@ -49,9 +49,9 @@
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                     @if ($tricycle->brand_id == 1)
-                                        Bajaj
-                                    @elseif ($tricycle->brand_id == 2)
                                         TVS
+                                    @elseif ($tricycle->brand_id == 2)
+                                        Bajaj
                                     @elseif ($tricycle->brand_id == 3)
                                         Piaggo
                                     @endif

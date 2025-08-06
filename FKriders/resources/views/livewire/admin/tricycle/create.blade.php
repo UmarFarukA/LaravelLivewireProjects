@@ -38,12 +38,14 @@
             wire:model='form.amount'
         />
         <flux:select wire:model="form.category_id" label="Category Tricycle">
+            <flux:select.option value="">--Select Category--</flux:select.option>
             @foreach ($categories as $category )
                 <flux:select.option value="{{ $category->id }}">{{ $category->name }}</flux:select.option>
             @endforeach
         </flux:select>
 
         <flux:select wire:model="form.brand_id" label="Tricycle Brand">
+            <flux:select.option value="">--Select Brand--</flux:select.option>
             @foreach ($brands as $brand )
                 <flux:select.option value="{{ $brand->id }}">{{ $brand->name }}</flux:select.option>
             @endforeach
