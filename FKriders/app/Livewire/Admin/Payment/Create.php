@@ -62,6 +62,7 @@ class Create extends Component
         $fields['user_id'] = $this->selectedUserId;
         $fields['allocation_id'] = $this->allocation_id;
         $fields['payment_channel'] = "Cash";
+        $fields['paid_at'] = now();
 
         Payment::create($fields);
 

@@ -78,9 +78,9 @@ class User extends Authenticatable
         return $this->hasOne(Allocation::class, foreignKey:"user_id");
     }
 
-    // public function tricycle()
-    // {
-    //     return $this->hasMany(Tricycle::class, foreignKey:"user_id");
-    // }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class, foreignKey: "user_id");
+    }
 
 }

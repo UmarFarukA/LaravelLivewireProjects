@@ -21,4 +21,9 @@ class Payment extends Model
     {
         return $this->belongsTo(Allocation::class);
     }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

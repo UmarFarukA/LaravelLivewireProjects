@@ -22,7 +22,7 @@ return new class extends Migration
                     ->constrained()->cascadeOnDelete();
             $table->string("payment_channel")->nullable(false);
             $table->decimal('amount');
-            $table->integer('week_number');
+            $table->integer('week_number')->unique();
             $table->tinyInteger('payment_status')->default(0); //0-pending, 1-paid, 2-failed
             $table->timestamp('paid_at')->nullable();
             $table->date('expected_payment_date')->nullable();

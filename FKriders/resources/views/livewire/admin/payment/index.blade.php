@@ -7,6 +7,7 @@
 
     <x-notification />
     <livewire:admin.payment.create />
+    <livewire:admin.payment.edit />
 
     <div class="mt-12 flex flex-col gap-2 md:flex-row md:justify-between md:items-center">
         <flux:modal.trigger name="manage-payment">
@@ -36,7 +37,7 @@
                                 Amount Paid (N)
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Next Payment Date
+                                Last Payment Date
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Payment Status
@@ -47,38 +48,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($this->tricycles as $tricycle)
+                        @foreach ($this->payments as $payment)
                             <tr class="border-b dark:bg-gray-800  border-gray-200">
                                 <td class="p-4">
-                                    <img src="{{Storage::url($tricycle->photo_path)}}" alt="Photo"
-                                        class="w-8 md:w-16 max-w-full max-h-full rounded-full">
+                                    {{ $payment->allocation->user->fname }} {{ $payment->allocation->user->lname }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                    @if ($tricycle->brand_id == 1)
-                                        Bajaj
-                                    @elseif ($tricycle->brand_id == 2)
-                                        TVS
-                                    @elseif ($tricycle->brand_id == 3)
-                                        Piaggo
+                                    {{ $payment->allocation->tricycle->model_number }}
+                                </td>
+                                <td class="px-6 py-4">
+                                   {{ number_format($payment->allocation->tricycle->amount, 2) }}
+                                </td>
+                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                    {{ number_format($payment->amount, 2) }}
+                                </td>
+                                <td class="px-6 py-4">
+                                   {{ $payment->created_at->format('d-m-Y') }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if ($payment->payment_status == 0)
+                                        <span class="px-2 py-1 text-sm bg-sky-500 text-sky-50 rounded-md">Pending</span>
+                                    @elseif ($payment->payment_status == 1)
+                                        <span class="px-2 py-1 text-sm bg-green-500 text-green-50 rounded-md">Verified</span>
+                                    @elseif ($payment->payment_status == 2)
+                                        <span class="px-2 py-1 text-sm bg-red-500 text-red-50 rounded-md">Failed</span>
                                     @endif
                                 </td>
-                                <td class="px-6 py-4">
-                                    {{ $tricycle->model_number }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                    {{ number_format($tricycle->amount, 2) }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="{{ route('tricycle.edit', $tricycle->id) }}"
-                                        class="text-sky-50 bg-gray-500 hover:bg-gray-600 px-3 py-2 mr-2 rounded-md cursor-pointer text-lg">
-                                        Edit
+                                <td class="px-6 py-4 flex flex-col space-y-1 md:flex-row items-center space-x-2">
+                                    <x-edit-icon name="edit-payment" wire:click='edit({{ $payment->id }})'/>
+                                    <x-print-icon />
+                                    <a href="{{ route('receipt.download', $payment->id) }}">
+                                        <x-download-icon  />
                                     </a>
-                                    <flux:button variant="primary" color="red" wire:click='delete({{$tricycle->id}})'>
-                                        Delete
-                                    </flux:button>
                                 </td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>

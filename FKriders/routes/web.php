@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ReceiptController;
+
 use App\Livewire\AboutUs;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Contact;
@@ -15,6 +17,7 @@ use App\Livewire\Admin\Tricycle\Edit as TricycleEdit;
 use App\Livewire\Admin\Allocation\Index as AllocationIndex;
 
 use App\Livewire\Admin\Payment\Index as PaymentIndex;
+// use App\Livewire\Receipt\Download as ReceiptDownload;
 
 use App\Livewire\Admin\Report;
 use App\Livewire\Admin\Statistics;
@@ -39,6 +42,9 @@ Route::get('/dashboard/allocation', AllocationIndex::class)->name('allocation.in
 Route::get('/dashboard/payments', PaymentIndex::class)->name('payment.index');
 Route::get('/dashboard/reports', Report::class)->name('reports');
 Route::get('/dashboard/statistics', Statistics::class)->name('statistics');
+
+
+Route::get('/receipt/download/{payment}', [ReceiptController::class, 'download'])->name('receipt.download');
 
 
 // Route::view('dashboard', 'dashboard')

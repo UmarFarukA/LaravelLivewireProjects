@@ -22,12 +22,6 @@ class Index extends Dashboard
 
             $searchTerm = "%" . $this->search . "%";
 
-            // $query->whereAny([
-            //         "fname",
-            //         "lname",
-            //         "name",
-            //         "model_number"
-            //     ], "like", $searchTerm);
             $query->where(function ($q) use ($searchTerm) {
 
                 $q->whereHas("user",function($userQuery) use($searchTerm){
