@@ -50,7 +50,9 @@
                     @foreach ($this->users as $user)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 dark:text-white">
                             <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-                                {{ $user->fname }} {{ $user->lname }}
+                                <a href="{{ route('users.show', $user->id) }}" wire:navigate>
+                                    {{ $user->fname }} {{ $user->lname }}
+                                </a>
                             </th>
                             <td class="px-6 py-4">
                                 {{ $user->phone }}

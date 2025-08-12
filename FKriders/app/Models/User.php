@@ -68,9 +68,9 @@ class User extends Authenticatable
             ->implode('');
     }
 
-    public function guarantor(): BelongsTo
+    public function guarantor(): HasOne
     {
-        return $this->belongsTo(Guarantor::class);
+        return $this->hasOne(Guarantor::class);
     }
 
     public function allocation():HasOne

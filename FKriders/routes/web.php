@@ -8,7 +8,9 @@ use App\Livewire\Contact;
 use App\Livewire\Faqs;
 use App\Livewire\Home;
 use App\Livewire\Products;
+
 use App\Livewire\Admin\Users\Index as UserIndex;
+use App\Livewire\Admin\Users\Show as UserShow;
 
 use App\Livewire\Admin\Tricycle\Index as TricycleIndex;
 use App\Livewire\Admin\Tricycle\Create as TricycleCreate;
@@ -34,12 +36,19 @@ Route::get('/contact', Contact::class)->name('contact');
 
 
 Route::get('/dashboard', Dashboard::class)->name('dashboard');
+
 Route::get('/dashboard/users', UserIndex::class)->name('users.index');
+Route::get('/dashboard/users/{user}', UserShow::class)->name('users.show');
+
+
 Route::get('/dashboard/tricycles', TricycleIndex::class)->name('tricycle.index');
 Route::get('/dashboard/tricycles/create', TricycleCreate::class)->name('tricycle.create');
 Route::get('/dashboard/tricycles/{tricycle}/edit', TricycleEdit::class)->name('tricycle.edit');
+
 Route::get('/dashboard/allocation', AllocationIndex::class)->name('allocation.index');
+
 Route::get('/dashboard/payments', PaymentIndex::class)->name('payment.index');
+
 Route::get('/dashboard/reports', Report::class)->name('reports');
 Route::get('/dashboard/statistics', Statistics::class)->name('statistics');
 
