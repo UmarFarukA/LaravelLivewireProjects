@@ -24,6 +24,7 @@ return new class extends Migration
             $table->decimal('amount');
             $table->integer('week_number')->unique();
             $table->tinyInteger('payment_status')->default(0); //0-pending, 1-paid, 2-failed
+            $table->tinyInteger('has_completed')->default(0); //0-No, 1-Yes
             $table->timestamp('paid_at')->nullable();
             $table->date('expected_payment_date')->nullable();
             $table->string('payment_reference')->unique();

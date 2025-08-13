@@ -2,12 +2,15 @@
 
 namespace App\Livewire\Settings;
 
+use App\Livewire\Admin\Dashboard;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
+#[Layout("components.layouts.admin")]
 class Profile extends Component
 {
     public string $name = '';
@@ -19,7 +22,7 @@ class Profile extends Component
      */
     public function mount(): void
     {
-        $this->name = Auth::user()->name;
+        $this->name = Auth::user()->fname . " " .Auth::user()->lname;
         $this->email = Auth::user()->email;
     }
 
@@ -51,7 +54,7 @@ class Profile extends Component
 
         $user->save();
 
-        $this->dispatch('profile-updated', name: $user->name);
+        $this->dispatch('profile-updated', name: $user->fname." ".$user->lname);
     }
 
     /**

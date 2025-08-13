@@ -14,18 +14,21 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="users-icon" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>{{ __('Users') }}</flux:navlist.item>
-                    <flux:navlist.item icon="tricycle-icon" :href="route('tricycle.index')" :current="request()->routeIs('tricycle.index')" wire:navigate>{{ __('Tricycles') }}</flux:navlist.item>
-                    <flux:navlist.item icon="allocation-icon" :href="route('allocation.index')" :current="request()->routeIs('allocation.index')" wire:navigate>{{ __('Allocation') }}</flux:navlist.item>
-                    <flux:navlist.item icon="payment-icon" :href="route('payment.index')" :current="request()->routeIs('payment.index')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
-                    <flux:navlist.item icon="reports-icon" :href="route('reports')" :current="request()->routeIs('reports')" wire:navigate>{{ __('Reports') }}</flux:navlist.item>
-                    <flux:navlist.item icon="statistics-icon" :href="route('statistics')" :current="request()->routeIs('statistics')" wire:navigate>{{ __('Statistics') }}</flux:navlist.item>
+                    <flux:navlist.item icon="payment-icon" :href="route('payment.index')" :current="request()->routeIs('payment.index')" wire:navigate>{{ __('My Payments') }}</flux:navlist.item>
+                    @can('modifyOrView')
+                        <flux:navlist.item icon="users-icon" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>{{ __('Users') }}</flux:navlist.item>
+                        <flux:navlist.item icon="tricycle-icon" :href="route('tricycle.index')" :current="request()->routeIs('tricycle.index')" wire:navigate>{{ __('Tricycles') }}</flux:navlist.item>
+                        <flux:navlist.item icon="allocation-icon" :href="route('allocation.index')" :current="request()->routeIs('allocation.index')" wire:navigate>{{ __('Allocation') }}</flux:navlist.item>
+                        <flux:navlist.item icon="payment-icon" :href="route('payment.index')" :current="request()->routeIs('payment.index')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
+                        <flux:navlist.item icon="reports-icon" :href="route('reports')" :current="request()->routeIs('reports')" wire:navigate>{{ __('Reports') }}</flux:navlist.item>
+                        <flux:navlist.item icon="statistics-icon" :href="route('statistics')" :current="request()->routeIs('statistics')" wire:navigate>{{ __('Statistics') }}</flux:navlist.item>
+                    @endcan
                 </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
 
-            <flux:navlist variant="outline">
+            {{-- <flux:navlist variant="outline">
                 <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
                 {{ __('Repository') }}
                 </flux:navlist.item>
@@ -33,15 +36,15 @@
                 <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
                 {{ __('Documentation') }}
                 </flux:navlist.item>
-            </flux:navlist>
+            </flux:navlist> --}}
 
             <!-- Desktop User Menu -->
             <flux:dropdown class="hidden lg:block" position="bottom" align="start">
-                {{-- <flux:profile
-                    :name="auth()->user()->name"
+                <flux:profile
+                    :name="auth()->user()->fname "
                     :initials="auth()->user()->initials()"
                     icon:trailing="chevrons-up-down"
-                /> --}}
+                />
 
                 <flux:menu class="w-[220px]">
                     <flux:menu.radio.group>
@@ -51,13 +54,13 @@
                                     <span
                                         class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white"
                                     >
-                                        {{-- {{ auth()->user()->initials() }} --}}
+                                        {{ auth()->user()->initials() }}
                                     </span>
                                 </span>
 
                                 <div class="grid flex-1 text-start text-sm leading-tight">
-                                    {{-- <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
-                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span> --}}
+                                    <span class="truncate font-semibold">{{ auth()->user()->fname." ".auth()->user()->lname }}</span>
+                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +69,7 @@
                     <flux:menu.separator />
 
                     <flux:menu.radio.group>
-                        <flux:menu.item href="#" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
+                        <flux:menu.item href="{{ route('settings.profile') }}" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
@@ -88,10 +91,10 @@
             <flux:spacer />
 
             <flux:dropdown position="top" align="end">
-                {{-- <flux:profile
+                <flux:profile
                     :initials="auth()->user()->initials()"
                     icon-trailing="chevron-down"
-                /> --}}
+                />
 
                 <flux:menu>
                     <flux:menu.radio.group>
@@ -101,13 +104,13 @@
                                     <span
                                         class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white"
                                     >
-                                        {{-- {{ auth()->user()->initials() }} --}}
+                                        {{ auth()->user()->initials() }}
                                     </span>
                                 </span>
 
                                 <div class="grid flex-1 text-start text-sm leading-tight">
-                                    {{-- <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
-                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span> --}}
+                                    <span class="truncate font-semibold">{{ auth()->user()->fname }} {{ auth()->user()->lname }}</span>
+                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +119,7 @@
                     <flux:menu.separator />
 
                     <flux:menu.radio.group>
-                        {{-- <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item> --}}
+                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />

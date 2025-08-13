@@ -40,9 +40,10 @@
             />
 
             <flux:input
-                type="number"
+
                 label="Payment for Week?"
                 wire:model='week_number'
+                disabled
             />
         @endif
 

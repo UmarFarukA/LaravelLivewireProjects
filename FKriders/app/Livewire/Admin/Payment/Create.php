@@ -49,6 +49,7 @@ class Create extends Component
             $this->tricycle_id = $tricycle?->id;
             $this->cost = $tricycle?->amount;
             $this->amount_paid = $user->allocation->payments()->sum('amount');
+            $this->week_number = $user->allocation->payments()->count('week_number') + 1;
         }
     }
 
@@ -56,13 +57,14 @@ class Create extends Component
     {
         $fields = $this->validate([
             'amount' => 'required|numeric',
-            'week_number' => 'required|numeric'
         ]);
+
 
         $fields['user_id'] = $this->selectedUserId;
         $fields['allocation_id'] = $this->allocation_id;
         $fields['payment_channel'] = "Cash";
         $fields['paid_at'] = now();
+        $fields['week_number'] = $this->week_number;
 
         Payment::create($fields);
 
