@@ -14,7 +14,13 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="payment-icon" :href="route('payment.index')" :current="request()->routeIs('payment.index')" wire:navigate>{{ __('My Payments') }}</flux:navlist.item>
+
+                    <flux:navlist.item icon="payment-icon" :href="route('customer.payment')" :current="request()->routeIs('customer.payment')" wire:navigate>{{ __('My Payments') }}</flux:navlist.item>
+
+                    @can('investView')
+                        <flux:navlist.item icon="invest-icon" :href="route('investor.payment')" :current="request()->routeIs('investor.payment')" wire:navigate>{{ __('My Investment') }}</flux:navlist.item>
+                    @endcan
+
                     @can('modifyOrView')
                         <flux:navlist.item icon="users-icon" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>{{ __('Users') }}</flux:navlist.item>
                         <flux:navlist.item icon="tricycle-icon" :href="route('tricycle.index')" :current="request()->routeIs('tricycle.index')" wire:navigate>{{ __('Tricycles') }}</flux:navlist.item>

@@ -34,7 +34,7 @@ class Create extends Component
             'mname' => ['string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
-            'phone' => 'required|string|min:11|max:11',
+            'phone' => ['required', 'string', 'min:11', 'max:11', 'unique:'.User::class],
         ]);
 
         $validated['password'] = Hash::make($validated['password']);

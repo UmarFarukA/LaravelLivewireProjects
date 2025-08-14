@@ -19,7 +19,7 @@ use App\Livewire\Admin\Tricycle\Edit as TricycleEdit;
 use App\Livewire\Admin\Allocation\Index as AllocationIndex;
 use App\Livewire\Admin\Payment\CustomerIndex;
 use App\Livewire\Admin\Payment\Index as PaymentIndex;
-
+use App\Livewire\Admin\Payment\InvestorIndex;
 use App\Livewire\Admin\Report;
 use App\Livewire\Admin\Statistics;
 use App\Livewire\Settings\Appearance;
@@ -63,6 +63,9 @@ Route::get('/dashboard/payments', PaymentIndex::class)
     ->name('payment.index');
 
 Route::get('/dashboard/mypayments', CustomerIndex::class)->name('customer.payment');
+Route::get('/dashboard/myinvestments', InvestorIndex::class)
+        ->can('investorView')
+        ->name('investor.payment');
 
 Route::get('/dashboard/reports', Report::class)
     ->middleware('auth')

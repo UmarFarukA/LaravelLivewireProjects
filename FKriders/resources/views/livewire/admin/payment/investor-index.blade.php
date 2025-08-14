@@ -1,7 +1,7 @@
 <div>
-    <flux:heading size="xl" level="1">{{ __('My Payments') }}</flux:heading>
+    <flux:heading size="xl" level="1">{{ __('My Investments') }}</flux:heading>
     <flux:subheading size="lg" class="mb-6">
-        {{ __('View all payments made for your allocated tricycle') }}
+        {{ __('View all payments received for your investments') }}
     </flux:subheading>
     <flux:separator variant="subtle" />
 
@@ -9,15 +9,6 @@
     <livewire:admin.payment.create />
     <livewire:admin.payment.edit />
 
-    {{-- <div class="mt-12 flex flex-col gap-2 md:flex-row md:justify-between md:items-center">
-        <flux:modal.trigger name="manage-payment">
-            <x-link class="cursor-pointer">Manage Payment</x-link>
-        </flux:modal.trigger>
-
-        <div class="md:w-2/4">
-            <flux:input wire:model.live.debounce.500ms="search" type="search" required />
-        </div>
-    </div> --}}
     <div class="mt-8">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -46,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($payments as $payment)
+                        {{-- @foreach ($payments as $payment)
                             <tr class="border-b dark:bg-gray-800  border-gray-200">
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                     {{ $payment->allocation->tricycle->model_number }}
@@ -78,15 +69,16 @@
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
 
-            <div class="mt-6 mb-8 pl-2 dark:text-white">
+            {{-- <div class="mt-6 mb-8 pl-2 dark:text-white">
                  Total Amount Paid: <span class="text-xl">₦{{ number_format($total_amount_paid, 2) }}</span>
-            </div>
+            </div> --}}
         </div>
 
     </div>
 </div>
+

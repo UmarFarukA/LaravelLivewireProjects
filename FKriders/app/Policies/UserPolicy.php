@@ -12,4 +12,9 @@ class UserPolicy
     {
         return $authUser->role_id == 2;
     }
+
+    public function investorView(User $authuser)
+    {
+        return $authuser->role_id == 3;
+    }
 }
