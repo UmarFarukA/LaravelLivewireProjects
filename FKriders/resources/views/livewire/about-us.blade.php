@@ -15,10 +15,10 @@
                     </div>
                     <div class="space-y-2">
                         <p class="text-gray-500">
-                            Founded in 2018, FK Ryders has grown to become a trusted name in the tricycle market. We
+                            Founded in 2020, FK Ryders has grown to become a trusted name in the tricycle market. We
                             understand the
-                            challenges of purchasing a tricycle outright, which is why we pioneered our flexible
-                            installment plan.
+                            challenges of managing a tricycle outright, which is why we pioneered our flexible
+                            services.
                         </p>
                         <p class="text-gray-500">
                             Our team of experts carefully inspects each tricycle to ensure it meets our high standards

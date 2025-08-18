@@ -3,8 +3,8 @@
       <div class="grid gap-8 lg:grid-cols-4">
         <div class="space-y-4">
           <a href="/" class="flex items-center gap-2 font-bold text-xl">
-            
-            <span>FK Riders</span>
+
+            <span>FK Ryders</span>
           </a>
           <p class="text-sm text-gray-500">
             Making tricycle ownership accessible through flexible payment options and quality products.
@@ -41,16 +41,16 @@
         <div class="space-y-4">
           <h3 class="text-base font-medium">Quick Links</h3>
           <nav class="flex flex-col space-y-2">
-            <a href="#" class="text-sm text-gray-500 hover:text-gray-900">
+            <a href="{{ route('home') }}" class="text-sm text-gray-500 hover:text-gray-900">
               Home
             </a>
-            <a href="#products" class="text-sm text-gray-500 hover:text-gray-900">
+            <a href="{{ route('products') }}" class="text-sm text-gray-500 hover:text-gray-900">
               Products
             </a>
-            <a href="#about" class="text-sm text-gray-500 hover:text-gray-900">
+            <a href="{{ route('about-us') }}" class="text-sm text-gray-500 hover:text-gray-900">
               About Us
             </a>
-            <a href="#faqs" class="text-sm text-gray-500 hover:text-gray-900">
+            <a href="{{ route('faqs') }}" class="text-sm text-gray-500 hover:text-gray-900">
               FAQs
             </a>
           </nav>
@@ -91,7 +91,7 @@
                 <rect width="20" height="16" x="2" y="4" rx="2" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
-              <span>info@fkriders.com</span>
+              <span>info@fkryders.com</span>
             </div>
             <div class="flex items-center gap-2">
               <svg
@@ -109,7 +109,7 @@
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              <span>123 Main Street, Lagos, Nigeria</span>
+              <span>No. 18 Kagoro by Express, Sabon Gari, Kaduna, Nigeria</span>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@
         </div>
       </div>
       <div class="mt-8 border-t pt-8 text-center text-sm text-gray-500">
-        <p>&copy; 2023 FK Riders. All rights reserved.</p>
+        <p>&copy; 2025 FK Ryders. All rights reserved.</p>
       </div>
     </div>
   </footer>
