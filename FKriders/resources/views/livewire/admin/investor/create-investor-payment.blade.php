@@ -1,8 +1,8 @@
-<flux:modal name="manage-payment" class="md:w-full">
+<flux:modal name="manage-investor-payment" class="md:w-full">
     <div class="space-y-6">
         <div>
-            <flux:heading size="lg">Manage User Payment</flux:heading>
-            <flux:text class="mt-2">Update user's payment</flux:text>
+            <flux:heading size="lg">Manage Investor Payment</flux:heading>
+            <flux:text class="mt-2">Update investor's payment</flux:text>
         </div>
 
         <flux:select wire:model.live='selectedUserId' wire:on='updatedSelectedUserId' label="Selected User">
@@ -13,37 +13,31 @@
         </flux:select>
 
         @if ($user_details)
-            <flux:input
-                label="Tricycle"
-                disabled
-                value="{{ $model_number }}"
-            />
 
             <flux:input
-                label="Total Cost"
-                disable
-                wire:model='cost'
+                label="Amount Invested"
+                disabled
+                wire:model='amount_invested'
                 disabled
             />
 
             <flux:input
-                label="Total Amount Paid"
+                label="Total Amount Paid to Investor"
                 disabled
                 wire:model='amount_paid'
             />
 
             <flux:input
-                type="number"
-                label="Amount due for payment"
-                wire:model='amount'
-                placeholder='Enter amount to pay'
+                label="Total Amount to be Paid"
+                required
+                wire:model='amount_due'
             />
 
             <flux:input
-
-                label="Payment for Week?"
-                wire:model='week_number'
+                type="text"
                 disabled
+                label="Payment for"
+                wire:model='payment_number'
             />
         @endif
 
@@ -54,3 +48,4 @@
         </div>
     </div>
 </flux:modal>
+

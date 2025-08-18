@@ -25,11 +25,11 @@ class Index extends Dashboard
     {
         $searchTerm = "%".$this->search."%";
 
-        $query = User::query();
+        $query = User::query()->where("role_id", "!=", 1);
 
         if($this->search)
         {
-            $query->whereAny(["fname", "lname", 'mname', 'email', 'phone'], "like", $searchTerm);
+            $query->whereAny(["othernames", "lname", 'phone'], "like", $searchTerm);
         }
         return $query->latest()->paginate(10, pageName:"users-page");
     }

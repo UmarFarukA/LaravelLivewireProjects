@@ -54,7 +54,7 @@
                     @foreach ($this->allocations as $allocation)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 dark:text-white">
                             <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-                                {{ $allocation->user->fname }} {{ $allocation->user->lname }}
+                                {{ $allocation->user->othernames }} {{ $allocation->user->lname }}
                             </th>
                             <td class="px-6 py-4">
                                 {{ $allocation->tricycle->brand->name }}

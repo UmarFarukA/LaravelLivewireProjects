@@ -10,6 +10,11 @@ class UserPolicy
 {
     public function modifyOrView(User $authUser)
     {
+        return $authUser->role_id == 1;
+    }
+
+    public function customerView(User $authUser)
+    {
         return $authUser->role_id == 2;
     }
 

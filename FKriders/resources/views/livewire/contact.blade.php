@@ -3,30 +3,24 @@
         <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Us</h2>
     </div>
     <div class="w-2/4 mx-auto mt-12">
-        <form>
-            <x-form-field>
-                <x-input-label name='name'>Name</x-input-label>
-                <x-input-field name='name' id='name' type='text' />
-            </x-form-field>
+        <form class="space-y-6">
+            <flux:input label="Name" type="text" />
 
-            <x-form-field>
-                <x-input-label name='phone'>Phone</x-input-label>
-                <x-input-field name='phone' id='phone' type='text' />
-            </x-form-field>
+            <flux:input label="Email" type="email" />
 
-            <x-form-field>
-                <x-input-label name='email'>Email</x-input-label>
-                <x-input-field name='email' type='email' id='email' />
-            </x-form-field>
+            <flux:input label="Phone" type="number" />
 
-            <x-form-field>
-                <x-input-label name='content'>Message</x-input-label>
-                <x-text-area name='content' rows='15' />
-            </x-form-field>
+            <flux:textarea label="Message" />
 
-            <x-primary-button type='submit' class="mb-2">Send</x-primary-button>
+            <div>
+                <flux:button variant="primary"  type="submit" class="w-full">
+                Send
+            </flux:button>
+            </div>
+
         </form>
     </div>
+
     <!-- CTA Banner -->
     <section class="w-full py-12 md:py-16 lg:py-20">
         <div class="container mx-auto px-4 md:px-6">
@@ -50,7 +44,7 @@
                             <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                     </a>
-                    <a href="#"
+                    <a href="{{ route('register') }}"
                         class="px-4 py-2 text-sm font-medium bg-transparent text-white border border-white rounded-md hover:bg-white hover:text-sky-500 flex items-center gap-1">
                         Create an Account
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"

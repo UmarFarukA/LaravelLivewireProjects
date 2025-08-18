@@ -22,7 +22,7 @@ class Index extends Dashboard
             $query->where(function ($q) use ($searchTerm) {
 
                 $q->whereHas("user",function($userQuery) use($searchTerm){
-                    $userQuery->whereAny(["fname", "lname"],"like","%". $searchTerm ."%");
+                    $userQuery->whereAny(["othernames", "lname"],"like","%". $searchTerm ."%");
                 });
             });
         }

@@ -8,7 +8,7 @@
         <flux:select wire:model="user_id" label="Users">
             <flux:select.option value="">--select user --</flux:select.option>
             @foreach ($users as $user )
-                <flux:select.option value="{{ $user->id }}">{{ $user->fname }} {{ $user->lname }}</flux:select.option>
+                <flux:select.option value="{{ $user->id }}">{{ $user->othernames }} {{ $user->lname }}</flux:select.option>
             @endforeach
         </flux:select>
 

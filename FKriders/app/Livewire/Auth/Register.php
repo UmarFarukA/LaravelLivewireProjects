@@ -13,11 +13,11 @@ use Livewire\Component;
 #[Layout('components.layouts.auth')]
 class Register extends Component
 {
-    public string $fname = '';
+    public string $othernames = '';
 
     public string $lname = '';
 
-    public string $mname = '';
+    public string $phone = "";
 
     public string $email = '';
 
@@ -31,10 +31,10 @@ class Register extends Component
     public function register(): void
     {
         $validated = $this->validate([
-            'fname' => ['required', 'string', 'max:255'],
+            'othernames' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-            'mname' => ['string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'phone' => ['required', 'string', 'unique:'.User::class],
+            'email' => ['string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 

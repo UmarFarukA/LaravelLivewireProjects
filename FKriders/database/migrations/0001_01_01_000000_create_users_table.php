@@ -14,17 +14,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('fname');
             $table->string('lname');
-            $table->string('mname')->nullable(true);
-            $table->string('email')->unique();
+            $table->string('othernames');
+            $table->string('email')->nullable(true);
             $table->string('password');
             $table->string('address')->nullable(true);
             $table->integer('NIN')->nullable(true);
-            $table->string('phone');
+            $table->string('phone')->unique()->nullable(false);
             $table->tinyInteger('status')->default(1); //0-Inactive, 1-Active
-            $table->tinyInteger('role_id')->default(1);
-            $table->string('photo')->nullable(true);
+            $table->tinyInteger('role_id')->default(2); //1-admin, 2-customer/drive, 3-investor
+            $table->string('photo_path')->nullable(true);
             $table->timestamps();
         });
 

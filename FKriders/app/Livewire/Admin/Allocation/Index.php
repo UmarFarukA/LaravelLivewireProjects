@@ -25,7 +25,7 @@ class Index extends Dashboard
             $query->where(function ($q) use ($searchTerm) {
 
                 $q->whereHas("user",function($userQuery) use($searchTerm){
-                    $userQuery->whereAny(["fname", "lname", "phone"],"like","%". $searchTerm ."%");
+                    $userQuery->whereAny(["othernames", "lname", "phone"],"like","%". $searchTerm ."%");
                 });
             })
             ->orWhereHas("tricycle", function($tricycle) use($searchTerm){

@@ -8,22 +8,36 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 #[Layout("components.layouts.admin")]
 class Profile extends Component
 {
-    public string $name = '';
 
-    public string $email = '';
+    use WithFileUploads;
+
+    public string $lname = '';
+
+    public string $othernames = '';
+
+    public string $phone;
+
+   #[Validate( ['required','image','max:2048'])]
+    public $photo;
+
+    public string $photo_path = "";
 
     /**
      * Mount the component.
      */
     public function mount(): void
     {
-        $this->name = Auth::user()->fname . " " .Auth::user()->lname;
-        $this->email = Auth::user()->email;
+        $this->othernames = Auth::user()->othernames;
+        $this->lname = Auth::user()->lname;
+        $this->phone = Auth::user()->phone;
+        $this->photo_path = Auth::user()->photo ?? "";
     }
 
     /**
@@ -33,28 +47,34 @@ class Profile extends Component
     {
         $user = Auth::user();
 
-        $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
+        if($this->photo){
+            $this->photo_path = $this->photo->storePublicly('users', ['disk' => 'public']);
+        }
 
-            'email' => [
+        $validated = $this->validate([
+            'lname' => ['required', 'string', 'max:255'],
+            'othernames' => ['required', 'string', 'max:255'],
+            'phone' => [
                 'required',
                 'string',
-                'lowercase',
-                'email',
-                'max:255',
+                'max:11',
                 Rule::unique(User::class)->ignore($user->id),
             ],
         ]);
 
+        $validated['photo_path'] = $this->photo_path;
+
         $user->fill($validated);
 
-        if ($user->isDirty('email')) {
+        if ($user->isDirty('phone')) {
             $user->email_verified_at = null;
         }
 
+
+
         $user->save();
 
-        $this->dispatch('profile-updated', name: $user->fname." ".$user->lname);
+        $this->dispatch('profile-updated', name: $user->othernames." ".$user->lname);
     }
 
     /**

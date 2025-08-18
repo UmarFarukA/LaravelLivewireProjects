@@ -3,10 +3,11 @@
 
     <x-settings.layout :heading="__('Profile')" :subheading="__('Update your name and email address')">
         <form wire:submit="updateProfileInformation" class="my-6 w-full space-y-6">
-            <flux:input wire:model="name" :label="__('Name')" type="text" required autofocus autocomplete="name" />
+            <flux:input wire:model="lname" :label="__('Last Name')" type="text" required autofocus autocomplete="lname" />
+            <flux:input wire:model="othernames" :label="__('Othernames')" type="text" required autocomplete="othernames" />
 
             <div>
-                <flux:input wire:model="email" :label="__('Email')" type="email" required autocomplete="email" />
+                <flux:input wire:model="phone" :label="__('Phone Number')" type="number" required autocomplete="email" />
 
                 @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail &&! auth()->user()->hasVerifiedEmail())
                     <div>
@@ -27,9 +28,28 @@
                 @endif
             </div>
 
+            <div class="grid  md:grid-cols-2 ">
+
+                <flux:input type="file" wire:model='photo' :label="__('Upload Photo')"/>
+
+                <div>
+                    @if ($photo)
+                        <img src="{{$photo->temporaryUrl()}}" alt="User Photo" class="w-1/2 rounded-md">
+                    @elseif ($photo_path)
+                        <img src="{{Storage::url($photo_path)}}" alt="Photo" class="w-1/2 rounded-md">
+                    @endif
+                </div>
+            </div>
+
             <div class="flex items-center gap-4">
                 <div class="flex items-center justify-end">
-                    <flux:button variant="primary" type="submit" class="w-full">{{ __('Save') }}</flux:button>
+                    <flux:button
+                        variant="primary"
+                        type="submit"
+                        class="w-full"
+                    >
+                        {{ __('Save') }}
+                    </flux:button>
                 </div>
 
                 <x-action-message class="me-3" on="profile-updated">
@@ -38,6 +58,6 @@
             </div>
         </form>
 
-        <livewire:settings.delete-user-form />
+        {{-- <livewire:settings.delete-user-form /> --}}
     </x-settings.layout>
 </section>

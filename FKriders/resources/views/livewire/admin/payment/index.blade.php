@@ -51,7 +51,7 @@
                         @foreach ($this->payments as $payment)
                             <tr class="border-b dark:bg-gray-800  border-gray-200">
                                 <td class="p-4">
-                                    {{ $payment->allocation->user->fname }} {{ $payment->allocation->user->lname }}
+                                    {{ $payment->allocation->user->othernames }} {{ $payment->allocation->user->lname }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                     {{ $payment->allocation->tricycle->model_number }}

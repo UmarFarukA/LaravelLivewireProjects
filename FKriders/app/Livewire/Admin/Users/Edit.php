@@ -14,13 +14,13 @@ class Edit extends Component
 {
     public int $id;
 
-    public string $fname = '';
+    public string $othernames = '';
 
     public string $lname = '';
 
-    public string $mname = '';
+    public int $role_id;
 
-    public string $email = '';
+    // public string $email = '';
 
     public string $phone = '';
 
@@ -31,10 +31,9 @@ class Edit extends Component
 
         $this->id = $id;
 
-        $this->fname = $user->fname;
+        $this->othernames = $user->othernames;
         $this->lname = $user->lname;
-        $this->mname = $user->mname;
-        $this->email = $user->email;
+        $this->role_id = $user->role_id;
         $this->phone = $user->phone;
 
         Flux::modal('edit-user')->show();
@@ -44,26 +43,18 @@ class Edit extends Component
     public function update()
     {
         $this->validate([
-            'fname' => ['required', 'string', 'max:255'],
+            'othernames' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-            'mname' => ['string', 'max:255'],
-            'email' => [
-                    'required',
-                    'string',
-                    'lowercase',
-                    'email',
-                    'max:255',
-                    Rule::unique('users', 'email')->ignore($this->id)
-            ],
-            'phone' => 'required|string|min:11|max:11',
+            'phone' => ['required','string','min:11','max:11',
+                        Rule::unique('users', 'email')->ignore($this->id)
+                    ],
         ]);
 
         $user = User::find($this->id);
 
-        $user->fname = $this->fname;
+        $user->othernames = $this->othernames;
         $user->lname = $this->lname;
-        $user->mname = $this->mname;
-        $user->email = $this->email;
+        $user->role_id = $this->role_id;
         $user->phone = $this->phone;
 
         $user->save();

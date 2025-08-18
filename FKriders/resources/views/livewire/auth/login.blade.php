@@ -4,8 +4,8 @@
         <div
             class="w-full bg-white rounded-lg shadow dark:border md:mt-24 sm:max-w-md xl:p-0 dark:bg-gray-50 dark:border-gray-700">
             <a href="{{route('home')}}" wire:navigate
-                class="flex justify-center pt-12 mb-6 text-4xl font-semibold text-sky-500">
-                FK Ryders
+                class="flex justify-center pt-12 mb-2 text-4xl font-semibold text-sky-500">
+                <img src="{{ asset('fkryders.png') }}" class="w-48 h-32 rounded-full"/>
             </a>
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-stone-700 text-center text-2xl">
@@ -19,9 +19,9 @@
                     </div>
 
                     <flux:input
-                        label="Email"
-                        type="email"
-                        wire:model='email'
+                        label="Phone"
+                        type="number"
+                        wire:model='phone'
                     />
 
                     <flux:input

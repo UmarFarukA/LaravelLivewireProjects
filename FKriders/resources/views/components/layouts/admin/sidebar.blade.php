@@ -15,34 +15,27 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
 
-                    <flux:navlist.item icon="payment-icon" :href="route('customer.payment')" :current="request()->routeIs('customer.payment')" wire:navigate>{{ __('My Payments') }}</flux:navlist.item>
+                    @if(auth()->user()->can('customerView', App\Models\User::class))
+                        <flux:navlist.item icon="payment-icon" :href="route('customer.payment')" :current="request()->routeIs('customer.payment')" wire:navigate>{{ __('My Payments') }}</flux:navlist.item>
+                    @endif
 
-                    @can('investView')
+                    @can('investorView', App\Models\User::class)
                         <flux:navlist.item icon="invest-icon" :href="route('investor.payment')" :current="request()->routeIs('investor.payment')" wire:navigate>{{ __('My Investment') }}</flux:navlist.item>
                     @endcan
 
-                    @can('modifyOrView')
+                    @if (auth()->user()->can('modifyOrView', App\Models\User::class))
                         <flux:navlist.item icon="users-icon" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>{{ __('Users') }}</flux:navlist.item>
                         <flux:navlist.item icon="tricycle-icon" :href="route('tricycle.index')" :current="request()->routeIs('tricycle.index')" wire:navigate>{{ __('Tricycles') }}</flux:navlist.item>
                         <flux:navlist.item icon="allocation-icon" :href="route('allocation.index')" :current="request()->routeIs('allocation.index')" wire:navigate>{{ __('Allocation') }}</flux:navlist.item>
                         <flux:navlist.item icon="payment-icon" :href="route('payment.index')" :current="request()->routeIs('payment.index')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
+                        <flux:navlist.item icon="reports-icon" :href="route('investors.index')" :current="request()->routeIs('investors.index')" wire:navigate>{{ __('Investors') }}</flux:navlist.item>
                         <flux:navlist.item icon="reports-icon" :href="route('reports')" :current="request()->routeIs('reports')" wire:navigate>{{ __('Reports') }}</flux:navlist.item>
                         <flux:navlist.item icon="statistics-icon" :href="route('statistics')" :current="request()->routeIs('statistics')" wire:navigate>{{ __('Statistics') }}</flux:navlist.item>
-                    @endcan
+                    @endif
                 </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
-
-            {{-- <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                {{ __('Repository') }}
-                </flux:navlist.item>
-
-                <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                {{ __('Documentation') }}
-                </flux:navlist.item>
-            </flux:navlist> --}}
 
             <!-- Desktop User Menu -->
             <flux:dropdown class="hidden lg:block" position="bottom" align="start">
@@ -65,7 +58,7 @@
                                 </span>
 
                                 <div class="grid flex-1 text-start text-sm leading-tight">
-                                    <span class="truncate font-semibold">{{ auth()->user()->fname." ".auth()->user()->lname }}</span>
+                                    <span class="truncate font-semibold">{{ auth()->user()->othernames." ".auth()->user()->lname }}</span>
                                     <span class="truncate text-xs">{{ auth()->user()->email }}</span>
                                 </div>
                             </div>
@@ -115,7 +108,7 @@
                                 </span>
 
                                 <div class="grid flex-1 text-start text-sm leading-tight">
-                                    <span class="truncate font-semibold">{{ auth()->user()->fname }} {{ auth()->user()->lname }}</span>
+                                    <span class="truncate font-semibold">{{ auth()->user()->othernames }} {{ auth()->user()->lname }}</span>
                                     <span class="truncate text-xs">{{ auth()->user()->email }}</span>
                                 </div>
                             </div>

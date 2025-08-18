@@ -6,36 +6,30 @@
         </div>
 
         <flux:input
-            label="First Name"
-            placeholder="First Name"
-            wire:model='fname'
-        />
-
-        <flux:input
-            label="Middle Name"
-            placeholder="Middle Name"
-            wire:model='mname'
-        />
-
-        <flux:input
             label="Last Name"
             placeholder="Last Name"
             wire:model='lname'
         />
 
         <flux:input
-            type="email"
-            label="Email"
-            wire:model='email'
-            placeholder='Email'
+            label="Othernames"
+            placeholder="othernames"
+            wire:model='othernames'
         />
 
         <flux:input
-            type="text"
-            label="Phone Number"
+            type="number"
+            label="Phone"
             wire:model='phone'
             placeholder='Phone Number'
         />
+
+        <flux:select wire:model='role_id'>
+            <flux:select.option value="">--Select Role--</flux:select.option>
+            <flux:select.option value="1">Admin</flux:select.option>
+            <flux:select.option value="2">Customer/Drive</flux:select.option>
+            <flux:select.option value="3">Investor</flux:select.option>
+        </flux:select>
 
         <div class="flex">
             <flux:spacer />

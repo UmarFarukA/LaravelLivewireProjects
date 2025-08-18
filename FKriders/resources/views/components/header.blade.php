@@ -2,7 +2,7 @@
     <div class="container mx-auto px-4 flex h-16 items-center justify-between">
       <div class="flex items-center gap-2">
         <a href="/" class="flex items-center gap-2 font-bold text-xl">
-          <span class="text-sky-500 font-bold">FK Riders</span>
+          <span class="text-sky-500 font-bold">FK Ryders</span>
         </a>
       </div>
 

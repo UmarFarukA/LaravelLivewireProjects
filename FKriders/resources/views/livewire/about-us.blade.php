@@ -6,7 +6,7 @@
             <div class="grid gap-6 lg:grid-cols-2 lg:gap-12">
                 <div class="flex flex-col justify-center space-y-4">
                     <div class="space-y-2">
-                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About FK Riders</h2>
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About FK Ryders</h2>
                         <p class="text-gray-500 md:text-xl">
                             We're on a mission to make tricycle ownership accessible to everyone through flexible
                             payment options
@@ -15,7 +15,7 @@
                     </div>
                     <div class="space-y-2">
                         <p class="text-gray-500">
-                            Founded in 2018, FK Riders has grown to become a trusted name in the tricycle market. We
+                            Founded in 2018, FK Ryders has grown to become a trusted name in the tricycle market. We
                             understand the
                             challenges of purchasing a tricycle outright, which is why we pioneered our flexible
                             installment plan.
@@ -87,7 +87,7 @@
                             <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                     </a>
-                    <a href="#"
+                    <a href="{{ route('register') }}"
                         class="px-4 py-2 text-sm font-medium bg-transparent text-white border border-white rounded-md hover:bg-white hover:text-sky-500 flex items-center gap-1">
                         Create an Account
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"

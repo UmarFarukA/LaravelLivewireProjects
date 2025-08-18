@@ -1,6 +1,7 @@
 <div class="flex aspect-square size-8 items-center justify-center rounded-md bg-accent-content text-accent-foreground">
-    <x-app-logo-icon class="size-5 fill-current text-white dark:text-black" />
+    {{-- <x-app-logo-icon class="size-5 fill-current text-white dark:text-black" /> --}}
+    <img src="{{ asset('fk_ryders_logo.jpg') }}" />
 </div>
 <div class="ms-1 grid flex-1 text-start text-sm">
-    <span class="mb-0.5 truncate leading-tight font-semibold">FKRiders</span>
+    <span class="mb-0.5 truncate leading-tight font-semibold">FK Ryders</span>
 </div>

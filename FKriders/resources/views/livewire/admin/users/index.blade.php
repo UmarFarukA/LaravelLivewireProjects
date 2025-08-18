@@ -33,10 +33,10 @@
                             Phone Number
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Email
+                            Role
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Role
+                            Registered Date
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Status
@@ -51,19 +51,17 @@
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 dark:text-white">
                             <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
                                 <a href="{{ route('users.show', $user->id) }}" wire:navigate>
-                                    {{ $user->fname }} {{ $user->lname }}
+                                    {{ $user->othernames }} {{ $user->lname }}
                                 </a>
                             </th>
                             <td class="px-6 py-4">
                                 {{ $user->phone }}
                             </td>
-                            <td class="px-6 py-4">
-                                {{ $user->email }}
-                            </td>
+
                             <td class="px-6 py-4">
                                 @if ($user->role_id === 1)
                                     <p class="rounded bg-sky-500 text-emerald-50 text-center">
-                                        Driver
+                                        Admin
                                     </p>
                                 @elseif ($user->role_id === 2)
                                     <p class="p-1 rounded bg-indigo-600 text-indigo-50 text-center">
@@ -71,13 +69,16 @@
                                     </p>
                                 @elseif ($user->role_id === 3)
                                     <p class="p-1 rounded bg-yellow-600 text-yellow-50 text-center">
-                                        Admin
+                                        Investor
                                     </p>
                                 @else
                                     <p class="p-1 rounded bg-stone-700 text-stone-50 text-center">
                                         Super Admin
                                     </p>
                                 @endif
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $user->created_at->format('d-m-Y') }}
                             </td>
                             <td class="px-6 py-4">
                                 @if ($user->status === 1)
@@ -91,25 +92,8 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 text-right flex items-center space-x-4">
-                                <div wire:click="edit({{ $user->id }})">
-                                    <svg name="edit-user" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="lucide lucide-pencil-icon lucide-pencil cursor-pointer">
-                                        <path
-                                            d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
-                                        <path d="m15 5 4 4" />
-                                    </svg>
-                                </div>
-
-                                <svg name="delete-user" wire:click='delete({{ $user->id }})'
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash cursor-pointer">
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-                                    <path d="M3 6h18" />
-                                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                </svg>
+                                <x-edit-icon wire:click="edit({{ $user->id }})"/>
+                                <x-delete-icon wire:click='delete({{ $user->id }})' />
 
                                 <svg
                                     name="update-password" wire:click='change_password({{ $user->id }})'

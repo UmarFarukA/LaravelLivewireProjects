@@ -10,15 +10,13 @@ use Illuminate\Validation\Rules;
 class Create extends Component
 {
 
-    public string $fname = '';
-
     public string $lname = '';
 
-    public string $mname = '';
+    public string $othernames = '';
 
-    public string $email = '';
+    public string $phone = "";
 
-    public string $phone = '';
+    public int $role_id;
 
     public string $password = '';
 
@@ -29,15 +27,17 @@ class Create extends Component
     public function store(): void
     {
         $validated = $this->validate([
-            'fname' => ['required', 'string', 'max:255'],
+            'othernames' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-            'mname' => ['string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
-            'phone' => ['required', 'string', 'min:11', 'max:11', 'unique:'.User::class],
+            'phone' => ['required', 'string', 'max:11', 'unique:'.User::class],
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
+
+        if(!$this->role_id) return;
+
+        $validated['role_id'] = $this->role_id;
 
         User::create($validated);
 
