@@ -8,6 +8,7 @@
     <x-notification />
     <livewire:admin.investor.create />
     <livewire:admin.investor.create-investor-payment />
+    <livewire:admin.investor.edit />
 
 
     <div class="mt-12 flex justify-between items-center">
@@ -24,7 +25,7 @@
         </div>
 
         <div class="w-2/4">
-            <flux:input wire:model.live.debounce.500ms="search" type="search" required />
+            <flux:input wire:model.live.debounce.500ms="search" type="search" required placeholder="Search"/>
         </div>
     </div>
 
@@ -38,7 +39,7 @@
                                 Investor
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Amount Paid Received (N)
+                                Amount Paid (N)
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Payment Date
@@ -52,37 +53,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($payments as $payment)
+                        @foreach ($this->investors as $investor)
                         <tr class="border-b dark:bg-gray-800  border-gray-200">
+                            <td class="px-6 py-4 font-semibold text-white">
+                                {{ $investor->investor->user->lname }} {{ $investor->investor->user->othernames }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ number_format($investor->amount_due, 2) }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $investor->created_at->format('d-m-Y') }}
+                            </td>
+
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                {{ $payment->allocation->tricycle->model_number }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ number_format($payment->allocation->tricycle->amount, 2) }}
-                            </td>
-                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                {{ number_format($payment->amount, 2) }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $payment->created_at->format('d-m-Y') }}
-                            </td>
-                            <td class="px-6 py-4">
-                                @if ($payment->payment_status == 0)
-                                <span class="px-2 py-1 text-sm bg-sky-500 text-sky-50 rounded-md">Pending</span>
-                                @elseif ($payment->payment_status == 1)
-                                <span class="px-2 py-1 text-sm bg-green-500 text-green-50 rounded-md">Verified</span>
-                                @elseif ($payment->payment_status == 2)
-                                <span class="px-2 py-1 text-sm bg-red-500 text-red-50 rounded-md">Failed</span>
-                                @endif
+                                {{ $investor->payment_number }}
                             </td>
                             <td class="px-6 py-4 flex flex-col space-y-1 md:flex-row items-center space-x-2">
-                                <a href="{{ route('receipt.download', $payment->id) }}"
-                                    class="bg-sky-500 hover:bg-sky-400 text-sky-50 px-2 py-1 rounded-md">
-                                    Download
-                                </a>
+                                <flux:button variant="primary" wire:click='edit({{ $investor->id }})'>Edit</flux:button>
                             </td>
                         </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>

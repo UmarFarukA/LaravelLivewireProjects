@@ -14,7 +14,8 @@ return new class extends Migration
     {
         Schema::create('investors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class, "user_id")
+                    ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('amount_invested');
             $table->integer('duration');
             $table->tinyInteger('payment_status')->default(0); // 0:not-completed, 1:completed

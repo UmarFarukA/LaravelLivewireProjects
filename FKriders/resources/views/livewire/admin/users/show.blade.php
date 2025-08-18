@@ -18,7 +18,7 @@
             </div>
             <div class="flex flex-col space-y-4 text-white text-lg">
                 <span class="text-lg text-white">
-                    Name: {{ $user->lname." ".$user->othernames }}
+                    Name: {{ $user->lname . " " . $user->othernames }}
                 </span>
                 <span class="text-lg text-white">
                     Phone Number: {{ $user->phone }}
@@ -58,7 +58,7 @@
                     </span>
                     <span class="text-lg text-white">
                         Balance: N{{number_format($user->allocation->tricycle->amount - $user->allocation->payments()->sum('amount'), 2)
-                            }}
+                                    }}
                     </span>
                     <span class="text-lg text-white">
                         Payment Duration: {{ $user->allocation->duration}} weeks
@@ -67,16 +67,45 @@
             </div>
         @else
             <p class="text white text-2xl">
-                {{ $user->lname." ".$user->othernames }} has not been Allocated any Tricycle
+                {{ $user->lname . " " . $user->othernames }} has not been Allocated any Tricycle
             </p>
         @endif
 
         <flux:separator variant="subtle" />
 
         <div class="mt-1">
-            <div>
-                Progress tracker goes here
+            {{-- @if ($user_details)
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-700">
+                    Investment Progress
+                </label>
+
+                <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div class="bg-green-500 h-4 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                        style="width: {{ $progress }}%">
+                        {{ number_format($progress, 2) }}%
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-600 mt-2">
+                    {{ number_format($progress, 2) }}% complete
+                </p>
             </div>
+            @endif --}}
+
+            @if ($user_details)
+                <div class="mb-4">
+                    <label class="block mb-1 text-sm font-medium">Investment Progress</label>
+
+                    <progress value="{{ $progress }}" max="100" class="w-full h-4">
+                        {{ $progress }}%
+                    </progress>
+
+                    <p class="text-sm text-gray-700 mt-1">
+                        {{ number_format($progress, 2) }}% complete
+                    </p>
+                </div>
+            @endif
         </div>
     </div>
 </div>

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('investor_payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('investor_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Investor::class, 'investor_id');
             $table->integer('amount_due');
             $table->integer('payment_number');
             $table->timestamps();

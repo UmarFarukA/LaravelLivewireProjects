@@ -36,14 +36,12 @@ class CreateInvestorPayment extends Component
                             ->with('payments')
                             ->first();
 
-        dd($investor?->payments);
-
         if($investor) {
             $this->user_details = $investor;
 
             $this->amount_invested = $investor->amount_invested;
 
-            $this->amount_paid = $investor->payments->sum('');
+            $this->amount_paid = $investor->payments()->sum('amount_due');
             $this->payment_number = $investor->payments->count('payment_number') + 1;
         }
     }

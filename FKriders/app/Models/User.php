@@ -73,4 +73,9 @@ class User extends Authenticatable
         return $this->hasMany(Payment::class, foreignKey: "user_id");
     }
 
+    public function investment()
+    {
+        return $this->hasOne(Investor::class);
+    }
+
 }

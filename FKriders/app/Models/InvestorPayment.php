@@ -16,6 +16,6 @@ class InvestorPayment extends Model
 
     public function investor(): BelongsTo
     {
-        return $this->belongsTo(Investor::class);
+        return $this->belongsTo(Investor::class, foreignKey: "investor_id", ownerKey: "user_id");
     }
 }
