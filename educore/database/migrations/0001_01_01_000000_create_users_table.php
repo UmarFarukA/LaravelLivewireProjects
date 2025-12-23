@@ -21,7 +21,7 @@ return new class extends Migration
             // $table->rememberToken();
             $table->enum('role', ['super_admin', 'admin', 'teacher', 'parent', 'student'])->default('student');
             $table->boolean('is_active')->default(0);
-            $table->timestamp('last_login');
+            $table->date('last_login');
             $table->timestamps();
         });
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Student::class, 'student_id');
             $table->foreignIdFor(Term::class, 'term_id');
-            $table->foreignIdFor(ClassRoom::class, 'classroom_id');
+            $table->foreignIdFor(ClassRoom::class, 'class_room_id');
             $table->float('amount');
             $table->string('description')->nullable();
             $table->timestamps();

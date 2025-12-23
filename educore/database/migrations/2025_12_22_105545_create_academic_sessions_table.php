@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(School::class, 'school_id');
             $table->string('name');
-            $table->boolean('is_active')->default(0); //1-True, 0-False
+            $table->tinyInteger('is_active')->default(0); //1-True, 0-False
             $table->timestamps();
         });
     }

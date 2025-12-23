@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(School::class, 'school_id');
             $table->foreignIdFor(Term::class, 'term_id');
             $table->foreignIdFor(Subject::class, 'subject_id');
-            $table->foreignIdFor(ClassRoom::class, 'classroom_id');
+            $table->foreignIdFor(ClassRoom::class, 'class_room_id');
             $table->string('assessment_type');
             $table->float('max_score');
             $table->timestamps();

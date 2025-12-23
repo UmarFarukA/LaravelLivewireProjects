@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(School::class, 'school_id');
-            $table->foreignIdFor(ClassRoom::class, 'class_id');
+            $table->foreignIdFor(ClassRoom::class, 'class_room_id');
             $table->tinyInteger('subject_id')->nullable(true);
-            $table->date('att_date');
+            $table->date('attendance_date');
             $table->tinyInteger('taken_by');
             $table->timestamps();
         });

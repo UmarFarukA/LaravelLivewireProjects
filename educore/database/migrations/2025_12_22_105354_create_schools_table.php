@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address')->nullable(true);
             $table->string('email')->unique();
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->string('school_logo');
             $table->string('subscription_status');
             $table->date('subscription_expires_at');

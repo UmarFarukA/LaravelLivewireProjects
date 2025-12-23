@@ -7,4 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Admission extends Model
 {
     //
+    protected $fillable = [
+        'school_id', 'student_id', 'academic_session_id',
+        'status', 'approved_by'
+    ];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }
