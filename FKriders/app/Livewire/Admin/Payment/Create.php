@@ -5,6 +5,8 @@ namespace App\Livewire\Admin\Payment;
 use App\Models\Payment;
 use App\Models\User;
 use Livewire\Component;
+use Carbon\Carbon;
+use function Symfony\Component\Clock\now;
 
 class Create extends Component
 {
@@ -63,7 +65,7 @@ class Create extends Component
         $fields['user_id'] = $this->selectedUserId;
         $fields['allocation_id'] = $this->allocation_id;
         $fields['payment_channel'] = "Cash";
-        $fields['paid_at'] = now();
+        //$fields['paid_at'] = Carbon::now();
         $fields['week_number'] = $this->week_number;
 
         Payment::create($fields);

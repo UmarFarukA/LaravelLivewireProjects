@@ -8,7 +8,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Payment extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        "user_id",
+        "allocation_id",
+        "tricycle_id",
+        "amount",
+        "payment_channel",
+        "paid_at",
+        "week_number",
+        "payment_status",
+        "has_completed",
+        "paid_at",
+        "expected_payment_date",
+        "payment_reference",
+    ];
 
     protected static function booted()
     {
