@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from '@/components/ui/button/Button.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
@@ -16,11 +17,15 @@ const breadcrumbs: BreadcrumbItem[] = [
     <Head title="Schools" />
 
     <AppLayout :breadcrumbs="breadcrumbs">
-        <!-- <div
-            class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
-        >
 
-        </div> -->
-        <h1 class="text-white text-4xl text-center">Manage Schools here</h1>
+    <div class="mt-3 px-3">
+        <Button
+
+            class="mb-4"
+        >
+            Create School
+        </Button>
+    </div>
+
     </AppLayout>
 </template>

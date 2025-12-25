@@ -11,7 +11,11 @@ export default defineConfig({
             ssr: 'resources/js/ssr.ts',
             refresh: true,
         }),
-        tailwindcss(),
+        tailwindcss({
+            content: [
+                './node_modules/@inertiaui/modal-vue/src/**/*.{js,vue}',
+            ]
+        }),
         wayfinder({
             formVariants: true,
         }),
