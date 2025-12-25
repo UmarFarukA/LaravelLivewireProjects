@@ -16,8 +16,11 @@ Route::get('dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Schools route
-Route::get('/schools', [SchoolController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('schools.index');
+Route::middleware(['auth', 'verified'])->group(function(){
+    Route::get('/schools', [SchoolController::class, 'index'])
+            ->name('schools.index');
+    Route::get('/schools/create', [SchoolController::class, 'create'])
+            ->name('schools.create');
+});
 
 require __DIR__.'/settings.php';

@@ -13,7 +13,7 @@ export default defineConfig({
         }),
         tailwindcss({
             content: [
-                './node_modules/@inertiaui/modal-vue/src/**/*.{js,vue}',
+                './node_modules/@inertiaui/modal-vue/src/**/*.{js,ts, vue}',
             ]
         }),
         wayfinder({

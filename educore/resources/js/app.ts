@@ -5,7 +5,8 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import type { DefineComponent } from 'vue';
 import { createApp } from 'vue';
 import { initializeTheme } from './composables/useAppearance';
-import { renderApp } from '@inertiaui/modal-vue'
+import { renderApp } from '@inertiaui/modal-vue';
+import { Modal, ModalLink } from '@inertiaui/modal-vue';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -17,8 +18,10 @@ createInertiaApp({
             import.meta.glob<DefineComponent>('./pages/**/*.vue'),
         ),
     setup({ el, App, props, plugin }) {
-        createApp({ render: () => renderApp(App, props) })
+        createApp({ render: renderApp(App, props) })
             .use(plugin)
+            .component('Modal', Modal)
+            .component('ModalLink', ModalLink)
             .mount(el);
     },
     progress: {

@@ -13,4 +13,9 @@ class SchoolController extends Controller
     {
         return Inertia::render('Schools/Index');
     }
+
+    public function create()
+    {
+        return Inertia::render('Schools/Create');
+    }
 }
