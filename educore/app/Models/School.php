@@ -10,8 +10,7 @@ class School extends Model
      use HasFactory;
 
     protected $fillable = [
-        'name', 'address', 'email', 'phone', 'school_logo',
-        'subscription_status', 'subscription_expires_at'
+        'name', 'address', 'email', 'phone', 'school_logo', 'status'
     ];
 
     public function users()

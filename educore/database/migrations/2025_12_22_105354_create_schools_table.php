@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address')->nullable(true);
+            $table->string('address')->nullable();
             $table->string('email')->unique();
             $table->string('phone')->unique();
-            $table->string('school_logo');
-            $table->string('subscription_status');
-            $table->date('subscription_expires_at');
+            $table->string('school_logo')->nullable();
+            $table->tinyInteger('status')->default(1); //1-Active, 0-Inactive
             $table->timestamps();
         });
     }

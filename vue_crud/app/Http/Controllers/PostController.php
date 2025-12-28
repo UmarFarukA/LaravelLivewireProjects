@@ -34,10 +34,10 @@ class PostController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required|string',
+            'content' => 'required|string|min:25',
         ]);
 
-        $post = Post::create($data);
+        Post::create($data);
 
         return redirect()->route('post.index')->with('success','');
     }

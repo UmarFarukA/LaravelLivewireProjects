@@ -21,6 +21,12 @@ Route::middleware(['auth', 'verified'])->group(function(){
             ->name('schools.index');
     Route::get('/schools/create', [SchoolController::class, 'create'])
             ->name('schools.create');
+    Route::post('/schools/store', [SchoolController::class, 'store'])
+            ->name('schools.store');
+    Route::get('/schools/{school}/edit', [SchoolController::class, 'edit'])
+            ->name('schools.edit');
+    Route::put('/schools/{school}/update', [SchoolController::class, 'update'])
+            ->name('schools.update');
 });
 
 require __DIR__.'/settings.php';
