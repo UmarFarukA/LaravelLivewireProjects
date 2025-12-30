@@ -11,6 +11,10 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboards/Dashboard');
 });
 
+Route::get('/register', function(){
+    return Inertia::render('Auth/Register');
+});
+
 
 // Route::middleware(['auth'])->group(function () {
 //     Route::get('/dashboard', function () {

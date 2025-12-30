@@ -1,5 +1,6 @@
 <script setup>
-import AuthLayout from '../Layouts/AuthLayout.vue';
+ import AuthLayout from '@/Pages/Layouts/AuthLayout.vue';
+
 
     defineOptions({layout: AuthLayout});
 </script>
