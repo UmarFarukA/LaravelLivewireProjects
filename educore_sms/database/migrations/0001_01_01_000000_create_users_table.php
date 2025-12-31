@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('phone')->nullable();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // $table->rememberToken();
-            $table->enum('role', ['super_admin', 'admin', 'teacher', 'parent', 'student'])->default('super_admin');
-            $table->boolean('is_active')->default(0);
-            $table->date('last_login');
+            $table->rememberToken();
+            $table->tinyInteger('role')->default('6'); // 1-Super admin, 2-Admin, 3-teacher, 4-staff, 5-student, 6-parent
+            $table->tinyInteger('is_active')->default(1); // 1 for active, 0 for inactive
+            $table->date('last_login')->default(now());
             $table->timestamps();
         });
 

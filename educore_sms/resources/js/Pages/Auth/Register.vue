@@ -1,7 +1,25 @@
 <script setup>
     import AuthLayout from '@/Pages/Layouts/AuthLayout.vue';
+    import InputField from '../../Components/InputField.vue';
+    import { useForm } from '@inertiajs/vue3';
+    import Button from '../../Components/Button.vue';
 
     defineOptions({layout: AuthLayout});
+
+    const form = useForm({
+        name: null,
+        email: null,
+        password: null,
+        password_confirmation: null
+    })
+
+    const submit = () => {
+        form.post(route('store.register'), {
+            preserveScroll: true,
+            onError: () => form.reset('password', 'password_confirmation'),
+            onFinish: () => form.reset('password', 'password_confirmation'),
+        });
+    };
 </script>
 
 <template>
@@ -9,54 +27,48 @@
     <Head title="Forgot password" />
     <div class="bg-gray-100 min-h-screen flex items-center justify-center">
 
-            <div class="w-1/3 mx-auto max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden grid grid-cols-1">
+            <div class=" w-full mx-2 md:w-1/3 md:mx-auto max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden grid grid-cols-1">
                 <div class="flex justify-center">
-                    <img src="/public/storage/images/logo_1.png" alt="EduCore SMS" class="h-32">
+                    <img src="/public/storage/images/logo_1.png" alt="EduCore SMS" class="h-28">
                 </div>
                 <div class="space-y-2 px-6 ">
-                    <form>
-                        <div class="grid gap-2">
-                            <label for="name">Name</label>
-                            <input id="name" type="name" name="name" autocomplete="off" autofocus
-                                placeholder="Your name" class="text-gray-700 block" />
-                            <!-- <InputError :message="errors.email" /> -->
-                        </div>
+                    <form @submit.prevent="submit" class="space-y-3">
+                        <InputField
+                            label="Name"
+                            v-model="form.name"
+                            :message="form.errors.name"
+                            placeholder="Enter your full name"
+                        />
 
-                        <div class="grid gap-2">
-                            <label for="email">Email address</label>
-                            <input id="email" type="email" name="email" autocomplete="off" autofocus
-                                placeholder="email@example.com" class="text-gray-700 block" />
-                            <!-- <InputError :message="errors.email" /> -->
-                        </div>
+                        <InputField
+                            label="Email Address"
+                            v-model="form.email"
+                            :message="form.errors.email"
+                            placeholder="example@example.com"
+                        />
 
-                        <div class="grid gap-2">
-                            <label for="password">Password</label>
-                            <input id="password" type="password" name="password" autocomplete="off" autofocus
-                                placeholder="***********" class="text-gray-700 block" />
-                            <!-- <InputError :message="errors.email" /> -->
-                        </div>
+                        <InputField
+                            label="Password"
+                            type="password"
+                            v-model="form.password"
+                            :message="form.errors.password"
+                            placeholder="**********"
+                        />
+                        <InputField
+                            label="Confirm Password"
+                            type="password"
+                            v-model="form.password_confirmation"
+                            :message="form.errors.password_confirmation"
+                            placeholder="**********"
+                        />
 
-                        <div class="grid gap-2">
-                            <label for="c_password">Password</label>
-                            <input id="c_password" type="password" name="c_password" autocomplete="off" autofocus
-                                placeholder="***********" class="text-gray-700 block" />
-                            <!-- <InputError :message="errors.email" /> -->
-                        </div>
-
-                        <div class="my-6 flex items-center justify-start">
-                            <button
-                                class="mt-3 w-full bg-educore-primary hover:bg-blue-900 text-white py-2.5 rounded-lg font-medium transition"
-                                >
-                                <!-- <Spinner v-if="processing" /> -->
-                                Signup
-                            </button>
-                        </div>
+                        <Button title="Sign Up" />
                     </form>
 
-                    <!-- <div class="space-x-1 text-center text-sm text-gray-700 mb-3">
+                    <div class="space-x-1 text-center text-sm text-gray-700 mb-3">
                         <span>Or, return to</span>
-                        <Link :href="login()">log in</Link>
-                    </div> -->
+                        <Link href="/">log in</Link>
+                    </div>
                 </div>
             </div>
         </div>

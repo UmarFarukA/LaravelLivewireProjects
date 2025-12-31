@@ -1,10 +1,17 @@
 <script setup>
     import AuthLayout from '@/Pages/Layouts/AuthLayout.vue';
+    import { useForm } from '@inertiajs/vue3';
+    import InputField from '../../Components/InputField.vue';
+    import Button from '../../Components/Button.vue';
 
     defineOptions({layout: AuthLayout});
 
+    const form = useForm({
+        email: null
+    })
+
     defineProps({
-        status: string
+        status: String
     });
 
 </script>
@@ -20,27 +27,22 @@
                 </div>
                 <div class="space-y-6 px-6 ">
                     <form>
-                        <div class="grid gap-2">
-                            <label for="email">Email address</label>
-                            <input id="email" type="email" name="email" autocomplete="off" autofocus
-                                placeholder="email@example.com" class="text-gray-700 block" />
-                            <!-- <InputError :message="errors.email" /> -->
-                        </div>
+                        <!-- Email -->
+                        <InputField
+                            type="email"
+                            label="Email Address"
+                            placeholder="email@example.com"
+                            v-model="form.email"
+                            :message="form.errors.email"
+                        />
 
-                        <div class="my-6 flex items-center justify-start">
-                            <button
-                                class="mt-3 w-full bg-educore-primary hover:bg-blue-900 text-white py-2.5 rounded-lg font-medium transition"
-                                >
-                                <!-- <Spinner v-if="processing" /> -->
-                                Email password reset link
-                            </button>
-                        </div>
+                        <Button title="Email password reset link" :disabled="form.processing" />
                     </form>
 
-                    <!-- <div class="space-x-1 text-center text-sm text-gray-700 mb-3">
+                    <div class="space-x-1 text-center text-sm text-gray-700 mb-3">
                         <span>Or, return to</span>
-                        <Link :href="login()">log in</Link>
-                    </div> -->
+                        <Link href="/">log in</Link>
+                    </div>
                 </div>
             </div>
         </div>
