@@ -1,6 +1,7 @@
 import './bootstrap';
 import '../css/app.css';
 import { createApp, h } from 'vue'
+import { renderApp } from '@inertiaui/modal-vue'
 import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
 import AppLayout from './Pages/Layouts/AppLayout.vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
@@ -14,7 +15,8 @@ createInertiaApp({
         return page;
     },
     setup({ el, App, props, plugin }) {
-        createApp({ render: () => h(App, props) })
+        // createApp({ render: () => h(App, props) })
+        createApp({ render: renderApp(App, props) })
             .use(plugin)
             .use(ZiggyVue)
             .component('Link', Link)

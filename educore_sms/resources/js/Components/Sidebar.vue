@@ -51,6 +51,15 @@ defineProps<{
             <NavLink href="/settings" icon="Settings">
                 Settings
             </NavLink>
+
+            <div class="mt-6">
+                <Link
+                    method="post"
+                    type="button"
+                    as="button" href="/logout">
+                    Logout
+                </Link>
+            </div>
         </nav>
     </aside>
 </template>

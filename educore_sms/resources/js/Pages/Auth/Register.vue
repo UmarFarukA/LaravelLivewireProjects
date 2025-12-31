@@ -62,15 +62,14 @@
                             placeholder="**********"
                         />
 
-                        <Button title="Sign Up" />
+                        <Button title="Sign Up" :disabled="form.processing"/>
                     </form>
 
                     <div class="space-x-1 text-center text-sm text-gray-700 mb-3">
                         <span>Or, return to</span>
-                        <Link href="/">log in</Link>
+                        <Link :href="route('login')">log in</Link>
                     </div>
                 </div>
             </div>
         </div>
 </template>
-

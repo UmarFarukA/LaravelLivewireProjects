@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import Sidebar from '@/Components/Sidebar.vue'
+import { Toaster } from 'vue-sonner'
+import 'vue-sonner/style.css'
 
 defineProps({
     title: {
@@ -46,7 +48,7 @@ const sidebarOpen = ref(false)
 
             <!-- Page -->
             <main class="p-4 sm:p-6 flex-1">
-
+                <Toaster position="top-right" richColors theme="light"/>
                 <slot />
             </main>
         </div>

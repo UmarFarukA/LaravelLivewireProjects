@@ -18,13 +18,13 @@ class AuthController extends Controller
 
     public function authenticate(Request $request): RedirectResponse
     {
-        $credentials = $request->validate([
+        $fields = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
             'remember' => ['boolean'],
         ]);
 
-        if (Auth::attempt($credentials, $credentials['remember'] ?? false)) {
+        if (Auth::attempt(['email' =>  $fields['email'], 'password' =>  $fields['password']],  $fields['remember'] ?? false)) {
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');

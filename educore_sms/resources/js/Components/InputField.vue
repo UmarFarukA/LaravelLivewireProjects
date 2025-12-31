@@ -32,7 +32,7 @@ defineProps({
             :placeholder="placeholder"
             autocomplete="off"
             autofocus
-            required
+
             :tabindex="2"
             class="text-gray-700 block w-full px-2 py-2 rounded-md border border-school-primary focus:border-school-primary"
         />

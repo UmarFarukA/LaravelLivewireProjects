@@ -3,6 +3,7 @@ import { useForm } from '@inertiajs/vue3';
 import AuthLayout from '@/Pages/Layouts/AuthLayout.vue';
 import Button from '../Components/Button.vue';
 import InputField from '../Components/InputField.vue';
+import { toast } from 'vue-sonner';
 
 defineOptions({ layout: AuthLayout });
 
@@ -17,6 +18,7 @@ const submit = () => {
         preserveScroll: true,
         onFinish: () => form.reset('password'),
         onError: () => form.reset('password'),
+        onSuccess: () => toast.success('Logged in successfully!'),
     });
 };
 
@@ -32,9 +34,9 @@ const submit = () => {
 
             <!-- Left Branding Panel -->
             <div
-                class="hidden md:relative md:flex flex-col justify-center bg-gradient-to-br from-blue-600 to-indigo-700 text-white ">
+                class="hidden px-2 md:relative md:flex flex-col justify-center bg-white text-white ">
                 <img src="/storage/app/public/images/logo_2.png" alt="EduCore SMS"
-                    class="absolute inset-0 w-full h-full object-cover" />
+                    class="absolute inset-0 w-full h-96 object-cover" />
 
             </div>
 
@@ -63,7 +65,7 @@ const submit = () => {
                     <!-- Remember + Forgot -->
                     <div class="flex items-center justify-between text-sm text-educore-primary ">
                         <label for="remember" class="flex items-center space-x-2">
-                            <input type="checkbox" id="remember" name="remember" :tabindex="3" />
+                            <input type="checkbox" v-model="form.remember" id="remember" name="remember" :tabindex="3" />
                             <span>Remember me</span>
                         </label>
                         <Link class="text-sm text-educore-primary" :tabindex="5">
