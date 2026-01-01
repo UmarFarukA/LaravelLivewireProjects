@@ -39,25 +39,33 @@ class SchoolController extends Controller
         return redirect()->route('schools.index')->with('success', 'School created successfully!');
     }
 
-    // public function edit(School $school)
-    // {
-    //     return Inertia::render('Schools/Edit', [
-    //         'school' => $school
-    //     ]);
-    // }
+    public function edit(School $school)
+    {
+        return Inertia::render('Schools/Edit', [
+            'school' => $school
+        ]);
+    }
 
-    // public function update(School $school, Request $request)
-    // {
-    //     $validated = $request->validate([
-    //         'name' => 'required|string|min:3|max:255',
-    //         'email' => 'required|email|unique:schools,email,' . $school->id . '|max:255',
-    //         'address' => 'nullable|string|max:500',
-    //         'phone' => 'required|string|max:15',
-    //         'school_logo' => 'nullable|string|max:255',
-    //     ]);
+    public function update(School $school, Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|min:3|max:255',
+            'email' => 'required|email|unique:schools,email,' . $school->id . '|max:255',
+            'address' => 'nullable|string|max:500',
+            'phone' => 'required|string|max:15',
+            'school_logo' => 'nullable|string|max:255',
+            'status' => 'nullable|boolean',
+        ]);
 
-    //     $school->update($validated);
+        $school->update($validated);
 
-    //     return redirect()->route('schools.index')->with('success', 'School updated successfully!');
-    // }
+        return redirect()->route('schools.index')->with('success', 'School updated successfully!');
+    }
+
+    public function destroy(School $school)
+    {
+        $school->delete();
+
+        return redirect()->route('schools.index')->with('success', 'School deleted successfully!');
+    }
 }

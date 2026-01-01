@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -26,9 +27,22 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Schools Routes
-    Route::get('/schools', [SchoolController::class, 'index'])->name('schools.index');
-    Route::get('/schools/create', [SchoolController::class, 'create'])->name('schools.create');
-    Route::post('/schools/store', [SchoolController::class, 'store'])->name('schools.store');
+    Route::get('/schools', [SchoolController::class, 'index']
+        )->name('schools.index');
+    Route::get('/schools/create', [SchoolController::class, 'create'])
+        ->name('schools.create');
+    Route::post('/schools/store', [SchoolController::class, 'store'])
+        ->name('schools.store');
+    Route::get('/schools/{school}/edit', [SchoolController::class, 'edit'])
+        ->name('schools.edit');
+    Route::put('/schools/{school}/update', [SchoolController::class, 'update'])
+        ->name('schools.update');
+    Route::delete('/schools/delete/{school}', [SchoolController::class, 'destroy'])
+        ->name('schools.destroy');
+
+    // Students route
+    Route::get('/students', [StudentController::class, 'index'])
+        ->name('students.index');
 });
 
 

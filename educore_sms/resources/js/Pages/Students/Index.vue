@@ -1,37 +1,10 @@
 <script setup>
-import { toast } from "vue-sonner";
-import { ModalLink } from "@inertiaui/modal-vue";
 import AuthenticatedLayout from "../Layouts/AuthenticatedLayout.vue";
-import { Link, router } from "@inertiajs/vue3";
-import DeleteButton from "../../Components/DeleteButton.vue";
-import EditButton from "../../Components/EditButton.vue";
 
-defineProps({
-    schools: {
-        type: Array,
-        required: true,
-    },
-});
-
-const handleDelete = (schoolId) => {
-    if (confirm("Do you want to delete?")) {
-        router.delete(route("schools.destroy", schoolId), {
-            preserveScroll: true,
-            onError: () =>
-                toast.error("Failed to delete school. Please try again."),
-            onSuccess: () =>
-                toast.success(
-                    `School with ID ${schoolId} deleted successfully!`,
-                ),
-        });
-    }
-    console.log("deleted");
-};
 </script>
 
 <template>
-    <Head title="Schools" />
-    <AuthenticatedLayout title="Manage Schools">
+    <AuthenticatedLayout title="Students">
         <div class="flex-col space-y-3">
             <div
                 class="grid grid-cols-1 md:grid-cols-2 mt-4 place-content-center px-3"
@@ -41,7 +14,7 @@ const handleDelete = (schoolId) => {
                         href="/schools/create"
                         class="px-4 py-2 bg-school-primary text-white rounded-md hover:bg-school-primary-hover"
                     >
-                        Create School
+                        Add Student
                     </Link>
                 </div>
                 <div class="">
@@ -55,7 +28,7 @@ const handleDelete = (schoolId) => {
             <div class="shadow-sm">
                 <div
                     class="bg-white border rounded-md overflow-hidden"
-                    v-if="schools"
+
                 >
                     <!-- Table (Desktop) -->
                     <div class="hidden md:block overflow-x-auto">
@@ -63,16 +36,16 @@ const handleDelete = (schoolId) => {
                             <thead class="bg-gray-50 text-sm text-gray-600">
                                 <tr>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        School
+                                        School Name
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Address
+                                        Student Name
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Phone
+                                        Level
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Admin
+                                        Class
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
                                         Status
@@ -86,61 +59,13 @@ const handleDelete = (schoolId) => {
                             </thead>
 
                             <tbody class="divide-y text-sm">
-                                <tr
-                                    v-for="school in schools"
-                                    :key="school.id"
-                                    class="hover:bg-gray-50"
-                                >
-                                    <td
-                                        class="px-6 py-4 font-medium text-gray-800"
-                                    >
-                                        {{ school.name }}
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-600">
-                                        {{ school.address }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ school.phone }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <!-- {{ school.phone }} -->
-                                        Administrator
-                                    </td>
 
-                                    <td class="px-6 py-4">
-                                        <span
-                                            v-if="school.status"
-                                            class="p-1 text-sm rounded-md bg-green-100 text-green-700"
-                                            >Active</span
-                                        >
-                                        <span
-                                            v-else
-                                            class="p-1 text-sm bg-yellow-100 rounded-md text-yellow-700"
-                                            >Inactive</span
-                                        >
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 flex items-center justify-end space-x-4"
-                                    >
-                                        <!-- <Link
-                                            :href="
-                                                route('schools.edit', school.id)
-                                            "
-                                            class="px-2 py-1 bg-gray-600 hover:bg-gray-500 text-gray-50 rounded-md"
-                                        >
-                                            Edit
-                                        </Link> -->
-                                        <EditButton title="Edit" :href="route('schools.edit', school.id)" />
-
-                                        <DeleteButton title="Delete" @click="handleDelete(school.id)" />
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <!-- Cards (Mobile) -->
-                    <div class="md:hidden divide-y">
+                    <!-- <div class="md:hidden divide-y">
                         <div
                             v-for="school in schools"
                             :key="school.id"
@@ -178,11 +103,11 @@ const handleDelete = (schoolId) => {
                                 View Details →
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                <div v-else>
-                    <p class="text-gray-700 font-bold">No Schools Created.</p>
-                </div>
+                <!-- <div v-else>
+                    <p class="text-gray-700 font-bold">No Students.</p>
+                </div> -->
             </div>
         </div>
     </AuthenticatedLayout>
