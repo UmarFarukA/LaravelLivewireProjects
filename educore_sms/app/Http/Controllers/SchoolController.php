@@ -31,8 +31,14 @@ class SchoolController extends Controller
             'email' => 'required|email|unique:schools|max:255',
             'address' => 'nullable|string|max:500',
             'phone' => 'required|string|max:20',
-            'school_logo' => 'nullable|string|max:255',
+            'school_logo' => 'nullable|file|max:1024', // max 1MB
+            'status' => 'nullable|boolean',
         ]);
+
+        if($request->hasFile('school_logo')) {
+            $path = $request->file('school_logo')->store('school_logos', 'public');
+            $validated['school_logo'] = $path;
+        }
 
         School::create($validated);
 
@@ -53,9 +59,14 @@ class SchoolController extends Controller
             'email' => 'required|email|unique:schools,email,' . $school->id . '|max:255',
             'address' => 'nullable|string|max:500',
             'phone' => 'required|string|max:15',
-            'school_logo' => 'nullable|string|max:255',
+            'school_logo' => 'nullable|file|max:10240', // max 1MB
             'status' => 'nullable|boolean',
         ]);
+
+        if($request->hasFile('school_logo')) {
+            $path = $request->file('school_logo')->store('school_logos', 'public');
+            $validated['school_logo'] = $path;
+        }
 
         $school->update($validated);
 

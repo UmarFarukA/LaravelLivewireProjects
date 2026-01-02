@@ -63,10 +63,10 @@ const handleDelete = (schoolId) => {
                             <thead class="bg-gray-50 text-sm text-gray-600">
                                 <tr>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        School
+                                        Logo
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Address
+                                        School Name
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
                                         Phone
@@ -78,7 +78,7 @@ const handleDelete = (schoolId) => {
                                         Status
                                     </th>
                                     <th
-                                        class="px-6 py-3 text-right font-medium"
+                                        class="px-6 py-3 text-center font-medium"
                                     >
                                         Action
                                     </th>
@@ -94,10 +94,16 @@ const handleDelete = (schoolId) => {
                                     <td
                                         class="px-6 py-4 font-medium text-gray-800"
                                     >
-                                        {{ school.name }}
+                                        <img
+                                            v-if="school.school_logo"
+                                            :src="`/storage/${school.school_logo}`"
+                                            alt="School Logo"
+                                            class="w-10 h-10 rounded-md object-cover"
+                                        />
+                                        <span v-else>No Logo</span>
                                     </td>
                                     <td class="px-6 py-4 text-gray-600">
-                                        {{ school.address }}
+                                        {{ school.name }}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ school.phone }}

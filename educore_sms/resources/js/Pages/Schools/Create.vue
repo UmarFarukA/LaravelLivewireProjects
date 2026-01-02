@@ -24,6 +24,7 @@ const form = useForm({
     address: null,
     phone: null,
     school_logo: null,
+    preview: null
 });
 
 const handleSubmit = () => {
@@ -32,6 +33,11 @@ const handleSubmit = () => {
         onSuccess: () => toast.success('School created Successfully!'),
         onFinish: () => form.reset()
     });
+}
+
+const change = (e) => {
+    form.school_logo = e.target.files[0];
+    form.preview = URL.createObjectURL(e.target.files[0]);
 }
 </script>
 
@@ -65,7 +71,8 @@ const handleSubmit = () => {
                     :message="form.errors.phone"
                 />
                 <InputField
-                    v-model="form.school_logo"
+                    type="file"
+                    @input="change"
                     label="School Logo URL"
                     placeholder="School Logo"
                     :message="form.errors.school_logo"
@@ -80,6 +87,7 @@ const handleSubmit = () => {
                         Cancel
                     </button>
                     <button
+                        :disabled="form.processing"
                         type="submit"
                         class="px-4 py-2 bg-school-primary text-white rounded-md hover:bg-school-primary-hover"
                     >

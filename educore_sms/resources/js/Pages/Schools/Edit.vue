@@ -20,6 +20,7 @@ const form = useForm({
     phone: props.school.phone,
     school_logo: props.school.school_logo,
     status: props.school.status,
+    preview: null,
 });
 
 const handleSubmit = () => {
@@ -29,10 +30,17 @@ const handleSubmit = () => {
             toast.success("School updated successfully!");
         },
         onError: () => {
-            toast.error("Failed to update school. Please check the form for errors.");
+            toast.error(
+                "Failed to update school. Please check the form for errors.",
+            );
         },
     });
-}
+};
+
+const change = (e) => {
+    form.school_logo = e.target.files[0];
+    form.preview = URL.createObjectURL(e.target.files[0]);
+};
 </script>
 
 <template>
@@ -65,18 +73,43 @@ const handleSubmit = () => {
                     :message="form.errors.phone"
                 />
                 <div>
-                    <select v-model="form.status" class="w-full px-3 py-2 border rounded-md">
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
-                </select>
+                    <select
+                        v-model="form.status"
+                        class="w-full px-3 py-2 border rounded-md"
+                    >
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
                 </div>
-                <InputField
-                    v-model="form.school_logo"
-                    label="School Logo URL"
-                    placeholder="School Logo"
-                    :message="form.errors.school_logo"
-                />
 
+                <div class="flex items-center justify-between">
+                    <InputField
+                        type="file"
+                        @input="change"
+                        label="School Logo URL"
+                        placeholder="School Logo"
+                        :message="form.errors.school_logo"
+                    />
+                    <div>
+                        <div
+                            v-if="form.preview || form.school_logo"
+                            class="ml-4"
+                        >
+                            <img
+                                :src="
+                                    form.preview
+                                        ? form.preview
+                                        : `/storage/${form.school_logo}`
+                                "
+                                alt="School Logo Preview"
+                                class="w-20 h-20 rounded-md object-cover"
+                            />
+                        </div>
+                        <div v-else class="ml-4 text-gray-500">
+                            No Logo Uploaded
+                        </div>
+                    </div>
+                </div>
                 <div
                     class="flex-col md:flex-row md:items-center md:justify-end space-x-2 space-y-2"
                 >
