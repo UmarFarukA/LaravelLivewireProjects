@@ -1,30 +1,19 @@
 <script setup>
+import { useForm } from "@inertiajs/vue3";
+import CreateSearch from "../../Components/CreateSearch.vue";
 import AuthenticatedLayout from "../Layouts/AuthenticatedLayout.vue";
+
+const form = useForm({
+    search: ""
+})
 
 </script>
 
 <template>
     <AuthenticatedLayout title="Students">
         <div class="flex-col space-y-3">
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 mt-4 place-content-center px-3"
-            >
-                <div class="mb-3">
-                    <Link
-                        href="/schools/create"
-                        class="px-4 py-2 bg-school-primary text-white rounded-md hover:bg-school-primary-hover"
-                    >
-                        Add Student
-                    </Link>
-                </div>
-                <div class="">
-                    <input
-                        type="text"
-                        placeholder="Search here"
-                        class="px-1 py-2 rounded-md w-full"
-                    />
-                </div>
-            </div>
+            <CreateSearch caption="Add Student" href="/schools/create" v-model="form.search" />
+
             <div class="shadow-sm">
                 <div
                     class="bg-white border rounded-md overflow-hidden"

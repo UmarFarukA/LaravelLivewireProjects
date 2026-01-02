@@ -1,14 +1,16 @@
 <script setup>
 import { toast } from "vue-sonner";
-import { ModalLink } from "@inertiaui/modal-vue";
+// import { ModalLink } from "@inertiaui/modal-vue";
 import AuthenticatedLayout from "../Layouts/AuthenticatedLayout.vue";
-import { Link, router } from "@inertiajs/vue3";
+import { Link, router, useForm } from "@inertiajs/vue3";
 import DeleteButton from "../../Components/DeleteButton.vue";
 import EditButton from "../../Components/EditButton.vue";
+import Pagination from "../../Components/Pagination.vue";
+import CreateSearch from "../../Components/CreateSearch.vue";
 
 defineProps({
     schools: {
-        type: Array,
+        type: Object,
         required: true,
     },
 });
@@ -27,31 +29,17 @@ const handleDelete = (schoolId) => {
     }
     console.log("deleted");
 };
+
+const form = useForm({
+    search: ""
+})
 </script>
 
 <template>
     <Head title="Schools" />
     <AuthenticatedLayout title="Manage Schools">
         <div class="flex-col space-y-3">
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 mt-4 place-content-center px-3"
-            >
-                <div class="mb-3">
-                    <Link
-                        href="/schools/create"
-                        class="px-4 py-2 bg-school-primary text-white rounded-md hover:bg-school-primary-hover"
-                    >
-                        Create School
-                    </Link>
-                </div>
-                <div class="">
-                    <input
-                        type="text"
-                        placeholder="Search here"
-                        class="px-1 py-2 rounded-md w-full"
-                    />
-                </div>
-            </div>
+            <CreateSearch caption="Create School" href="/schools/create" v-model="form.search" />
             <div class="shadow-sm">
                 <div
                     class="bg-white border rounded-md overflow-hidden"
@@ -87,7 +75,7 @@ const handleDelete = (schoolId) => {
 
                             <tbody class="divide-y text-sm">
                                 <tr
-                                    v-for="school in schools"
+                                    v-for="school in schools.data"
                                     :key="school.id"
                                     class="hover:bg-gray-50"
                                 >
@@ -148,7 +136,7 @@ const handleDelete = (schoolId) => {
                     <!-- Cards (Mobile) -->
                     <div class="md:hidden divide-y">
                         <div
-                            v-for="school in schools"
+                            v-for="school in schools.data"
                             :key="school.id"
                             class="p-4 space-y-2"
                         >
@@ -191,5 +179,6 @@ const handleDelete = (schoolId) => {
                 </div>
             </div>
         </div>
+        <Pagination :paginator="schools.links" :to="schools.to" :from="schools.from" :total="schools.total"/>
     </AuthenticatedLayout>
 </template>

@@ -12,7 +12,7 @@ class SchoolController extends Controller
 
      public function index()
     {
-        $schools = School::latest()->get();
+        $schools = School::paginate(perPage: 2);
 
         return Inertia::render('Schools/Index', [
             'schools' => $schools
