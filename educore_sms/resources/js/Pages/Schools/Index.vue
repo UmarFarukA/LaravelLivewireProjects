@@ -2,16 +2,21 @@
 import { toast } from "vue-sonner";
 // import { ModalLink } from "@inertiaui/modal-vue";
 import AuthenticatedLayout from "../Layouts/AuthenticatedLayout.vue";
-import { Link, router, useForm } from "@inertiajs/vue3";
+import { router } from "@inertiajs/vue3";
 import DeleteButton from "../../Components/DeleteButton.vue";
 import EditButton from "../../Components/EditButton.vue";
 import Pagination from "../../Components/Pagination.vue";
 import CreateSearch from "../../Components/CreateSearch.vue";
-
-defineProps({
+import { ref, watch } from "vue";
+import { debounce } from "lodash";
+const props = defineProps({
     schools: {
         type: Object,
         required: true,
+    },
+    searchTerm: {
+        type: String,
+        required: false
     },
 });
 
@@ -27,19 +32,21 @@ const handleDelete = (schoolId) => {
                 ),
         });
     }
-    console.log("deleted");
 };
 
-const form = useForm({
-    search: ""
-})
+const search = ref(props.searchTerm);
+
+watch(
+    search, debounce(
+    (q) => router.get(route("schools.index"), {search: q}, {preserveState: true}), 500)
+);
 </script>
 
 <template>
     <Head title="Schools" />
     <AuthenticatedLayout title="Manage Schools">
         <div class="flex-col space-y-3">
-            <CreateSearch caption="Create School" href="/schools/create" v-model="form.search" />
+            <CreateSearch caption="Create School" href="/schools/create" v-model="search" />
             <div class="shadow-sm">
                 <div
                     class="bg-white border rounded-md overflow-hidden"
@@ -179,6 +186,6 @@ const form = useForm({
                 </div>
             </div>
         </div>
-        <Pagination :paginator="schools.links" :to="schools.to" :from="schools.from" :total="schools.total"/>
+        <Pagination :paginator="schools" />
     </AuthenticatedLayout>
 </template>

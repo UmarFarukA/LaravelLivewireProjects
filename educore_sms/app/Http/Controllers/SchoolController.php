@@ -10,12 +10,17 @@ class SchoolController extends Controller
 {
     //
 
-     public function index()
+     public function index(Request $request)
     {
-        $schools = School::paginate(perPage: 2);
+        $schools = School::when($request->search, function($query, $search)  {
+            $query->where('name', 'like', '%' . $search . '%')
+                  ->orWhere('email', 'like', '%' . $search . '%')
+                  ->orWhere('phone', 'like', '%' . $search . '%');
+        })->paginate(2)->withQueryString();
 
         return Inertia::render('Schools/Index', [
-            'schools' => $schools
+            'schools' => $schools,
+            'searchTerm' => $request->search ?? '',
         ]);
     }
 

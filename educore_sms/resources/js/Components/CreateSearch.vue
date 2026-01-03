@@ -30,8 +30,7 @@ const model = defineModel({
         <div class="">
             <input
                 v-model="model"
-                type="text"
-                placeholder="Search here"
+                type="search"
                 class="px-2 py-2 rounded-md w-full bg-gray-200"
             />
         </div>
