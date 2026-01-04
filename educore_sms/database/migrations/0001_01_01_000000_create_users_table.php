@@ -19,7 +19,7 @@ return new class extends Migration
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->tinyInteger('role')->default('6'); // 1-Super admin, 2-Admin, 3-teacher, 4-staff, 5-student, 6-parent
+            $table->tinyInteger('role')->default('5'); // 1-Super admin, 2-Admin, 3-teacher, 4-student, 5-parent
             $table->tinyInteger('is_active')->default(1); // 1 for active, 0 for inactive
             $table->date('last_login')->default(now());
             $table->timestamps();

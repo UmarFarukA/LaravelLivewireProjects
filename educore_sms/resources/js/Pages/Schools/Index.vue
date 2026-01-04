@@ -16,7 +16,7 @@ const props = defineProps({
     },
     searchTerm: {
         type: String,
-        required: false
+        required: false,
     },
 });
 
@@ -37,8 +37,16 @@ const handleDelete = (schoolId) => {
 const search = ref(props.searchTerm);
 
 watch(
-    search, debounce(
-    (q) => router.get(route("schools.index"), {search: q}, {preserveState: true}), 500)
+    search,
+    debounce(
+        (q) =>
+            router.get(
+                route("schools.index"),
+                { search: q },
+                { preserveState: true },
+            ),
+        500,
+    ),
 );
 </script>
 
@@ -46,7 +54,11 @@ watch(
     <Head title="Schools" />
     <AuthenticatedLayout title="Manage Schools">
         <div class="flex-col space-y-3">
-            <CreateSearch caption="Create School" href="/schools/create" v-model="search" />
+            <CreateSearch
+                caption="Create School"
+                href="/schools/create"
+                v-model="search"
+            />
             <div class="shadow-sm">
                 <div
                     class="bg-white border rounded-md overflow-hidden"
@@ -123,17 +135,17 @@ watch(
                                     <td
                                         class="px-6 py-4 flex items-center justify-end space-x-4"
                                     >
-                                        <!-- <Link
+                                        <EditButton
+                                            title="Edit"
                                             :href="
                                                 route('schools.edit', school.id)
                                             "
-                                            class="px-2 py-1 bg-gray-600 hover:bg-gray-500 text-gray-50 rounded-md"
-                                        >
-                                            Edit
-                                        </Link> -->
-                                        <EditButton title="Edit" :href="route('schools.edit', school.id)" />
+                                        />
 
-                                        <DeleteButton title="Delete" @click="handleDelete(school.id)" />
+                                        <DeleteButton
+                                            title="Delete"
+                                            @click="handleDelete(school.id)"
+                                        />
                                     </td>
                                 </tr>
                             </tbody>
@@ -172,12 +184,17 @@ watch(
                                 Administrator
                             </p>
 
-                            <a
-                                href="#"
-                                class="inline-block mt-2 text-sm text-blue-600 font-medium"
-                            >
-                                View Details →
-                            </a>
+                            <div class="flex-col space-x-2">
+                                <EditButton
+                                    title="Edit"
+                                    :href="route('schools.edit', school.id)"
+                                />
+
+                                <DeleteButton
+                                    title="Delete"
+                                    @click="handleDelete(school.id)"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -16,14 +16,14 @@ import { Head } from '@inertiajs/vue3'
           Platform Overview
         </h2>
         <p class="text-sm text-gray-500">
-          Monitor and manage all schools on EduCore SMS
+          Monitor all your children school activities on EduCore SMS
         </p>
       </div>
 
       <!-- Stats -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Total Schools" value="128" />
-        <StatCard title="Active Schools" value="112" />
+        <StatCard title="Total Children" value="128" />
+        <StatCard title="Active Children" value="112" />
         <StatCard title="Total Students" value="54,320" />
         <StatCard title="Admins" value="128" />
       </div>
@@ -34,7 +34,7 @@ import { Head } from '@inertiajs/vue3'
         <!-- Schools -->
         <div class="lg:col-span-2 bg-white rounded-xl border p-5">
           <h3 class="font-semibold text-gray-800 mb-4">
-            Recently Onboarded Schools
+            Recent activity
           </h3>
 
           <ul class="divide-y">

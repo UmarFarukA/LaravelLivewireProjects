@@ -14,11 +14,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('staff', function (Blueprint $table) {
-             $table->id();
+            $table->id();
             $table->foreignIdFor(School::class, 'school_id');
             $table->foreignIdFor(User::class, 'user_id');
-            $table->string('staff_number');
-            $table->date('employment_date');
+            $table->string('staff_number')->nullable();
+            $table->date('employment_date')->default(now());
             $table->timestamps();
         });
     }

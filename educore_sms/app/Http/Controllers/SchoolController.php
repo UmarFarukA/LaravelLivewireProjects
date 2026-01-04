@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\School;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class SchoolController extends Controller
@@ -21,6 +22,9 @@ class SchoolController extends Controller
         return Inertia::render('Schools/Index', [
             'schools' => $schools,
             'searchTerm' => $request->search ?? '',
+            'can' => [
+                'create' => Auth::user()->can('create', $schools)
+            ]
         ]);
     }
 

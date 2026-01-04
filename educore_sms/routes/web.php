@@ -3,10 +3,11 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::middleware(['guest'])->group(function(){
+Route::middleware(['guest'])->group(function () {
 
     Route::get('/', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
@@ -19,16 +20,29 @@ Route::middleware(['guest'])->group(function(){
 
 Route::middleware(['auth'])->group(function () {
 
+    // Route::get('/dashboard', function () {
+    //         return Inertia::render('Dashboards/Dashboard');
+    // });
+    // Route::middleware(['auth'])->group(function () {
+
+    // });
     Route::get('/dashboard', function () {
-            return Inertia::render('Dashboards/Dashboard');
+        return match (Auth::user()->role) {
+            1 => Inertia::render('Dashboards/Dashboard'),
+            3 => Inertia::render('Dashboards/TeacherDashboard'),
+            4 => Inertia::render('Dashboards/ParentDashboard'),
+            5 => Inertia::render('Dashboards/StudentDashboard'),
+        };
     });
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
     // Schools Routes
-    Route::get('/schools', [SchoolController::class, 'index']
-        )->name('schools.index');
+    Route::get(
+        '/schools',
+        [SchoolController::class, 'index']
+    )->name('schools.index');
     Route::get('/schools/create', [SchoolController::class, 'create'])
         ->name('schools.create');
     Route::post('/schools/store', [SchoolController::class, 'store'])
@@ -44,16 +58,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/students', [StudentController::class, 'index'])
         ->name('students.index');
 });
-
-
-
-
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return match(auth()->user()->role) {
-//             'admin' => Inertia::render('Dashboard'),
-//             'teacher' => Inertia::render('Teacher/Dashboard'),
-//             'student' => Inertia::render('Student/Dashboard'),
-//         };
-//     });
-// });

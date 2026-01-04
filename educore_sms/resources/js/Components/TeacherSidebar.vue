@@ -6,10 +6,6 @@ defineProps<{
     sidebarOpen: boolean;
 }>();
 
-// const close = () => {
-//     sidebarOpen.value = false;
-// }
-
 </script>
 
 <template>
@@ -38,19 +34,19 @@ defineProps<{
                 Dashboard
             </NavLink>
 
-            <NavLink href="/schools" icon="University"> Schools </NavLink>
-
-            <NavLink href="/students" icon="Users"> Students </NavLink>
-
-            <NavLink href="/staff" icon="UserCog"> Staff </NavLink>
+            <NavLink href="/my_class" icon="University"> My Class </NavLink>
 
             <NavLink href="/attendance" icon="ClipboardCheck">
                 Attendance
             </NavLink>
 
+            <NavLink href="/assessment" icon="ClipboardCheck">
+                Assessment
+            </NavLink>
+
             <NavLink href="/results" icon="GraduationCap"> Results </NavLink>
 
-            <NavLink href="/fees" icon="CreditCard"> Fees </NavLink>
+            <NavLink href="/timetable" icon="CreditCard"> Timetable </NavLink>
 
             <NavLink href="/settings" icon="Settings"> Settings </NavLink>
 

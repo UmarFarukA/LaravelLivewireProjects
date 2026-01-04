@@ -1,8 +1,13 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import Sidebar from '@/Components/Sidebar.vue'
+import TeacherSidebar from '@/Components/TeacherSidebar.vue'
+import StudentSidebar from '@/Components/StudentSidebar.vue'
+import ParentSidebar from '@/Components/ParentSidebar.vue'
 import { Toaster } from 'vue-sonner'
 import 'vue-sonner/style.css'
+import { usePage } from '@inertiajs/vue3'
+import { ROLES } from '@/Constants/roles.js'
 
 defineProps({
     title: {
@@ -12,6 +17,11 @@ defineProps({
 });
 
 const sidebarOpen = ref(false)
+
+const page = usePage();
+const role = computed(() => page.props.auth.user.role);
+
+
 </script>
 
 <template>
@@ -20,7 +30,23 @@ const sidebarOpen = ref(false)
         <div v-if="sidebarOpen" class="fixed inset-0 bg-black/40 z-40 md:hidden" @click="sidebarOpen = false" />
 
         <!-- Sidebar -->
-        <Sidebar :sidebarOpen="sidebarOpen" />
+        <Sidebar
+            :sidebarOpen="sidebarOpen"
+            v-if="role === ROLES.SUPER_ADMIN || role === ROLES.ADMIN"
+        />
+        <TeacherSidebar
+            :sidebarOpen="sidebarOpen"
+            v-else-if="role === ROLES.TEACHER"
+        />
+        <StudentSidebar
+            :sidebarOpen="sidebarOpen"
+            v-else-if="role === ROLES.STUDENT"
+        />
+        <ParentSidebar
+            :sidebarOpen="sidebarOpen"
+            v-else
+        />
+
 
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
@@ -40,7 +66,7 @@ const sidebarOpen = ref(false)
                 <!-- User -->
                 <div class="flex items-center gap-3">
                     <span class="text-sm text-gray-600 hidden sm:block">
-                        Admin
+                        {{$page.props.auth.user.name}}
                     </span>
                     <div class="h-8 w-8 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600" />
                 </div>

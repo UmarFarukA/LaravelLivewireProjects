@@ -30,7 +30,7 @@ const makeLabel = (label) => {
             :is="link.url ? 'Link' : 'span'"
             v-html="makeLabel(link.label)"
             :href="link.url"
-            class="px-1 mx-1"
+            class="px-1 mx-1 space-x-2"
             :class="{
                 'text-slate-300': !link.url,
                 'px-3 py-1 text-center rounded-full bg-school-primary text-blue-50 font-medium':
@@ -38,7 +38,7 @@ const makeLabel = (label) => {
             }"
         />
         </div>
-        <p class="text-school-secondary text-sm">
+        <p class="text-school-primary text-sm">
             Showing {{ paginator.from }} to {{ paginator.to }} of {{ paginator.total }} results.
         </p>
         <!-- <div >

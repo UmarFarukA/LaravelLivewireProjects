@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import AppLayout from '../Layouts/AppLayout.vue';
+import AuthenticatedLayout from '../Layouts/AuthenticatedLayout.vue';
 </script>
 
 <template>
-  <AppLayout title="Student Dashboard">
+  <AuthenticatedLayout title="Student Dashboard">
     <div class="mb-6">
       <h2 class="text-2xl font-bold text-gray-800">
         Welcome back 🎓
@@ -37,5 +37,5 @@ import AppLayout from '../Layouts/AppLayout.vue';
         </ul>
       </div>
     </div>
-  </AppLayout>
+  </AuthenticatedLayout>
 </template>

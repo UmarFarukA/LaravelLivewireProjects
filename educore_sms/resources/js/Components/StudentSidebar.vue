@@ -38,17 +38,11 @@ defineProps<{
                 Dashboard
             </NavLink>
 
-            <NavLink href="/schools" icon="University"> Schools </NavLink>
-
-            <NavLink href="/students" icon="Users"> Students </NavLink>
-
-            <NavLink href="/staff" icon="UserCog"> Staff </NavLink>
-
-            <NavLink href="/attendance" icon="ClipboardCheck">
-                Attendance
-            </NavLink>
+            <NavLink href="/attendance" icon="ClipboardCheck"> Attendance </NavLink>
 
             <NavLink href="/results" icon="GraduationCap"> Results </NavLink>
+
+            <NavLink href="/timetable" icon="UserCog"> Timetable </NavLink>
 
             <NavLink href="/fees" icon="CreditCard"> Fees </NavLink>
 
