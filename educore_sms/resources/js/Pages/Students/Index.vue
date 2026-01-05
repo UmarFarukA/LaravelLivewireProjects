@@ -1,7 +1,7 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3";
 import CreateSearch from "../../Components/CreateSearch.vue";
-import AuthenticatedLayout from "../Layouts/AuthenticatedLayout.vue";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
 const form = useForm({
     search: ""

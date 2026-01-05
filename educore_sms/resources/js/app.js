@@ -3,7 +3,7 @@ import '../css/app.css';
 import { createApp, h } from 'vue'
 import { renderApp } from '@inertiaui/modal-vue'
 import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
-import AppLayout from './Pages/Layouts/AppLayout.vue';
+import AppLayout from './Layouts/AppLayout.vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 
 createInertiaApp({

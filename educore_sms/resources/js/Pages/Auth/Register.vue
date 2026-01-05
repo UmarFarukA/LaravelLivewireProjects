@@ -1,5 +1,5 @@
 <script setup>
-    import AuthLayout from '@/Pages/Layouts/AuthLayout.vue';
+    import AuthLayout from '@/Layouts/AuthLayout.vue';
     import InputField from '../../Components/InputField.vue';
     import { useForm } from '@inertiajs/vue3';
     import Button from '../../Components/Button.vue';
@@ -62,7 +62,7 @@
                             placeholder="**********"
                         />
 
-                        <Button title="Sign Up" :disabled="form.processing"/>
+                        <Button :loading="form.processing">Sign Up</Button>
                     </form>
 
                     <div class="space-x-1 text-center text-sm text-gray-700 mb-3">

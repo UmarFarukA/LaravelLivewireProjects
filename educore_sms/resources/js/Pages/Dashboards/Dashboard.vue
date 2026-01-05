@@ -1,5 +1,5 @@
 <script setup>
-import AuthenticatedLayout from '@/Pages/Layouts/AuthenticatedLayout.vue'
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 import StatCard from '@/Components/StatCard.vue'
 import ActionButton from '@/Components/ActionButton.vue'
 </script>

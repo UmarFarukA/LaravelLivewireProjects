@@ -3,8 +3,7 @@ import { Modal } from "@inertiaui/modal-vue";
 import { Link, useForm } from "@inertiajs/vue3";
 import { ref } from "vue";
 import InputField from "@/Components/InputField.vue";
-// import Button from "@/Components/Button.vue";
-import AuthenticatedLayout from "../Layouts/AuthenticatedLayout.vue";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { toast } from "vue-sonner";
 
 const modalRef = ref(null);

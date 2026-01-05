@@ -1,6 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-import AuthLayout from '@/Pages/Layouts/AuthLayout.vue';
+import AuthLayout from '@/Layouts/AuthLayout.vue';
 import Button from '../Components/Button.vue';
 import InputField from '../Components/InputField.vue';
 import { toast } from 'vue-sonner';
@@ -72,7 +72,7 @@ const submit = () => {
                         Forgot password?
                         </Link>
                     </div>
-                    <Button title="Log in" :disabled="form.processing" />
+                    <Button :loading="form.processing">Login</Button>
                 </form>
 
                 <!-- Footer -->

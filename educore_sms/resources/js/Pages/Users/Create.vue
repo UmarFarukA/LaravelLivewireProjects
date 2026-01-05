@@ -10,43 +10,44 @@ const modalRef = ref(null);
 defineProps({
     name: String,
     email: String,
+    password: String,
+    password_confirmation: String,
     phone: String,
-    address: String,
-    status: Number,
-    school_logo: String,
+    avatar: String,
 });
 
 const form = useForm({
     name: null,
     email: null,
-    address: null,
+    password: null,
+    password_confirmation: null,
+    avatar: null,
     phone: null,
-    school_logo: null,
-    preview: null
+    preview: null,
 });
 
 const handleSubmit = () => {
-    form.post(route('schools.store'), {
+    form.post(route("user.store"), {
         preserveScroll: true,
-        onSuccess: () => toast.success('School created Successfully!'),
-        onFinish: () => form.reset()
+        onSuccess: () => toast.success("New user created Successfully!"),
+        onFinish: () => form.reset(),
     });
-}
+};
 
 const change = (e) => {
-    form.school_logo = e.target.files[0];
+    form.avatar = e.target.files[0];
     form.preview = URL.createObjectURL(e.target.files[0]);
-}
+};
 </script>
 
 <template>
-    <AuthenticatedLayout title="Create New School">
+    <AuthenticatedLayout title="Add New User">
         <div class="w-full md:w-2/3">
             <form class="space-y-2" @submit.prevent="handleSubmit">
                 <InputField
                     v-model="form.name"
-                    label="School Name"
-                    placeholder="School Name"
+                    label="Full Name"
+                    placeholder="User full name"
                     :message="form.errors.name"
                 />
                 <InputField
@@ -56,24 +57,36 @@ const change = (e) => {
                     placeholder="Email Address"
                     :message="form.errors.email"
                 />
-                <InputField
-                    v-model="form.address"
-                    label="Address"
-                    placeholder="Address"
-                    :message="form.errors.address"
-                />
+
                 <InputField
                     v-model="form.phone"
+                    type="text"
                     label="Phone Number"
                     placeholder="Phone Number"
                     :message="form.errors.phone"
                 />
+
+                <InputField
+                    v-model="form.password"
+                    label="Password"
+                    placeholder="************"
+                    :message="form.errors.password"
+                />
+
+                <InputField
+                    label="Confirm Password"
+                    type="password"
+                    v-model="form.password_confirmation"
+                    :message="form.errors.password_confirmation"
+                    placeholder="**********"
+                />
+
                 <InputField
                     type="file"
                     @input="change"
-                    label="School Logo URL"
-                    placeholder="School Logo"
-                    :message="form.errors.school_logo"
+                    label="User Avatar URL"
+                    placeholder="User Avatar"
+                    :message="form.errors.avatar"
                 />
 
                 <div

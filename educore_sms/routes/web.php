@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -20,12 +21,6 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    // Route::get('/dashboard', function () {
-    //         return Inertia::render('Dashboards/Dashboard');
-    // });
-    // Route::middleware(['auth'])->group(function () {
-
-    // });
     Route::get('/dashboard', function () {
         return match (Auth::user()->role) {
             1 => Inertia::render('Dashboards/Dashboard'),
@@ -57,4 +52,12 @@ Route::middleware(['auth'])->group(function () {
     // Students route
     Route::get('/students', [StudentController::class, 'index'])
         ->name('students.index');
+
+    // Users routes
+    Route::get('/users', [UserController::class, 'index'])
+        ->name('users.index');
+    Route::get('/users/create', [UserController::class, 'create'])
+        ->name('users.create');
+    Route::post('/users/store', [UserController::class, 'store'])
+        ->name('users.store');
 });

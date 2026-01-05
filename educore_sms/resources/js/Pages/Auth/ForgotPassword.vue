@@ -1,5 +1,5 @@
 <script setup>
-    import AuthLayout from '@/Pages/Layouts/AuthLayout.vue';
+    import AuthLayout from '@/Layouts/AuthLayout.vue';
     import { useForm } from '@inertiajs/vue3';
     import InputField from '../../Components/InputField.vue';
     import Button from '../../Components/Button.vue';
@@ -36,7 +36,7 @@
                             :message="form.errors.email"
                         />
 
-                        <Button title="Email password reset link" :disabled="form.processing" />
+                        <Button :loading="form.processing">Email password reset link</Button>
                     </form>
 
                     <div class="space-x-1 text-center text-sm text-gray-700 mb-3">

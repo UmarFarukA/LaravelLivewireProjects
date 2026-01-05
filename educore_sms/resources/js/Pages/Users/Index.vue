@@ -1,16 +1,12 @@
 <script setup>
-import { toast } from "vue-sonner";
-// import { ModalLink } from "@inertiaui/modal-vue";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { router } from "@inertiajs/vue3";
-import DeleteButton from "../../Components/DeleteButton.vue";
-import EditButton from "../../Components/EditButton.vue";
-import Pagination from "../../Components/Pagination.vue";
+import { router, useForm } from "@inertiajs/vue3";
 import CreateSearch from "../../Components/CreateSearch.vue";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { ref, watch } from "vue";
 import { debounce } from "lodash";
+
 const props = defineProps({
-    schools: {
+    users: {
         type: Object,
         required: true,
     },
@@ -19,21 +15,6 @@ const props = defineProps({
         required: false,
     },
 });
-
-const handleDelete = (schoolId) => {
-    if (confirm("Do you want to delete?")) {
-        router.delete(route("schools.destroy", schoolId), {
-            preserveScroll: true,
-            onError: () =>
-                toast.error("Failed to delete school. Please try again."),
-            onSuccess: () =>
-                toast.success(
-                    `School with ID ${schoolId} deleted successfully!`,
-                ),
-        });
-    }
-};
-
 const search = ref(props.searchTerm);
 
 watch(
@@ -41,7 +22,7 @@ watch(
     debounce(
         (q) =>
             router.get(
-                route("schools.index"),
+                route("users.index"),
                 { search: q },
                 { preserveState: true },
             ),
@@ -51,41 +32,38 @@ watch(
 </script>
 
 <template>
-    <Head title="Schools" />
-    <AuthenticatedLayout title="Manage Schools">
+    <AuthenticatedLayout title="Manage Users">
         <div class="flex-col space-y-3">
             <CreateSearch
-                caption="Create School"
-                href="/schools/create"
-                v-model="search"
+                caption="Add New User"
+                href=""
+                v-model="form.search"
             />
+
             <div class="shadow-sm">
-                <div
-                    class="bg-white border rounded-md overflow-hidden"
-                    v-if="schools"
-                >
+                <div class="bg-white border rounded-md overflow-hidden">
                     <!-- Table (Desktop) -->
                     <div class="hidden md:block overflow-x-auto">
                         <table class="min-w-full divide-y">
                             <thead class="bg-gray-50 text-sm text-gray-600">
                                 <tr>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Logo
+                                        Photo
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        School Name
+                                        Name
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Phone
+                                        Role
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Admin
+                                        Date Created
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
                                         Status
                                     </th>
                                     <th
-                                        class="px-6 py-3 text-center font-medium"
+                                        class="px-6 py-3 text-right font-medium"
                                     >
                                         Action
                                     </th>
@@ -94,35 +72,34 @@ watch(
 
                             <tbody class="divide-y text-sm">
                                 <tr
-                                    v-for="school in schools.data"
-                                    :key="school.id"
+                                    v-for="user in users.data"
+                                    :key="user.id"
                                     class="hover:bg-gray-50"
                                 >
                                     <td
                                         class="px-6 py-4 font-medium text-gray-800"
                                     >
                                         <img
-                                            v-if="school.school_logo"
-                                            :src="`/storage/${school.school_logo}`"
-                                            alt="School Logo"
+                                            v-if="user.avatar"
+                                            :src="`/storage/${user.avatar}`"
+                                            alt="User Avatar"
                                             class="w-10 h-10 rounded-md object-cover"
                                         />
                                         <span v-else>No Logo</span>
                                     </td>
                                     <td class="px-6 py-4 text-gray-600">
-                                        {{ school.name }}
+                                        {{ user.name }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ school.phone }}
+                                        {{ user.role }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <!-- {{ school.phone }} -->
-                                        Administrator
+                                        {{ user.created_at }}
                                     </td>
 
                                     <td class="px-6 py-4">
                                         <span
-                                            v-if="school.status"
+                                            v-if="user.status"
                                             class="p-1 text-sm rounded-md bg-green-100 text-green-700"
                                             >Active</span
                                         >
@@ -137,14 +114,12 @@ watch(
                                     >
                                         <EditButton
                                             title="Edit"
-                                            :href="
-                                                route('schools.edit', school.id)
-                                            "
+                                            :href="route('user.edit', user.id)"
                                         />
 
                                         <DeleteButton
                                             title="Delete"
-                                            @click="handleDelete(school.id)"
+                                            @click="handleDelete(user.id)"
                                         />
                                     </td>
                                 </tr>
@@ -153,9 +128,9 @@ watch(
                     </div>
 
                     <!-- Cards (Mobile) -->
-                    <div class="md:hidden divide-y">
+                    <!-- <div class="md:hidden divide-y">
                         <div
-                            v-for="school in schools.data"
+                            v-for="school in schools"
                             :key="school.id"
                             class="p-4 space-y-2"
                         >
@@ -184,25 +159,19 @@ watch(
                                 Administrator
                             </p>
 
-                            <div class="flex-col space-x-2">
-                                <EditButton
-                                    title="Edit"
-                                    :href="route('schools.edit', school.id)"
-                                />
-
-                                <DeleteButton
-                                    title="Delete"
-                                    @click="handleDelete(school.id)"
-                                />
-                            </div>
+                            <a
+                                href="#"
+                                class="inline-block mt-2 text-sm text-blue-600 font-medium"
+                            >
+                                View Details →
+                            </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                <div v-else>
-                    <p class="text-gray-700 font-bold">No Schools Created.</p>
-                </div>
+                <!-- <div v-else>
+                    <p class="text-gray-700 font-bold">No Students.</p>
+                </div> -->
             </div>
         </div>
-        <Pagination :paginator="schools" />
     </AuthenticatedLayout>
 </template>
