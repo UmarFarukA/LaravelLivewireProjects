@@ -4,33 +4,24 @@ import { ref } from "vue";
 import InputField from "@/Components/InputField.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { toast } from "vue-sonner";
-import FormActions from "../../Components/FormActions.vue";
 
-const modalRef = ref(null);
-
-defineProps({
-    name: String,
-    email: String,
-    password: String,
-    password_confirmation: String,
-    phone: String,
-    avatar: String,
+const props = defineProps({
+    user: Object,
 });
 
 const form = useForm({
-    name: null,
-    email: null,
-    password: null,
-    password_confirmation: null,
-    avatar: null,
-    phone: null,
+    id: props.user.id,
+    name: props.user.name,
+    avatar: props.user.avatar,
+    phone: props.user.phone,
+    status: props.user.status,
     preview: null,
 });
 
 const handleSubmit = () => {
-    form.post(route("users.store"), {
+    form.put(route("users.update", props.user.id), {
         preserveScroll: true,
-        onSuccess: () => toast.success("New user created Successfully!"),
+        onSuccess: () => toast.success("New user updated Successfully!"),
         onFinish: () => form.reset(),
     });
 };
@@ -39,7 +30,6 @@ const change = (e) => {
     form.avatar = e.target.files[0];
     form.preview = URL.createObjectURL(e.target.files[0]);
 };
-
 </script>
 
 <template>
@@ -52,13 +42,6 @@ const change = (e) => {
                     placeholder="User full name"
                     :message="form.errors.name"
                 />
-                <InputField
-                    v-model="form.email"
-                    type="email"
-                    label="Email Address"
-                    placeholder="Email Address"
-                    :message="form.errors.email"
-                />
 
                 <InputField
                     v-model="form.phone"
@@ -68,21 +51,16 @@ const change = (e) => {
                     :message="form.errors.phone"
                 />
 
-                <InputField
-                    v-model="form.password"
-                    type="password"
-                    label="Password"
-                    placeholder="************"
-                    :message="form.errors.password"
-                />
-
-                <InputField
-                    label="Confirm Password"
-                    type="password"
-                    v-model="form.password_confirmation"
-                    :message="form.errors.password_confirmation"
-                    placeholder="**********"
-                />
+                <div>
+                    <label class="text-gray-700 text-md">User Status</label>
+                    <select
+                        v-model="form.status"
+                        class="w-full px-3 py-2 border rounded-md"
+                    >
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
 
                 <div class="flex items-center justify-between">
                     <InputField
@@ -94,21 +72,21 @@ const change = (e) => {
                     />
                     <div>
                         <div
-                            v-if="form.preview || form.school_logo"
+                            v-if="form.preview || form.avatar"
                             class="ml-4"
                         >
                             <img
                                 :src="
                                     form.preview
                                         ? form.preview
-                                        : `/storage/${form.school_logo}`
+                                        : `/storage/${form.avatar}`
                                 "
-                                alt="School Logo Preview"
+                                alt="User Avatar"
                                 class="w-20 h-20 rounded-md object-cover"
                             />
                         </div>
                         <div v-else class="ml-4 text-gray-500">
-                            No Logo Uploaded
+                            No Avatar Uploaded
                         </div>
                     </div>
                 </div>

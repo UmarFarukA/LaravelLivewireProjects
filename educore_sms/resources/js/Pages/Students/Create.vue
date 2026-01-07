@@ -1,47 +1,9 @@
 <script setup>
-import { useForm } from "@inertiajs/vue3";
-import { ref } from "vue";
-import InputField from "@/Components/InputField.vue";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { toast } from "vue-sonner";
 
-const modalRef = ref(null);
-
-defineProps({
-    name: String,
-    email: String,
-    phone: String,
-    address: String,
-    status: Number,
-    school_logo: String,
-});
-
-const form = useForm({
-    name: null,
-    email: null,
-    address: null,
-    phone: null,
-    school_logo: null,
-    preview: null
-});
-
-const handleSubmit = () => {
-    form.post(route('schools.store'), {
-        preserveScroll: true,
-        onSuccess: () => toast.success('School created Successfully!'),
-        onError: () => reset('gmail'),
-        onFinish: () => form.reset()
-    });
-}
-
-const change = (e) => {
-    form.school_logo = e.target.files[0];
-    form.preview = URL.createObjectURL(e.target.files[0]);
-}
 </script>
 
 <template>
-    <AuthenticatedLayout title="Create New School">
+    <AuthenticatedLayout title="Create New Student">
         <div class="w-full md:w-2/3">
             <form class="space-y-2" @submit.prevent="handleSubmit">
                 <InputField

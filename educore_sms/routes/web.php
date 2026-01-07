@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
@@ -17,6 +18,10 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/register', [AuthController::class, 'store'])->name('store.register');
 
     Route::get('/forgot-password', [AuthController::class, 'forgot_password'])->name('forgot.password');
+
+    Route::get('/apply', [ApplicationsController::class, 'apply'])->name('applications.apply');
+
+    Route::post('/apply', [ApplicationsController::class, 'store'])->name('applications.store');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -49,9 +54,24 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/schools/delete/{school}', [SchoolController::class, 'destroy'])
         ->name('schools.destroy');
 
+
+    // Route::get('/admissions', function () {
+    //     return Inertia::render('Admissions/Index');
+    // })->name('admissions.index');
+
     // Students route
     Route::get('/students', [StudentController::class, 'index'])
         ->name('students.index');
+    // Route::get('/students/create', [StudentController::class, 'create'])
+    //     ->name('students.create');
+    // Route::post('/students/store', [StudentController::class, 'store'])
+    //     ->name('students.store');
+    // Route::get('/students/{student}/edit', [StudentController::class, 'edit'])
+    //     ->name('students.edit');
+    // Route::put('/students/{student}/update', [StudentController::class, 'update'])
+    //     ->name('students.update');
+    // Route::delete('/students/delete/{student}', [StudentController::class, 'destroy'])
+    //     ->name('students.destroy');
 
     // Users routes
     Route::get('/users', [UserController::class, 'index'])
@@ -60,4 +80,10 @@ Route::middleware(['auth'])->group(function () {
         ->name('users.create');
     Route::post('/users/store', [UserController::class, 'store'])
         ->name('users.store');
+    Route::get('users/{user}/edit', [UserController::class, 'edit'])
+        ->name('users.edit');
+    Route::put('/users/{user}/update', [UserController::class, 'update'])
+        ->name('users.update');
+    Route::delete('/users/delete/{user}', [UserController::class, 'destroy'])
+        ->name('users.destroy');
 });

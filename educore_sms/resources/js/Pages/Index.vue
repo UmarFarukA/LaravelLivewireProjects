@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 import AuthLayout from '@/Layouts/AuthLayout.vue';
 import Button from '../Components/Button.vue';
 import InputField from '../Components/InputField.vue';
@@ -77,7 +77,7 @@ const submit = () => {
 
                 <!-- Footer -->
                 <p class="mt-6 text-center text-xs text-gray-400">
-                    © EduCore SMS. All rights reserved.
+                    © EduCore SMS. All rights reserved. <Link :href="route('applications.apply')" class="text-educore-primary">Click to Apply</Link>
                 </p>
             </div>
 

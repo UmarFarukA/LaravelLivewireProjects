@@ -12,4 +12,9 @@ class StudentController extends Controller
     {
         return Inertia::render('Students/Index');
     }
+
+    public function create()
+    {
+        return Inertia::render('Students/Create');
+    }
 }

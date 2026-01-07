@@ -61,4 +61,42 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'User created successfully!');
     }
+
+    public function edit(User $user)
+    {
+        return Inertia::render('Users/Edit', [
+            'user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'phone' => $user->phone,
+                'avatar' => $user->avatar
+            ]
+        ]);
+    }
+
+    public function update(User $user, Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|min:3|max:255',
+            'phone' => 'required|string|max:20',
+            'avatar' => 'nullable|file|max:1024', // max 1MB
+            'status' => 'nullable|boolean',
+        ]);
+
+        if($request->hasFile('avatar')) {
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $validated['avatar'] = $path;
+        }
+
+        $user->update($validated);
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully!');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'User deleted successfully!');
+    }
 }

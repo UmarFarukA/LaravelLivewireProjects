@@ -12,7 +12,7 @@ const form = useForm({
 <template>
     <AuthenticatedLayout title="Students">
         <div class="flex-col space-y-3">
-            <CreateSearch caption="Add Student" href="/schools/create" v-model="form.search" />
+            <CreateSearch caption="Add Student" href="/students/create" v-model="form.search" />
 
             <div class="shadow-sm">
                 <div

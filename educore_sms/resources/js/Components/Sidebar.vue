@@ -40,6 +40,8 @@ defineProps<{
 
             <NavLink href="/schools" icon="University"> Schools </NavLink>
 
+            <NavLink href="/admissions" icon="AppWindow"> Admissions </NavLink>
+
             <NavLink href="/students" icon="Users"> Students </NavLink>
 
             <NavLink href="/teachers" icon="UserCog"> Teachers </NavLink>

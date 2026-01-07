@@ -2,23 +2,23 @@
 import { router } from "@inertiajs/vue3";
 import CreateSearch from "../../Components/CreateSearch.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import EditButton from "@/Components/EditButton.vue";
-import DeleteButton from "@/Components/DeleteButton.vue";
+// import EditButton from "@/Components/EditButton.vue";
+// import DeleteButton from "@/Components/DeleteButton.vue";
 import { ref, watch } from "vue";
 import { debounce } from "lodash";
 import Pagination from "../../Components/Pagination.vue";
 
 
-const props = defineProps({
-    users: {
-        type: Object,
-        required: true,
-    },
-    searchTerm: {
-        type: String,
-        required: false,
-    },
-});
+// const props = defineProps({
+//     users: {
+//         type: Object,
+//         required: true,
+//     },
+//     searchTerm: {
+//         type: String,
+//         required: false,
+//     },
+// });
 const search = ref(props.searchTerm);
 
 watch(
@@ -34,23 +34,23 @@ watch(
     ),
 );
 
-const handleDelete = (userId) => {
-    if (confirm("Do you want to delete?")) {
-        router.delete(route("users.destroy", userId), {
-            preserveScroll: true,
-            onError: () =>
-                toast.error("Failed to delete user. Please try again."),
-            onSuccess: () =>
-                toast.success(`User with ID ${userId} deleted successfully!`),
-        });
-    }
-};
+// const handleDelete = (userId) => {
+//     if (confirm("Do you want to delete?")) {
+//         router.delete(route("users.destroy", userId), {
+//             preserveScroll: true,
+//             onError: () =>
+//                 toast.error("Failed to delete user. Please try again."),
+//             onSuccess: () =>
+//                 toast.success(`User with ID ${userId} deleted successfully!`),
+//         });
+//     }
+// };
 </script>
 
 <template>
     <AuthenticatedLayout title="Manage Users">
         <div class="flex-col space-y-3">
-            <CreateSearch caption="Add New User" :href="route('users.create')" v-model="search" />
+            <CreateSearch caption="Add New User" href="" v-model="search" />
 
             <div class="shadow-sm">
                 <div class="bg-white border rounded-md overflow-hidden">
@@ -60,16 +60,16 @@ const handleDelete = (userId) => {
                             <thead class="bg-gray-50 text-sm text-gray-600">
                                 <tr>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Photo
+                                        Applicant Name
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Name
+                                        Class Applied For
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Role
+                                        Address
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Date Created
+                                        Date Applied
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
                                         Status
@@ -83,7 +83,7 @@ const handleDelete = (userId) => {
                             </thead>
 
                             <tbody class="divide-y text-sm">
-                                <tr
+                                <!-- <tr
                                     v-for="user in users.data"
                                     :key="user.id"
                                     class="hover:bg-gray-50"
@@ -156,14 +156,14 @@ const handleDelete = (userId) => {
                                             @click="handleDelete(user.id)"
                                         />
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
 
                     <!-- Cards (Mobile) -->
                     <div class="md:hidden divide-y">
-                        <div
+                        <!-- <div
                             v-for="user in users.data"
                             :key="user.id"
                             class="p-4 space-y-2"
@@ -195,7 +195,7 @@ const handleDelete = (userId) => {
                                     @click="handleDelete(user.id)"
                                 />
                             </p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- <div v-else>

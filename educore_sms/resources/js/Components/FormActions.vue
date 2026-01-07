@@ -8,6 +8,11 @@ defineProps({
         type: Boolean,
         required: false,
     },
+
+    caption: {
+        type: String,
+        default: "Save"
+    }
 })
 
 const emit = defineEmits(['cancel'])
@@ -52,7 +57,7 @@ const emit = defineEmits(['cancel'])
         disabled:cursor-not-allowed
       "
     >
-      Save
+      {{caption}}
     </button>
   </div>
 </template>

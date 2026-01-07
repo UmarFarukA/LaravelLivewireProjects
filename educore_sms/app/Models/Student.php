@@ -45,4 +45,14 @@ class Student extends Model
     {
         return $this->hasMany(Invoice::class);
     }
+
+    public function attendanceRecords()
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function application()
+    {
+        return $this->belongsTo(applications::class, 'application_id');
+    }
 }
