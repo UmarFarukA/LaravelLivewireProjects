@@ -13,10 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('class_rooms', function (Blueprint $table) {
-             $table->id();
-            $table->foreignIdFor(School::class, 'school_id');
+            $table->id();
             $table->string('name');
-            $table->tinyInteger('level')->default(1); // 1-PreN, 2-Nur, 3-Pri, 4-Sec
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\School;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class SchoolController extends Controller
@@ -73,6 +74,7 @@ class SchoolController extends Controller
         ]);
 
         if($request->hasFile('school_logo')) {
+            Storage::disk('public')->delete($school->school_logo);
             $path = $request->file('school_logo')->store('school_logos', 'public');
             $validated['school_logo'] = $path;
         }
