@@ -52,7 +52,7 @@ defineProps({
             :id="id"
             v-model="model"
             :disabled="disabled"
-            class="block w-full px-3 py-2 rounded-md border border-gray-300 focus:border-school-primary focus:ring-school-primary disabled:bg-gray-100 disabled:cursor-not-allowed"
+            class="block autofocus w-full px-3 py-2 rounded-md border border-gray-300 focus:border-school-primary focus:ring-school-primary disabled:bg-gray-100 disabled:cursor-not-allowed"
         >
             <option value="">{{ placeholder }}</option>
 

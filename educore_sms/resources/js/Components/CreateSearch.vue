@@ -9,6 +9,12 @@ defineProps({
         type: String,
         required: true,
     },
+
+    show: {
+        type: Boolean,
+        required: false,
+        default: true,
+    }
 });
 
 const model = defineModel({
@@ -21,6 +27,7 @@ const model = defineModel({
     <div class="grid grid-cols-1 md:grid-cols-2 mt-4 items-center">
         <div class="mb-3">
             <Link
+                v-if="show"
                 :href="href"
                 class="px-4 py-2 bg-school-primary text-white rounded-md hover:bg-school-primary-hover"
             >

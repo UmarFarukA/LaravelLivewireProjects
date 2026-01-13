@@ -21,4 +21,9 @@ class ClassRooms extends Model
     {
         return $this->hasMany(Student::class, 'current_class_id');
     }
+
+    public function applications()
+    {
+        return $this->hasMany(Applications::class, 'classroom_id');
+    }
 }

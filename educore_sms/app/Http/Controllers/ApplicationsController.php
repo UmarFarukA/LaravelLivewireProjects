@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Applications;
 use App\Models\ClassRooms;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use InertiaUI\Modal\Modal;
+
 
 class ApplicationsController extends Controller
 {
@@ -39,6 +42,36 @@ class ApplicationsController extends Controller
 
         Applications::create($validated);
 
-        return redirect()->route('login')->with('success', 'Application submitted successfully.');
+        return Inertia::flash('message', 'Application submitted successfully.')->back();
     }
+
+    // public function admitForm(Applications $application)
+    // {
+    //     return Inertia::modal('Admissions/AdmitStudentModal', [
+    //         'application' => $application,
+    //     ])->baseRoute('admissions.index');
+    // }
+
+    // public function manage(Request $request, Applications $application)
+    // {
+    //     $data = $request->validate([
+    //         'admission_number' => 'required|unique:students,admission_number',
+    //         'class_id' => 'required|exists:classes,id',
+    //     ]);
+
+    //     Student::create([
+    //         'school_id' => 1,
+    //         'class_id' => $data['class_id'],
+    //         'admission_number' => $data['admission_number'],
+    //         'first_name' => $application->first_name,
+    //         'last_name' => $application->last_name,
+    //         'gender' => $application->gender,
+    //         'dob' => $application->dob,
+    //     ]);
+
+    //     $application->update(['status' => 'admitted']);
+
+    //     return redirect()->route('admissions.index')
+    //         ->with('success', 'Student admitted successfully.');
+    // }
 }

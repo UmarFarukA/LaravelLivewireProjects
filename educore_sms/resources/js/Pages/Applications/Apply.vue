@@ -6,6 +6,7 @@ import { genders } from "../../Constants/gender";
 import AppLayout from "../../Layouts/AppLayout.vue";
 import InputField from "../../Components/InputField.vue";
 import SelectField from "../../Components/SelectField.vue";
+import { usePage } from "@inertiajs/vue3";
 
 defineProps({
     classrooms: Object,
@@ -25,16 +26,20 @@ const form = useForm({
 });
 
 const submit = () => {
-    (form.post(route("applications.store")),
-        {
-            onSuccess: () =>
-                toast.success("Application submitted successfully!"),
-            onError: () => {
-                toast.error("Failed to submit application. Please check your inputs.");
-                form.reset();
-            },
-        });
+    form.post(route("applications.store"), {
+        preserveScroll: true,
+        onSuccess: () => {
+            toast.success("Application submitted successfully!");
+            form.reset()
+        },
+        onError: () => {
+            toast.error("Failed to submit application. Please check your inputs.")
+        },
+    })
 };
+
+const page = usePage();
+
 </script>
 
 <template>
@@ -58,6 +63,10 @@ const submit = () => {
                     <p class="text-sm text-gray-500 mt-1">
                         Kindly fill the form below to apply for admission.
                     </p>
+                </div>
+
+                <div v-if="page.flash.message" class="p-2 text-center mb-4 text-green-50 bg-green-600 rounded-md">
+                    {{ page.flash.message }}
                 </div>
 
                 <!-- Form -->
@@ -144,7 +153,7 @@ const submit = () => {
                     >
                     <InputField
                         type="email"
-                        v-model="form.parent_email"
+                        v-model="form.email"
                         label="Parent Email"
                         placeholder="Parent Email"
                         :message="form.errors.email"

@@ -13,7 +13,7 @@ class Applications extends Model
         "dob",
         "parent_name",
         "parent_phone",
-        "parent_email",
+        "email",
         "previous_school",
         "classroom_id",
         "school_id",

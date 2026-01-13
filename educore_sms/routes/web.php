@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\SchoolController;
@@ -55,9 +56,20 @@ Route::middleware(['auth'])->group(function () {
         ->name('schools.destroy');
 
 
-    // Route::get('/admissions', function () {
-    //     return Inertia::render('Admissions/Index');
-    // })->name('admissions.index');
+    Route::get('/admissions', [AdmissionController::class, 'index'])
+        ->name('admissions.index');
+
+    Route::get('/admissions/{application}/view', [AdmissionController::class, 'view'])
+        ->name('admissions.view');
+
+    // Route::get('/applications/{application}/manage', [ApplicationsController::class, 'manage'])
+    //     ->name('applications.manage');
+
+    // Route::get('/applications/{application}/admit', [ApplicationsController::class, 'admitForm'])
+    //     ->name('applications.admit.form');
+
+    // Route::post('/applications/{application}/admit', [ApplicationsController::class, 'admit'])
+    //     ->name('applications.admit');
 
     // Students route
     Route::get('/students', [StudentController::class, 'index'])
