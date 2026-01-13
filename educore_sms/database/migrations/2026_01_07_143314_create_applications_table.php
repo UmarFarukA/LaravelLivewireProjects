@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('dob');
             $table->string('address');
             $table->string('email')->nullable();
-            $table->tinyInteger('status')->default(2); // 1=approved, 2=pending, 3=rejected
+            $table->tinyInteger('status')->default(2); // 1=approved, 2=pending, 0=rejected
             $table->string('parent_name')->nullable();
             $table->string('parent_phone')->nullable();
             $table->string('previous_school')->nullable();

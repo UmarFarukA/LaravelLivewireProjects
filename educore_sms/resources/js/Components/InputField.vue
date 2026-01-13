@@ -1,4 +1,5 @@
 <script setup>
+
 const model = defineModel({
     type: null,
     required: true
@@ -17,7 +18,14 @@ defineProps({
     placeholder: {
         type: String
     },
-    message: String
+
+    readonly: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+
+    message: String,
 });
 
 // const model = defineModel();
@@ -27,6 +35,7 @@ defineProps({
     <div class="grid gap-1">
         <label class="text-gray-700 text-md">{{label}}</label>
         <input
+            :readonly="readonly"
             v-model="model"
             :type="type"
             :placeholder="placeholder"

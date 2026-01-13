@@ -56,8 +56,8 @@ watch(
         <div class="flex-col space-y-3">
             <CreateSearch
                 :show="false"
-                caption="Create School"
-                href="/schools/create"
+                caption=""
+                href=""
                 v-model="search"
             />
             <div class="shadow-sm">
@@ -134,7 +134,7 @@ watch(
                                             :href="route('admissions.view', application.id)"
                                             class="text-sm text-school-primary hover:underline"
                                         >
-                                            Manage
+                                            View
                                         </Link>
                                     </td>
                                 </tr>

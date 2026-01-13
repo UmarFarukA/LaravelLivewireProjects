@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(School::class, 'schoold_id');
+            $table->foreignIdFor(School::class, 'school_id');
             $table->foreignIdFor(applications::class, 'applicant_id');
             $table->string('admission_number');
             $table->string('current_class_id');

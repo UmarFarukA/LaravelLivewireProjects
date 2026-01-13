@@ -62,6 +62,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admissions/{application}/view', [AdmissionController::class, 'view'])
         ->name('admissions.view');
 
+    Route::put('/admissions/{application}/update', [AdmissionController::class, 'update'])
+        ->name('admissions.update');
+
     // Route::get('/applications/{application}/manage', [ApplicationsController::class, 'manage'])
     //     ->name('applications.manage');
 

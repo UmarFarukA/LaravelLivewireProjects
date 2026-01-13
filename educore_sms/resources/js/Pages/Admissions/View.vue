@@ -1,7 +1,8 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3";
-import { Modal } from "@inertiaui/modal-vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import InputField from "@/Components/InputField.vue";
+import { toast } from "vue-sonner";
 
 const props = defineProps({
     application: {
@@ -11,96 +12,83 @@ const props = defineProps({
 });
 
 const form = useForm({
-    admission_number: "",
-    class_id: props.application.class_applied_for || "",
+    first_name: props.application.first_name,
+    last_name: props.application.last_name,
+    age: props.application.age,
+    class_applied: props.application.class_applied,
+    status: ''
 });
 
-// function submit() {
-//   form.post(route('applications.admit', props.application.id), {
-//     onSuccess: () => {
-//       Modal.close()
-//     }
-//   })
-// }
+const handleSubmit = () => {
+    form.put(route("admissions.update", props.application.id), {
+        preserveScroll: true,
+        onSuccess: () => toast.success("Application successfully updated!"),
+        onError: () => toast.error("Failed to update admission application. Please try again."),
+    });
+};
+
 </script>
 
 <template>
-    <!-- <AuthenticatedLayout title="View Admission Application">
+    <AuthenticatedLayout title="View Admission Application">
+        <div class="w-full md:w-2/3">
+            <form class="space-y-2" @submit.prevent="handleSubmit">
+                <InputField
+                    :readonly="true"
+                    v-model="form.first_name"
+                    label="First Name"
+                    :message="form.errors.name"
+                />
 
-</AuthenticatedLayout> -->
+                <InputField
+                    :readonly="true"
+                    v-model="form.last_name"
+                    label="Last Name"
+                    :message="form.errors.name"
+                />
 
-    <Modal>
-        <div class="p-6">
-            <!-- Header -->
-            <div class="mb-4">
-                <h2 class="text-lg font-semibold text-gray-800">
-                    Admit Student
-                </h2>
-                <p class="text-sm text-gray-500">
-                    Admit
-                    <span class="font-medium"
-                        >{{ application.first_name }} -
-                        {{ application.last_name }}</span
-                    >
-                    into the school
-                </p>
-            </div>
+                <InputField
+                    :readonly="true"
+                    v-model="form.age"
+                    label="Age"
+                    :message="form.errors.age"
+                />
 
-            <!-- Form -->
-            <form @submit.prevent="submit" class="space-y-4">
-                <!-- Admission Number -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">
-                        Admission Number
-                    </label>
-                    <input
-                        v-model="form.admission_number"
-                        type="text"
-                        required
-                        class="mt-1 w-full rounded-lg border-gray-300 focus:border-school-primary focus:ring-school-primary"
-                        placeholder="e.g. EDU/2026/0012"
-                    />
-                    <div
-                        v-if="form.errors.admission_number"
-                        class="text-sm text-red-500 mt-1"
-                    >
-                        {{ form.errors.admission_number }}
-                    </div>
+                <InputField
+                    :readonly="true"
+                    v-model="form.class_applied"
+                    label="Class Applied"
+                    :message="form.errors.class_applied"
+                />
+
+                <div class="grid gap-1">
+                    <label for="status" class="text-gray-700 text-md">Admission Status</label>
+                    <select v-model="form.status" name="status" id="status" class="text-gray-700 block w-full px-2 py-2 rounded-md border ">
+                        <option value="">--select--</option>
+                        <option value="2">Pending</option>
+                        <option value="1">Accepted</option>
+                        <option value="0">Rejected</option>
+                    </select>
                 </div>
 
-                <!-- Class -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">
-                        Assign Class
-                    </label>
-
-                    <div
-                        v-if="form.errors.class_id"
-                        class="text-sm text-red-500 mt-1"
-                    >
-                        {{ form.errors.class_id }}
-                    </div>
-                </div>
-
-                <!-- Actions -->
-                <div class="flex justify-end gap-3 pt-4">
-                    <button
-                        type="button"
-                        @click="Modal.close()"
-                        class="px-4 py-2 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200"
+                <div
+                    class="flex-col md:flex-row md:items-center md:justify-end space-x-2 space-y-2"
+                >
+                    <Link
+                        :href="route('admissions.index')"
+                        class="bg-gray-600 text-gray-50 px-4 py-2 rounded-md hover:bg-gray-500"
                     >
                         Cancel
-                    </button>
-
+                    </Link>
                     <button
-                        type="submit"
                         :disabled="form.processing"
-                        class="px-4 py-2 rounded-md bg-school-primary text-white hover:bg-school-primary-hover disabled:opacity-60"
+                        type="submit"
+                        class="px-4 py-2 bg-school-primary text-white rounded-md hover:bg-school-primary-hover"
                     >
-                        Admit Student
+                        Update
                     </button>
                 </div>
             </form>
         </div>
-    </Modal>
+    </AuthenticatedLayout>
 </template>
