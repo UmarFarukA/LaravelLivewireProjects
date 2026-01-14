@@ -1,18 +1,33 @@
 <script setup>
-import { useForm } from "@inertiajs/vue3";
+import { router, useForm } from "@inertiajs/vue3";
 import CreateSearch from "../../Components/CreateSearch.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import Pagination from "../../Components/Pagination.vue";
+import { ref, watch } from "vue";
+import { debounce } from "lodash";
 
-const form = useForm({
-    search: ""
+const search = ref("");
+
+defineProps({
+    students: Object,
 })
+
+watch(search,
+    debounce(
+        (q) => {
+            router.get(route('students.index'),
+            {search: q},
+            {preserveState: true})}
+        ),
+    500,
+)
 
 </script>
 
 <template>
     <AuthenticatedLayout title="Students">
         <div class="flex-col space-y-3">
-            <CreateSearch caption="Add Student" href="/students/create" v-model="form.search" />
+            <CreateSearch caption="Add Student" href="" v-model="search" />
 
             <div class="shadow-sm">
                 <div
@@ -25,19 +40,19 @@ const form = useForm({
                             <thead class="bg-gray-50 text-sm text-gray-600">
                                 <tr>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        School Name
+                                        #
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
                                         Student Name
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Level
+                                        Admission Number
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Class
+                                        Current Class
                                     </th>
                                     <th class="px-6 py-3 text-left font-medium">
-                                        Status
+                                        Date
                                     </th>
                                     <th
                                         class="px-6 py-3 text-right font-medium"
@@ -48,7 +63,37 @@ const form = useForm({
                             </thead>
 
                             <tbody class="divide-y text-sm">
-
+                                <tr
+                                    v-for="(student, index) in students.data"
+                                    :key="student.id"
+                                    class="hover:bg-gray-50"
+                                >
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ index + 1 }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ student.name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ student.admission_number }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ student.current_class }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ student.accepted }}
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-right"
+                                    >
+                                        <a
+                                            :href="`/students/${student.id}`"
+                                            class="text-blue-600 font-medium"
+                                        >
+                                            View Details →
+                                        </a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -99,5 +144,6 @@ const form = useForm({
                 </div> -->
             </div>
         </div>
+        <Pagination :paginator="students" />
     </AuthenticatedLayout>
 </template>

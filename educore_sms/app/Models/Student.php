@@ -51,6 +51,6 @@ class Student extends Model
 
     public function application()
     {
-        return $this->belongsTo(applications::class, 'application_id');
+        return $this->belongsTo(Applications::class, 'applicant_id', 'id');
     }
 }

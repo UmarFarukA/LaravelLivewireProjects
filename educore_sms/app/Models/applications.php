@@ -32,6 +32,6 @@ class Applications extends Model
 
     public function student()
     {
-        return $this->hasOne(Student::class);
+        return $this->hasOne(Student::class, 'applicant_id', 'id');
     }
 }
