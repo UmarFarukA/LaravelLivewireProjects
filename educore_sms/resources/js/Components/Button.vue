@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="my-6 flex items-center justify-start">
+    <div class="my-3 flex items-center justify-start">
         <button
             class="inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2.5 font-medium text-white bg-school-primary transition hover:bg-school-primary-hover disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-school-primary"
         >
@@ -34,5 +34,3 @@ defineProps({
         </button>
     </div>
 </template>
-
-<!-- class="mt-3 w-full bg-school-primary hover:bg-school-primary-hover text-white py-2.5 rounded-lg font-medium transition"> -->

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -101,4 +102,12 @@ Route::middleware(['auth'])->group(function () {
         ->name('users.update');
     Route::delete('/users/delete/{user}', [UserController::class, 'destroy'])
         ->name('users.destroy');
+
+    // Settings
+    Route::get('/settings', [ProfileController::class, 'index'])
+        ->name('settings.index');
+    Route::put('/settings/contact', [ProfileController::class, 'updateContactInfo'])
+        ->name('settings.update.contact');
+    Route::put('/settings/password', [ProfileController::class, 'updatePassword'])
+        ->name('settings.update.password');
 });
