@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Payment extends Model
+{
+    protected $fillable = [
+        'application_id',
+        'amount',
+        'payment_reference',
+        'payment_gateway',
+        'status',
+        'paid_at',
+    ];
+
+    protected $casts = [
+        'paid_at' => 'datetime',
+    ];
+
+    public function application()
+    {
+        return $this->belongsTo(Application::class);
+    }
+}
