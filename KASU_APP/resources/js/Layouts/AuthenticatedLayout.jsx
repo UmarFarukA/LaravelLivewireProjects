@@ -1,61 +1,38 @@
-function AuthenticatedLayout({ children }) {
-    const { auth } = usePage().props;
+import AdminSidebar from '@/Components/AdminSidebar'
 
+function AuthenticatedLayout({ user, children }) {
     return (
         <div className="min-h-screen bg-gray-100 flex">
-            {/* SIDEBAR */}
-            <aside className="w-64 bg-white border-r hidden md:block">
-                <div className="p-4 border-b">
-                    <h2 className="font-bold text-green-700">KASU Portal</h2>
-                </div>
+            {/* Sidebar */}
+            <AdminSidebar />
 
-                <nav className="p-4 space-y-2 text-sm">
-                    <Link
-                        href={route("dashboard")}
-                        className="block px-3 py-2 rounded hover:bg-gray-100"
-                    >
-                        Dashboard
-                    </Link>
-
-                    <Link
-                        href={route("applications.create")}
-                        className="block px-3 py-2 rounded hover:bg-gray-100"
-                    >
-                        Start Application
-                    </Link>
-
-                    <Link
-                        href="#"
-                        className="block px-3 py-2 rounded hover:bg-gray-100"
-                    >
-                        My Applications
-                    </Link>
-                </nav>
-            </aside>
-
-            {/* MAIN AREA */}
+            {/* Main content */}
             <div className="flex-1 flex flex-col">
-                {/* TOP BAR */}
-                <header className="bg-white border-b px-4 py-3 flex justify-between items-center">
-                    <span className="text-sm text-gray-600">
-                        Welcome, {auth.user.name}
-                    </span>
+                {/* Top Bar */}
+                <header className="bg-white border-b px-6 py-4 flex justify-between items-center">
+                    <h1 className="text-lg font-semibold text-gray-800">
+                        KASU Admin Portal
+                    </h1>
 
-                    <form method="post" action={route("logout")}>
-                        <button
-                            type="submit"
-                            className="text-sm text-red-600 hover:underline"
-                        >
-                            Logout
-                        </button>
-                    </form>
+                    <div className="flex items-center gap-4">
+                        <span className="text-sm text-gray-600">
+                            {user?.name}
+                        </span>
+                        <form method="post" action={route('admin.logout')}>
+                            <button className="text-sm text-red-600 hover:underline">
+                                Logout
+                            </button>
+                        </form>
+                    </div>
                 </header>
 
-                {/* PAGE CONTENT */}
-                <main className="flex-1 p-6">{children}</main>
+                {/* Page content */}
+                <main className="p-6">
+                    {children}
+                </main>
             </div>
         </div>
-    );
+    )
 }
 
 export default AuthenticatedLayout;

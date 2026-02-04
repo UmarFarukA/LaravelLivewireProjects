@@ -25,14 +25,21 @@ function GuestLayout({ children }) {
                         </Link>
 
                         <Link
-                            href={route("login")}
+                            href={route("staff.login")}
+                            className="text-sm font-medium text-gray-700 hover:text-green-700"
+                        >
+                            Staff
+                        </Link>
+
+                        <Link
+                            href={route('login')}
                             className="text-sm font-medium text-gray-700 hover:text-green-700"
                         >
                             Login
                         </Link>
 
                         <Link
-                            href={route("register")}
+                            href={route("applicant.register")}
                             className="bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-green-800"
                         >
                             Apply Now

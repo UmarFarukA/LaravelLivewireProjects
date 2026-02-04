@@ -1,7 +1,8 @@
 import AuthLayout from '@/Layouts/AuthLayout'
 import { Head, Link, useForm, usePage } from '@inertiajs/react'
+import Button from '../../Components/Button'
 
-export default function VerifyEmail() {
+function VerifyEmail() {
     const { flash } = usePage().props
 
     const { post, processing } = useForm()
@@ -12,7 +13,7 @@ export default function VerifyEmail() {
     }
 
     return (
-        <AuthLayout title="Email Verification Required">
+        <>
             <Head title="Verify Your Email" />
 
             <div className="mb-6 text-gray-700 text-sm">
@@ -28,13 +29,9 @@ export default function VerifyEmail() {
             )}
 
             <form onSubmit={resendVerification} className="space-y-4">
-                <button
-                    type="submit"
-                    disabled={processing}
-                    className="w-full bg-green-700 text-white py-2 rounded-md font-semibold hover:bg-green-800 disabled:opacity-50"
-                >
+                <Button type='submit' className='primary' disabled={processing}>
                     Resend Verification Email
-                </button>
+                </Button>
             </form>
 
             <div className="mt-6 text-center text-sm text-gray-600">
@@ -44,6 +41,11 @@ export default function VerifyEmail() {
                     </button>
                 </form>
             </div>
-        </AuthLayout>
+        </>
     )
 }
+
+
+VerifyEmail.layout = (page) => <AuthLayout title="Email Verification Required" children={page} />
+
+export default VerifyEmail

@@ -1,6 +1,6 @@
 import AuthLayout from "@/Layouts/AuthLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
-import { route } from "../../../../vendor/tightenco/ziggy";
+import { route } from "../../../../../vendor/tightenco/ziggy";
 import InputField from "@/Components/InputField";
 import Button from "@/Components/Button";
 
@@ -13,23 +13,24 @@ function Login() {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route("applicant.authenticate"));
+        post(route("authenticate"));
     };
 
     return (
         <>
-            <Head title="Login" />
+            <Head title="Staff Login" />
 
             <form onSubmit={submit} className="space-y-5">
                 {/* EMAIL */}
                 <InputField
-                    label="Email Address"
+                    label="Username"
                     name="email"
                     type="email"
                     value={data.email}
                     onChange={(e) => setData("email", e.target.value)}
                     error={errors.email}
                     required
+                    placeholder='Email or Staff number'
                 />
 
                 {/* PASSWORD */}
@@ -41,6 +42,7 @@ function Login() {
                     onChange={(e) => setData("password", e.target.value)}
                     error={errors.password}
                     required
+                    placeholder="************"
                 />
 
                 {/* REMEMBER ME */}
@@ -73,16 +75,6 @@ function Login() {
                 {/* SUBMIT */}
                 <Button type='submit' disabled={processing} className="w-full">Sign in</Button>
 
-                {/* REGISTER LINK */}
-                <p className="text-center text-sm text-gray-600">
-                    Don’t have an account?{" "}
-                    <Link
-                        href={route("applicant.register")}
-                        className="text-green-700 font-medium hover:underline"
-                    >
-                        register here
-                    </Link>
-                </p>
             </form>
         </>
     );

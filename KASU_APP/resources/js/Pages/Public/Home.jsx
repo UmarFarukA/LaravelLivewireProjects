@@ -1,7 +1,7 @@
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Link } from "@inertiajs/react";
 
-export default function Home({ forms, notices }) {
+function Home({ forms, notices }) {
     return (
         <>
             {/* HERO SECTION */}
@@ -89,3 +89,5 @@ export default function Home({ forms, notices }) {
         </>
     );
 }
+
+export default Home

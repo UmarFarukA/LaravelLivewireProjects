@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class Applicant extends Authenticatable
+class Applicant extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory;
 
