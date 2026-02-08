@@ -45,4 +45,7 @@ Route::post('/email/verification-notification', [EmailVerificationController::cl
 Route::middleware(['auth:applicant', 'verified'])->group(function() {
     Route::get('/dashboard', [ApplicantController::class, 'dashboard'])
         ->name('applicant.dashboard');
+
+    Route::post('/logout', [ApplicantController::class, 'logout'])
+        ->name('applicant.logout');
 });

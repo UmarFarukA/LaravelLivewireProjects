@@ -1,7 +1,7 @@
 import { Link, usePage } from '@inertiajs/react'
 
 function ApplicantLayout({ children }) {
-    // const { auth } = usePage().props
+    const { auth } = usePage().props
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -14,12 +14,11 @@ function ApplicantLayout({ children }) {
 
                     <div className="flex items-center gap-4">
                         <span className="text-sm text-gray-600">
-                            {/* {auth.applicant.first_name} */}
-                            Applicant Name
+                            {auth.applicant.othernames}
                         </span>
 
                         <Link
-                            href={route('logout')}
+                            href={route('applicant.logout')}
                             method="post"
                             as="button"
                             className="text-sm text-red-600"

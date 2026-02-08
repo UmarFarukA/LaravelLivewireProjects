@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class Applicant extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
         'othernames',
@@ -27,10 +28,14 @@ class Applicant extends Authenticatable implements MustVerifyEmail
 
     protected $hidden = ['password'];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'date_of_birth' => 'date',
-    ];
+    protected function casts()
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'date_of_birth' => 'date',
+            'password' => 'hashed',
+        ];
+    }
 
     public function applications()
     {

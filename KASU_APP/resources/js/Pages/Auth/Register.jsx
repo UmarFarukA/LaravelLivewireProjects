@@ -13,22 +13,33 @@ function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route("register"));
+        post(route("applicant.store"));
     };
 
     return (
         <>
             <Head title="Register" />
 
-            <form onSubmit={submit} className="space-y-3">
-                {/* FULL NAME */}
+            <form onSubmit={submit} className="space-y-1">
+                {/* Othernames */}
                 <InputField
-                    label="Full Name"
-                    name="name"
+                    label="Othernames"
+                    name="othernames"
                     type="text"
-                    value={data.name}
-                    onChange={(e) => setData("name", e.target.value)}
-                    error={errors.name}
+                    value={data.othernames}
+                    onChange={(e) => setData("othernames", e.target.value)}
+                    error={errors.othernames}
+                    required
+                />
+
+                {/* Surname */}
+                <InputField
+                    label="Surname"
+                    name="surname"
+                    type="text"
+                    value={data.surname}
+                    onChange={(e) => setData("surname", e.target.value)}
+                    error={errors.surname}
                     required
                 />
 
@@ -66,7 +77,7 @@ function Register() {
                />
 
                 {/* SUBMIT */}
-                <Button disabled={processing} className="w-full">Create Account</Button>
+                <Button type="submit" disabled={processing} className="w-full">Create Account</Button>
 
                 {/* LOGIN LINK */}
                 <p className="text-center text-sm text-gray-600">

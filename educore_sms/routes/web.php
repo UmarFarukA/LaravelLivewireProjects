@@ -106,6 +106,8 @@ Route::middleware(['auth'])->group(function () {
     // Settings
     Route::get('/settings', [ProfileController::class, 'index'])
         ->name('settings.index');
+    Route::put('/settings/profile-image', [ProfileController::class, 'updateProfileImage'])
+        ->name('settings.update.profile_image');
     Route::put('/settings/contact', [ProfileController::class, 'updateContactInfo'])
         ->name('settings.update.contact');
     Route::put('/settings/password', [ProfileController::class, 'updatePassword'])

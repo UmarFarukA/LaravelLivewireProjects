@@ -14,6 +14,30 @@ class ProfileController extends Controller
         return Inertia::render('Profile/Settings');
     }
 
+    public function updateProfileImage(Request $request)
+    {
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'avatar' => 'required|file|max:1024|mimes:jpg,jpeg,png',
+        ]);
+
+        dd($validated);
+
+        if ($request->hasFile('avatar')) {
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $validated['avatar'] = $path;
+
+            $user->update([
+                'avatar' => $validated['avatar'],
+            ]);
+
+            $user->save();
+        }
+
+        return redirect()->route('settings.index'); //->with('success', 'Profile updated successfully.');
+    }
+
     public function updateContactInfo(Request $request)
     {
         $user = $request->user();
@@ -41,14 +65,14 @@ class ProfileController extends Controller
 
         // Check if current password matches
         if (Hash::check($validated['current_password'], $user->password)) {
-            return redirect()->route('settings.index');//->withErrors(['current_password' => 'Current password is incorrect.']);
+
+            // Update password
+            $user->update([
+                'password' => Hash::make($validated['password']),
+            ]);
+            return redirect('/dashboard');
         }
 
-        // Update password
-        $user->update([
-            'password' => Hash::make($validated['password']),
-        ]);
-
-        return redirect()->route('users.destroy'); //->with('success', 'Password updated successfully.');
+        return redirect()->route('settings.index'); //->with('success', 'Password updated successfully.');
     }
 }

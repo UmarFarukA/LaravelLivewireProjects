@@ -25,8 +25,9 @@ class EmailVerificationController extends Controller
             event(new Verified($request->user()));
         }
 
-        return redirect()->route('applicant.dashboard')
-            ->with('success', 'Email successfully verified.');
+        Inertia::flash('status', 'Email verified successfully!');
+
+        return redirect()->route('applicant.dashboard');
     }
 
     public function resend(Request $request)
@@ -37,6 +38,8 @@ class EmailVerificationController extends Controller
 
         $request->user()->sendEmailVerificationNotification();
 
-        return back()->with('message', 'Verification link sent!');
+        Inertia::flash('status', 'Verification link sent!');
+
+        return back();
     }
 }

@@ -19,16 +19,20 @@ class RegisterApplicantController extends Controller
     public function store(Request $request)
     {
         $fields = $request->validate([
-            'name' => 'required|string|max:255|min:2',
-            'email' => 'required|string|email|max:255|unique:applicant,email',
+            'othernames' => 'required|string|max:255|min:2',
+            'surname' => 'required|string|max:255|min:2',
+            'email' => 'required|string|email|max:255|unique:applicants,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        $newApplicant = Applicant::create($fields);
+        $applicant = Applicant::create($fields);
 
-        Auth::guard('applicant')->login($newApplicant);
+        Auth::guard('applicant')->login($applicant);
 
-        event(new Registered($newApplicant));
+        //event(new Registered($applicant));
+
+        $applicant->sendEmailVerificationNotification();
+
 
         return redirect()->route('verification.notice');
     }
