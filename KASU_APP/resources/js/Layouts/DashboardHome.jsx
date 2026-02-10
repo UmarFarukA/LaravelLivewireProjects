@@ -10,7 +10,7 @@ function DashboardHome({ applications }) {
                     My Applications
                 </h1>
 
-                {/* {applications?.length === 0 ? (
+                {applications?.length === 0 ? (
                     <p className="text-gray-600 mb-4">
                         You have not started any application yet.
                     </p>
@@ -20,7 +20,7 @@ function DashboardHome({ applications }) {
                             <ApplicationCard key={app.id} application={app} />
                         ))}
                     </div>
-                )} */}
+                )}
 
                 <Button className="mt-6">
                     Start New Application
@@ -29,7 +29,5 @@ function DashboardHome({ applications }) {
         </DashboardLayout>
     )
 }
-
-// DashboardHome.layout = page => <DashboardLayout>{page}</DashboardLayout>
 
 export default DashboardHome;

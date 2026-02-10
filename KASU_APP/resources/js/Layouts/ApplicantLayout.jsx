@@ -1,4 +1,5 @@
 import { Link, usePage } from '@inertiajs/react'
+import KASU_Logo from "../../../public/storage/KASU_logo.jpg"
 
 function ApplicantLayout({ children }) {
     const { auth } = usePage().props
@@ -8,8 +9,8 @@ function ApplicantLayout({ children }) {
             {/* TOP BAR */}
             <header className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-                    <Link href="/" className="font-bold text-green-700">
-                        KASU Admissions
+                    <Link href="/" className="font-bold text-green-700 flex items-center gap-2">
+                        <img src={KASU_Logo} className='w-8 h-8 rounded-lg' alt='KASU Logo'/>KASU Application System (v1)
                     </Link>
 
                     <div className="flex items-center gap-4">

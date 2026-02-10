@@ -24,7 +24,7 @@ class ApplicantController extends Controller
             ->latest()
             ->get();
 
-        return Inertia::render('Layouts/DashboardHome', [
+        return Inertia::render('Applicant/Dashboard', [
             'applicant' => $applicant,
             'applications' => $applications
         ]);

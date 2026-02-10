@@ -11,8 +11,4 @@ function DashboardLayout({ children }) {
     )
 }
 
-// DashboardLayout.layout = (page) => (
-//     <ApplicantLayout title="Dashboard">{page}</ApplicantLayout>
-// );
-
 export default DashboardLayout
