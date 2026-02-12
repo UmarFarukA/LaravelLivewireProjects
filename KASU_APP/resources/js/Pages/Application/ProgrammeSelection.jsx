@@ -15,7 +15,7 @@ function ProgrammeSelection({ application, stages, programmes }) {
         <ApplicationLayout application={application} stages={stages}>
             <h2 className="text-xl font-semibold mb-4">Select Programme</h2>
 
-            <select
+            {/* <select
                 className="w-full border rounded p-2"
                 onChange={e => setData('programme_id', e.target.value)}
             >
@@ -23,7 +23,7 @@ function ProgrammeSelection({ application, stages, programmes }) {
                 {programmes.map(p => (
                     <option key={p.id} value={p.id}>{p.name}</option>
                 ))}
-            </select>
+            </select> */}
 
             <Button
                 disabled={processing || !data.programme_id}

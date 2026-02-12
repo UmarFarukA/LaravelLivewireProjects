@@ -1,6 +1,7 @@
 import DashboardLayout from '@/Layouts/DashboardLayout'
 import ApplicationCard from '@/Components/Applicant/ApplicationCard'
 import Button from '@/Components/Button'
+import { Link } from '@inertiajs/react';
 
 function DashboardHome({ applications }) {
     return (
@@ -22,9 +23,9 @@ function DashboardHome({ applications }) {
                     </div>
                 )}
 
-                <Button className="mt-6">
+                <Link href='/dashboard/programme' className="mt-6 p-2 rounded-md bg-green-700 text-white hover:bg-green-800 focus:ring-green-600">
                     Start New Application
-                </Button>
+                </Link>
             </div>
         </DashboardLayout>
     )

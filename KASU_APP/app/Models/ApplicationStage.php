@@ -15,4 +15,12 @@ class ApplicationStage extends Model
             'application_stage_status'
         )->withPivot('is_completed', 'completed_at');
     }
+
+    public function forms()
+    {
+        return $this->belongsToMany(
+            ApplicationForm::class,
+            'application_form_stage'
+        )->withPivot('order');
+    }
 }

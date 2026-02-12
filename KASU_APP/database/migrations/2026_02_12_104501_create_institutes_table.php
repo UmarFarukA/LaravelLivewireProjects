@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Nationality;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('institutes', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Nationality::class, 'country_id')->constrained('nationalities')->cascadeOnDelete(); $table->string('state_name');
-            $table->string('state_name')->unique();
+            $table->string('name')->unique();
+            $table->string('code')->unique();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('institutes');
     }
 };

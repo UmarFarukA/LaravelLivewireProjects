@@ -18,7 +18,7 @@ function Home({ forms, notices }) {
 
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <Link
-                            //href={route('register')}
+                            href={route('applicant.register')}
                             className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100"
                         >
                             Apply Now
@@ -42,10 +42,10 @@ function Home({ forms, notices }) {
                     </h2>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {/* {forms.map(form => (
+                        {forms.map(form => (
                             <Link
                                 key={form.id}
-                                href={route('programmes.index', { category: form.id })}
+                                // href={route('programmes.index', { category: form.id })}
                                 className="bg-white border rounded-xl p-6 text-center hover:shadow-md transition"
                             >
                                 <h3 className="text-lg font-semibold mb-2">
@@ -55,35 +55,8 @@ function Home({ forms, notices }) {
                                     Click to start application
                                 </p>
                             </Link>
-                        ))} */}
+                        ))}
                     </div>
-                </div>
-            </section>
-
-            {/* ADMISSION NOTICES */}
-            <section className="py-16">
-                <div className="max-w-6xl mx-auto px-4">
-                    <h2 className="text-2xl font-bold mb-6">
-                        Admission Notices & Deadlines
-                    </h2>
-
-                    {/* {notices.length === 0 ? (
-                        <p className="text-gray-600">No admission notices at the moment.</p>
-                    ) : (
-                        <div className="space-y-4">
-                            {notices.map(notice => (
-                                <div
-                                    key={notice.id}
-                                    className="border rounded-lg p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between"
-                                >
-                                    <h4 className="font-semibold">{notice.title}</h4>
-                                    <span className="text-sm text-red-600 mt-2 sm:mt-0">
-                                        Deadline: {notice.deadline}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    )} */}
                 </div>
             </section>
         </>

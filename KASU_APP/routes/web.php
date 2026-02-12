@@ -53,7 +53,7 @@ Route::middleware(['auth:applicant', 'verified'])->group(function () {
         ->name('applicant.logout');
 
     Route::get('/dashboard/programme', [ApplicationController::class, 'programme_selection'])
-        ->name('applications.programme');
+        ->name('applications.programme_selection');
     // Route::get('/dashboard/payment', PaymentController::class)->name('applications.payment');
     Route::get('/dashboard/bio-data', [ApplicationController::class, 'bio_data'])
         ->name('applications.bio-data');

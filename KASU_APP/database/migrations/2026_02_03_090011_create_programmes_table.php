@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('application_form_id')->constrained();
             $table->string('name');
             $table->string('code')->unique();
-            $table->enum('status', ['open', 'closed'])->default('open');
+            $table->date('app_start_date')->nullable();
+            $table->date('app_close_date')->nullable();
             $table->timestamps();
         });
     }
