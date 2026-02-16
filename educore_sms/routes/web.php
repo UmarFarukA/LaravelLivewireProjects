@@ -5,6 +5,7 @@ use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -74,6 +75,10 @@ Route::middleware(['auth'])->group(function () {
 
     // Route::post('/applications/{application}/admit', [ApplicationsController::class, 'admit'])
     //     ->name('applications.admit');
+
+    // Staff Routes
+    Route::get('/dashboard/staff', [StaffController::class, 'index'])
+        ->name('staff.index');
 
     // Students route
     Route::get('/students', [StudentController::class, 'index'])

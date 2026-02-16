@@ -44,7 +44,7 @@ defineProps<{
 
             <NavLink href="/students" icon="Users"> Students </NavLink>
 
-            <NavLink href="/teachers" icon="UserCog"> Teachers </NavLink>
+            <NavLink href="/dashboard/staff" icon="UserCog">Staff</NavLink>
 
             <NavLink href="/classes" icon="Layers"> Classes </NavLink>
 

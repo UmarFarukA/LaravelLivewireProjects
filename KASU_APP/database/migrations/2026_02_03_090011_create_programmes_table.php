@@ -18,8 +18,6 @@ return new class extends Migration
             $table->foreignId('application_form_id')->constrained();
             $table->string('name');
             $table->string('code')->unique();
-            $table->date('app_start_date')->nullable();
-            $table->date('app_close_date')->nullable();
             $table->timestamps();
         });
     }

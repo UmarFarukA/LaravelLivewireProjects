@@ -415,35 +415,67 @@ class DepartmentSeeder extends Seeder
                 'name' => 'Radiography',
                 'code' => 'RAD'
             ],
+
             [
-                'faculty_id' => 16,
+                'faculty_id' => 17,
                 'name' => 'Centre for Information and Communication Technology',
                 'code' => 'CICT'
             ],
 
             [
-                'faculty_id' => 16,
+                'faculty_id' => 17,
                 'name' => 'Centre for Energy, Environment, and Strategy Research',
                 'code' => 'CEESR'
             ],
 
             [
-                'faculty_id' => 16,
+                'faculty_id' => 17,
                 'name' => 'Centre for Gender Studies',
                 'code' => 'CGS'
-            ],
-
-            [
-                'faculty_id' => 16,
-                'name' => 'Centre for Procurement and Supply Chain Management',
-                'code' => 'CPSCM'
             ],
 
             [
                 'faculty_id' => 17,
                 'name' => 'Centre for Procurement and Supply Chain Management',
                 'code' => 'CPSCM'
+            ],
+
+            [
+                'faculty_id' => 18,
+                'name' => 'Diploma',
+                'code' => 'DIP'
+            ],
+
+            [
+                'faculty_id' => 18,
+                'name' => 'Certificate',
+                'code' => 'CRT'
+            ],
+
+            [
+                'faculty_id' => 19,
+                'name' => 'Remedial Studies',
+                'code' => 'REM'
+            ],
+
+            [
+                'faculty_id' => 19,
+                'name' => 'Basic Studies',
+                'code' => 'BAS'
+            ],
+
+            [
+                'faculty_id' => 19,
+                'name' => 'IJMB',
+                'code' => 'IJMB'
+            ],
+
+            [
+                'faculty_id' => 5,
+                'name' => 'Education',
+                'code' => 'EDU'
             ]
+
         ];
 
         foreach($departments as $department) {

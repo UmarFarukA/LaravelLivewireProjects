@@ -31,7 +31,7 @@ const handleSubmit = () => {
     form.post(route("users.store"), {
         preserveScroll: true,
         onSuccess: () => toast.success("New user created Successfully!"),
-        onFinish: () => form.reset(),
+        onError: () => form.reset('password'),
     });
 };
 

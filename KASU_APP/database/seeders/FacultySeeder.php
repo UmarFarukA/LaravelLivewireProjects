@@ -102,6 +102,16 @@ class FacultySeeder extends Seeder
             [
                 'name' => 'Institute of Education',
                 'code' => 'IE'
+            ],
+
+            [
+                'name' => 'College of Basic and Remedial Studies',
+                'code' => 'CBS'
+            ],
+
+            [
+                'name' => 'College of Postgraduate Studies',
+                'code' => 'CPGS'
             ]
 
         ];

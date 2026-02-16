@@ -23,7 +23,7 @@ class UserController extends Controller
                 'id' => $user->id,
                 'name' => $user->name,
                 'avatar' => $user->avatar,
-                'status' => $user->status,
+                'status' => $user->is_active,
                 'role' => $user->role,
                 'created_at' => $user->created_at->format('d M Y'),
                 'can' => [

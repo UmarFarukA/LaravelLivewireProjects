@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from "@inertiajs/vue3";
+import { Link, useForm } from "@inertiajs/vue3";
 import { ref } from "vue";
 import InputField from "@/Components/InputField.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
@@ -94,11 +94,12 @@ const change = (e) => {
                 <div
                     class="flex-col md:flex-row md:items-center md:justify-end space-x-2 space-y-2"
                 >
-                    <button
+                    <Link
+                        :href="route('users.index')"
                         class="bg-gray-600 text-gray-50 px-4 py-2 rounded-md hover:bg-gray-500"
                     >
                         Cancel
-                    </button>
+                    </Link>
                     <button
                         :disabled="form.processing"
                         type="submit"
