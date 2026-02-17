@@ -112,6 +112,11 @@ class FacultySeeder extends Seeder
             [
                 'name' => 'College of Postgraduate Studies',
                 'code' => 'CPGS'
+            ],
+
+            [
+                'name' => 'College of Continuing Education',
+                'code' => 'CCE'
             ]
 
         ];

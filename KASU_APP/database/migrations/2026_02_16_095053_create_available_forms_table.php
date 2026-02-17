@@ -21,7 +21,9 @@ return new class extends Migration
                 ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->date('app_start_date');
             $table->date('app_close_date');
+            $table->string('academic_session')->unique();
             $table->tinyInteger('opend_by');
+            $table->timestamps();
         });
     }
 

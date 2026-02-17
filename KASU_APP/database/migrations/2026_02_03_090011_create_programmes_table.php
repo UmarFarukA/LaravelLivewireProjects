@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('award_type_id')->constrained();
             $table->foreignId('application_form_id')->constrained();
             $table->string('name');
-            $table->string('code')->unique();
+            $table->string('code');
             $table->timestamps();
         });
     }

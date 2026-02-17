@@ -41,11 +41,83 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 2,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Entrepreneurship Studies',
+                'code' => 'PGD-ENS'
+            ],
+
+            [
+                'department_id' => 2,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Management',
+                'code' => 'PGD-MGT'
+            ],
+
+            [
+                'department_id' => 2,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Banking and Finance',
+                'code' => 'M-BNF'
+            ],
+
+            [
+                'department_id' => 2,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Industrial & Labour Relations',
+                'code' => 'M-ILR'
+            ],
+
+            [
+                'department_id' => 2,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Business Adminstration',
+                'code' => 'MSc-BUS'
+            ],
+
+            [
+                'department_id' => 2,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Business Adminstration',
+                'code' => 'PhD-BUS'
+            ],
+
+            [
+                'department_id' => 2,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Entrepreneurship Studies',
+                'code' => 'PGD-ENS'
+            ],
+
+            [
                 'department_id' => 3,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Marketing',
                 'code' => 'B.Sc-MKT'
+            ],
+
+            [
+                'department_id' => 3,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Marketing',
+                'code' => 'PGD-MKT'
+            ],
+
+            [
+                'department_id' => 3,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Marketing',
+                'code' => 'MSc-MKT'
             ],
 
             [
@@ -55,6 +127,7 @@ class ProgrammeSeeder extends Seeder
                 'name' => 'Public Adminstration',
                 'code' => 'B.Sc-PAD'
             ],
+
             [
                 'department_id' => 5,
                 'award_type_id' => 3,
@@ -62,12 +135,69 @@ class ProgrammeSeeder extends Seeder
                 'name' => 'Accounting',
                 'code' => 'B.Sc-ACC'
             ],
+
+            [
+                'department_id' => 5,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Accounting',
+                'code' => 'PGD-ACC'
+            ],
+
+            [
+                'department_id' => 5,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Accounting',
+                'code' => 'M-ACC'
+            ],
+
+            [
+                'department_id' => 5,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Accounting',
+                'code' => 'MSc-ACC'
+            ],
+
+            [
+                'department_id' => 5,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Accounting',
+                'code' => 'PhD-ACC'
+            ],
+
             [
                 'department_id' => 6,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Procurement Management',
                 'code' => 'B.Sc-PRM'
+            ],
+
+            [
+                'department_id' => 6,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Procurement & Supply Chain Management',
+                'code' => 'PGD-PSCHM'
+            ],
+
+            [
+                'department_id' => 6,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Logistics & Supply Chain Management',
+                'code' => 'PGD-LSCHM'
+            ],
+
+            [
+                'department_id' => 6,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Procurement & Supply Chain Management',
+                'code' => 'M-PSCHM'
             ],
 
             [
@@ -95,12 +225,69 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 8,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Crime Management',
+                'code' => 'PGD-CMT',
+            ],
+
+            [
+                'department_id' => 8,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Social Works',
+                'code' => 'PGD-SWK',
+            ],
+
+            [
+                'department_id' => 8,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Social Works',
+                'code' => 'M-SWK',
+            ],
+
+            [
+                'department_id' => 8,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Criminal Justice',
+                'code' => 'M-CMJ',
+            ],
+
+            [
+                'department_id' => 8,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Sociology',
+                'code' => 'MSc-SOC',
+            ],
+
+            [
+                'department_id' => 8,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Sociology',
+                'code' => 'MPhil-SOC',
+            ],
+
+            [
+                'department_id' => 8,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Sociology',
+                'code' => 'PhD-SOC',
+            ],
+
+            [
                 'department_id' => 9,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Criminology & Security Studies',
                 'code' => 'B.Sc-CSS',
             ],
+
             [
                 'department_id' => 10,
                 'award_type_id' => 3,
@@ -108,6 +295,79 @@ class ProgrammeSeeder extends Seeder
                 'name' => 'Economics',
                 'code' => 'B.Sc-ECN',
             ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Health Economics',
+                'code' => 'PGD-HEC',
+            ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Public Sector Economics',
+                'code' => 'PGD-PSE',
+            ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Public Sector Economics',
+                'code' => 'PGD-PSE',
+            ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Development Studies and Policy Analysis',
+                'code' => 'M-DSPA',
+            ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Financial Economics',
+                'code' => 'M-FIE',
+            ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Economics',
+                'code' => 'MSc-ECN',
+            ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Economics',
+                'code' => 'MPhil-ECN',
+            ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Development Studies and Policy Analysis',
+                'code' => 'MPhil-DSPA',
+            ],
+
+            [
+                'department_id' => 10,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Economics',
+                'code' => 'PhD-ECN',
+            ],
+
             [
                 'department_id' => 11,
                 'award_type_id' => 3,
@@ -115,6 +375,63 @@ class ProgrammeSeeder extends Seeder
                 'name' => 'Political Science',
                 'code' => 'B.Sc-POL',
             ],
+
+            [
+                'department_id' => 11,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Conflict, Peace and Strategic Studies',
+                'code' => 'PGD-CPSS',
+            ],
+
+            [
+                'department_id' => 11,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Political Science',
+                'code' => 'PGD-POL',
+            ],
+
+            [
+                'department_id' => 11,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Electoral Management',
+                'code' => 'PGD-ELM',
+            ],
+
+            [
+                'department_id' => 11,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Conflict, Peace and Strategic Studies',
+                'code' => 'M-CPSS',
+            ],
+
+            [
+                'department_id' => 11,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Security Studies',
+                'code' => 'M-SCS',
+            ],
+
+            [
+                'department_id' => 11,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Conflict, Peace and Strategic Studies',
+                'code' => 'MPhil-CPSS',
+            ],
+
+            [
+                'department_id' => 11,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Political Science',
+                'code' => 'PhD-POL',
+            ],
+
             [
                 'department_id' => 11,
                 'award_type_id' => 3,
@@ -136,6 +453,54 @@ class ProgrammeSeeder extends Seeder
                 'application_form_id' => 2,
                 'name' => 'Mass Communication',
                 'code' => 'B.Sc-MCM',
+            ],
+
+            [
+                'department_id' => 13,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Investigative Journalism',
+                'code' => 'PGD-IVJ',
+            ],
+
+            [
+                'department_id' => 13,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Mass Communication',
+                'code' => 'PGD-MCM',
+            ],
+
+            [
+                'department_id' => 13,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters Mass Communication',
+                'code' => 'M-MCM',
+            ],
+
+            [
+                'department_id' => 13,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Development Communication',
+                'code' => 'M-DTC',
+            ],
+
+            [
+                'department_id' => 13,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Mass Communication',
+                'code' => 'MSc-MCM',
+            ],
+
+            [
+                'department_id' => 13,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Mass Communication',
+                'code' => 'PhD-MCM',
             ],
 
             [
@@ -507,11 +872,67 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 36,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Biochemistry',
+                'code' => 'PGD-BCH',
+            ],
+
+            [
+                'department_id' => 36,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Nutrition',
+                'code' => 'PGD-NUT',
+            ],
+
+            [
+                'department_id' => 36,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Nutrition',
+                'code' => 'MSc-NUT',
+            ],
+
+            [
+                'department_id' => 36,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Biochemistry',
+                'code' => 'MSc-BCH',
+            ],
+
+            [
+                'department_id' => 36,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Biochemistry',
+                'code' => 'MPhil-BCH',
+            ],
+
+            [
+                'department_id' => 36,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Biochemistry',
+                'code' => 'PhD-BCH',
+            ],
+
+            [
                 'department_id' => 37,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Biotechnology',
                 'code' => 'B.Sc.-BTE',
+            ],
+
+            [
+                'department_id' => 37,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Biotechnology',
+                'code' => 'MSc-BTE',
             ],
 
             [
@@ -523,11 +944,147 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 38,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Fisheries and Aquaculture',
+                'code' => 'PGD-FAC',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Environmental Biology',
+                'code' => 'PGD-EVB',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Entomology',
+                'code' => 'PGD-ETG',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Biology',
+                'code' => 'PGD-BIO',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Biology',
+                'code' => 'MSc-BIO',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Fisheries and Aquaculture',
+                'code' => 'MSc-FAC',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Entomology',
+                'code' => 'MSc-ETG',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Environmental Biology',
+                'code' => 'MSc-EVB',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Biology',
+                'code' => 'MPhil-BIO',
+            ],
+
+            [
+                'department_id' => 38,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Biology',
+                'code' => 'PhD-BIO',
+            ],
+
+            [
                 'department_id' => 39,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Microbiology',
                 'code' => 'B.Sc.-MCB',
+            ],
+
+            [
+                'department_id' => 39,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Microbiology',
+                'code' => 'PGD-MCB',
+            ],
+
+            [
+                'department_id' => 39,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Environmental Biology',
+                'code' => 'MSc-EVB'
+            ],
+
+            [
+                'department_id' => 39,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Microbiology',
+                'code' => 'MSc-MCB',
+            ],
+
+            [
+                'department_id' => 39,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Food and Industrial Microbiology',
+                'code' => 'MSc-FIM',
+            ],
+
+            [
+                'department_id' => 39,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Microbiology',
+                'code' => 'MPhil-MCB',
+            ],
+
+            [
+                'department_id' => 39,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Microbiology',
+                'code' => 'PhD-MCB',
+            ],
+
+            [
+                'department_id' => 39,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Microbiology',
+                'code' => 'PGD-MCB',
             ],
 
             [
@@ -547,6 +1104,54 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 40,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Industrial Chemistry',
+                'code' => 'PGD-ICH',
+            ],
+
+            [
+                'department_id' => 40,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Forensic Chemistry',
+                'code' => 'PGD-FRC',
+            ],
+
+            [
+                'department_id' => 40,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Forensic Chemistry',
+                'code' => 'MSc-FRC',
+            ],
+
+            [
+                'department_id' => 40,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Chemistry',
+                'code' => 'MSc-CHM',
+            ],
+
+            [
+                'department_id' => 40,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Chemistry',
+                'code' => 'MPhil-CHM',
+            ],
+
+            [
+                'department_id' => 40,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Chemistry',
+                'code' => 'PhD-CHM',
+            ],
+
+            [
                 'department_id' => 41,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
@@ -555,11 +1160,139 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 41,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Physics',
+                'code' => 'PGD-PHY',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Renewable Energy',
+                'code' => 'M-RWE',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Environmental Sustainability Management',
+                'code' => 'M-ESM',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 8,
+                'application_form_id' => 1,
+                'name' => 'Masters in Energy Management',
+                'code' => 'M-EGM',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Physics',
+                'code' => 'MSc-PHY',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Applied Geophysics',
+                'code' => 'MSc-AGP',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Solid State Physics',
+                'code' => 'MSc-SSP',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Physics',
+                'code' => 'MPhil-PHY',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Physics',
+                'code' => 'PhD-PHY',
+            ],
+
+            [
+                'department_id' => 41,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Geophysics',
+                'code' => 'PhD-GEP',
+            ],
+
+            [
                 'department_id' => 42,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Mathematics',
                 'code' => 'B.Sc.-MTH',
+            ],
+
+            [
+                'department_id' => 42,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Mathematics',
+                'code' => 'PGD-MTH',
+            ],
+
+            [
+                'department_id' => 42,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Industrial Mathematics',
+                'code' => 'PGD-IMT',
+            ],
+
+            [
+                'department_id' => 42,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Statistics and Data Analytics',
+                'code' => 'PGD-SDA',
+            ],
+
+            [
+                'department_id' => 42,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Mathematics',
+                'code' => 'MSc-MTH',
+            ],
+
+            [
+                'department_id' => 42,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Mathematics',
+                'code' => 'MPhil-MTH',
+            ],
+
+            [
+                'department_id' => 42,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PhD Mathematics',
+                'code' => 'PhD-MTH',
             ],
 
             [
@@ -577,6 +1310,63 @@ class ProgrammeSeeder extends Seeder
                 'name' => 'Gography and Sustainability Studies',
                 'code' => 'B.Sc.-GSS',
             ],
+
+            [
+                'department_id' => 44,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Geographic Information System',
+                'code' => 'PGD-GIS',
+            ],
+
+            [
+                'department_id' => 44,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Environmental Impact Assessment',
+                'code' => 'PGD-EIA',
+            ],
+
+            [
+                'department_id' => 44,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Geographic Information System',
+                'code' => 'PGD-GIS',
+            ],
+
+            [
+                'department_id' => 44,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Environmental Impact Assessment',
+                'code' => 'MSc-EIA',
+            ],
+
+            [
+                'department_id' => 44,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Geography',
+                'code' => 'MSc-GEO',
+            ],
+
+            [
+                'department_id' => 44,
+                'award_type_id' => 6,
+                'application_form_id' => 1,
+                'name' => 'MPhil Geography',
+                'code' => 'MPhil-GEO',
+            ],
+
+            [
+                'department_id' => 44,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Geography',
+                'code' => 'PhD-GEO',
+            ],
+
 
             [
                 'department_id' => 45,
@@ -608,6 +1398,54 @@ class ProgrammeSeeder extends Seeder
                 'application_form_id' => 2,
                 'name' => 'Computer Science',
                 'code' => 'B.Sc.-CSC',
+            ],
+
+            [
+                'department_id' => 48,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Computer Science',
+                'code' => 'PGD-CSC',
+            ],
+
+            [
+                'department_id' => 48,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Management Information System',
+                'code' => 'PGD-MIS',
+            ],
+
+            [
+                'department_id' => 48,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Web and Mobile Technologies',
+                'code' => 'PGD-WMT',
+            ],
+
+            [
+                'department_id' => 48,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Software Engineering and Project Management',
+                'code' => 'PGD-SEPM',
+            ],
+
+            [
+                'department_id' => 48,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Computer Science',
+                'code' => 'MSc-CSC',
+            ],
+
+            [
+                'department_id' => 48,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Computer Science',
+                'code' => 'PhD-CSC',
             ],
 
             [
@@ -675,11 +1513,91 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 56,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Architecture',
+                'code' => 'MSc.-ARC',
+            ],
+
+            [
                 'department_id' => 57,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Agriculture',
                 'code' => 'B.Eng.-AGR',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Animal Science',
+                'code' => 'PGD-ASC',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Crop Science',
+                'code' => 'PGD-CPS',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Agricultural Extension and Rural Development',
+                'code' => 'PGD-AERD',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Farm Management and Production Economics',
+                'code' => 'PGD-FMPE',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Agricultural Extension and Rural Development',
+                'code' => 'MSC-AERD',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Crop Science',
+                'code' => 'MSC-CPS',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Agricultural Economics',
+                'code' => 'PhD-AGE',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Crop Science',
+                'code' => 'PhD-CPS',
+            ],
+
+            [
+                'department_id' => 57,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Agricultural Extension and Rural Development',
+                'code' => 'PhD-AERD',
             ],
 
             [
@@ -691,11 +1609,35 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 58,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Environmental Management',
+                'code' => 'MSc-ENV',
+            ],
+
+            [
+                'department_id' => 58,
+                'award_type_id' => 7,
+                'application_form_id' => 1,
+                'name' => 'PhD Environmental Management',
+                'code' => 'PhD-ENV',
+            ],
+
+            [
                 'department_id' => 59,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Estate Management',
                 'code' => 'B.Sc.-EMG',
+            ],
+
+            [
+                'department_id' => 59,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Estate Management',
+                'code' => 'MSc-EMG',
             ],
 
             [
@@ -723,11 +1665,75 @@ class ProgrammeSeeder extends Seeder
             ],
 
             [
+                'department_id' => 62,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Human Anatomy',
+                'code' => 'PGD-ATY',
+            ],
+
+            [
+                'department_id' => 62,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Human Physiology',
+                'code' => 'PGD-PGY',
+            ],
+
+            [
+                'department_id' => 62,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Human Anatomy',
+                'code' => 'MSc-ATY',
+            ],
+
+            [
+                'department_id' => 62,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Human Physiology',
+                'code' => 'MSc-PGY',
+            ],
+
+            [
                 'department_id' => 63,
                 'award_type_id' => 3,
                 'application_form_id' => 2,
                 'name' => 'Pharmacy',
                 'code' => 'D.Pharmacy',
+            ],
+
+            [
+                'department_id' => 63,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Pharmaceutical Microbiology',
+                'code' => 'PGD-PMM',
+            ],
+
+            [
+                'department_id' => 63,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD Pharmacology and Toxicology',
+                'code' => 'PGD-PMT',
+            ],
+
+            [
+                'department_id' => 63,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Pharmaceutical Microbiology',
+                'code' => 'MSc-PMM',
+            ],
+
+            [
+                'department_id' => 63,
+                'award_type_id' => 5,
+                'application_form_id' => 1,
+                'name' => 'MSc Pharmacology and Toxicology',
+                'code' => 'MSc-PMT',
             ],
 
             [
@@ -912,6 +1918,38 @@ class ProgrammeSeeder extends Seeder
                 'application_form_id' => 4,
                 'name' => 'Public Administration',
                 'code' => 'PAD',
+            ],
+
+            [
+                'department_id' => 71,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD in Public Administration',
+                'code' => 'PGD-PAD',
+            ],
+
+            [
+                'department_id' => 71,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD in Public Management',
+                'code' => 'PGD-PMT',
+            ],
+
+            [
+                'department_id' => 71,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD in Policy and Governance',
+                'code' => 'PGD-PYG',
+            ],
+
+            [
+                'department_id' => 71,
+                'award_type_id' => 4,
+                'application_form_id' => 1,
+                'name' => 'PGD in Leadership and Development Studies',
+                'code' => 'PGD-LDS',
             ],
 
             [
@@ -1127,6 +2165,110 @@ class ProgrammeSeeder extends Seeder
                 'application_form_id' => 5,
                 'name' => 'IJMB',
                 'code' => 'IJMB',
+            ],
+
+            [
+                'department_id' => 75,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.A Arabic',
+                'code' => 'BA-ARB',
+            ],
+
+            [
+                'department_id' => 75,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.A English',
+                'code' => 'BA-ENG',
+            ],
+
+            [
+                'department_id' => 75,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.A Hausa',
+                'code' => 'BA-HAU',
+            ],
+
+            [
+                'department_id' => 75,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.A Islamic Studies',
+                'code' => 'BA-ISL',
+            ],
+
+            [
+                'department_id' => 76,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc Accounting',
+                'code' => 'BSc-ACC',
+            ],
+
+            [
+                'department_id' => 76,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc Business Adminstration',
+                'code' => 'BSc-BUS',
+            ],
+
+            [
+                'department_id' => 77,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc Computer Science',
+                'code' => 'BSc-CSC',
+            ],
+
+            [
+                'department_id' => 77,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc Geography',
+                'code' => 'BSc-GEO',
+            ],
+
+            [
+                'department_id' => 78,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc Criminology and Security Studies',
+                'code' => 'BSc-CSS',
+            ],
+
+            [
+                'department_id' => 78,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc Economics',
+                'code' => 'BSc-ECN',
+            ],
+
+            [
+                'department_id' => 78,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc International Relations',
+                'code' => 'BSc-IRL',
+            ],
+
+            [
+                'department_id' => 78,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc Political Science',
+                'code' => 'BSc-POL',
+            ],
+
+            [
+                'department_id' => 78,
+                'award_type_id' => 2,
+                'application_form_id' => 3,
+                'name' => 'B.Sc Sociology',
+                'code' => 'BSc-SOC',
             ],
 
         ];

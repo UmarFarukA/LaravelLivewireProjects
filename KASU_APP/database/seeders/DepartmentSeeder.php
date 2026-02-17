@@ -225,6 +225,12 @@ class DepartmentSeeder extends Seeder
             ],
 
             [
+                'faculty_id' => 5,
+                'name' => 'Education',
+                'code' => 'EDU'
+            ],
+
+            [
                 'faculty_id' => 6,
                 'name' => 'Biochemistry',
                 'code' => 'BCH'
@@ -471,10 +477,28 @@ class DepartmentSeeder extends Seeder
             ],
 
             [
-                'faculty_id' => 5,
-                'name' => 'Education',
-                'code' => 'EDU'
-            ]
+                'faculty_id' => 20,
+                'name' => 'Arts',
+                'code' => 'CCE-ART'
+            ],
+
+            [
+                'faculty_id' => 20,
+                'name' => 'Management Science',
+                'code' => 'CCE-MSC'
+            ],
+
+            [
+                'faculty_id' => 20,
+                'name' => 'Science',
+                'code' => 'CCE-SCI'
+            ],
+
+            [
+                'faculty_id' => 20,
+                'name' => 'Social Science',
+                'code' => 'CCE-SSC'
+            ],
 
         ];
 

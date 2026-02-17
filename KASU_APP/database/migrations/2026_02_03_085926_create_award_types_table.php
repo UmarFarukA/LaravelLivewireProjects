@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('award_types', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // Certificate, Diploma, BSc, PGD, MSc, PhD
-            $table->integer('duration')->nullable();
+            $table->string('duration')->nullable();
             $table->timestamps();
         });
     }

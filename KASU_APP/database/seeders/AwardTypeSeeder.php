@@ -25,7 +25,7 @@ class AwardTypeSeeder extends Seeder
             ],
 
             [
-                'name' => 'Bachelor\'s Degree',
+                'name' => 'Bachelors Degree',
                 'duration' => '4 Years',
             ],
 
@@ -35,11 +35,9 @@ class AwardTypeSeeder extends Seeder
             ],
 
             [
-                'name' => 'Masters Degree',
+                'name' => 'Masters Degree (Academic)',
                 'duration' => '2 Years',
             ],
-
-
 
             [
                 'name' => 'Master of Philosophy',
@@ -49,6 +47,11 @@ class AwardTypeSeeder extends Seeder
             [
                 'name' => 'Doctor of Philosophy',
                 'duration' => '3 Years'
+            ],
+
+            [
+                'name' => 'Masters Degree (Professional)',
+                'duration' => '2 Years'
             ]
         ];
 

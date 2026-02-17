@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             StateSeeder::class,
             LgaSeeder::class,
+            AwardTypeSeeder::class,
             FacultySeeder::class,
             DepartmentSeeder::class,
             ProgrammeSeeder::class
