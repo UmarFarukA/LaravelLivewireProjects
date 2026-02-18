@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             AwardTypeSeeder::class,
             FacultySeeder::class,
             DepartmentSeeder::class,
-            ProgrammeSeeder::class
+            ProgrammeSeeder::class,
+            AvailableFormSeeder::class,
         ]);
     }
 }

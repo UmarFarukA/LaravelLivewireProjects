@@ -1,51 +1,73 @@
-import { Link } from '@inertiajs/react'
+import { Link } from "@inertiajs/react";
+import Button from "@/Components/Button";
 
 export default function ProgrammeCard({ programme }) {
+    // ---- Helpers ----
+    const formatCurrency = (amount) =>
+        new Intl.NumberFormat("en-NG", {
+            style: "currency",
+            currency: "NGN",
+            minimumFractionDigits: 0,
+        }).format(amount);
+
+    const formatDate = (date) =>
+        new Date(date).toLocaleDateString("en-NG", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+        });
+
+    const isClosed =
+        new Date(programme.app_close_date) < new Date();
+
     return (
-        <div className="bg-white border rounded-xl p-6 flex flex-col justify-between hover:shadow-md transition">
-            {/* HEADER */}
+        <div className="group bg-white border border-gray-200 rounded-xl p-5 flex flex-col justify-between
+                        hover:shadow-lg hover:border-green-600 transition-all duration-200">
+
+            {/* Programme Title */}
             <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                    {programme.name}
+                <h3 className="text-lg font-semibold text-gray-800 group-hover:text-green-700 transition">
+                    {programme.programme.name}
                 </h3>
 
-                <p className="text-sm text-gray-600">
-                    {programme.award_type}
+                {/* Fee */}
+                <p className="mt-2 text-sm font-medium text-green-700">
+                    Application Fee: {formatCurrency(programme.application_fee)}
+                </p>
+
+                {/* Session */}
+                <p className="text-sm text-gray-600 mt-1">
+                    Academic Session: {programme.academic_session}
+                </p>
+
+                {/* Application Period */}
+                <p className="text-sm text-gray-500 mt-1">
+                    Application Period:
+                    <br />
+                    <span className="font-medium">
+                        {formatDate(programme.app_start_date)} —{" "}
+                        {formatDate(programme.app_close_date)}
+                    </span>
                 </p>
             </div>
 
-            {/* META */}
-            <div className="mt-4 space-y-2 text-sm">
-                <div className="flex justify-between">
-                    <span className="text-gray-500">Application Fee</span>
-                    <span className="font-medium">
-                        ₦{programme.application_fee.toLocaleString()}
+            {/* Action */}
+            <div className="mt-5">
+                {isClosed ? (
+                    <span className="block text-center text-sm font-medium text-red-600 bg-red-50 py-2 rounded-md">
+                        Application Closed
                     </span>
-                </div>
-
-                <div className="flex justify-between">
-                    <span className="text-gray-500">Status</span>
-                    <span
-                        className={`px-2 py-0.5 rounded text-xs font-semibold ${
-                            programme.status === 'open'
-                                ? 'bg-green-100 text-green-700'
-                                : 'bg-red-100 text-red-700'
-                        }`}
+                ) : (
+                    <Link
+                        // href={route("applications.create", programme.id)}
+                        className="block"
                     >
-                        {programme.status === 'open' ? 'Open' : 'Closed'}
-                    </span>
-                </div>
-            </div>
-
-            {/* ACTION */}
-            <div className="mt-6">
-                <Link
-                    href={route('programmes.show', programme.slug)}
-                    className="block text-center bg-green-700 text-white py-2 rounded-md text-sm font-semibold hover:bg-green-800"
-                >
-                    View Details
-                </Link>
+                        <Button className="w-full">
+                            Apply Now
+                        </Button>
+                    </Link>
+                )}
             </div>
         </div>
-    )
+    );
 }

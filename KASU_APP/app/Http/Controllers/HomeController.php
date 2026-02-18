@@ -14,4 +14,15 @@ class HomeController extends Controller
                 'forms' => ApplicationForm::where('is_active', true)->get()
         ]);
     }
+
+    public function available_programmes($application_form_id)
+    {
+        $form = ApplicationForm::findOrFail($application_form_id);
+        $available_programmes = $form->availableProgrammes()->with('programme')->get();
+
+        return Inertia::render('Public/AvailableProgrammes', [
+            'form' => $form,
+            'available_programmes' => $available_programmes
+        ]);
+    }
 }

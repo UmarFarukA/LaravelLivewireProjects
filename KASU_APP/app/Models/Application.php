@@ -67,4 +67,9 @@ class Application extends Model
             'application_stage_status'
         )->withPivot('is_completed', 'completed_at');
     }
+
+    public function availableProgramme()
+    {
+        return $this->belongsTo(AvailableProgramme::class);
+    }
 }

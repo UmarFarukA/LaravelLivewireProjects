@@ -45,14 +45,14 @@ function Home({ forms, notices }) {
                         {forms.map(form => (
                             <Link
                                 key={form.id}
-                                // href={route('programmes.index', { category: form.id })}
+                                href={route('available.programmes', form.id)}
                                 className="bg-white border rounded-xl p-6 text-center hover:shadow-md transition"
                             >
                                 <h3 className="text-lg font-semibold mb-2">
                                     {form.name}
                                 </h3>
-                                <p className="text-sm text-gray-600">
-                                    Click to start application
+                                <p className="text-sm text-green-700">
+                                    Click this form and view available programmes
                                 </p>
                             </Link>
                         ))}

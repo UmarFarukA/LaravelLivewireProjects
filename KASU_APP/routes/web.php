@@ -29,6 +29,11 @@ Route::middleware('guest')->group(function () {
         ->name('staff.login');
     Route::post('/staff', [AuthController::class, 'authenticate'])
         ->name('staff.authenticate');
+
+    // Available Programmes by application type
+    Route::get('/available-programmes/{application_form_id}', [HomeController::class, 'available_programmes'])
+        ->name('available.programmes');
+
 });
 
 

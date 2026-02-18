@@ -34,4 +34,9 @@ class ApplicationForm extends Model
             ->withPivot('order')
             ->orderByPivot('order');
     }
+
+    public function availableProgrammes()
+    {
+        return $this->hasMany(AvailableProgramme::class);
+    }
 }

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('application_number')->unique();
             $table->foreignId('applicant_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('programme_id')->constrained();
+            $table->foreignId('available_programme_id')
+                    ->constrained()->cascadeOnDelete();
             $table->foreignId('application_form_id')->constrained();
             $table->foreignIdFor(AcademicSession::class, 'session_id')->constrained();
             $table->enum('status', ['draft', 'submitted', 'shortlisted', 'rejected', 'admitted'])->default('draft');
