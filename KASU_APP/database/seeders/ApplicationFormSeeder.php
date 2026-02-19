@@ -18,7 +18,7 @@ class ApplicationFormSeeder extends Seeder
 
         $forms = [
             [
-                'name' => 'Postgraduate Application',
+                'name' => 'School of Postgraduate Studies',
                 'slug' => 'postgraduate',
                 'description' => 'Postgraduate application form for various postgraduate programmes.',
                 'stages' => [
@@ -44,8 +44,9 @@ class ApplicationFormSeeder extends Seeder
                     'attestation',
                 ],
             ],
+
             [
-                'name' => 'CCE (Part-Time) Application',
+                'name' => 'College of Contiunuing Education',
                 'slug' => 'cce',
                 'description' => 'CCE (Part-Time) application form for various programmes.',
                 'stages' => [

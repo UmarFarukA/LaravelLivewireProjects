@@ -18,7 +18,18 @@ class HomeController extends Controller
     public function available_programmes($application_form_id)
     {
         $form = ApplicationForm::findOrFail($application_form_id);
-        $available_programmes = $form->availableProgrammes()->with('programme')->get();
+
+        $available_programmes = $form->availableProgrammes()
+            ->with('programme:id,name,code')
+            ->when(request('search'), function ($query, $search) {
+                $query->whereHas('programme', function ($q) use ($search) {
+                    $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('code', 'like', "%{$search}%");
+                });
+            })
+            ->latest()
+            ->paginate(12)
+            ->withQueryString();
 
         return Inertia::render('Public/AvailableProgrammes', [
             'form' => $form,

@@ -18,13 +18,6 @@ function GuestLayout({ children }) {
 
                     <nav className="flex items-center gap-6">
                         <Link
-                            //href={route("programmes.index")}
-                            className="text-sm font-medium text-gray-700 hover:text-green-700"
-                        >
-                            Available Programmes
-                        </Link>
-
-                        <Link
                             href={route("staff.login")}
                             className="text-sm font-medium text-gray-700 hover:text-green-700"
                         >
