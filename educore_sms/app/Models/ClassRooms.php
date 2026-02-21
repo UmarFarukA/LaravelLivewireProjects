@@ -26,4 +26,9 @@ class ClassRooms extends Model
     {
         return $this->hasMany(Applications::class, 'classroom_id');
     }
+
+    public function teachers()
+    {
+        return $this->belongsToMany(Staff::class, 'classroom_teacher', 'classroom_id', 'teacher_id');
+    }
 }

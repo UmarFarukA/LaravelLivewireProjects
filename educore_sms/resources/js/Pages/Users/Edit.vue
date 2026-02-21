@@ -14,8 +14,9 @@ const form = useForm({
     name: props.user.name,
     avatar: props.user.avatar,
     phone: props.user.phone,
-    status: props.user.status,
+    is_active: props.user.is_active,
     preview: null,
+    role: props.user.role,
 });
 
 const handleSubmit = () => {
@@ -52,13 +53,27 @@ const change = (e) => {
                 />
 
                 <div>
-                    <label class="text-gray-700 text-md">User Status</label>
+                    <label class="text-gray-700 text-md">Status</label>
                     <select
-                        v-model="form.status"
+                        v-model="form.is_active"
                         class="w-full px-3 py-2 border rounded-md"
                     >
-                        <option value="1">Active</option>
-                        <option value="0">Inactive</option>
+                        <option :value="1">Active</option>
+                        <option :value="0">Inactive</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-gray-700 text-md">Role</label>
+                    <select
+                        v-model="form.role"
+                        class="w-full px-3 py-2 border rounded-md"
+                    >
+                        <option :value="1">Super Admin</option>
+                        <option :value="2">Admin</option>
+                        <option :value="3">Teacher</option>
+                        <option :value="4">Student</option>
+                        <option :value="5">Parent</option>
                     </select>
                 </div>
 
@@ -66,7 +81,7 @@ const change = (e) => {
                     <InputField
                         type="file"
                         @input="change"
-                        label="User Avatar URL"
+                        label="Picture"
                         placeholder="User Avatar"
                         :message="form.errors.avatar"
                     />
@@ -108,7 +123,6 @@ const change = (e) => {
                         Save
                     </button>
                 </div>
-                <!-- <FormActions  :showCancel="true" :processing="form.processing"/> -->
             </form>
         </div>
     </AuthenticatedLayout>

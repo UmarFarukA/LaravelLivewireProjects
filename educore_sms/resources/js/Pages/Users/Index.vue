@@ -75,7 +75,7 @@ const handleDelete = (userId) => {
                                         Status
                                     </th>
                                     <th
-                                        class="px-6 py-3 text-right font-medium"
+                                        class="px-6 py-3 text-center font-medium"
                                     >
                                         Action
                                     </th>
@@ -144,16 +144,11 @@ const handleDelete = (userId) => {
                                         >
                                     </td>
                                     <td
-                                        class="px-6 py-4 flex items-center justify-end space-x-4"
+                                        class="px-6 py-4 flex items-center justify-center space-x-4"
                                     >
                                         <EditButton
-                                            title="Edit"
+                                            title="Manage"
                                             :href="route('users.edit', user.id)"
-                                        />
-
-                                        <DeleteButton
-                                            title="Delete"
-                                            @click="handleDelete(user.id)"
                                         />
                                     </td>
                                 </tr>

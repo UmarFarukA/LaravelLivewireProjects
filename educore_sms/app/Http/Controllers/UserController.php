@@ -50,6 +50,7 @@ class UserController extends Controller
             'phone' => 'required|string|max:20',
             'avatar' => 'nullable|file|max:1024', // max 1MB
             'status' => 'nullable|boolean',
+
         ]);
 
         if($request->hasFile('avatar')) {
@@ -69,7 +70,9 @@ class UserController extends Controller
                 'id' => $user->id,
                 'name' => $user->name,
                 'phone' => $user->phone,
-                'avatar' => $user->avatar
+                'avatar' => $user->avatar,
+                'is_active' => $user->is_active,
+                'role' => $user->role,
             ]
         ]);
     }
@@ -80,7 +83,8 @@ class UserController extends Controller
             'name' => 'required|string|min:3|max:255',
             'phone' => 'required|string|max:20',
             'avatar' => 'nullable|file|max:1024', // max 1MB
-            'status' => 'nullable|boolean',
+            'is_active' => 'required|integer|between:0,1',
+            'role' => 'required|integer|between:1,5',
         ]);
 
         if($request->hasFile('avatar')) {

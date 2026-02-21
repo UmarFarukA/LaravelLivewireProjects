@@ -27,4 +27,14 @@ class Staff extends Model
             'teacher_subjects'
         )->withPivot('class_room_id');
     }
+
+    public function classrooms()
+    {
+        return $this->belongsToMany(
+            ClassRooms::class,
+            'classroom_teacher',
+            'teacher_id',
+            'classroom_id'
+        );
+    }
 }
