@@ -1,6 +1,6 @@
 import { route } from "../../../vendor/tightenco/ziggy";
 import { Link } from "@inertiajs/react";
-import KASULogo from '../../../public/storage/KASU_Logo.jpg';
+import KASU_Logo from "../../../public/storage/assets/KASU_logo.jpg"
 
 function GuestLayout({ children }) {
     return (
@@ -10,7 +10,7 @@ function GuestLayout({ children }) {
                 <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
                     <Link href={route("home")} className="flex items-center gap-2">
                         {/* Replace with logo image if available */}
-                        <img src={KASULogo} alt="KASU" className="mx-auto h-8 w-auto" />
+                        <img src={KASU_Logo} alt="KASU" className="mx-auto h-8 w-auto" />
                         <span className="text-green-700 font-bold text-lg">
                             Kaduna State University
                         </span>

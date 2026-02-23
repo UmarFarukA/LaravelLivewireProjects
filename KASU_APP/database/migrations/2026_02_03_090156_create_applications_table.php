@@ -20,8 +20,9 @@ return new class extends Migration
                     ->constrained()->cascadeOnDelete();
             $table->foreignId('application_form_id')->constrained();
             $table->foreignIdFor(AcademicSession::class, 'session_id')->constrained();
-            $table->enum('status', ['draft', 'submitted', 'shortlisted', 'rejected', 'admitted'])->default('draft');
+            $table->enum('status', ['draft', 'submitted', 'under_review', 'admitted', 'rejected', 'cancelled'])->default('draft');
             $table->timestamp('submitted_at')->nullable();
+            $table->unique(['applicant_id', 'available_programme_id'], 'unique_applicant_programme');
             $table->timestamps();
         });
     }

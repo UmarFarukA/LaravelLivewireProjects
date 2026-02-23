@@ -35,7 +35,7 @@ class Application extends Model
         return $this->belongsTo(ApplicationForm::class, 'application_form_id');
     }
 
-    public function session()
+    public function academic_session()
     {
         return $this->belongsTo(AcademicSession::class);
     }

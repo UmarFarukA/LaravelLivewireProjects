@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react'
-import KASU_Logo from "../../../public/storage/KASU_logo.jpg"
+import KASU_Logo from "../../../public/storage/assets/KASU_logo.jpg"
 
 function ApplicantLayout({ children }) {
     const { auth } = usePage().props

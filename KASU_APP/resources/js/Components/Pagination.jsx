@@ -21,7 +21,7 @@ function Pagination({ paginator }) {
                                         : "text-green-700 hover:bg-gray-200 px-3 py-1 rounded"
                                 }
                             >
-                               { renderLabel(link.label)}
+                                {renderLabel(link.label)}
                             </Link>
                         ) : (
                             <span

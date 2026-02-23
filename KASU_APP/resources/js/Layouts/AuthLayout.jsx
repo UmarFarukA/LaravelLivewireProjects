@@ -1,5 +1,5 @@
 import { Link } from "@inertiajs/react";
-import KASULogo from '../../../public/storage/KASU_Logo.jpg';
+import KASU_Logo from "../../../public/storage/assets/KASU_logo.jpg"
 
 function AuthLayout({ children, title }) {
     return (
@@ -10,7 +10,7 @@ function AuthLayout({ children, title }) {
                     <Link href={route("home")} className="text-green-700 font-bold text-xl">
                         <div className="mb-1">
                             <img
-                                src={KASULogo}
+                                src={KASU_Logo}
                                 alt="KASU"
                                 className="mx-auto h-16 w-auto"
                             />
