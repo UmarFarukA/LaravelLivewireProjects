@@ -28,7 +28,7 @@
                             <p style="margin:0;font-size:13px;background:#198754;
                       display:inline-block;padding:4px 10px;
                       border-radius:4px;">
-                                Admission Session: {{ $applicant->applications()->first()?->academic_session->name ?? 'Unknown Session' }}
+                                Admission Session: 2026
                             </p>
                         </td>
                     </tr>

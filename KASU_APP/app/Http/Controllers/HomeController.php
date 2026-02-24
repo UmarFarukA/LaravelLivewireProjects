@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ApplicationForm;
 use App\Models\AvailableProgramme;
-use App\Services\ApplicationService;
+use App\Services\ApplicationServices;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -24,8 +24,8 @@ class HomeController extends Controller
         $available_programmes = $form->availableProgrammes()
             ->with('programme:id,name,code')
             ->withExists([
-                'applications as has_applied' => fn ($q) =>
-                    $q->where('applicant_id', auth('applicant')->id())
+                'applications as has_applied' => fn($q) =>
+                $q->where('applicant_id', auth('applicant')->id())
             ])
             ->when(request('search'), function ($query, $search) {
                 $query->whereHas('programme', function ($q) use ($search) {
@@ -45,6 +45,7 @@ class HomeController extends Controller
 
     public function start(AvailableProgramme $programme)
     {
+
         if (!auth()->guard('applicant')->check()) {
             return redirect()->guest(
                 route('login', [
@@ -53,7 +54,7 @@ class HomeController extends Controller
             );
         }
 
-        return app(ApplicationService::class)
+        return app(ApplicationServices::class)
             ->startApplication($programme);
     }
 }

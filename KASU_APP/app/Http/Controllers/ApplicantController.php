@@ -17,9 +17,9 @@ class ApplicantController extends Controller
 
         $applications = $applicant->applications()
             ->with([
-                'programme.department.faculty',
+                'availableProgramme.programme.department.faculty',
                 'form',
-                'stages' => fn($q) => $q->orderBy('order')
+                'stages'
             ])
             ->latest()
             ->get();

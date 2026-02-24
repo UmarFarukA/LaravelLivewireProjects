@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\AcademicSession;
+use App\Models\AvailableProgramme;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,15 +15,14 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->string('application_number')->unique();
-            $table->foreignId('applicant_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('available_programme_id')
-                    ->constrained()->cascadeOnDelete();
-            $table->foreignId('application_form_id')->constrained();
-            $table->foreignIdFor(AcademicSession::class, 'session_id')->constrained();
+            $table->string('application_number')->nullable();
+            $table->integer('applicant_id')->nullable(false);
+            $table->integer('available_programme_id')->nullable(false);
+            $table->integer('application_form_id')->nullable(false);
+            $table->string('academic_session');
             $table->enum('status', ['draft', 'submitted', 'under_review', 'admitted', 'rejected', 'cancelled'])->default('draft');
             $table->timestamp('submitted_at')->nullable();
-            $table->unique(['applicant_id', 'available_programme_id'], 'unique_applicant_programme');
+            // $table->unique(['applicant_id', 'available_programme_id'], 'unique_applicant_programme');
             $table->timestamps();
         });
     }

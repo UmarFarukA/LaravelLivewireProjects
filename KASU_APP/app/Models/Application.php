@@ -10,8 +10,9 @@ class Application extends Model
         'application_number',
         'applicant_id',
         'programme_id',
+        'available_programme_id',
         'application_form_id',
-        'session_id',
+        'academic_session',
         'status',
         'submitted_at',
     ];

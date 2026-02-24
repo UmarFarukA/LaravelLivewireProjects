@@ -34,7 +34,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/available-programmes/{application_form_id}', [HomeController::class, 'available_programmes'])
         ->name('available.programmes');
 
-    Route::get('/start/{programme_id}', [HomeController::class, 'start'])
+    Route::get('/start/{programme}', [HomeController::class, 'start'])
         ->name('applications.start');
 
 });

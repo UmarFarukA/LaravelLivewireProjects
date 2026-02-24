@@ -23,7 +23,7 @@ function DashboardHome({ applications }) {
                     </div>
                 )}
 
-                <Link href='/dashboard/programme' className="mt-6 p-2 rounded-md bg-green-700 text-white hover:bg-green-800 focus:ring-green-600">
+                <Link  className="mt-6 p-2 rounded-md bg-green-700 text-white hover:bg-green-800 focus:ring-green-600">
                     Start New Application
                 </Link>
             </div>
