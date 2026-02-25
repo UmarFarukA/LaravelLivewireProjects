@@ -20,10 +20,4 @@ function ApplicationLayout({ application, stages, children }) {
     )
 }
 
-// ApplicationLayout.layout = (page) => (
-//     <DashboardLayout>
-//         {page}
-//     </DashboardLayout>
-// );
-
 export default ApplicationLayout

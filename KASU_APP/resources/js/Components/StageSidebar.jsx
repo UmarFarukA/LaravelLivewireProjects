@@ -1,6 +1,8 @@
-import { Link, usePage } from '@inertiajs/react'
+import { Link } from "@inertiajs/react"
+import {usePage} from "@inertiajs/react"
 
-function StageSidebar({ stages, application }) {
+
+function StageSidebar({ stages = [], application }) {
     const { url } = usePage()
 
     return (
@@ -25,7 +27,7 @@ function StageSidebar({ stages, application }) {
                             >
                                 <span>{stage.name}</span>
 
-                                {stage.is_completed && (
+                                {stage.pivot?.is_completed && (
                                     <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">
                                         ✓
                                     </span>

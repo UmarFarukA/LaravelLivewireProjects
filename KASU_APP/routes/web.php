@@ -60,19 +60,22 @@ Route::middleware(['auth:applicant', 'verified'])->group(function () {
     Route::post('/logout', [ApplicantController::class, 'logout'])
         ->name('applicant.logout');
 
-    Route::get('/dashboard/programme', [ApplicationController::class, 'programme_selection'])
-        ->name('applications.programme_selection');
-    // Route::get('/dashboard/payment', PaymentController::class)->name('applications.payment');
+    Route::get('/dashboard/applications/{application}', [ApplicantController::class, 'show'])
+        ->name('applications.show');
+
+    // Route::get('/dashboard/programme', [ApplicationController::class, 'programme_selection'])
+    //     ->name('applications.programme_selection');
+    // // Route::get('/dashboard/payment', PaymentController::class)->name('applications.payment');
     Route::get('/dashboard/bio-data', [ApplicationController::class, 'bio_data'])
-        ->name('applications.bio-data');
-    Route::get('/dashboard/guardian', [ApplicationController::class, 'guardian'])
-        ->name('applications.guardian');
-    Route::get('/dashboard/o-level', [ApplicationController::class, 'olevel'])
-        ->name('applications.o-level');
-    Route::get('/dashboard/a-level', [ApplicationController::class, 'alevel'])
-        ->name('applications.a-level');
-    Route::get('/dashboard/attestation', [ApplicationController::class, 'attestation'])
-        ->name('applications.attestation');
-    Route::get('/dashboard/referee', [ApplicationController::class, 'referee'])
-        ->name('application.referee');
+        ->name('applications.verification');
+    // Route::get('/dashboard/guardian', [ApplicationController::class, 'guardian'])
+    //     ->name('applications.guardian');
+    // Route::get('/dashboard/o-level', [ApplicationController::class, 'olevel'])
+    //     ->name('applications.o-level');
+    // Route::get('/dashboard/a-level', [ApplicationController::class, 'alevel'])
+    //     ->name('applications.a-level');
+    // Route::get('/dashboard/attestation', [ApplicationController::class, 'attestation'])
+    //     ->name('applications.attestation');
+    // Route::get('/dashboard/referee', [ApplicationController::class, 'referee'])
+    //     ->name('application.referee');
 });

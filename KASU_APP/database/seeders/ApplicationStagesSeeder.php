@@ -15,10 +15,10 @@ class ApplicationStagesSeeder extends Seeder
     {
         $stages = [
             [
-                'name' => 'Programme Selection',
-                'slug' => 'programme-selection',
+                'name' => 'Verification',
+                'slug' => 'verification',
                 'order' => 1,
-                'description' => 'Select the programme to apply for',
+                'description' => 'Verify applicant details',
             ],
             [
                 'name' => 'Payment',

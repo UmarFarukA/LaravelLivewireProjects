@@ -1,41 +1,50 @@
-import { Link, usePage } from '@inertiajs/react'
-import KASU_Logo from "../../../public/storage/assets/KASU_logo.jpg"
+import { Link, usePage } from "@inertiajs/react";
+import KASU_Logo from "../../../public/storage/assets/KASU_logo.jpg";
+import DashboardLayout from "./DashboardLayout";
 
 function ApplicantLayout({ children }) {
-    const { auth } = usePage().props
+    const { auth } = usePage().props;
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            {/* TOP BAR */}
-            <header className="bg-white shadow-sm">
-                <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-                    <Link href="/" className="font-bold text-green-700 flex items-center gap-2">
-                        <img src={KASU_Logo} className='w-8 h-8 rounded-lg' alt='KASU Logo'/>KASU Application System (v1)
-                    </Link>
-
-                    <div className="flex items-center gap-4">
-                        <span className="text-sm text-gray-600">
-                            {auth.applicant.othernames}
-                        </span>
-
+        <DashboardLayout>
+            <div className="min-h-screen bg-gray-100">
+                {/* TOP BAR */}
+                <header className="bg-white shadow-sm">
+                    <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
                         <Link
-                            href={route('applicant.logout')}
-                            method="post"
-                            as="button"
-                            className="text-sm text-red-600"
+                            href="/"
+                            className="font-bold text-green-700 flex items-center gap-2"
                         >
-                            Logout
+                            <img
+                                src={KASU_Logo}
+                                className="w-8 h-8 rounded-lg"
+                                alt="KASU Logo"
+                            />
+                            KASU Application System (v1)
                         </Link>
-                    </div>
-                </div>
-            </header>
 
-            {/* MAIN */}
-            <main className="max-w-7xl mx-auto px-4 py-8">
-                {children}
-            </main>
-        </div>
-    )
+                        <div className="flex items-center gap-4">
+                            <span className="text-sm text-gray-600">
+                                {auth.applicant.othernames}
+                            </span>
+
+                            <Link
+                                href={route("applicant.logout")}
+                                method="post"
+                                as="button"
+                                className="text-sm text-red-600"
+                            >
+                                Logout
+                            </Link>
+                        </div>
+                    </div>
+                </header>
+
+                {/* MAIN */}
+                <main className="max-w-7xl mx-auto px-4 py-8">{children}</main>
+            </div>
+        </DashboardLayout>
+    );
 }
 
-export default ApplicantLayout
+export default ApplicantLayout;

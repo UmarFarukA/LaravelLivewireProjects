@@ -1,4 +1,4 @@
-import ApplicationLayout from '../Applicant/ApplicationLayout'
+import ApplicationLayout from '../../Pages/Applicant/ApplicationLayout'
 import InputField from '@/Components/InputField'
 import Button from '@/Components/Button'
 import { useForm } from '@inertiajs/react'

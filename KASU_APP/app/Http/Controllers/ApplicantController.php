@@ -22,7 +22,19 @@ class ApplicantController extends Controller
                 'stages'
             ])
             ->latest()
-            ->get();
+            ->get()->map(function ($application) {
+
+                $nextStage = $application->stages
+                    ->firstWhere('pivot.is_completed', false);
+
+                $application->next_stage_slug =
+                    $nextStage?->slug ?? null;
+
+                    //   dd($application->stages->toArray());
+                return $application;
+            });
+
+
 
         return Inertia::render('Applicant/Dashboard', [
             'applicant' => $applicant,

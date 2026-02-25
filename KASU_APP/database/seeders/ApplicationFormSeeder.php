@@ -22,7 +22,6 @@ class ApplicationFormSeeder extends Seeder
                 'slug' => 'postgraduate',
                 'description' => 'Postgraduate application form for various postgraduate programmes.',
                 'stages' => [
-                    'programme-selection',
                     'payment',
                     'bio-data',
                     'referee',
@@ -36,7 +35,7 @@ class ApplicationFormSeeder extends Seeder
                 'slug' => 'post-utme',
                 'description' => 'Post-UTME application form for undergraduate programmes.',
                 'stages' => [
-                    'programme-selection',
+                    'verification',
                     'payment',
                     'bio-data',
                     'parent-guardian',
@@ -50,7 +49,6 @@ class ApplicationFormSeeder extends Seeder
                 'slug' => 'cce',
                 'description' => 'CCE (Part-Time) application form for various programmes.',
                 'stages' => [
-                    'programme-selection',
                     'payment',
                     'bio-data',
                     'parent-guardian',
@@ -63,7 +61,6 @@ class ApplicationFormSeeder extends Seeder
                 'slug' => 'diploma',
                 'description' => 'Diploma application form for various diploma programmes.',
                 'stages' => [
-                    'programme-selection',
                     'payment',
                     'bio-data',
                     'o-level',
@@ -75,7 +72,6 @@ class ApplicationFormSeeder extends Seeder
                 'slug' => 'ijmb-remedial',
                 'description' => 'CBS application form for IJMB, Basic, and remedial programmes.',
                 'stages' => [
-                    'programme-selection',
                     'payment',
                     'bio-data',
                     'o-level',
