@@ -6,7 +6,7 @@ function ApplicationCard({ application }) {
         <div className="bg-white rounded-xl shadow-sm border p-6 mb-6 flex flex-col justify-between">
             <div>
                 <h3 className="font-semibold text-lg text-gray-800">
-                    {application.available_programme.programme.name}
+                    {application?.available_programme?.programme?.name ?? "Programme"}
                 </h3>
 
                 <p className="text-sm text-gray-600">{application.form.name}</p>
@@ -27,18 +27,18 @@ function ApplicationCard({ application }) {
                 </span>
 
                 {/* PROGRESS */}
-                <ApplicationProgress stages={application.stages} />
+                <ApplicationProgress stages={application.stages ?? []} />
             </div>
 
             {/* ACTION */}
             <div className="mt-6">
                 <Link
                     href={
-                        application.status === "draft"
+                        application.status === "draft" && application.next_stage_slug
                             ? route(
-                                  `applications.${application.next_stage_slug}`,
-                                  application.id,
-                              )
+                                `applications.${application.next_stage_slug}`,
+                                application.id
+                            )
                             : route("applications.show", application.id)
                     }
                     className="block text-center bg-green-700 text-white py-2 rounded-md font-semibold hover:bg-green-800"

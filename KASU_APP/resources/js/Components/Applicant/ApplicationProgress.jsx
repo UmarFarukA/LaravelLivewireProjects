@@ -1,16 +1,16 @@
-function ApplicationProgress({ stages }) {
+function ApplicationProgress({ stages = [] }) {
     return (
         <div className="mt-4 space-y-2">
-            {stages.map(stage => (
+            {(stages ?? []).map(stage => (
                 <div
-                    key={stage.id}
+                    key={stage?.id}
                     className="flex items-center justify-between text-sm"
                 >
                     <span className="text-gray-700">
-                        {stage.name}
+                        {stage?.name ?? "Stage"}
                     </span>
 
-                    {stage.pivot.is_completed ? (
+                    {stage?.pivot?.is_completed ? (
                         <span className="text-green-600 font-semibold">✓</span>
                     ) : (
                         <span className="text-gray-400">—</span>
@@ -18,7 +18,7 @@ function ApplicationProgress({ stages }) {
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
 export default ApplicationProgress;

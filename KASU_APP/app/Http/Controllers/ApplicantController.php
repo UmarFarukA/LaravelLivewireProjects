@@ -17,24 +17,24 @@ class ApplicantController extends Controller
 
         $applications = $applicant->applications()
             ->with([
-                'availableProgramme.programme.department.faculty',
-                'form',
-                'stages'
+                'availableProgramme.programme:id,name',
+                'form:id,name',
+                'stages:id,name,slug'
             ])
             ->latest()
-            ->get()->map(function ($application) {
+            ->get()
+            ->map(function ($application) {
 
                 $nextStage = $application->stages
                     ->firstWhere('pivot.is_completed', false);
 
                 $application->next_stage_slug =
-                    $nextStage?->slug ?? null;
+                    $nextStage?->slug;
 
-                    //   dd($application->stages->toArray());
                 return $application;
             });
 
-
+        // dd($applications);
 
         return Inertia::render('Applicant/Dashboard', [
             'applicant' => $applicant,
@@ -48,8 +48,8 @@ class ApplicantController extends Controller
         // $this->authorize('view', $application);
 
         $application->load([
-            'programme',
-            'form',
+            'programme:id,name',
+            'form:id,name',
             'stages' => fn($q) => $q->orderBy('order'),
         ]);
 
@@ -67,7 +67,7 @@ class ApplicantController extends Controller
         return Inertia::render('Applicant/ApplicationLayout', [
             'application' => [
                 'id' => $application->id,
-                'programme' => $application->programme->name,
+                'programme' => $application->availableProgramme?->programme?->name,
                 'status' => $application->status,
             ],
             'stages' => $stages,

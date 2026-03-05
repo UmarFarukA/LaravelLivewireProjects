@@ -1,5 +1,4 @@
 import ApplicantLayout from '@/Layouts/ApplicantLayout'
-// import ApplicationCard from '@/Components/Applicant/ApplicationCard'
 
 function DashboardLayout({ children }) {
     return (

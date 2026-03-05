@@ -74,19 +74,4 @@ class Application extends Model
         return $this->belongsTo(AvailableProgramme::class);
     }
 
-    protected static function booted()
-    {
-        static::created(function ($application) {
-
-            $stages = ApplicationStage::orderBy('order')->get();
-
-            $application->stages()->attach(
-                $stages->mapWithKeys(fn($stage) => [
-                    $stage->id => [
-                        'is_completed' => false,
-                    ]
-                ])
-            );
-        });
-    }
 }

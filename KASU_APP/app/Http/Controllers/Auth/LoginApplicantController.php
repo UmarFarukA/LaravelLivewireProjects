@@ -27,6 +27,8 @@ class LoginApplicantController extends Controller
         if (Auth::guard('applicant')->attempt($credentials)) {
             $request->session()->regenerate();
 
+            // dd(auth()->guard('applicant')->user());
+
             return redirect()->intended('/dashboard');
         }
 

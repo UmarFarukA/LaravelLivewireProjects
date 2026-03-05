@@ -23,6 +23,8 @@ return new class extends Migration
             $table->enum('status', ['draft', 'submitted', 'under_review', 'admitted', 'rejected', 'cancelled'])->default('draft');
             $table->timestamp('submitted_at')->nullable();
             // $table->unique(['applicant_id', 'available_programme_id'], 'unique_applicant_programme');
+            $table->index('applicant_id');
+            $table->index('available_programme_id');
             $table->timestamps();
         });
     }

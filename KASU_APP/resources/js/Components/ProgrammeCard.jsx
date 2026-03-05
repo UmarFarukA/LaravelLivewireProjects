@@ -10,14 +10,25 @@ export default function ProgrammeCard({ programme }) {
             minimumFractionDigits: 0,
         }).format(amount);
 
-    const formatDate = (date) =>
-        new Date(date).toLocaleDateString("en-NG", {
-            day: "numeric",
-            month: "short",
-            year: "numeric",
-        });
+    // const formatDate = (date) =>
+    //     new Date(date).toLocaleDateString("en-NG", {
+    //         day: "numeric",
+    //         month: "short",
+    //         year: "numeric",
+    //     });
 
-    const isClosed = new Date(programme.app_close_date) < new Date();
+    const isClosed = programme?.app_close_date
+        ? new Date(programme.app_close_date) < new Date()
+        : false;
+
+    const formatDate = (date) =>
+        date
+            ? new Date(date).toLocaleDateString("en-NG", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+            })
+            : "N/A";
 
     return (
         <div
@@ -27,7 +38,7 @@ export default function ProgrammeCard({ programme }) {
             {/* Programme Title */}
             <div>
                 <h3 className="text-lg font-semibold text-gray-800 group-hover:text-green-700 transition">
-                    {programme.programme.name}
+                    {programme?.programme?.name ?? "Programme"}
                 </h3>
 
                 {/* Fee */}
@@ -42,7 +53,7 @@ export default function ProgrammeCard({ programme }) {
 
                 {/* Application Period */}
                 <p className="text-sm text-gray-500 mt-1">
-                    Close date: <span className="text-red-500">{formatDate(programme.app_close_date)}</span>
+                    Closing date: <span className="text-red-500">{formatDate(programme.app_close_date)}</span>
                     {/* <span className="font-medium">
                         {formatDate(programme.app_start_date)} —{" "}
 
@@ -58,7 +69,7 @@ export default function ProgrammeCard({ programme }) {
                     </span>
                 ) : programme.has_applied ? (
                     <Link
-                        // href={route('applications.show', programme.application_id)}
+                        // href={route('applications.show', programme.id)}
                         className="bg-blue-600 text-white px-3 py-2 rounded block text-center w-full"
                     >
                         Continue Application

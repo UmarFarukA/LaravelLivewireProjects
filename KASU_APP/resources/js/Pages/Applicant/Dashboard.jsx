@@ -1,15 +1,30 @@
-import DashboardHome from "@/Layouts/DashboardHome"
+import DashboardHome from "@/Layouts/DashboardHome";
+import ApplicationCard from "@/Components/Applicant/ApplicationCard";
 
-function Dashboard({ children }) {
+import DashboardLayout from "@/Layouts/DashboardLayout";
+
+function Dashboard({ applications }) {
     return (
         <>
-            <div className="grid grid-cols-12 gap-6">
-                {children}
+            <div className="col-span-12">
+                <h1 className="text-2xl font-bold mb-6">My Applications</h1>
+
+                {applications?.length === 0 ? (
+                    <p className="text-gray-600 mb-4">
+                        You have not started any application yet.
+                    </p>
+                ) : (
+                    <div className="grid md:grid-cols-3 gap-6">
+                        {applications.map((app) => (
+                            <ApplicationCard key={app.id} application={app} />
+                        ))}
+                    </div>
+                )}
             </div>
         </>
-    )
+    );
 }
 
-Dashboard.layout = page => <DashboardHome applications={page.props.applications} children={page} />
+Dashboard.layout = (page) => <DashboardLayout children={page} />;
 
-export default Dashboard
+export default Dashboard;

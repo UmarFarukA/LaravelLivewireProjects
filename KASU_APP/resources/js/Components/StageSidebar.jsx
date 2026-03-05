@@ -3,7 +3,10 @@ import {usePage} from "@inertiajs/react"
 
 
 function StageSidebar({ stages = [], application }) {
-    const { url } = usePage()
+
+    if (!application?.id) return null;
+
+    const { url } = usePage();
 
     return (
         <aside className="w-64 bg-white border rounded-lg p-4">
@@ -12,8 +15,10 @@ function StageSidebar({ stages = [], application }) {
             </h3>
 
             <ul className="space-y-2">
-                {stages.map(stage => {
-                    const active = url.includes(stage.slug)
+                {(stages ?? []).map(stage => {
+                    if (!stage?.slug) return null;
+
+                    const active = url.includes(stage.slug);
 
                     return (
                         <li key={stage.id}>
@@ -34,11 +39,11 @@ function StageSidebar({ stages = [], application }) {
                                 )}
                             </Link>
                         </li>
-                    )
+                    );
                 })}
             </ul>
         </aside>
-    )
+    );
 }
 
 export default StageSidebar
