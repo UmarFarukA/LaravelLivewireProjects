@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Applicant;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Pest\Support\Str;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -60,5 +63,53 @@ class AuthController extends Controller
             'login' => 'Invalid credentials.',
         ]);
     }
+
+    public function forgot_password()
+    {
+        return Inertia::render('Auth/Staff/ForgotPassword');
+    }
+
+    public function save(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email'
+        ]);
+
+        $status = Password::broker('users')
+            ->sendResetLink($request->only('email'));
+    }
+
+    public function edit(Request $request, $token = null)
+    {
+        return Inertia::render('Auth/Staff/ResetPassword', [
+            'token' => $token,
+            'email' => $request->email
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:8'
+        ]);
+
+        $status = Password::broker('users')
+            ->reset(
+                $request->only('email', 'password', 'password_confirmation', 'token'),
+                function (User $user, $password) {
+                    $user->forceFill([
+                        'password' => Hash::make($password),
+                        'remember_token' => Str::random(60),
+                    ])->save();
+                }
+            );
+
+        return $status == Password::PASSWORD_RESET
+            ? redirect()->route('staff.login')->with('status', __($status))
+            : back()->withErrors(['email' => [__($status)]]);
+    }
+
 
 }

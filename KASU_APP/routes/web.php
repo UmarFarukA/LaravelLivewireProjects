@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Auth\ApplicantPasswordResetController;
 use App\Http\Controllers\Applicant\PaymentController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\ApplicantController;
@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('guest')->group(function () {
     Route::get('/', [HomeController::class, 'home'])
         ->name('home');
+
+    // Authentication Routes for Applicants
     Route::get('/login', [LoginApplicantController::class, 'create'])
         ->name('login');
     Route::post('/login', [LoginApplicantController::class, 'authenticate'])
@@ -25,10 +27,35 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [RegisterApplicantController::class, 'store'])
         ->name('applicant.store');
 
+    // Password Reset Routes for Applicants
+    Route::get('/forgot-password', [ApplicantPasswordResetController::class, 'forgot_password'])
+        ->name('password.request');
+    Route::post('/forgot-password', [ApplicantPasswordResetController::class, 'store'])
+        ->name('password.email');
+    Route::get('/reset-password/{token}', [ApplicantPasswordResetController::class, 'edit'])
+        ->name('password.reset');
+    Route::post('/reset-password', [ApplicantPasswordResetController::class, 'update'])
+        ->name('password.update');
+
+    // Authentication Routes for Staff
     Route::get('/staff', [AuthController::class, 'create'])
         ->name('staff.login');
     Route::post('/staff', [AuthController::class, 'authenticate'])
         ->name('staff.authenticate');
+
+
+    // Password Reset Routes for Staff can be implemented similarly to applicants if needed
+    Route::get('forgot-password', [AuthController::class, 'create'])
+        ->name('staff.password.request');
+
+    Route::post('forgot-password', [AuthController::class, 'save'])
+        ->name('staff.password.email');
+
+    Route::get('reset-password/{token}', [AuthController::class, 'edit'])
+        ->name('staff.password.reset');
+
+    Route::post('reset-password', [AuthController::class, 'update'])
+        ->name('staff.password.update');
 
     // Available Programmes by application type
     Route::get('/available-programmes/{application_form_id}', [HomeController::class, 'available_programmes'])
@@ -36,7 +63,6 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/start/{programme}', [HomeController::class, 'start'])
         ->name('applications.start');
-
 });
 
 
@@ -63,9 +89,7 @@ Route::middleware(['auth:applicant', 'verified'])->group(function () {
     Route::get('/dashboard/applications/{application}', [ApplicantController::class, 'show'])
         ->name('applications.show');
 
-    // Route::get('/dashboard/programme', [ApplicationController::class, 'programme_selection'])
-    //     ->name('applications.programme_selection');
-    // // Route::get('/dashboard/payment', PaymentController::class)->name('applications.payment');
+    // Route::get('/dashboard/payment', PaymentController::class)->name('applications.payment');
     Route::get('/dashboard/bio-data', [ApplicationController::class, 'bio_data'])
         ->name('applications.verification');
     // Route::get('/dashboard/guardian', [ApplicationController::class, 'guardian'])

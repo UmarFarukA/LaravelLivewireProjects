@@ -45,6 +45,11 @@ return [
             'driver' => 'session',
             'provider' => 'applicants',
         ],
+
+        'staff' => [
+            'driver' => 'session',
+            'provider' => 'staff'
+        ]
     ],
 
     /*
@@ -79,6 +84,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Applicant::class,
         ],
+
+        'staff' => [
+            'driver' => 'eloguent',
+            'model' => App\Models\User::class
+        ]
     ],
 
     /*
@@ -112,6 +122,7 @@ return [
             'provider' => 'applicants',
             'table' => 'password_reset_tokens',
             'expire' => 60,
+            'throttle' => 60
         ],
     ],
 

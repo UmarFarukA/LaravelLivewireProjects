@@ -14,7 +14,7 @@ class LoginApplicantController extends Controller
 {
     public function create()
     {
-        return Inertia::render('Auth/Login');
+        return Inertia::render('Auth/Applicant/Login');
     }
 
     public function authenticate(Request $request): RedirectResponse
@@ -26,8 +26,6 @@ class LoginApplicantController extends Controller
 
         if (Auth::guard('applicant')->attempt($credentials)) {
             $request->session()->regenerate();
-
-            // dd(auth()->guard('applicant')->user());
 
             return redirect()->intended('/dashboard');
         }

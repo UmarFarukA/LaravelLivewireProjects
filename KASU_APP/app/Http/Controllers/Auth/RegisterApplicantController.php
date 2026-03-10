@@ -13,7 +13,7 @@ class RegisterApplicantController extends Controller
 {
     public function create()
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Applicant/Register');
     }
 
     public function store(Request $request)
