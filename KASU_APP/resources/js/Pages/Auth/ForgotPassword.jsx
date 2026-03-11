@@ -41,7 +41,7 @@ function ForgotPassword({ status }) {
                 />
 
                 {/* SUBMIT */}
-                <Button disabled={processing} className="w-full">
+                <Button type="submit" disabled={processing} className="w-full">
                     Email Password Reset Link
                 </Button>
             </form>

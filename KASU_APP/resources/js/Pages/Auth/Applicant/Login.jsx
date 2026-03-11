@@ -1,6 +1,5 @@
 import AuthLayout from "@/Layouts/AuthLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
-import { route } from "../../../../../vendor/tightenco/ziggy/src/js";
 import InputField from "@/Components/InputField";
 import Button from "@/Components/Button";
 
@@ -63,7 +62,7 @@ function Login() {
                         </label>
                     </div>
                     <Link
-                        href={route('password.request')}
+                        href={route("password.request")}
                         className="text-sm text-green-700 hover:underline"
                     >
                         Forgot password?

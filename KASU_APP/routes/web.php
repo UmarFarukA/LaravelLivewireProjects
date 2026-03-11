@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Auth\ApplicantPasswordResetController;
-use App\Http\Controllers\Applicant\PaymentController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\Auth\ApplicantPasswordResetController;
+// use App\Http\Controllers\Applicant\PaymentController;
+// use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LoginApplicantController;
+use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisterApplicantController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -28,13 +29,13 @@ Route::middleware('guest')->group(function () {
         ->name('applicant.store');
 
     // Password Reset Routes for Applicants
-    Route::get('/forgot-password', [ApplicantPasswordResetController::class, 'forgot_password'])
+    Route::get('/forgot-password', [PasswordResetController::class, 'create'])
         ->name('password.request');
-    Route::post('/forgot-password', [ApplicantPasswordResetController::class, 'store'])
+    Route::post('/forgot-password', [PasswordResetController::class, 'store'])
         ->name('password.email');
-    Route::get('/reset-password/{token}', [ApplicantPasswordResetController::class, 'edit'])
+    Route::get('/reset-password/{token}', [PasswordResetController::class, 'edit'])
         ->name('password.reset');
-    Route::post('/reset-password', [ApplicantPasswordResetController::class, 'update'])
+    Route::post('/reset-password', [PasswordResetController::class, 'update'])
         ->name('password.update');
 
     // Authentication Routes for Staff
@@ -43,19 +44,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/staff', [AuthController::class, 'authenticate'])
         ->name('staff.authenticate');
 
-
-    // Password Reset Routes for Staff can be implemented similarly to applicants if needed
-    Route::get('forgot-password', [AuthController::class, 'create'])
-        ->name('staff.password.request');
-
-    Route::post('forgot-password', [AuthController::class, 'save'])
-        ->name('staff.password.email');
-
-    Route::get('reset-password/{token}', [AuthController::class, 'edit'])
-        ->name('staff.password.reset');
-
-    Route::post('reset-password', [AuthController::class, 'update'])
-        ->name('staff.password.update');
 
     // Available Programmes by application type
     Route::get('/available-programmes/{application_form_id}', [HomeController::class, 'available_programmes'])

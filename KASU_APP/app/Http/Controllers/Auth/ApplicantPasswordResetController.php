@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Auth;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +14,7 @@ class ApplicantPasswordResetController extends Controller
 {
     public function create()
     {
-        return Inertia::render('Auth/ForgotPassword');
+        return Inertia::render('Auth/Applicant/ForgotPassword');
     }
 
     public function store(Request $request)
