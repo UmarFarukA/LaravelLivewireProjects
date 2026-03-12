@@ -1,23 +1,22 @@
-import StageSidebar from '@/Components/StageSidebar'
-import DashboardLayout from '@/Layouts/DashboardLayout'
+import StageSidebar from "@/Components/StageSidebar";
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 function ApplicationLayout({ application, stages, children }) {
     return (
-        <DashboardLayout>
-            <div className="flex gap-6">
+        <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-3">
                 {/* Sidebar */}
-                <StageSidebar
-                    stages={stages}
-                    application={application}
-                />
+                <StageSidebar stages={stages} application={application} />
 
                 {/* Main Content */}
-                <div className="flex-1 bg-white border rounded-lg p-6">
-                    {children}
+                <div className="col-span-9">
+                    <div className="bg-white rounded-lg shadow p-6">
+                        {children}
+                    </div>
                 </div>
             </div>
-        </DashboardLayout>
-    )
+        </div>
+    );
 }
 
-export default ApplicationLayout
+export default ApplicationLayout;

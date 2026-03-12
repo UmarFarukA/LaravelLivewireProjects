@@ -1,4 +1,4 @@
-import ApplicationLayout from '../Applicant/ApplicationLayout'
+import ApplicationLayout from '../ApplicationLayout'
 
 function Attestation({ application, stages }) {
     return (
