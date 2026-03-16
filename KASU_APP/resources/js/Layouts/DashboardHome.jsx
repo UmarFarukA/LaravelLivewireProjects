@@ -5,7 +5,7 @@ import { Link } from '@inertiajs/react';
 
 function DashboardHome({ applications }) {
     return (
-        <DashboardLayout>
+        <>
             <div className="grid grid-cols-12 gap-6">
 
                 <div className="col-span-12">
@@ -21,8 +21,10 @@ function DashboardHome({ applications }) {
                 </div>
 
             </div>
-        </DashboardLayout>
+        </>
     );
 }
+
+DashboardHome.layout = page => <DashboardLayout>{page}</DashboardLayout>;
 
 export default DashboardHome;

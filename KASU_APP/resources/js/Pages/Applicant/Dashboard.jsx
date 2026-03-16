@@ -25,6 +25,6 @@ function Dashboard({ applications }) {
     );
 }
 
-Dashboard.layout = (page) => <DashboardLayout children={page} />;
+Dashboard.layout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default Dashboard;
