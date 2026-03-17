@@ -1,8 +1,8 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout'
+import AdminLayout from '@/Layouts/AdminLayout'
 
 export default function Dashboard({ stats, auth }) {
     return (
-        <AuthenticatedLayout user={auth.user}>
+        <AdminLayout user={auth.user}>
             <h2 className="text-xl font-semibold mb-6">
                 Dashboard Overview
             </h2>
@@ -26,7 +26,7 @@ export default function Dashboard({ stats, auth }) {
                     <li>Manage application forms</li>
                 </ul>
             </div>
-        </AuthenticatedLayout>
+        </AdminLayout>
     )
 }
 

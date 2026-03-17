@@ -1,6 +1,6 @@
 import AdminSidebar from '@/Components/AdminSidebar'
 
-function AuthenticatedLayout({ user, children }) {
+function AdminLayout({ user, children }) {
     return (
         <div className="min-h-screen bg-gray-100 flex">
             {/* Sidebar */}
@@ -35,4 +35,4 @@ function AuthenticatedLayout({ user, children }) {
     )
 }
 
-export default AuthenticatedLayout;
+export default AdminLayout;

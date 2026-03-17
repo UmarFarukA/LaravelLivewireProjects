@@ -1,4 +1,4 @@
-import ApplicationLayout from '../ApplicationLayout'
+import ApplicationLayout from "./../ApplicationLayout";
 
 function Guardian({ application, stages }) {
     return (

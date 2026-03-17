@@ -1,5 +1,5 @@
 import { useForm } from "@inertiajs/react";
-import ApplicationLayout from '../ApplicationLayout'
+import ApplicationLayout from "./../ApplicationLayout";
 
 function Biodata({ application }) {
     const { data, setData, post, processing } = useForm({

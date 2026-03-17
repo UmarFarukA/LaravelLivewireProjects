@@ -78,29 +78,30 @@ Route::middleware(['auth:applicant', 'verified'])->group(function () {
     Route::get('/dashboard/applications/{application}', [ApplicantController::class, 'show'])
         ->name('applications.show');
 
-    Route::get('/dashboard/bio-data', [ApplicationController::class, 'bio_data'])
-        ->name('applications.verification');
+    // Route::get('/dashboard/bio-data', [ApplicationController::class, 'bio_data'])
+    //     ->name('applications.verification');
 
-    Route::prefix('dashboard/applications')->group(function(){
-        Route::get('{application}/payment', [ApplicationStageController::class, 'payment'])
-            ->name('applications.payment');
+    // Route::prefix('dashboard/applications')->group(function(){
 
-        Route::get('{application}/biodata', [ApplicationStageController::class, 'biodata'])
-            ->name('applications.bio-data');
+    // });
+    Route::get('dashboard/applications/{application}/payment', [ApplicationStageController::class, 'payment'])
+        ->name('applications.payment');
 
-        Route::get('{application}/olevel', [ApplicationStageController::class, 'olevel'])
-            ->name('applications.o-level');
+    Route::get('dashboard/applications/{application}/biodata', [ApplicationStageController::class, 'biodata'])
+        ->name('applications.bio-data');
 
-        Route::get('{application}/alevel', [ApplicationStageController::class, 'alevel'])
-            ->name('applications.a-level');
+    Route::get('dashboard/applications/{application}/olevel', [ApplicationStageController::class, 'olevel'])
+        ->name('applications.o-level');
 
-        Route::get('{application}/guardian', [ApplicationStageController::class, 'guardian'])
-            ->name('applications.guardian');
+    Route::get('{application}/alevel', [ApplicationStageController::class, 'alevel'])
+        ->name('applications.a-level');
 
-        Route::get('{application}/referees', [ApplicationStageController::class, 'referees'])
-            ->name('applications.referee');
+    Route::get('dashboard/applications/{application}/guardian', [ApplicationStageController::class, 'guardian'])
+        ->name('applications.guardian');
 
-        Route::get('{application}/attestation', [ApplicationStageController::class, 'attestation'])
-            ->name('applications.attestation');
-    });
+    Route::get('dashboard/applications/{application}/referees', [ApplicationStageController::class, 'referees'])
+        ->name('applications.referee');
+
+    Route::get('dashboard/applications/{application}/attestation', [ApplicationStageController::class, 'attestation'])
+        ->name('applications.attestation');
 });

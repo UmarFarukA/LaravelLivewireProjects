@@ -1,7 +1,6 @@
 import DashboardLayout from '@/Layouts/DashboardLayout'
 import ApplicationCard from '@/Components/Applicant/ApplicationCard'
-import Button from '@/Components/Button'
-import { Link } from '@inertiajs/react';
+
 
 function DashboardHome({ applications }) {
     return (

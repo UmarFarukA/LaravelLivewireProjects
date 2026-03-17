@@ -1,4 +1,3 @@
-import DashboardHome from "@/Layouts/DashboardHome";
 import ApplicationCard from "@/Components/Applicant/ApplicationCard";
 
 import DashboardLayout from "@/Layouts/DashboardLayout";

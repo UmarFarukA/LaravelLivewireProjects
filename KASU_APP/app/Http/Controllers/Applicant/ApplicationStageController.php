@@ -11,6 +11,9 @@ class ApplicationStageController extends Controller
 {
     public function payment(Application $application)
     {
+
+        dd($application->stages);
+
         return Inertia::render('Applicant/Application/Payment', [
             'application' => $application,
             'stages' => $application->stages()->orderBy('order')->get(),
