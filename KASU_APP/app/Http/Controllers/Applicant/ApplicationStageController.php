@@ -5,39 +5,63 @@ namespace App\Http\Controllers\Applicant;
 use App\Http\Controllers\Controller;
 use App\Models\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 class ApplicationStageController extends Controller
 {
     public function payment(Application $application)
     {
+        $stages = $application->form
+                ->stages()
+                ->orderBy('order')
+                ->get()
+                ->map(function($stage) use($application) {
 
-        dd($application->stages);
+                    $status = $application->stages->firstWhere('id', $stage->id);
+
+                    return [
+                        'id' => $stage->id,
+                        'name' => $stage->name,
+                        'slug' => Str::slug($stage->name),
+                        'is_completed' => $status?->pivot->is_completed ?? false,
+                    ];
+                });
+
+        //dd($stages);
 
         return Inertia::render('Applicant/Application/Payment', [
             'application' => $application,
-            'stages' => $application->stages()->orderBy('order')->get(),
+            'stages' => $stages,
         ]);
     }
 
     public function biodata(Application $application)
     {
-        return Inertia::render('Applicant/Application/BioData', compact('application'));
+        return Inertia::render('Applicant/Application/BioData', [
+            'application' => $application
+        ]);
     }
 
     public function olevel(Application $application)
     {
-        return Inertia::render('Applicant/Application/OLevel', compact('application'));
+        return Inertia::render('Applicant/Application/OLevel', [
+            'application' => $application
+        ]);
     }
 
     public function alevel(Application $application)
     {
-        return Inertia::render('Applicant/Application/ALevel', compact('application'));
+        return Inertia::render('Applicant/Application/ALevel', [
+            'application' => $application
+        ]);
     }
 
     public function guardian(Application $application)
     {
-        return Inertia::render('Applicant/Application/Guardian', compact('application'));
+        return Inertia::render('Applicant/Application/Guardian', [
+            'application' => $application
+        ]);
     }
 
     public function referees(Application $application)

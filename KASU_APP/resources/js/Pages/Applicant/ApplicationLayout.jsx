@@ -1,11 +1,16 @@
+import { usePage } from "@inertiajs/react";
+
 import StageSidebar from "@/Components/StageSidebar";
 
-function ApplicationLayout({ application, stages, children }) {
+function ApplicationLayout({children }) {
+
+    const { application, stages} = usePage().props;
+
     return (
         <div className="grid grid-cols-12 gap-6">
             <div className="col-span-3">
                 {/* Sidebar */}
-                <StageSidebar stages={stages} application={application} />
+                <StageSidebar stages={stages || []} application={application} />
             </div>
             {/* Main Content */}
             <div className="col-span-9">

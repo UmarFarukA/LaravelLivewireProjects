@@ -1,9 +1,10 @@
 import ApplicationLayout from "./../ApplicationLayout";
 
-function Payment({application, stages}) {
 
+function Payment({ application, stages }) {
     return (
         <>
+
             <h1 className="text-xl font-semibold mb-4">Application Payment</h1>
 
             <div className="bg-green-50 border border-green-200 p-4 rounded">
@@ -20,13 +21,13 @@ function Payment({application, stages}) {
     );
 }
 
-// Payment.layout = (page) => (
-//     <ApplicationLayout
-//         application={page.props.application}
-//         stages={page.props.stages}
-//     >
-//         {page}
-//     </ApplicationLayout>
-// );
+Payment.layout = (page) => (
+    <ApplicationLayout
+        application={page.props.application}
+        stages = {page.props.stages}
+    >
+        {page}
+    </ApplicationLayout>
+)
 
 export default Payment;
