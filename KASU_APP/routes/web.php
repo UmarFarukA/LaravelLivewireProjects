@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LoginApplicantController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisterApplicantController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -54,6 +55,10 @@ Route::middleware('guest')->group(function () {
         ->name('applications.start');
 });
 
+ // Routes for getting state and LGA
+    Route::get('/states/{country}', [LocationController::class, 'states']);
+    Route::get('/lgas/{state}', [LocationController::class, 'lgas']);
+
 
 //Email Verification
 Route::get('/email/verify', [EmailVerificationController::class, 'notice'])
@@ -64,6 +69,7 @@ Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 've
 
 Route::post('/email/verification-notification', [EmailVerificationController::class, 'resend'])
     ->middleware(['auth:applicant', 'throttle:6,1'])->name('verification.send');
+
 
 
 
@@ -78,12 +84,8 @@ Route::middleware(['auth:applicant', 'verified'])->group(function () {
     Route::get('/dashboard/applications/{application}', [ApplicantController::class, 'show'])
         ->name('applications.show');
 
-    // Route::get('/dashboard/bio-data', [ApplicationController::class, 'bio_data'])
-    //     ->name('applications.verification');
 
-    // Route::prefix('dashboard/applications')->group(function(){
 
-    // });
     Route::get('dashboard/applications/{application}/payment', [ApplicationStageController::class, 'payment'])
         ->name('applications.payment');
 
