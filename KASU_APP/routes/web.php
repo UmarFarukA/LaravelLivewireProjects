@@ -92,6 +92,9 @@ Route::middleware(['auth:applicant', 'verified'])->group(function () {
     Route::get('dashboard/applications/{application}/biodata', [ApplicationStageController::class, 'biodata'])
         ->name('applications.bio-data');
 
+    Route::post('dashboard/applications/biodata/{applicant}', [ApplicationStageController::class, 'store_biodata'])
+        ->name('applications.biodata.store');
+
     Route::get('dashboard/applications/{application}/olevel', [ApplicationStageController::class, 'olevel'])
         ->name('applications.o-level');
 

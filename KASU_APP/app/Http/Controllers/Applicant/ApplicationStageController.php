@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Applicant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Applicant;
 use App\Models\Application;
 use App\Models\Nationality;
 use Illuminate\Http\Request;
@@ -46,12 +47,44 @@ class ApplicationStageController extends Controller
             'application' => $application,
             'stages' => $this->get_stages($application),
             'applicant' => [
+                'id' => $application->applicant->id,
                 'othernames' => $application->applicant->othernames,
-                'surname' => $application->applicant->surname
+                'surname' => $application->applicant->surname,
+                'gender' => $application->applicant->gender,
+                'dob' => $application->applicant->dob,
+                'phone' => $application->applicant->phone,
+                'address' => $application->applicant->address,
+                'country' => $application->applicant->country,
+                'state' => $application->applicant->state,
+                'lga' => $application->applicant->lga,
             ],
             'countries' => Nationality::all(),
 
         ]);
+    }
+
+    public function store_biodata(Request $request, Applicant $applicant)
+    {
+        $data = $request->validate([
+            'gender' => 'required',
+            'dob' => 'required|date',
+            'phone' => 'required|string|min:11|max:15',
+            'address' => 'required|string|max:256',
+            'country_id' => 'required',
+            'state_id' => 'required',
+            'lga_id' => 'required',
+            'picture' => 'required|file|max:1024'
+        ]);
+
+        if($request->hasFile('picture')) {
+            $path = $request->file('picture')->store('pictures', 'public');
+            $data['picture'] = $path;
+        }
+
+        $applicant->update($data);
+
+        return redirect()->route('applicant.dashboard');
+
     }
 
     public function olevel(Application $application)

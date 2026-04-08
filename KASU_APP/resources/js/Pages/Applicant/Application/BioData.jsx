@@ -8,16 +8,19 @@ import SelectField from "@/Components/SelectField";
 import Button from "@/Components/Button";
 
 function BioData({ application, applicant, countries }) {
+
     const { data, setData, post, processing, errors } = useForm({
+        id: applicant['id'],
         othernames: applicant["othernames"],
         surname: applicant["surname"],
-        gender: "",
-        dob: "",
-        phone: "",
-        address: "",
-        country_id: "",
-        state_id: "",
-        lga_id: "",
+        gender: applicant["gender"],
+        dob: applicant["dob"],
+        phone: applicant["phone"],
+        address: applicant["address"],
+        country_id: applicant["country_id"],
+        state_id: applicant["state_id"],
+        lga_id: applicant["lga_id"],
+        picture: null,
     });
 
     const [states, setState] = useState([]);
@@ -32,8 +35,6 @@ function BioData({ application, applicant, countries }) {
                 setData("state_id", "");
                 setData("lga_id", "");
             });
-
-            console.log(data.country_id)
         }
     }, [data.country_id]);
 
@@ -49,7 +50,7 @@ function BioData({ application, applicant, countries }) {
 
     function submit(e) {
         e.preventDefault();
-        post(route("applications.biodata.store", application.id));
+        post(route("applications.biodata.store", data.id));
     }
 
     return (
@@ -201,7 +202,26 @@ function BioData({ application, applicant, countries }) {
                     className="w-full"
                 />
 
-                <Button>Save & Continue</Button>
+                <div>
+                    <InputField
+                        label="Profile Picture"
+                        name="picture"
+                        type="file"
+                        onChange={(e) => setData("picture", e.target.files[0])}
+                        error={errors.picture}
+                        required
+                        className=""
+                    />
+
+                    <img
+                        src={data.picture ? URL.createObjectURL(data.picture) : ""}
+                        alt="" className="mt-2 max-h-32"
+                    />
+                </div>
+
+                <div className="md:col-span-2">
+                    <Button type="submit" className="w-full">Save & Continue</Button>
+                </div>
             </FormField>
         </>
     );
