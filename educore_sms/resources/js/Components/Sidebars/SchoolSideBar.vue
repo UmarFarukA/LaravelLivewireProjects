@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {  LogOut, X } from "lucide-vue-next";
-import NavLink from "./NavLink.vue";
+import NavLink from '../NavLink.vue';
 
 defineProps<{
     sidebarOpen: boolean;
@@ -34,13 +34,21 @@ defineProps<{
                 Dashboard
             </NavLink>
 
-            <NavLink href="/attendance" icon="ClipboardCheck">
-                Attendance
-            </NavLink>
+             <NavLink href="/admissions" icon="AppWindow"> Admissions </NavLink>
+
+            <NavLink href="/students" icon="Users"> Students </NavLink>
+
+            <NavLink href="/staff" icon="UserCog">Staff</NavLink>
+
+            <NavLink href="/classes" icon="Layers"> Classes </NavLink>
+
+            <NavLink href="/subjects" icon="BookOpen"> Subjects </NavLink>
+
+            <NavLink href="/users" icon="CircleUserRound"> Users </NavLink>
+
+            <NavLink href="/timetable" icon="CreditCard"> Timetable </NavLink>
 
             <NavLink href="/results" icon="GraduationCap"> Results </NavLink>
-
-            <NavLink href="/fees" icon="CreditCard"> Fees </NavLink>
 
             <NavLink href="/settings" icon="Settings"> Settings </NavLink>
 

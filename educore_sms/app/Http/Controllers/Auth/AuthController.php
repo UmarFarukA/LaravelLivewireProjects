@@ -25,6 +25,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt(['email' =>  $fields['email'], 'password' =>  $fields['password']],  $fields['remember'] ?? false)) {
+
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');

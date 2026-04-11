@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {  LogOut, X } from "lucide-vue-next";
-import NavLink from "./NavLink.vue";
+import NavLink from '../NavLink.vue';
 
 defineProps<{
     sidebarOpen: boolean;

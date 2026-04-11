@@ -1,13 +1,14 @@
 <script setup>
 import { computed, ref } from 'vue'
-import Sidebar from '@/Components/Sidebar.vue'
-import TeacherSidebar from '@/Components/TeacherSidebar.vue'
-import StudentSidebar from '@/Components/StudentSidebar.vue'
-import ParentSidebar from '@/Components/ParentSidebar.vue'
+import Sidebar from '@/Components/Sidebars/Sidebar.vue'
+import TeacherSidebar from '@/Components/Sidebars/TeacherSidebar.vue'
+import StudentSidebar from '@/Components/Sidebars/StudentSidebar.vue'
+import ParentSidebar from '@/Components/Sidebars/ParentSidebar.vue'
 import { Toaster } from 'vue-sonner'
 import 'vue-sonner/style.css'
 import { usePage } from '@inertiajs/vue3'
 import { ROLES } from '@/Constants/roles.js'
+import SchoolSideBar from '../Components/Sidebars/SchoolSideBar.vue'
 
 defineProps({
     title: {
@@ -32,8 +33,14 @@ const role = computed(() => page.props.auth.user.role);
         <!-- Sidebar -->
         <Sidebar
             :sidebarOpen="sidebarOpen"
-            v-if="role === ROLES.SUPER_ADMIN || role === ROLES.ADMIN"
+            v-if="role === ROLES.SUPER_ADMIN"
         />
+
+        <SchoolSideBar
+            :sidebarOpen="sidebarOpen"
+            v-else-if="role === ROLES.SCHOOL_ADMIN"
+        />
+
         <TeacherSidebar
             :sidebarOpen="sidebarOpen"
             v-else-if="role === ROLES.TEACHER"

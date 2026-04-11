@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ClassRoomsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StaffController;
@@ -15,6 +16,7 @@ use Inertia\Inertia;
 Route::middleware(['guest'])->group(function () {
 
     Route::get('/', [AuthController::class, 'login'])->name('login');
+
     Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -32,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return match (Auth::user()->role) {
             1 => Inertia::render('Dashboards/Dashboard'),
+            2 => Inertia::render('Dashboards/SchoolAdminDashboard'),
             3 => Inertia::render('Dashboards/TeacherDashboard'),
             4 => Inertia::render('Dashboards/ParentDashboard'),
             5 => Inertia::render('Dashboards/StudentDashboard'),
@@ -77,7 +80,7 @@ Route::middleware(['auth'])->group(function () {
     //     ->name('applications.admit');
 
     // Staff Routes
-    Route::get('/dashboard/staff', [StaffController::class, 'index'])
+    Route::get('/staff', [StaffController::class, 'index'])
         ->name('staff.index');
 
     // Students route
@@ -107,6 +110,10 @@ Route::middleware(['auth'])->group(function () {
         ->name('users.update');
     Route::delete('/users/delete/{user}', [UserController::class, 'destroy'])
         ->name('users.destroy');
+
+    // Classes Routes
+    Route::get('/classes', [ClassRoomsController::class, 'index'])
+        ->name('classroom.index');
 
     // Settings
     Route::get('/settings', [ProfileController::class, 'index'])
