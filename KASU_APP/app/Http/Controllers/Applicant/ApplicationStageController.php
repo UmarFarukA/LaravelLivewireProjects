@@ -51,12 +51,12 @@ class ApplicationStageController extends Controller
                 'othernames' => $application->applicant->othernames,
                 'surname' => $application->applicant->surname,
                 'gender' => $application->applicant->gender,
-                'dob' => $application->applicant->dob,
+                'date_of_birth' => $application->applicant->date_of_birth,
                 'phone' => $application->applicant->phone,
                 'address' => $application->applicant->address,
-                'country' => $application->applicant->country,
-                'state' => $application->applicant->state,
-                'lga' => $application->applicant->lga,
+                'country' => $application->applicant->nationality(),
+                'state' => $application->applicant->state(),
+                'lga' => $application->applicant->lga(),
             ],
             'countries' => Nationality::all(),
 
@@ -67,10 +67,10 @@ class ApplicationStageController extends Controller
     {
         $data = $request->validate([
             'gender' => 'required',
-            'dob' => 'required|date',
+            'date_of_birth' => 'required|date',
             'phone' => 'required|string|min:11|max:15',
             'address' => 'required|string|max:256',
-            'country_id' => 'required',
+            'nationality_id' => 'required',
             'state_id' => 'required',
             'lga_id' => 'required',
             'picture' => 'required|file|max:1024'

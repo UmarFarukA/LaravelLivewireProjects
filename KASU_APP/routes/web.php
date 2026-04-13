@@ -55,11 +55,6 @@ Route::middleware('guest')->group(function () {
         ->name('applications.start');
 });
 
- // Routes for getting state and LGA
-    Route::get('/states/{country}', [LocationController::class, 'states']);
-    Route::get('/lgas/{state}', [LocationController::class, 'lgas']);
-
-
 //Email Verification
 Route::get('/email/verify', [EmailVerificationController::class, 'notice'])
     ->middleware('auth:applicant')->name('verification.notice');
@@ -85,6 +80,9 @@ Route::middleware(['auth:applicant', 'verified'])->group(function () {
         ->name('applications.show');
 
 
+    // Routes for getting state and LGA
+    Route::get('/states/{country}', [LocationController::class, 'states']);
+    Route::get('/lgas/{state}', [LocationController::class, 'lgas']);
 
     Route::get('dashboard/applications/{application}/payment', [ApplicationStageController::class, 'payment'])
         ->name('applications.payment');

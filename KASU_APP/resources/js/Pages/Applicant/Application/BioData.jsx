@@ -14,12 +14,12 @@ function BioData({ application, applicant, countries }) {
         othernames: applicant["othernames"],
         surname: applicant["surname"],
         gender: applicant["gender"],
-        dob: applicant["dob"],
+        date_of_birth: applicant["date_of_birth"],
         phone: applicant["phone"],
         address: applicant["address"],
-        country_id: applicant["country_id"],
-        state_id: applicant["state_id"],
-        lga_id: applicant["lga_id"],
+        nationality_id: applicant["country"],
+        state_id: applicant["state"],
+        lga_id: applicant["lga"],
         picture: null,
     });
 
@@ -28,15 +28,15 @@ function BioData({ application, applicant, countries }) {
 
     //load states when country changes
     useEffect(() => {
-        if (data.country_id) {
-            axios.get(`/states/${data.country_id}`).then((res) => {
+        if (data.nationality_id) {
+            axios.get(`/states/${data.nationality_id}`).then((res) => {
                 setState(res.data);
                 setLgas([]);
                 setData("state_id", "");
                 setData("lga_id", "");
             });
         }
-    }, [data.country_id]);
+    }, [data.nationality_id]);
 
     // load lgas if state changes
     useEffect(() => {
@@ -57,53 +57,6 @@ function BioData({ application, applicant, countries }) {
         <>
             <h1 className="text-xl font-semibold mb-6">Personal Bio-Data</h1>
 
-            {/* <form onSubmit={submit} className="grid grid-cols-2 gap-4">
-                <input
-                    placeholder="First Name"
-                    onChange={(e) => setData("othernames", e.target.value)}
-                    value={data.othernames}
-                    className="border p-2 rounded"
-                />
-
-                <input
-                    placeholder="Last Name"
-                    onChange={(e) => setData("surname", e.target.value)}
-                    value={data.surname}
-                    className="border p-2 rounded"
-                />
-
-                <select
-                    onChange={(e) => setData("gender", e.target.value)}
-                    className="border p-2 rounded"
-                >
-                    <option>Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
-
-                <input
-                    type="date"
-                    onChange={(e) => setData("dob", e.target.value)}
-                    className="border p-2 rounded"
-                />
-
-                <input
-                    placeholder="Phone"
-                    onChange={(e) => setData("phone", e.target.value)}
-                    className="border p-2 rounded"
-                />
-
-
-                <textarea
-                    placeholder="Address"
-                    onChange={(e) => setData("address", e.target.value)}
-                    className="border p-2 rounded col-span-2"
-                />
-
-                <button className="bg-green-700 text-white px-4 py-2 rounded col-span-2">
-                    Save & Continue
-                </button>
-            </form> */}
             <FormField submit={submit}>
                 <InputField
                     label="Othernames"
@@ -147,19 +100,19 @@ function BioData({ application, applicant, countries }) {
 
                 <InputField
                     label="Date of Birth"
-                    name="dob"
+                    name="date_of_birth"
                     type="date"
-                    value={data.dob}
-                    onChange={(e) => setData("dob", e.target.value)}
-                    error={errors.dob}
+                    value={data.date_of_birth}
+                    onChange={(e) => setData("date_of_birth", e.target.value)}
+                    error={errors.date_of_birth}
                     required
                 />
 
                 <SelectField
                     label="Country"
                     name="country"
-                    value={data.country_id}
-                    onChange={(e) => setData("country_id", e.target.value)}
+                    value={data.nationality_id}
+                    onChange={(e) => setData("nationality_id", e.target.value)}
                     required={true}
                     items={countries}
                     valueKey="id"
